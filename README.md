@@ -11,7 +11,7 @@
 
 ApexForge is a Django-based sport management platform for clubs, coaches, athletes, scouts, and sport entrepreneurs. This is the **Free / Community Edition** — a working preview you can run locally to evaluate the platform, study the codebase, or use for personal, non-commercial purposes.
 
-**4 modules are functional** in this edition (Dashboard, Teams, Players, Accounts). The remaining **13 modules ship as code** (so you can read the implementation) but are **locked behind an upgrade prompt** when accessed in the running app.
+**4 modules are functional** in this edition (Dashboard, Teams, Players, Accounts). The remaining **14 modules ship as code** (so you can read the implementation) but are **locked behind an upgrade prompt** when accessed in the running app.
 
 For full functionality — all 18 modules unlocked, the **Fan Portal**, multi-club / multi-tenant support, white-label rights, and priority support — see the **[Pro Edition on djangozen.com →](https://djangozen.com/saas/product/apexforge-pro/)**.
 
@@ -55,7 +55,7 @@ Then open **http://127.0.0.1:8000** and log in with the credentials above. Full 
 
 ## 🔒 What's Locked (Upgrade to Pro to Unlock)
 
-The following 13 modules are present in the codebase (so you can study the implementation), but accessing them in the running app redirects to the upgrade page:
+The following 14 modules are present in the codebase (so you can study the implementation), but accessing them in the running app redirects to the upgrade page:
 
 | Module | Purpose |
 |---|---|
@@ -72,8 +72,9 @@ The following 13 modules are present in the codebase (so you can study the imple
 | `videos` | Video upload and management hub |
 | `organizations` | Multi-club organizational structure |
 | `insights` | Analytics, KPIs, charts |
+| `fans` | Fan Portal — ticketing, loyalty points, fan engagement |
 
-The **Pro Edition** unlocks all 13 of these *plus* adds the **`fans`** module (Fan Portal — ticketing, loyalty points, fan engagement) for 18 total modules.
+The **Pro Edition** unlocks all 14 of these for 18 total functional modules.
 
 ---
 
