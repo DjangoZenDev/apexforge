@@ -34,7 +34,7 @@ LOCAL_APPS = [
     "videos.apps.VideosConfig","staff.apps.StaffConfig",
     "academy.apps.AcademyConfig","organizations.apps.OrganizationsConfig",
     "insights.apps.InsightsConfig",
-    # fans not included in free edition
+    'fans.apps.FansConfig',  # locked behind upgrade in Free edition
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -125,6 +125,6 @@ APEXFORGE_SPORT_CHOICES = [
     ("cycling","Cycling"),("other","Other"),
 ]
 FREE_EDITION_LOCKED_NAMESPACES = frozenset([
-    "events","scouting","finance","marketing","medical","contracts",
+    "events","scouting","finance","marketing","medical","contracts","fans",
     "staff","tournaments","academy","inventory","videos","insights","organizations",
 ])

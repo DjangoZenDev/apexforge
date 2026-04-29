@@ -15,6 +15,7 @@ urlpatterns += i18n_patterns(
     path("", include("core.urls", namespace="core")),
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("teams/", include("teams.urls", namespace="teams")),
+    path("fans/", include("fans.urls", namespace="fans")),
     path("players/", include("players.urls", namespace="players")),
     path("events/", include("events.urls", namespace="events")),
     path("scouting/", include("scouting.urls", namespace="scouting")),
