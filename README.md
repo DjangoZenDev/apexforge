@@ -3,6 +3,8 @@
 **Sport management platform for clubs, academies, and teams**
 **Vendor:** [DjangoZen](https://djangozen.com)  ·  **Version:** 1.0.0
 
+![ApexForge — Sport Management Platform](docs/images/0_hero.png)
+
 ---
 
 ## About
@@ -62,6 +64,22 @@ Then open **http://127.0.0.1:8000** and log in with the credentials above. Full 
 | `organizations` | Club structure |
 | `insights` | Analytics, KPIs |
 | `admin` | Enhanced Django admin |
+
+---
+
+## Screenshots
+
+### Dashboard
+![Dashboard](docs/images/1_dashboard.png)
+
+### Players
+![Players](docs/images/2_players.png)
+
+### Finance
+![Finance](docs/images/3_finance.png)
+
+### Fan Portal & Tickets *(Pro Edition only)*
+![Fan tickets](docs/images/7_tickets.png)
 
 ---
 
