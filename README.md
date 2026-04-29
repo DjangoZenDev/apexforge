@@ -9,9 +9,11 @@
 
 ## About
 
-ApexForge is a Django-based sport management platform for clubs, coaches, athletes, scouts, and sport entrepreneurs. This is the **Free / Community Edition** — a fully working application you can run locally to evaluate, learn from, or use for non-commercial purposes.
+ApexForge is a Django-based sport management platform for clubs, coaches, athletes, scouts, and sport entrepreneurs. This is the **Free / Community Edition** — a working preview you can run locally to evaluate the platform, study the codebase, or use for personal, non-commercial purposes.
 
-For commercial use, multi-club deployment, the **Fan Portal**, white-label rights, and priority support, see the **[Pro Edition on djangozen.com →](https://djangozen.com/saas/product/apexforge-pro/)**.
+**4 modules are functional** in this edition (Dashboard, Teams, Players, Accounts). The remaining **13 modules ship as code** (so you can read the implementation) but are **locked behind an upgrade prompt** when accessed in the running app.
+
+For full functionality — all 18 modules unlocked, the **Fan Portal**, multi-club / multi-tenant support, white-label rights, and priority support — see the **[Pro Edition on djangozen.com →](https://djangozen.com/saas/product/apexforge-pro/)**.
 
 ---
 
@@ -42,28 +44,36 @@ Then open **http://127.0.0.1:8000** and log in with the credentials above. Full 
 
 ---
 
-## What's Included (18 Modules)
+## ✅ What's Functional in This Edition (4 Modules)
+
+| Module | Status | Purpose |
+|---|---|---|
+| `core` | ✅ Functional | Dashboard, branding, notifications, global search, activity log |
+| `accounts` | ✅ Functional | Authentication, profiles, role management |
+| `teams` | ✅ Functional | Teams, rosters, seasons, divisions |
+| `players` | ✅ Functional | Athlete profiles, stats, performance |
+
+## 🔒 What's Locked (Upgrade to Pro to Unlock)
+
+The following 13 modules are present in the codebase (so you can study the implementation), but accessing them in the running app redirects to the upgrade page:
 
 | Module | Purpose |
 |---|---|
-| `core` | Branding, dashboard, notifications, global search |
-| `accounts` | Custom user model, roles, profiles |
-| `teams` | Teams, rosters, seasons, divisions |
-| `players` | Athlete profiles, stats, performance |
-| `events` | Calendar, fixtures, training |
-| `scouting` | Talent database, watchlist |
-| `finance` | Budget, shop, Stripe checkout |
-| `marketing` | News, sponsor portal |
-| `medical` | Injuries, medical records |
-| `contracts` | Contract management |
-| `staff` | Staff profiles, tasks |
-| `tournaments` | Tournament brackets |
-| `academy` | Youth and academy teams |
-| `inventory` | Equipment management |
-| `videos` | Video uploads |
-| `organizations` | Club structure |
-| `insights` | Analytics, KPIs |
-| `admin` | Enhanced Django admin |
+| `events` | Calendar, fixtures, training sessions |
+| `scouting` | Talent database, watchlist, scouting reports |
+| `finance` | Budget planner, merchandise shop, Stripe checkout, inventory |
+| `marketing` | News, announcements, sponsor portal |
+| `medical` | Injury tracking, medical records |
+| `contracts` | Contract management with expiry alerts |
+| `staff` | Staff profiles, task assignment |
+| `tournaments` | Tournament bracket management |
+| `academy` | Youth and academy team management |
+| `inventory` | Equipment and stock management |
+| `videos` | Video upload and management hub |
+| `organizations` | Multi-club organizational structure |
+| `insights` | Analytics, KPIs, charts |
+
+The **Pro Edition** unlocks all 13 of these *plus* adds the **`fans`** module (Fan Portal — ticketing, loyalty points, fan engagement) for 18 total modules.
 
 ---
 
