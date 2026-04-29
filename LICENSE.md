@@ -70,8 +70,8 @@ purchase the appropriate licence at:
 | Licence | Price | Use Case |
 |---|---|---|
 | Starter | €699 one-time | 1 club · up to 50 players |
-| Professional | €1,999 one-time | Up to 5 clubs · up to 500 players · all 19 modules |
-| Business / SaaS | €4,999 one-time | Unlimited · white-label · SaaS rights |
+| Professional | €2,796 one-time | Up to 5 clubs · up to 500 players · all 19 modules |
+| Business / SaaS | €6,990 one-time | Unlimited · white-label · SaaS rights |
 
 ---
 
