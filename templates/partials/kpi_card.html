@@ -1,0 +1,17 @@
+{% load i18n %}
+<div class="card p-6 flex items-start gap-4">
+  <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-{{ color }}-100 dark:bg-{{ color }}-900/30 flex items-center justify-center">
+    <span class="text-2xl">{{ icon }}</span>
+  </div>
+  <div class="flex-1 min-w-0">
+    <p class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">{{ title }}</p>
+    <p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ value }}</p>
+    {% if trend_value %}
+    <p class="text-xs mt-1
+       {% if trend == 'up' %}text-emerald-600{% elif trend == 'down' %}text-red-500{% else %}text-gray-500{% endif %}">
+      {% if trend == 'up' %}▲{% elif trend == 'down' %}▼{% else %}→{% endif %}
+      {{ trend_value }}
+    </p>
+    {% endif %}
+  </div>
+</div>

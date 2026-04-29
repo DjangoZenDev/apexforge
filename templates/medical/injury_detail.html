@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{{ injury.injury_type }} — {{ injury.player }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'medical:injury_list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Back to Injuries" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ injury.injury_type }}</h1>
+    <p class="text-sm text-gray-500">{{ injury.player }} · {{ injury.injury_date }}</p>
+  </div>
+  <a href="{% url 'medical:injury_edit' injury.pk %}" class="btn-secondary">{% trans "Edit" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Details -->
+  <div class="lg:col-span-2 space-y-4">
+    <div class="card p-6">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase mb-4">{% trans "Injury Details" %}</h2>
+      <dl class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
+        <div><dt class="text-gray-500">{% trans "Body Part" %}</dt><dd class="font-medium mt-1">{{ injury.get_body_part_display }}</dd></div>
+        <div><dt class="text-gray-500">{% trans "Severity" %}</dt><dd class="font-medium mt-1">{{ injury.get_severity_display }}</dd></div>
+        <div><dt class="text-gray-500">{% trans "Status" %}</dt><dd class="font-medium mt-1">{{ injury.get_status_display }}</dd></div>
+        <div><dt class="text-gray-500">{% trans "Days Out" %}</dt><dd class="font-bold text-red-500 mt-1">{{ injury.days_out }}</dd></div>
+        <div><dt class="text-gray-500">{% trans "Injury Date" %}</dt><dd class="mt-1">{{ injury.injury_date }}</dd></div>
+        <div><dt class="text-gray-500">{% trans "Expected Recovery" %}</dt><dd class="mt-1">{{ injury.expected_recovery|default:"—" }}</dd></div>
+        {% if injury.actual_recovery %}<div><dt class="text-gray-500">{% trans "Actual Recovery" %}</dt><dd class="mt-1 text-emerald-600 font-medium">{{ injury.actual_recovery }}</dd></div>{% endif %}
+        <div class="col-span-2"><dt class="text-gray-500">{% trans "Mechanism" %}</dt><dd class="mt-1">{{ injury.mechanism|default:"—" }}</dd></div>
+        {% if injury.description %}<div class="col-span-2"><dt class="text-gray-500">{% trans "Description" %}</dt><dd class="mt-1">{{ injury.description }}</dd></div>{% endif %}
+      </dl>
+    </div>
+
+    <!-- Treatments -->
+    <div class="card p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-semibold text-gray-500 uppercase">{% trans "Treatments" %}</h2>
+        <a href="{% url 'medical:treatment_add' injury.pk %}" class="btn-primary text-xs">+ {% trans "Add Treatment" %}</a>
+      </div>
+      {% if treatments %}
+      <div class="space-y-3">
+        {% for t in treatments %}
+        <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/30">
+          <div class="h-8 w-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">💊</div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-900 dark:text-white">{{ t.get_treatment_type_display }}</span>
+              <span class="text-xs text-gray-400">{{ t.date }}</span>
+            </div>
+            {% if t.practitioner %}<p class="text-xs text-gray-500 mt-0.5">{{ t.practitioner }}</p>{% endif %}
+            {% if t.notes %}<p class="text-sm text-gray-600 dark:text-gray-300 mt-1">{{ t.notes }}</p>{% endif %}
+            {% if t.next_session %}<p class="text-xs text-primary-600 mt-1">{% trans "Next session:" %} {{ t.next_session }}</p>{% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="text-sm text-gray-500 text-center py-4">{% trans "No treatments recorded yet." %}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Recovery Plan -->
+  <div class="space-y-4">
+    <div class="card p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-semibold text-gray-500 uppercase">{% trans "Recovery Plan" %}</h2>
+        {% if recovery_plan %}
+        <a href="{% url 'medical:recovery_edit' recovery_plan.pk %}" class="text-xs text-primary-600 hover:underline">{% trans "Edit" %}</a>
+        {% else %}
+        <a href="{% url 'medical:recovery_create' injury.pk %}" class="btn-primary text-xs">+ {% trans "Create Plan" %}</a>
+        {% endif %}
+      </div>
+      {% if recovery_plan %}
+      <div class="space-y-3 text-sm">
+        <div><p class="text-gray-500">{% trans "Physio" %}</p><p class="font-medium mt-0.5">{{ recovery_plan.physio_name|default:"—" }}</p></div>
+        <div class="grid grid-cols-2 gap-2">
+          <div><p class="text-gray-500">{% trans "Start" %}</p><p class="mt-0.5">{{ recovery_plan.start_date }}</p></div>
+          <div><p class="text-gray-500">{% trans "Target" %}</p><p class="mt-0.5 font-medium text-emerald-600">{{ recovery_plan.target_date }}</p></div>
+        </div>
+        <div><p class="text-gray-500 mb-1">{% trans "Plan" %}</p><p class="text-gray-700 dark:text-gray-300">{{ recovery_plan.plan_details }}</p></div>
+        {% if recovery_plan.milestones %}
+        <div>
+          <p class="text-gray-500 mb-2">{% trans "Milestones" %}</p>
+          <ul class="space-y-1">
+            {% for ms in recovery_plan.milestones.splitlines %}
+            {% if ms %}<li class="flex items-center gap-2 text-xs"><span class="h-1.5 w-1.5 rounded-full bg-primary-500 shrink-0"></span>{{ ms }}</li>{% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% else %}
+      <p class="text-sm text-gray-500 text-center py-4">{% trans "No recovery plan yet." %}</p>
+      {% endif %}
+    </div>
+
+    <div class="card p-4">
+      <a href="{% url 'medical:records' injury.player.pk %}" class="flex items-center gap-2 text-sm text-primary-600 hover:underline">
+        📋 {% trans "View Medical Records" %}
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

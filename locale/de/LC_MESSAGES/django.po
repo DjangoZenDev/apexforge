@@ -1,0 +1,6166 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ApexForge 1.0\n"
+"Report-Msgid-Bugs-To: matrixxdev@proton.me\n"
+"POT-Creation-Date: 2026-04-25 00:00+0000\n"
+"PO-Revision-Date: 2026-04-25 00:00+0000\n"
+"Last-Translator: ApexForge Auto-Translator\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "2nd Nationality"
+msgstr "2. Nationalität"
+
+msgid "About"
+msgstr "Um"
+
+msgid "Academy"
+msgstr "Akademie"
+
+msgid "Academy & Contracts"
+msgstr "Akademie & Verträge"
+
+msgid "Academy Programs"
+msgstr "Akademieprogramme"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "Active / Available in shop"
+msgstr "Aktiv / Im Shop erhältlich"
+
+msgid "Active Assignments"
+msgstr "Aktive Aufgaben"
+
+msgid "Active Injuries"
+msgstr "Aktive Verletzungen"
+
+msgid "Active Players"
+msgstr "Aktive Spieler"
+
+msgid "Active Sponsors"
+msgstr "Aktive Sponsoren"
+
+msgid "Activity"
+msgstr "Aktivität"
+
+msgid "Activity Log"
+msgstr "Aktivitätsprotokoll"
+
+msgid "Actual Recovery"
+msgstr "Tatsächliche Erholung"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Add Clause"
+msgstr "Klausel hinzufügen"
+
+msgid "Add Club"
+msgstr "Verein hinzufügen"
+
+msgid "Add Contract Clause"
+msgstr "Vertragsklausel hinzufügen"
+
+msgid "Add Entry"
+msgstr "Eintrag hinzufügen"
+
+msgid "Add First Club"
+msgstr "Erster Club hinzufügen"
+
+msgid "Add Item"
+msgstr "Artikel hinzufügen"
+
+msgid "Add Match"
+msgstr "Übereinstimmung hinzufügen"
+
+msgid "Add Medical Record"
+msgstr "Krankenakte hinzufügen"
+
+msgid "Add Member"
+msgstr "Mitglied hinzufügen"
+
+msgid "Add Metric"
+msgstr "Metrik hinzufügen"
+
+msgid "Add Note"
+msgstr "Notiz hinzufügen"
+
+msgid "Add Payroll Entry"
+msgstr "Gehaltseintrag hinzufügen"
+
+msgid "Add Performance Metric"
+msgstr "Leistungsmetrik hinzufügen"
+
+msgid "Add Plan"
+msgstr "Plan hinzufügen"
+
+msgid "Add Player"
+msgstr "Spieler hinzufügen"
+
+msgid "Add Player to Roster"
+msgstr "Spieler zum Kader hinzufügen"
+
+msgid "Add Record"
+msgstr "Datensatz hinzufügen"
+
+msgid "Add Report"
+msgstr "Bericht hinzufügen"
+
+msgid "Add Staff"
+msgstr "Personal hinzufügen"
+
+msgid "Add Talent"
+msgstr "Talent hinzufügen"
+
+msgid "Add Timestamp Note"
+msgstr "Zeitstempelnotiz hinzufügen"
+
+msgid "Add Transaction"
+msgstr "Transaktion hinzufügen"
+
+msgid "Add Treatment"
+msgstr "Behandlung hinzufügen"
+
+msgid "Add first player"
+msgstr "Füge den ersten Spieler hinzu"
+
+msgid "Add first sponsor"
+msgstr "Fügen Sie den ersten Sponsor hinzu"
+
+msgid "Add first talent"
+msgstr "Erstes Talent hinzufügen"
+
+msgid "Add milestone..."
+msgstr "Meilenstein hinzufügen..."
+
+msgid "Add to Cart"
+msgstr "in den Warenkorb legen"
+
+msgid "Add to Roster"
+msgstr "Zum Dienstplan hinzufügen"
+
+msgid "Added By"
+msgstr "Hinzugefügt von"
+
+msgid "Adjust Loyalty Points"
+msgstr "Passen Sie die Treuepunkte an"
+
+msgid "Adjust Points"
+msgstr "Punkte anpassen"
+
+msgid "Admin Panel"
+msgstr "Adminbereich"
+
+msgid "Age"
+msgstr "Alter"
+
+msgid "Age Group"
+msgstr "Altersgruppe"
+
+msgid "Agent"
+msgstr "Agent"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All Age Groups"
+msgstr "Alle Altersgruppen"
+
+msgid "All activity"
+msgstr "Alle Aktivitäten"
+
+msgid "All budgets"
+msgstr "Alle Budgets"
+
+msgid "All categories"
+msgstr "Alle Kategorien"
+
+msgid "All caught up!"
+msgstr "Alles aufgeholt!"
+
+msgid "All departments"
+msgstr "Alle Abteilungen"
+
+msgid "All fixtures, training sessions and tournaments"
+msgstr "Alle Spieltermine, Trainingseinheiten und Turniere"
+
+msgid "All news"
+msgstr "Alle Neuigkeiten"
+
+msgid "All priorities"
+msgstr "Alle Prioritäten"
+
+msgid "All recommendations"
+msgstr "Alle Empfehlungen"
+
+msgid "All reports"
+msgstr "Alle Berichte"
+
+msgid "All severities"
+msgstr "Alle Schweregrade"
+
+msgid "All statuses"
+msgstr "Alle Status"
+
+msgid "All talents"
+msgstr "Alle Talente"
+
+msgid "All transactions"
+msgstr "Alle Transaktionen"
+
+msgid "All types"
+msgstr "Alle Arten"
+
+msgid "Already have an account?"
+msgstr "Sie haben bereits ein Konto?"
+
+msgid "Alt. position"
+msgstr "Alt. Position"
+
+msgid "Amount"
+msgstr "Menge"
+
+msgid "Amount (€)"
+msgstr "Betrag (€)"
+
+msgid "Analysis"
+msgstr "Analyse"
+
+msgid "Announcements"
+msgstr "Ankündigungen"
+
+msgid "ApexForge"
+msgstr "ApexForge"
+
+msgid "Appearances"
+msgstr "Einsätze"
+
+msgid "Apply Adjustment"
+msgstr "Anpassung anwenden"
+
+msgid "Areas to Improve"
+msgstr "Verbesserungswürdige Bereiche"
+
+msgid "Assign"
+msgstr "Zuordnen"
+
+msgid "Assign Kit"
+msgstr "Bausatz zuweisen"
+
+msgid "Assigned To"
+msgstr "Zugewiesen an"
+
+msgid "Assists"
+msgstr "Vorlagen"
+
+msgid "Attachment"
+msgstr "Anhang"
+
+msgid "Attendance"
+msgstr "Teilnahme"
+
+msgid "Attributes"
+msgstr "Attribute"
+
+msgid "Auto-Renew"
+msgstr "Automatische Verlängerung"
+
+msgid "Available"
+msgstr "Verfügbar"
+
+msgid "Available Tickets"
+msgstr "Verfügbare Tickets"
+
+msgid "Avg Rating"
+msgstr "Durchschnittliche Bewertung"
+
+msgid "Away"
+msgstr "Auswärts"
+
+msgid "Away score"
+msgstr "Auswärtsergebnis"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Back to Injuries"
+msgstr "Zurück zu Verletzungen"
+
+msgid "Back to sign in"
+msgstr "Zurück zur Anmeldung"
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Basic Information"
+msgstr "Grundlegende Informationen"
+
+msgid "Become a Partner"
+msgstr "Werden Sie Partner"
+
+msgid "Benefits"
+msgstr "Vorteile"
+
+msgid "Bio"
+msgstr "Bio"
+
+msgid "Body Part"
+msgstr "Körperteil"
+
+msgid "Born"
+msgstr "Geboren"
+
+msgid "Branding"
+msgstr "Branding"
+
+msgid "Bronze"
+msgstr "Bronze"
+
+msgid "Browse Talents"
+msgstr "Durchsuchen Sie Talente"
+
+msgid "Browse events"
+msgstr "Durchsuchen Sie Veranstaltungen"
+
+msgid "Browse shop"
+msgstr "Shop durchsuchen"
+
+msgid "Browse the shop and add some items."
+msgstr "Durchsuchen Sie den Shop und fügen Sie einige Artikel hinzu."
+
+msgid "Budget"
+msgstr "Budget"
+
+msgid "Budget (€)"
+msgstr "Budget (€)"
+
+msgid "Budget Name"
+msgstr "Budgetname"
+
+msgid "Budgets"
+msgstr "Budgets"
+
+msgid "Build Legacies"
+msgstr "Bauen Sie Vermächtnisse auf"
+
+msgid "Bulk Create"
+msgstr "Massenerstellung"
+
+msgid "Bulk Create Tickets"
+msgstr "Massenerstellung von Tickets"
+
+msgid "Buy More"
+msgstr "Kaufen Sie mehr"
+
+msgid "Buy Now"
+msgstr "Jetzt kaufen"
+
+msgid "Buy Ticket"
+msgstr "Ticket kaufen"
+
+msgid "Buy Tickets"
+msgstr "Tickets kaufen"
+
+msgid "By"
+msgstr "Von"
+
+msgid "CTR"
+msgstr "CTR"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Campaign Info"
+msgstr "Kampagneninformationen"
+
+msgid "Campaign Name"
+msgstr "Kampagnenname"
+
+msgid "Campaigns"
+msgstr "Kampagnen"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Career History"
+msgstr "Karrieregeschichte"
+
+msgid "Cart"
+msgstr "Warenkorb"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Check your email"
+msgstr "Überprüfen Sie Ihre E-Mails"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "Clear"
+msgstr "Löschen"
+
+msgid "Click the link below to set a new password:"
+msgstr "Klicken Sie auf den Link unten, um ein neues Passwort festzulegen:"
+
+msgid "Click-through rate"
+msgstr "Klickrate"
+
+msgid "Clicks"
+msgstr "Klicks"
+
+msgid "Clicks → conversions"
+msgstr "Klicks → Conversions"
+
+msgid "Club"
+msgstr "Verein"
+
+msgid "Club Branding"
+msgstr "Club-Branding"
+
+msgid "Club Info"
+msgstr "Vereinsinfo"
+
+msgid "Club Members"
+msgstr "Clubmitglieder"
+
+msgid "Club Name"
+msgstr "Clubname"
+
+msgid "Club Shop"
+msgstr "Clubshop"
+
+msgid "Clubs"
+msgstr "Vereine"
+
+msgid "Coach"
+msgstr "Trainer"
+
+msgid "Coach Notes"
+msgstr "Trainernotizen"
+
+msgid "Colors"
+msgstr "Farben"
+
+msgid "Competition"
+msgstr "Wettbewerb"
+
+msgid "Complete your fan profile"
+msgstr "Vervollständigen Sie Ihr Fanprofil"
+
+msgid "Confidential"
+msgstr "Vertraulich"
+
+msgid "Confirm"
+msgstr "Bestätigen"
+
+msgid "Confirm Purchase"
+msgstr "Bestätigen Sie den Kauf"
+
+msgid "Confirm password"
+msgstr "Passwort bestätigen"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Contact & Social"
+msgstr "Kontakt & Soziales"
+
+msgid "Contact Email"
+msgstr "Kontakt-E-Mail"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Continue shopping"
+msgstr "Weiter einkaufen"
+
+msgid "Contract"
+msgstr "Vertrag"
+
+msgid "Contract Clauses"
+msgstr "Vertragsklauseln"
+
+msgid "Contract Details"
+msgstr "Vertragsdetails"
+
+msgid "Contract End"
+msgstr "Vertragsende"
+
+msgid "Contract Expires"
+msgstr "Vertrag läuft aus"
+
+msgid "Contract until"
+msgstr "Vertrag bis"
+
+msgid "Contracts"
+msgstr "Verträge"
+
+msgid "Conversion Rate"
+msgstr "Conversion-Rate"
+
+msgid "Conversions"
+msgstr "Konvertierungen"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Cover Image"
+msgstr "Titelbild"
+
+msgid "Create Account"
+msgstr "Benutzerkonto erstellen"
+
+msgid "Create First Organization"
+msgstr "Erstellen Sie die erste Organisation"
+
+msgid "Create Plan"
+msgstr "Plan erstellen"
+
+msgid "Create Profile"
+msgstr "Profil erstellen"
+
+msgid "Create Tickets"
+msgstr "Tickets erstellen"
+
+msgid "Create account"
+msgstr "Benutzerkonto erstellen"
+
+msgid "Create first budget"
+msgstr "Erstellen Sie das erste Budget"
+
+msgid "Create first campaign"
+msgstr "Erstellen Sie die erste Kampagne"
+
+msgid "Create first team"
+msgstr "Erstelle das erste Team"
+
+msgid "Create first tournament"
+msgstr "Erstellen Sie das erste Turnier"
+
+msgid "Create one"
+msgstr "Erstellen Sie eins"
+
+msgid "Create your account to get started."
+msgstr "Erstellen Sie Ihr Konto, um loszulegen."
+
+msgid "Created by"
+msgstr "Erstellt von"
+
+msgid "Current Club"
+msgstr "Aktueller Verein"
+
+msgid "Current Stock"
+msgstr "Aktueller Lagerbestand"
+
+msgid "Current stock:"
+msgstr "Aktueller Lagerbestand:"
+
+msgid "Current tier"
+msgstr "Aktuelle Stufe"
+
+msgid "Customer"
+msgstr "Kunde"
+
+msgid "Customize your club's identity across the platform."
+msgstr "Passen Sie die Identität Ihres Clubs auf der gesamten Plattform an."
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Date Injured"
+msgstr "Datum der Verletzung"
+
+msgid "Date Recovered"
+msgstr "Datum der Wiederherstellung"
+
+msgid "Date of Birth"
+msgstr "Geburtsdatum"
+
+msgid "Date of birth"
+msgstr "Geburtsdatum"
+
+msgid "Days Out"
+msgstr "Tage draußen"
+
+msgid "Deductions"
+msgstr "Abzüge"
+
+msgid "Defeat"
+msgstr "Verlust"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete event?"
+msgstr "Veranstaltung löschen?"
+
+msgid "Delete this post?"
+msgstr "Diesen Beitrag löschen?"
+
+msgid "Delete this team?"
+msgstr "Dieses Team löschen?"
+
+msgid "Delete?"
+msgstr "Löschen?"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Details"
+msgstr "Einzelheiten"
+
+msgid "Development Plan"
+msgstr "Entwicklungsplan"
+
+msgid "Development Plans"
+msgstr "Entwicklungspläne"
+
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+msgid "Division"
+msgstr "Division"
+
+msgid "Don't have an account?"
+msgstr "Sie haben noch kein Konto?"
+
+msgid "Download Contract File"
+msgstr "Vertragsdatei herunterladen"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Draw"
+msgstr "Ziehen"
+
+msgid "Due"
+msgstr "Fällig"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Edit Announcement"
+msgstr "Ankündigung bearbeiten"
+
+msgid "Edit Development Plan"
+msgstr "Entwicklungsplan bearbeiten"
+
+msgid "Edit Fan Profile"
+msgstr "Fanprofil bearbeiten"
+
+msgid "Edit Match"
+msgstr "Übereinstimmung bearbeiten"
+
+msgid "Edit Plan"
+msgstr "Plan bearbeiten"
+
+msgid "Edit Product"
+msgstr "Produkt bearbeiten"
+
+msgid "Edit Profile"
+msgstr "Profil bearbeiten"
+
+msgid "Edit Video"
+msgstr "Video bearbeiten"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+msgid "Email notifications"
+msgstr "E-Mail-Benachrichtigungen"
+
+msgid "Employment Type"
+msgstr "Beschäftigungsart"
+
+msgid "Enabled"
+msgstr "Ermöglicht"
+
+msgid "End"
+msgstr "Ende"
+
+msgid "End Date"
+msgstr "Enddatum"
+
+msgid "End date"
+msgstr "Enddatum"
+
+msgid "End time"
+msgstr "Endzeit"
+
+msgid "Enter your email and we'll send a reset link."
+msgstr ""
+"Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum "
+"Zurücksetzen."
+
+msgid "Equity"
+msgstr "Eigenkapital"
+
+msgid "Equity %"
+msgstr "Eigenkapital %"
+
+msgid "Estimated Value (€)"
+msgstr "Geschätzter Wert (€)"
+
+msgid "Event"
+msgstr "Ereignis"
+
+msgid "Event Details"
+msgstr "Veranstaltungsdetails"
+
+msgid "Events"
+msgstr "Veranstaltungen"
+
+msgid "Excerpt"
+msgstr "Auszug"
+
+msgid "Expected Recovery"
+msgstr "Erwartete Erholung"
+
+msgid "Expected Return"
+msgstr "Erwartete Rückkehr"
+
+msgid "Expected Return (€)"
+msgstr "Erwartete Rendite (€)"
+
+msgid "Expected return"
+msgstr "Erwartete Rückkehr"
+
+msgid "Expenses"
+msgstr "Kosten"
+
+msgid "Expenses by Category"
+msgstr "Ausgaben nach Kategorie"
+
+msgid "Expired"
+msgstr "Abgelaufen"
+
+msgid "Expires"
+msgstr "Läuft ab"
+
+msgid "Expires At"
+msgstr "Läuft ab um"
+
+msgid "Expiring"
+msgstr "Auslaufend"
+
+msgid "Expiring Contracts"
+msgstr "Auslaufende Verträge"
+
+msgid "Expiring in"
+msgstr "Läuft ab in"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Fan"
+msgstr "Lüfter"
+
+msgid "Fan Portal"
+msgstr "Fan-Portal"
+
+msgid "Fan Profile"
+msgstr "Fanprofil"
+
+msgid "Featured"
+msgstr "Hervorgehoben"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Finance"
+msgstr "Finanzen"
+
+msgid "Finance Dashboard"
+msgstr "Finanz-Dashboard"
+
+msgid "Financial Overview (YTD)"
+msgstr "Finanzübersicht (lfd. Jahr)"
+
+msgid "Financial overview, budgets, and sponsorships"
+msgstr "Finanzübersicht, Budgets und Sponsoring"
+
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "First name"
+msgstr "Vorname"
+
+msgid "Fixtures & Results"
+msgstr "Spielpläne und Ergebnisse"
+
+msgid "Foot"
+msgstr "Fuß"
+
+msgid "Forge Champions,"
+msgstr "Schmiedemeister,"
+
+msgid "Forgot password?"
+msgstr "Passwort vergessen?"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Founded"
+msgstr "Gegründet"
+
+msgid "Founded Year"
+msgstr "Gründungsjahr"
+
+msgid "Founded year"
+msgstr "Gründungsjahr"
+
+msgid "Free"
+msgstr "Frei"
+
+msgid "Full name"
+msgstr "Vollständiger Name"
+
+msgid "Full report"
+msgstr "Vollständiger Bericht"
+
+msgid "General"
+msgstr "Allgemein"
+
+msgid "Get in touch"
+msgstr "Nehmen Sie Kontakt auf"
+
+msgid "Go to Shop"
+msgstr "Gehen Sie zum Shop"
+
+msgid "Goals"
+msgstr "Tore"
+
+msgid "Gold"
+msgstr "Gold"
+
+msgid "Good"
+msgstr "Gut"
+
+msgid "Grant Access"
+msgstr "Zugang gewähren"
+
+msgid "Gross"
+msgstr "Brutto"
+
+msgid "Head Coach"
+msgstr "Cheftrainer"
+
+msgid "Height"
+msgstr "Höhe"
+
+msgid "Height (cm)"
+msgstr "Höhe (cm)"
+
+msgid "Hex format e.g. #059669"
+msgstr "Hex-Format, z.B. #059669"
+
+msgid "Hire Date"
+msgstr "Mietdatum"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Home match"
+msgstr "Heimspiel"
+
+msgid "Home score"
+msgstr "Heimergebnis"
+
+msgid "Home venue"
+msgstr "Heimspielstätte"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Identity"
+msgstr "Identität"
+
+msgid ""
+"If you did not request this, please ignore this email. Your password will "
+"not change."
+msgstr ""
+"Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail bitte. "
+"Ihr Passwort wird sich nicht ändern."
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Import CSV"
+msgstr "CSV importieren"
+
+msgid "Impr."
+msgstr "Impr."
+
+msgid "Impressions"
+msgstr "Eindrücke"
+
+msgid "In Stock"
+msgstr "Auf Lager"
+
+msgid "In-app notifications"
+msgstr "In-App-Benachrichtigungen"
+
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "Includes"
+msgstr "Inklusive"
+
+msgid "Income"
+msgstr "Einnahmen"
+
+msgid "Injured"
+msgstr "Verletzt"
+
+msgid "Injuries"
+msgstr "Verletzungen"
+
+msgid "Injury"
+msgstr "Verletzung"
+
+msgid "Injury Date"
+msgstr "Verletzungsdatum"
+
+msgid "Injury Details"
+msgstr "Verletzungsdetails"
+
+msgid "Injury Log"
+msgstr "Verletzungsprotokoll"
+
+msgid "Injury Tracker"
+msgstr "Verletzungs-Tracker"
+
+msgid "Injury Type"
+msgstr "Art der Verletzung"
+
+msgid "Injury by Severity"
+msgstr "Verletzung nach Schwere"
+
+msgid "Insights"
+msgstr "Analysen"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Inventory"
+msgstr "Inventar"
+
+msgid "Investment Type"
+msgstr "Anlagetyp"
+
+msgid "Investments"
+msgstr "Investitionen"
+
+msgid "Investor Name"
+msgstr "Name des Investors"
+
+msgid "Item"
+msgstr "Artikel"
+
+msgid "Items"
+msgstr "Artikel"
+
+msgid "Jersey #"
+msgstr "Trikot #"
+
+msgid "Jersey Number"
+msgstr "Trikotnummer"
+
+msgid "Join ApexForge"
+msgstr "Treten Sie ApexForge bei"
+
+msgid "Join Date"
+msgstr "Beitrittsdatum"
+
+msgid ""
+"Join our growing family of sponsors and reach thousands of passionate fans."
+msgstr ""
+"Treten Sie unserer wachsenden Sponsorenfamilie bei und erreichen Sie "
+"Tausende leidenschaftlicher Fans."
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Last Name"
+msgstr "Nachname"
+
+msgid "Last name"
+msgstr "Nachname"
+
+msgid "Leave Date"
+msgstr "Abreisedatum"
+
+msgid "Level"
+msgstr "Ebene"
+
+msgid "List view"
+msgstr "Listenansicht"
+
+msgid "Live analytics across all modules"
+msgstr "Live-Analysen über alle Module"
+
+msgid "Location"
+msgstr "Standort"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Low Stock"
+msgstr "Geringer Lagerbestand"
+
+msgid "Low stock"
+msgstr "Geringer Lagerbestand"
+
+msgid "Low stock only"
+msgstr "Nur geringe Lagerbestände"
+
+msgid "Loyalty Points"
+msgstr "Treuepunkte"
+
+msgid "Manage"
+msgstr "Verwalten"
+
+msgid "Manage Access"
+msgstr "Zugriff verwalten"
+
+msgid "Manage your account information and preferences."
+msgstr "Verwalten Sie Ihre Kontoinformationen und Präferenzen."
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "Mark all read"
+msgstr "Alles als gelesen markieren"
+
+msgid "Market value (€)"
+msgstr "Marktwert (€)"
+
+msgid "Marketing"
+msgstr "Marketing"
+
+msgid "Marketing Campaigns"
+msgstr "Marketingkampagnen"
+
+msgid "Match"
+msgstr "Spiel"
+
+msgid "Match Details"
+msgstr "Spieldetails"
+
+msgid "Match Result"
+msgstr "Spielergebnis"
+
+msgid "Match date"
+msgstr "Spieldatum"
+
+msgid "Match report"
+msgstr "Spielbericht"
+
+msgid "Match result not yet recorded."
+msgstr "Spielergebnis noch nicht erfasst."
+
+msgid "Maturity"
+msgstr "Reife"
+
+msgid "Maturity Date"
+msgstr "Fälligkeitsdatum"
+
+msgid "Mechanism"
+msgstr "Mechanismus"
+
+msgid "Medical"
+msgstr "Medizin"
+
+msgid "Medical Records"
+msgstr "Krankenakten"
+
+msgid "Medical — Injuries"
+msgstr "Medizin – Verletzungen"
+
+msgid "Membership"
+msgstr "Mitgliedschaft"
+
+msgid "Mental"
+msgstr "Mental"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Metric"
+msgstr "Metrisch"
+
+msgid "Metric Name"
+msgstr "Metrikname"
+
+msgid "Milestones"
+msgstr "Meilensteine"
+
+msgid "Min Quantity"
+msgstr "Mindestmenge"
+
+msgid "Min rating"
+msgstr "Mindestbewertung"
+
+msgid "Minutes Played"
+msgstr "Gespielte Minuten"
+
+msgid "Monthly Expenses"
+msgstr "Monatliche Ausgaben"
+
+msgid "Monthly Income"
+msgstr "Monatliches Einkommen"
+
+msgid "My Profile"
+msgstr "Mein Profil"
+
+msgid "My Tickets"
+msgstr "Meine Tickets"
+
+msgid "My Watchlist"
+msgstr "Meine Watchlist"
+
+msgid "My Watchlists"
+msgstr "Meine Watchlists"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Nationality"
+msgstr "Nationalität"
+
+msgid "Net"
+msgstr "Netto"
+
+msgid "Net (month)"
+msgstr "Netto (Monat)"
+
+msgid "Net Balance"
+msgstr "Nettosaldo"
+
+msgid "Net:"
+msgstr "Netto:"
+
+msgid "New Announcement"
+msgstr "Neue Ankündigung"
+
+msgid "New Budget"
+msgstr "Neues Budget"
+
+msgid "New Campaign"
+msgstr "Neue Kampagne"
+
+msgid "New Category"
+msgstr "Neue Kategorie"
+
+msgid "New Competition"
+msgstr "Neuer Wettbewerb"
+
+msgid "New Contract"
+msgstr "Neuer Vertrag"
+
+msgid "New Development Plan"
+msgstr "Neuer Entwicklungsplan"
+
+msgid "New Event"
+msgstr "Neue Veranstaltung"
+
+msgid "New Investment"
+msgstr "Neue Investition"
+
+msgid "New Organization"
+msgstr "Neue Organisation"
+
+msgid "New Plan"
+msgstr "Neuer Plan"
+
+msgid "New Player"
+msgstr "Neuer Spieler"
+
+msgid "New Post"
+msgstr "Neuer Beitrag"
+
+msgid "New Product"
+msgstr "Neues Produkt"
+
+msgid "New Program"
+msgstr "Neues Programm"
+
+msgid "New Report"
+msgstr "Neuer Bericht"
+
+msgid "New Scout Report"
+msgstr "Neuer Scout-Bericht"
+
+msgid "New Sponsorship"
+msgstr "Neues Sponsoring"
+
+msgid "New Task"
+msgstr "Neue Aufgabe"
+
+msgid "New Team"
+msgstr "Neues Team"
+
+msgid "New Tournament"
+msgstr "Neues Turnier"
+
+msgid "New password"
+msgstr "Neues Passwort"
+
+msgid "News"
+msgstr "Neuigkeiten"
+
+msgid "News & Updates"
+msgstr "Neuigkeiten und Updates"
+
+msgid "Next"
+msgstr "Nächste"
+
+msgid "Next session:"
+msgstr "Nächste Sitzung:"
+
+msgid "Next tier at"
+msgstr "Nächste Stufe bei"
+
+msgid "No academy programs yet. Create the first one!"
+msgstr "Noch keine Akademieprogramme. Erstelle das erste!"
+
+msgid "No active assignments."
+msgstr "Keine aktiven Aufgaben."
+
+msgid "No active sponsors."
+msgstr "Keine aktiven Sponsoren."
+
+msgid "No activity recorded yet."
+msgstr "Noch keine Aktivität aufgezeichnet."
+
+msgid "No activity yet"
+msgstr "Noch keine Aktivität"
+
+msgid "No announcements."
+msgstr "Keine Ankündigungen."
+
+msgid "No attribute ratings yet."
+msgstr "Noch keine Attributbewertungen."
+
+msgid "No budgets defined yet."
+msgstr "Noch keine Budgets definiert."
+
+msgid "No budgets set up."
+msgstr "Keine Budgets eingerichtet."
+
+msgid "No campaigns yet."
+msgstr "Noch keine Kampagnen."
+
+msgid "No categories yet."
+msgstr "Noch keine Kategorien."
+
+msgid "No clauses added yet."
+msgstr "Es wurden noch keine Klauseln hinzugefügt."
+
+msgid "No clubs yet."
+msgstr "Noch keine Vereine."
+
+msgid "No competitions yet."
+msgstr "Noch keine Wettbewerbe."
+
+msgid "No completed matches."
+msgstr "Keine abgeschlossenen Spiele."
+
+msgid "No contracts found."
+msgstr "Keine Verträge gefunden."
+
+msgid "No development plans yet."
+msgstr "Noch keine Entwicklungspläne."
+
+msgid "No events found."
+msgstr "Keine Veranstaltungen gefunden."
+
+msgid "No expense data yet."
+msgstr "Noch keine Spesendaten."
+
+msgid "No injuries recorded."
+msgstr "Es wurden keine Verletzungen registriert."
+
+msgid "No investments recorded yet."
+msgstr "Noch keine Investitionen erfasst."
+
+msgid "No items in inventory."
+msgstr "Keine Artikel im Inventar."
+
+msgid "No matches scheduled yet."
+msgstr "Noch keine Spiele geplant."
+
+msgid "No medical records on file."
+msgstr "Keine Krankenakten vorhanden."
+
+msgid "No members yet."
+msgstr "Noch keine Mitglieder."
+
+msgid "No milestones yet. Add one above."
+msgstr "Noch keine Meilensteine. Fügen Sie oben eine hinzu."
+
+msgid "No movements yet."
+msgstr "Noch keine Bewegungen."
+
+msgid "No new notifications"
+msgstr "Keine neuen Benachrichtigungen"
+
+msgid "No news posts yet."
+msgstr "Noch keine Newsbeiträge."
+
+msgid "No notes yet. Add one above!"
+msgstr "Noch keine Notizen. Fügen Sie oben eins hinzu!"
+
+msgid "No orders yet."
+msgstr "Noch keine Bestellungen."
+
+msgid "No organizations yet."
+msgstr "Noch keine Organisationen."
+
+msgid "No payroll entries."
+msgstr "Keine Lohn- und Gehaltsabrechnungen."
+
+msgid "No players found."
+msgstr "Keine Spieler gefunden."
+
+msgid "No players on roster yet."
+msgstr "Noch keine Spieler im Kader."
+
+msgid "No products available yet."
+msgstr "Noch keine Produkte verfügbar."
+
+msgid "No purchases yet."
+msgstr "Noch keine Käufe."
+
+msgid "No recovery plan yet."
+msgstr "Noch kein Sanierungsplan."
+
+msgid "No reports yet."
+msgstr "Noch keine Berichte."
+
+msgid "No results for"
+msgstr "Keine Ergebnisse für"
+
+msgid "No scout reports found."
+msgstr "Keine Scout-Berichte gefunden."
+
+msgid "No scout reports yet."
+msgstr "Noch keine Scout-Berichte."
+
+msgid "No sponsors to display yet."
+msgstr "Es sind noch keine Sponsoren zum Anzeigen vorhanden."
+
+msgid "No sponsorships yet."
+msgstr "Noch keine Patenschaften."
+
+msgid "No staff members yet."
+msgstr "Noch keine Mitarbeiter."
+
+msgid "No standings yet."
+msgstr "Noch keine Rangliste."
+
+msgid "No stats recorded yet."
+msgstr "Noch keine Statistiken erfasst."
+
+msgid "No talents found."
+msgstr "Keine Talente gefunden."
+
+msgid "No talents tracked yet."
+msgstr "Es wurden noch keine Talente erfasst."
+
+msgid "No tasks found."
+msgstr "Keine Aufgaben gefunden."
+
+msgid "No tasks."
+msgstr "Keine Aufgaben."
+
+msgid "No teams assigned."
+msgstr "Keine Teams zugewiesen."
+
+msgid "No teams found."
+msgstr "Keine Teams gefunden."
+
+msgid "No ticket categories yet."
+msgstr "Noch keine Ticketkategorien."
+
+msgid "No tickets available for upcoming events."
+msgstr "Für kommende Veranstaltungen sind keine Tickets verfügbar."
+
+msgid "No tickets yet."
+msgstr "Noch keine Tickets."
+
+msgid "No tournaments scheduled."
+msgstr "Keine Turniere geplant."
+
+msgid "No transactions found."
+msgstr "Keine Transaktionen gefunden."
+
+msgid "No transactions yet."
+msgstr "Noch keine Transaktionen."
+
+msgid "No treatments recorded yet."
+msgstr "Es sind noch keine Behandlungen erfasst."
+
+msgid "No upcoming events"
+msgstr "Keine bevorstehenden Veranstaltungen"
+
+msgid "No video source available."
+msgstr "Keine Videoquelle verfügbar."
+
+msgid "No videos yet. Upload the first one!"
+msgstr "Noch keine Videos. Laden Sie das erste hoch!"
+
+msgid "No watchlists yet."
+msgstr "Noch keine Beobachtungslisten."
+
+msgid "Not rated yet"
+msgstr "Noch nicht bewertet"
+
+msgid "Notes"
+msgstr "Notizen"
+
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+msgid "Official merchandise and club products"
+msgstr "Offizielle Merchandise-Artikel und Clubprodukte"
+
+msgid "On Trial"
+msgstr "Vor Gericht"
+
+msgid "Operations"
+msgstr "Betrieb"
+
+msgid "Opponent"
+msgstr "Gegner"
+
+msgid "Order"
+msgstr "Befehl"
+
+msgid "Order Summary"
+msgstr "Bestellübersicht"
+
+msgid "Orders"
+msgstr "Bestellungen"
+
+msgid "Organizations"
+msgstr "Organisationen"
+
+msgid "Our Partners"
+msgstr "Unsere Partner"
+
+msgid "Out of stock"
+msgstr "Ausverkauft"
+
+msgid "Overall"
+msgstr "Gesamt"
+
+msgid "Overall Rating"
+msgstr "Gesamtbewertung"
+
+msgid "Overdue"
+msgstr "Überfällig"
+
+msgid "Overdue Tasks"
+msgstr "Überfällige Aufgaben"
+
+msgid "Page"
+msgstr "Seite"
+
+msgid "Paid"
+msgstr "Bezahlt"
+
+msgid "Participating Teams"
+msgstr "Teilnehmende Teams"
+
+msgid "Partners"
+msgstr "Partner"
+
+msgid "Party"
+msgstr "Party"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password Reset"
+msgstr "Passwort zurücksetzen"
+
+msgid "Password Reset Complete"
+msgstr "Passwort-Reset abgeschlossen"
+
+msgid "Password updated!"
+msgstr "Passwort aktualisiert!"
+
+msgid "Payroll"
+msgstr "Gehaltsabrechnung"
+
+msgid "Payroll YTD"
+msgstr "Gehaltsabrechnung YTD"
+
+msgid "Pending"
+msgstr "Ausstehend"
+
+msgid "Performance"
+msgstr "Leistung"
+
+msgid "Performance Insights"
+msgstr "Leistungsanalysen"
+
+msgid "Performance Trend"
+msgstr "Leistungstrend"
+
+msgid "Period"
+msgstr "Zeitraum"
+
+msgid "Personal Information"
+msgstr "Persönliche Informationen"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Physical"
+msgstr "Körperlich"
+
+msgid "Physio"
+msgstr "Physio"
+
+msgid "Place Order"
+msgstr "Bestellung aufgeben"
+
+msgid "Plan"
+msgstr "Planen"
+
+msgid "Platinum"
+msgstr "Platin"
+
+msgid "Player"
+msgstr "Spieler"
+
+msgid "Player Information"
+msgstr "Spielerinformationen"
+
+msgid "Player Status"
+msgstr "Spielerstatus"
+
+msgid "Players"
+msgstr "Spieler"
+
+msgid "Points Earned"
+msgstr "Erreichte Punkte"
+
+msgid "Points History"
+msgstr "Punkteverlauf"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Post Details"
+msgstr "Beitragsdetails"
+
+msgid "Post first announcement"
+msgstr "Veröffentlichen Sie die erste Ankündigung"
+
+msgid "Preferences"
+msgstr "Präferenzen"
+
+msgid "Preferred foot"
+msgstr "Bevorzugter Fuß"
+
+msgid "Previous"
+msgstr "Vorherige"
+
+msgid "Price"
+msgstr "Preis"
+
+msgid "Primary"
+msgstr "Primär"
+
+msgid "Primary Color"
+msgstr "Grundfarbe"
+
+msgid "Primary position"
+msgstr "Hauptposition"
+
+msgid "Priority"
+msgstr "Priorität"
+
+msgid "Prize Pool (€)"
+msgstr "Preispool (€)"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Profile Settings"
+msgstr "Profileinstellungen"
+
+msgid "Program"
+msgstr "Programm"
+
+msgid "Program Info"
+msgstr "Programminformationen"
+
+msgid "Programs"
+msgstr "Programme"
+
+msgid "Proud to work with these outstanding organisations"
+msgstr ""
+"Wir sind stolz darauf, mit diesen herausragenden Organisationen "
+"zusammenzuarbeiten"
+
+msgid "Qty"
+msgstr "Menge"
+
+msgid "ROI"
+msgstr "ROI"
+
+msgid "Rate and analyse a player's performance."
+msgstr "Bewerten und analysieren Sie die Leistung eines Spielers."
+
+msgid "Rating"
+msgstr "Bewertung"
+
+msgid "Ratings"
+msgstr "Bewertungen"
+
+msgid "Ratings (1–10)"
+msgstr "Bewertungen (1–10)"
+
+msgid "Recent Activity"
+msgstr "Letzte Aktivität"
+
+msgid "Recent Matches"
+msgstr "Aktuelle Spiele"
+
+msgid "Recent Payroll"
+msgstr "Aktuelle Gehaltsabrechnung"
+
+msgid "Recent Purchases"
+msgstr "Letzte Einkäufe"
+
+msgid "Recent Scout Reports"
+msgstr "Aktuelle Scout-Berichte"
+
+msgid "Recent Stock Movements"
+msgstr "Aktuelle Aktienbewegungen"
+
+msgid "Recent Tasks"
+msgstr "Letzte Aufgaben"
+
+msgid "Recent Transactions"
+msgstr "Letzte Transaktionen"
+
+msgid "Recent actions across the platform"
+msgstr "Aktuelle Aktionen auf der Plattform"
+
+msgid "Recommendation"
+msgstr "Empfehlung"
+
+msgid "Record Movement"
+msgstr "Bewegung aufzeichnen"
+
+msgid "Record Stock Movement"
+msgstr "Lagerbewegungen aufzeichnen"
+
+msgid "Record first investment"
+msgstr "Erfassen Sie die erste Investition"
+
+msgid "Recorded At"
+msgstr "Aufgenommen am"
+
+msgid "Recovery Plan"
+msgstr "Wiederherstellungsplan"
+
+msgid "Red Cards"
+msgstr "Rote Karten"
+
+msgid "Reference"
+msgstr "Referenz"
+
+msgid "Remember me"
+msgstr "Erinnere dich an mich"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "Report Injury"
+msgstr "Verletzung melden"
+
+msgid "Reports"
+msgstr "Berichte"
+
+msgid "Request new link"
+msgstr "Neuen Link anfordern"
+
+msgid "Reset Password"
+msgstr "Passwort zurücksetzen"
+
+msgid "Reset your password"
+msgstr "Setzen Sie Ihr Passwort zurück"
+
+msgid "Return"
+msgstr "Zurückkehren"
+
+msgid "Return on investment"
+msgstr "Kapitalrendite"
+
+msgid "Revenue"
+msgstr "Einnahmen"
+
+msgid "Revenue (€)"
+msgstr "Umsatz (€)"
+
+msgid "Revenue vs Expenses (6 months)"
+msgstr "Einnahmen vs. Ausgaben (6 Monate)"
+
+msgid "Revoke"
+msgstr "Widerrufen"
+
+msgid "Revoke access?"
+msgstr "Zugriff entziehen?"
+
+msgid "Role"
+msgstr "Rolle"
+
+msgid "Roster"
+msgstr "Dienstplan"
+
+msgid "SKU"
+msgstr "Artikelnummer"
+
+msgid "Salary"
+msgstr "Gehalt"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Save Announcement"
+msgstr "Ankündigung speichern"
+
+msgid "Save Branding"
+msgstr "Branding speichern"
+
+msgid "Save Budget"
+msgstr "Budget sparen"
+
+msgid "Save Campaign"
+msgstr "Kampagne speichern"
+
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+msgid "Save Club"
+msgstr "Verein speichern"
+
+msgid "Save Contract"
+msgstr "Vertrag speichern"
+
+msgid "Save Injury"
+msgstr "Verletzungen retten"
+
+msgid "Save Investment"
+msgstr "Sparen Sie Investitionen"
+
+msgid "Save Item"
+msgstr "Artikel speichern"
+
+msgid "Save Match"
+msgstr "Spiel speichern"
+
+msgid "Save Plan"
+msgstr "Plan speichern"
+
+msgid "Save Post"
+msgstr "Beitrag speichern"
+
+msgid "Save Product"
+msgstr "Produkt speichern"
+
+msgid "Save Profile"
+msgstr "Profil speichern"
+
+msgid "Save Program"
+msgstr "Programm speichern"
+
+msgid "Save Record"
+msgstr "Datensatz speichern"
+
+msgid "Save Sponsorship"
+msgstr "Sponsoring sichern"
+
+msgid "Save Stats"
+msgstr "Statistiken speichern"
+
+msgid "Save Talent"
+msgstr "Talente retten"
+
+msgid "Save Task"
+msgstr "Aufgabe speichern"
+
+msgid "Save Tournament"
+msgstr "Turnier speichern"
+
+msgid "Save Transaction"
+msgstr "Transaktion speichern"
+
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+msgid "Save event"
+msgstr "Veranstaltung speichern"
+
+msgid "Save player"
+msgstr "Spieler speichern"
+
+msgid "Save team"
+msgstr "Team speichern"
+
+msgid "Schedule first event"
+msgstr "Planen Sie die erste Veranstaltung"
+
+msgid "Scout Report"
+msgstr "Scout-Bericht"
+
+msgid "Scout Reports"
+msgstr "Scout-Berichte"
+
+msgid "Scouted by"
+msgstr "Gescoutet von"
+
+msgid "Scouting"
+msgstr "Scouting"
+
+msgid "Scouting & Recruitment"
+msgstr "Scouting & Rekrutierung"
+
+msgid "Search"
+msgstr "Suchen"
+
+msgid "Search by name..."
+msgstr "Nach Namen suchen..."
+
+msgid "Search by talent or scout..."
+msgstr "Suche nach Talent oder Scout..."
+
+msgid "Search name or SKU..."
+msgstr "Name oder SKU suchen..."
+
+msgid "Search player..."
+msgstr "Spieler suchen..."
+
+msgid "Search players, teams, events..."
+msgstr "Suchen Sie nach Spielern, Teams, Veranstaltungen ..."
+
+msgid "Search staff..."
+msgstr "Personal suchen..."
+
+msgid "Search talents..."
+msgstr "Talente suchen..."
+
+msgid "Search teams..."
+msgstr "Teams suchen..."
+
+msgid "Search title or party..."
+msgstr "Titel oder Partei suchen..."
+
+msgid "Search title or tags..."
+msgstr "Titel oder Tags suchen..."
+
+msgid "Search..."
+msgstr "Suchen..."
+
+msgid "Season"
+msgstr "Saison"
+
+msgid "Season Statistics"
+msgstr "Saisonstatistiken"
+
+msgid "Seat"
+msgstr "Sitz"
+
+msgid "Secondary Color"
+msgstr "Sekundärfarbe"
+
+msgid "Secondary position"
+msgstr "Sekundäre Position"
+
+msgid "Send reset link"
+msgstr "Link zum Zurücksetzen senden"
+
+msgid "Set New Password"
+msgstr "Neues Passwort festlegen"
+
+msgid "Set new password"
+msgstr "Neues Passwort festlegen"
+
+msgid "Set password"
+msgstr "Passwort festlegen"
+
+msgid "Set up your profile to buy tickets and earn loyalty points."
+msgstr ""
+"Richten Sie Ihr Profil ein, um Tickets zu kaufen und Treuepunkte zu sammeln."
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Severity"
+msgstr "Schweregrad"
+
+msgid "Shipping"
+msgstr "Versand"
+
+msgid "Shipping Address"
+msgstr "Lieferadresse"
+
+msgid "Shipping address"
+msgstr "Lieferadresse"
+
+msgid "Shop"
+msgstr "Shop"
+
+msgid "Shopping Cart"
+msgstr "Warenkorb"
+
+msgid "Short name"
+msgstr "Kurzname"
+
+msgid "Sign Contract"
+msgstr "Vertrag unterzeichnen"
+
+msgid "Sign In"
+msgstr "Anmelden"
+
+msgid "Sign Out"
+msgstr "Abmelden"
+
+msgid "Sign in"
+msgstr "anmelden"
+
+msgid "Sign in to your account to continue."
+msgstr "Melden Sie sich bei Ihrem Konto an, um fortzufahren."
+
+msgid "Signed"
+msgstr "Unterzeichnet"
+
+msgid "Signing in..."
+msgstr "Anmelden..."
+
+msgid "Silver"
+msgstr "Silber"
+
+msgid "Slug"
+msgstr "Schnecke"
+
+msgid "Social & Links"
+msgstr "Soziale Netzwerke und Links"
+
+msgid "Sold"
+msgstr "Verkauft"
+
+msgid "Spent"
+msgstr "Ausgegeben"
+
+msgid "Spent (€)"
+msgstr "Ausgegeben (€)"
+
+msgid "Sponsor Name"
+msgstr "Name des Sponsors"
+
+msgid "Sponsor Portal"
+msgstr "Sponsorenportal"
+
+msgid "Sponsorships"
+msgstr "Sponsorings"
+
+msgid "Sport"
+msgstr "Sport"
+
+msgid "Stadium"
+msgstr "Stadion"
+
+msgid "Staff"
+msgstr "Personal"
+
+msgid "Staff & HR"
+msgstr "Personal & HR"
+
+msgid "Staff Details"
+msgstr "Personaldetails"
+
+msgid "Staff Member"
+msgstr "Mitarbeiter"
+
+msgid "Standings"
+msgstr "Tabelle"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "Start Date"
+msgstr "Startdatum"
+
+msgid "Start date"
+msgstr "Startdatum"
+
+msgid "Start time"
+msgstr "Startzeit"
+
+msgid "Stats"
+msgstr "Statistiken"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Stock"
+msgstr "Aktie"
+
+msgid "Stock Movement"
+msgstr "Lagerbewegung"
+
+msgid "Strengths"
+msgstr "Stärken"
+
+msgid "Submit report"
+msgstr "Bericht absenden"
+
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+msgid "Supplier"
+msgstr "Anbieter"
+
+msgid "Switch"
+msgstr "Schalten"
+
+msgid "Switch to Club"
+msgstr "Wechseln Sie zum Club"
+
+msgid "Tactical"
+msgstr "Taktisch"
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "Tags"
+msgstr "Schlagworte"
+
+msgid "Talent Database"
+msgstr "Talentdatenbank"
+
+msgid "Talent discovery and player analysis hub"
+msgstr "Hub für Talententdeckung und Spieleranalyse"
+
+msgid "Talents"
+msgstr "Talente"
+
+msgid "Target"
+msgstr "Ziel"
+
+msgid "Target Audience"
+msgstr "Zielgruppe"
+
+msgid "Target Roles"
+msgstr "Zielrollen"
+
+msgid "Task"
+msgstr "Aufgabe"
+
+msgid "Task Status"
+msgstr "Aufgabenstatus"
+
+msgid "Tasks"
+msgstr "Aufgaben"
+
+msgid "Team"
+msgstr "Team"
+
+msgid "Team name"
+msgstr "Teamname"
+
+msgid "Teams"
+msgstr "Mannschaften"
+
+msgid "Technical"
+msgstr "Technisch"
+
+msgid "The complete sports management and entrepreneurship platform."
+msgstr "Die komplette Plattform für Sportmanagement und Unternehmertum."
+
+msgid "This reset link is invalid or has expired."
+msgstr "Dieser Reset-Link ist ungültig oder abgelaufen."
+
+msgid ""
+"This will create the specified number of tickets immediately. Seats will be "
+"numbered 1, 2, 3 … sequentially."
+msgstr ""
+"Dadurch wird sofort die angegebene Anzahl an Tickets erstellt. Die "
+"Sitzplätze werden fortlaufend mit 1, 2, 3 … nummeriert."
+
+msgid "Ticket"
+msgstr "Ticket"
+
+msgid "Ticket Admin"
+msgstr "Ticketadministrator"
+
+msgid "Ticket Categories"
+msgstr "Ticketkategorien"
+
+msgid "Ticket Details"
+msgstr "Ticketdetails"
+
+msgid "Ticket Management"
+msgstr "Ticketverwaltung"
+
+msgid "Tickets"
+msgstr "Tickets"
+
+msgid "Tier"
+msgstr "Stufe"
+
+msgid "Time"
+msgstr "Zeit"
+
+msgid "Timeline Notes"
+msgstr "Zeitleistennotizen"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Top Scorers"
+msgstr "Torjäger"
+
+msgid "Top Talents"
+msgstr "Top-Talente"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "Total Items"
+msgstr "Gesamtzahl der Artikel"
+
+msgid "Total Paid"
+msgstr "Gesamtbezahlt"
+
+msgid "Total Value"
+msgstr "Gesamtwert"
+
+msgid "Total points"
+msgstr "Gesamtpunktzahl"
+
+msgid "Tournament Settings"
+msgstr "Turniereinstellungen"
+
+msgid "Tournaments"
+msgstr "Turniere"
+
+msgid "Tournaments & Competitions"
+msgstr "Turniere und Wettbewerbe"
+
+msgid "Transactions"
+msgstr "Transaktionen"
+
+msgid "Treatments"
+msgstr "Behandlungen"
+
+msgid "Twitter / X"
+msgstr "Twitter / X"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
+msgid "Unit"
+msgstr "Einheit"
+
+msgid "Unit Price"
+msgstr "Stückpreis"
+
+msgid "Upcoming"
+msgstr "Demnächst"
+
+msgid "Upcoming Events"
+msgstr "Kommende Veranstaltungen"
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Update Status"
+msgstr "Aktualisierungsstatus"
+
+msgid "Upload"
+msgstr "Hochladen"
+
+msgid "Upload Video"
+msgstr "Video hochladen"
+
+msgid ""
+"Use a positive number to add points, negative to deduct. The fan's tier will"
+" be recalculated automatically."
+msgstr ""
+"Verwenden Sie eine positive Zahl, um Punkte hinzuzufügen, und eine negative,"
+" um Punkte abzuziehen. Die Stufe des Ventilators wird automatisch neu "
+"berechnet."
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "Value"
+msgstr "Wert"
+
+msgid "Value (€)"
+msgstr "Wert (€)"
+
+msgid "Venue"
+msgstr "Veranstaltungsort"
+
+msgid "Victory"
+msgstr "Sieg"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Video Library"
+msgstr "Videothek"
+
+msgid "Videos"
+msgstr "Videos"
+
+msgid "View"
+msgstr "Anzeigen"
+
+msgid "View & Buy"
+msgstr "Ansehen und kaufen"
+
+msgid "View Clubs"
+msgstr "Clubs anzeigen"
+
+msgid "View File"
+msgstr "Datei anzeigen"
+
+msgid "View Medical Records"
+msgstr "Krankenakten anzeigen"
+
+msgid "View Plans"
+msgstr "Pläne anzeigen"
+
+msgid "View all"
+msgstr "Alle anzeigen"
+
+msgid "View details"
+msgstr "Details anzeigen"
+
+msgid "View history"
+msgstr "Verlauf anzeigen"
+
+msgid "View tickets"
+msgstr "Tickets ansehen"
+
+msgid "Visit website"
+msgstr "Besuchen Sie die Website"
+
+msgid "Watch"
+msgstr "Betrachten"
+
+msgid "Watchlist"
+msgstr "Beobachtungsliste"
+
+msgid ""
+"We've sent a password reset link to your email address. The link expires in "
+"24 hours."
+msgstr ""
+"Wir haben einen Link zum Zurücksetzen des Passworts an Ihre E-Mail-Adresse "
+"gesendet. Der Link läuft in 24 Stunden ab."
+
+msgid "Weaknesses"
+msgstr "Schwächen"
+
+msgid "Website"
+msgstr "Webseite"
+
+msgid "Weight"
+msgstr "Gewicht"
+
+msgid "Weight (kg)"
+msgstr "Gewicht (kg)"
+
+msgid "Welcome back"
+msgstr "Willkommen zurück"
+
+msgid "Write first post"
+msgstr "Schreibe den ersten Beitrag"
+
+msgid "Write first report"
+msgstr "Schreiben Sie den ersten Bericht"
+
+msgid "Yellow Cards"
+msgstr "Gelbe Karten"
+
+msgid "You will earn"
+msgstr "Sie werden verdienen"
+
+msgid "You've reached the highest tier!"
+msgstr "Du hast die höchste Stufe erreicht!"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Your Cart"
+msgstr "Ihr Warenkorb"
+
+msgid "Your browser does not support the video tag."
+msgstr "Ihr Browser unterstützt das Video-Tag nicht."
+
+msgid "Your cart is empty"
+msgstr "Ihr Warenkorb ist leer"
+
+msgid "Your cart is empty."
+msgstr "Ihr Warenkorb ist leer."
+
+msgid "Your delivery address"
+msgstr "Ihre Lieferadresse"
+
+msgid "Your password has been set. You can now sign in."
+msgstr "Ihr Passwort wurde festgelegt. Sie können sich jetzt anmelden."
+
+msgid "Your watchlist is empty."
+msgstr "Ihre Merkliste ist leer."
+
+msgid "achieved"
+msgstr "erreicht"
+
+msgid "active value"
+msgstr "aktiver Wert"
+
+msgid "afternoon"
+msgstr "Nachmittag"
+
+msgid "ago"
+msgstr "vor"
+
+msgid "allocated"
+msgstr "zugeteilt"
+
+msgid "comma-separated, leave blank for all"
+msgstr "Durch Kommas getrennt, für alle leer lassen"
+
+msgid "days"
+msgstr "Tage"
+
+msgid "e.g. km/h, %"
+msgstr "z.B. km/h, %"
+
+msgid "each"
+msgstr "jede"
+
+msgid "evening"
+msgstr "Abend"
+
+msgid "in stock"
+msgstr "auf Lager"
+
+msgid "item(s)"
+msgstr "Artikel)"
+
+msgid "items are low on stock"
+msgstr "Artikel sind nur noch wenig auf Lager"
+
+msgid "loyalty points with this purchase."
+msgstr "Bei diesem Einkauf erhalten Sie Treuepunkte."
+
+msgid "matches"
+msgstr "Streichhölzer"
+
+msgid "member(s)"
+msgstr "Mitglied(er)"
+
+msgid "morning"
+msgstr "Morgen"
+
+msgid "notice"
+msgstr "beachten"
+
+msgid "out of 10"
+msgstr "von 10"
+
+msgid "overall"
+msgstr "gesamt"
+
+msgid "overdue"
+msgstr "überfällig"
+
+msgid "players"
+msgstr "Spieler"
+
+msgid "players in database"
+msgstr "Spieler in der Datenbank"
+
+msgid "pts"
+msgstr "Punkte"
+
+msgid "remaining"
+msgstr "übrig"
+
+msgid "space-separated"
+msgstr "durch Leerzeichen getrennt"
+
+msgid "spent"
+msgstr "ausgegeben"
+
+msgid "teams"
+msgstr "Mannschaften"
+
+msgid "teams registered"
+msgstr "Mannschaften angemeldet"
+
+msgid "this month"
+msgstr "diesen Monat"
+
+msgid "to next tier"
+msgstr "zur nächsten Stufe"
+
+msgid "view them"
+msgstr "Sehen Sie sie sich an"
+
+msgid "views"
+msgstr "Ansichten"
+
+msgid "yrs"
+msgstr "Jahre"
+
+msgid "Help Center"
+msgstr "Hilfezentrum"
+
+msgid "Everything you need to know about using ApexForge."
+msgstr "Alles, was Sie über die Nutzung von ApexForge wissen müssen."
+
+msgid "Modules"
+msgstr "Module"
+
+msgid "Your command centre — an overview of the entire club at a glance."
+msgstr ""
+"Ihre Steuerzentrale — ein Überblick über den gesamten Verein auf einen "
+"Blick."
+
+msgid ""
+"Manage every player in your club — profiles, stats, injuries, and "
+"performance."
+msgstr ""
+"Verwalten Sie jeden Spieler in Ihrem Verein — Profile, Statistiken, "
+"Verletzungen und Leistungen."
+
+msgid "Create and manage teams, rosters, seasons and divisions."
+msgstr "Erstellen und verwalten Sie Teams, Kader, Saisons und Spielklassen."
+
+msgid "Schedule and track fixtures, training sessions, meetings and more."
+msgstr ""
+"Planen und verfolgen Sie Spieltermine, Trainingseinheiten, Besprechungen und"
+" mehr."
+
+msgid ""
+"Run competitions, track standings, schedule matches, and build lineups."
+msgstr ""
+"Führen Sie Wettbewerbe durch, verfolgen Sie Tabellen, planen Sie Spiele und "
+"erstellen Sie Aufstellungen."
+
+msgid ""
+"Create and manage all contract types — player, staff, sponsorship, vendor "
+"and more."
+msgstr ""
+"Erstellen und verwalten Sie alle Vertragsarten — Spieler, Personal, "
+"Sponsoring, Lieferant und mehr."
+
+msgid "Manage staff members, departments, tasks, and payroll."
+msgstr ""
+"Verwalten Sie Mitarbeiter, Abteilungen, Aufgaben und Gehaltsabrechnung."
+
+msgid "Track player injuries, recovery plans and treatments."
+msgstr "Verfolgen Sie Spielerverletzungen, Genesungspläne und Behandlungen."
+
+msgid "Transactions, budgets, sponsorships, investments, and the club shop."
+msgstr ""
+"Transaktionen, Budgets, Sponsoring, Investitionen und der Vereinsshop."
+
+msgid "Track equipment, kits and supplies across the club."
+msgstr "Verfolgen Sie Ausrüstung, Trikots und Materialien im gesamten Verein."
+
+msgid "Discover and track talent, write scout reports, and manage watchlists."
+msgstr ""
+"Entdecken und verfolgen Sie Talente, schreiben Sie Scoutberichte und "
+"verwalten Sie Beobachtungslisten."
+
+msgid "Multi-club structure — organizations contain one or more clubs."
+msgstr ""
+"Mehrvereinsstruktur — Organisationen enthalten einen oder mehrere Vereine."
+
+msgid "Structured youth development — programs, plans, and milestones."
+msgstr "Strukturierte Jugendentwicklung — Programme, Pläne und Meilensteine."
+
+msgid ""
+"Publish news, manage announcements, run campaigns, and showcase sponsors."
+msgstr ""
+"Veröffentlichen Sie Neuigkeiten, verwalten Sie Ankündigungen, führen Sie "
+"Kampagnen durch und präsentieren Sie Sponsoren."
+
+msgid "Upload match footage, training clips and analysis videos."
+msgstr "Laden Sie Spielaufnahmen, Trainingsclips und Analysevideos hoch."
+
+msgid "Ticket sales, loyalty points, and fan engagement."
+msgstr "Ticketverkauf, Treuepunkte und Fan-Engagement."
+
+msgid ""
+"Read-only analytics dashboard pulling data from across the entire platform."
+msgstr ""
+"Schreibgeschütztes Analyse-Dashboard, das Daten von der gesamten Plattform "
+"abruft."
+
+msgid "What you see"
+msgstr "Was Sie sehen"
+
+msgid "Tips"
+msgstr "Tipps"
+
+msgid "Player List"
+msgstr "Spielerliste"
+
+msgid "Creating a Player"
+msgstr "Einen Spieler anlegen"
+
+msgid "Player Detail Page — Actions"
+msgstr "Spielerdetailseite — Aktionen"
+
+msgid "Creating a Team"
+msgstr "Ein Team erstellen"
+
+msgid "Managing the Roster"
+msgstr "Den Kader verwalten"
+
+msgid "Event Types"
+msgstr "Veranstaltungstypen"
+
+msgid "Calendar View"
+msgstr "Kalenderansicht"
+
+msgid "Creating an Event"
+msgstr "Eine Veranstaltung erstellen"
+
+msgid "Step 1 — Create a Competition"
+msgstr "Schritt 1 — Einen Wettbewerb erstellen"
+
+msgid "Step 2 — Add Matches"
+msgstr "Schritt 2 — Spiele hinzufügen"
+
+msgid "Step 3 — Lineup Builder"
+msgstr "Schritt 3 — Aufstellungseditor"
+
+msgid "Creating a Contract"
+msgstr "Einen Vertrag erstellen"
+
+msgid "Signing a Contract"
+msgstr "Einen Vertrag unterzeichnen"
+
+msgid "Adding Clauses"
+msgstr "Klauseln hinzufügen"
+
+msgid "Alerts"
+msgstr "Benachrichtigungen"
+
+msgid "Adding a Staff Member"
+msgstr "Ein Teammitglied hinzufügen"
+
+msgid "Logging an Injury"
+msgstr "Eine Verletzung erfassen"
+
+msgid "Recovery Plans & Treatments"
+msgstr "Genesungspläne und Behandlungen"
+
+msgid "Email Alerts"
+msgstr "E-Mail-Benachrichtigungen"
+
+msgid "Stock Movements"
+msgstr "Lagerbewegungen"
+
+msgid "Kit Assignment"
+msgstr "Ausrüstungszuweisung"
+
+msgid "Talent Profiles"
+msgstr "Talentprofile"
+
+msgid "Watchlists"
+msgstr "Beobachtungslisten"
+
+msgid "Structure"
+msgstr "Struktur"
+
+msgid "Switching Clubs"
+msgstr "Verein wechseln"
+
+msgid "News Posts"
+msgstr "Neuigkeiten-Beiträge"
+
+msgid "Uploading a Video"
+msgstr "Ein Video hochladen"
+
+msgid "Video Notes & Analysis"
+msgstr "Videonotizen und Analyse"
+
+msgid "Tickets (Manager)"
+msgstr "Tickets (Manager)"
+
+msgid "Buying a Ticket (Fan)"
+msgstr "Ein Ticket kaufen (Fan)"
+
+msgid "What's included"
+msgstr "Was enthalten ist"
+
+msgid "Organizations & Clubs"
+msgstr "Organisationen und Vereine"
+
+msgid "Marketing & News"
+msgstr "Marketing und Neuigkeiten"
+
+msgid "Field"
+msgstr "Feld"
+
+msgid "Required"
+msgstr "Erforderlich"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Full Name"
+msgstr "Vollständiger Name"
+
+msgid "First and last name"
+msgstr "Vor- und Nachname"
+
+msgid "Football, Basketball, etc."
+msgstr "Fußball, Basketball usw."
+
+msgid "e.g. Midfielder, Forward"
+msgstr "z.B. Mittelfeldspieler, Stürmer"
+
+msgid "Auto-calculates age"
+msgstr "Berechnet das Alter automatisch"
+
+msgid "Country name"
+msgstr "Ländername"
+
+msgid "Active / Injured / Suspended / Retired / Transfer"
+msgstr "Aktiv / Verletzt / Gesperrt / Zurückgetreten / Transfer"
+
+msgid "Height / Weight"
+msgstr "Größe / Gewicht"
+
+msgid "cm and kg"
+msgstr "cm und kg"
+
+msgid "Market Value"
+msgstr "Marktwert"
+
+msgid "Used in finance reports"
+msgstr "Wird in Finanzberichten verwendet"
+
+msgid "JPG/PNG, shown on profile"
+msgstr "JPG/PNG, im Profil angezeigt"
+
+msgid "Team Name"
+msgstr "Teamname"
+
+msgid "Full team name"
+msgstr "Vollständiger Teamname"
+
+msgid "Active / Inactive / Disbanded"
+msgstr "Aktiv / Inaktiv / Aufgelöst"
+
+msgid "Home Venue"
+msgstr "Heimspielstätte"
+
+msgid "Stadium or ground name"
+msgstr "Name des Stadions oder Spielfelds"
+
+msgid "Manager / Coach"
+msgstr "Manager / Trainer"
+
+msgid "Link to Staff members"
+msgstr "Verknüpfung zu Mitarbeitern"
+
+msgid "JPG/PNG team badge"
+msgstr "JPG/PNG-Vereinswappen"
+
+msgid "e.g. Premier League 2026-27"
+msgstr "z.B. Premier League 2026-27"
+
+msgid "Auto-generated from name — leave blank"
+msgstr "Automatisch aus dem Namen generiert — leer lassen"
+
+msgid "e.g. 2026-27"
+msgstr "z.B. 2026-27"
+
+msgid "Competition Type"
+msgstr "Wettbewerbsformat"
+
+msgid "League / Cup / Group+Knockout / Round Robin / Friendly"
+msgstr "Liga / Pokal / Gruppe+K.o. / Round Robin / Freundschaftsspiel"
+
+msgid "Draft → Upcoming → Active → Completed"
+msgstr "Entwurf → Bevorstehend → Aktiv → Abgeschlossen"
+
+msgid "Start / End Date"
+msgstr "Start- / Enddatum"
+
+msgid "Competition date range"
+msgstr "Zeitraum des Wettbewerbs"
+
+msgid "Tick participating teams (create teams first)"
+msgstr "Teilnehmende Teams ankreuzen (zuerst Teams erstellen)"
+
+msgid "Prize Pool"
+msgstr "Preispool"
+
+msgid "Total prize in €"
+msgstr "Gesamtpreis in €"
+
+msgid "Descriptive name for the contract"
+msgstr "Beschreibender Name für den Vertrag"
+
+msgid "Contract Type"
+msgstr "Vertragsart"
+
+msgid "Player / Staff / Sponsorship / Vendor / Facility / Other"
+msgstr "Spieler / Personal / Sponsoring / Lieferant / Anlage / Sonstige"
+
+msgid "Party Name"
+msgstr "Name der Vertragspartei"
+
+msgid "The other party's name"
+msgstr "Name der anderen Vertragspartei"
+
+msgid "Contract duration"
+msgstr "Vertragslaufzeit"
+
+msgid "Contract monetary value"
+msgstr "Monetärer Vertragswert"
+
+msgid "Currency"
+msgstr "Währung"
+
+msgid "EUR / USD / GBP"
+msgstr "EUR / USD / GBP"
+
+msgid "Draft → Active → Expired / Terminated"
+msgstr "Entwurf → Aktiv → Abgelaufen / Gekündigt"
+
+msgid "File Upload"
+msgstr "Datei hochladen"
+
+msgid "Attach the signed PDF/DOC"
+msgstr "Unterzeichnete PDF/DOC-Datei anhängen"
+
+msgid ""
+"Clause types: Performance / Bonus / Penalty / Confidentiality / Termination "
+"/ Renewal / Other."
+msgstr ""
+"Klauseltypen: Leistung / Bonus / Strafe / Vertraulichkeit / Kündigung / "
+"Verlängerung / Sonstige."
+
+msgid ""
+"Managers receive an email notification for expiring contracts (via daily "
+"digest)."
+msgstr ""
+"Manager erhalten eine E-Mail-Benachrichtigung für ablaufende Verträge (über "
+"die tägliche Zusammenfassung)."
+
+msgid "Use the search box to find by name."
+msgstr "Verwenden Sie das Suchfeld, um nach Namen zu suchen."
+
+msgid "Events are colour-coded by type."
+msgstr "Veranstaltungen sind nach Typ farbcodiert."
+
+msgid "Click any event on the calendar to see details."
+msgstr ""
+"Klicken Sie auf eine Veranstaltung im Kalender, um Details anzuzeigen."
+
+msgid "Create tasks and assign them to any staff member."
+msgstr ""
+"Erstellen Sie Aufgaben und weisen Sie sie einem beliebigen Mitarbeiter zu."
+
+msgid ""
+"Overdue tasks (past due date, not completed) are flagged automatically."
+msgstr ""
+"Überfällige Aufgaben (nach dem Fälligkeitsdatum, nicht abgeschlossen) werden"
+" automatisch markiert."
+
+msgid "Managers see all tasks; staff see only their own."
+msgstr "Manager sehen alle Aufgaben; Mitarbeiter sehen nur ihre eigenen."
+
+msgid "Every movement is logged with the user who performed it."
+msgstr "Jede Bewegung wird mit dem ausführenden Benutzer protokolliert."
+
+msgid "Status: Available / Trialing / Signed / Rejected."
+msgstr "Status: Verfügbar / Probezeit / Verpflichtet / Abgelehnt."
+
+msgid ""
+"All KPIs, player lists, and reports update to reflect the selected club."
+msgstr ""
+"Alle KPIs, Spielerlisten und Berichte werden aktualisiert, um den "
+"ausgewählten Verein widerzuspiegeln."
+
+msgid "Roles: Manager / Staff / Viewer / Coach / Scout."
+msgstr "Rollen: Manager / Personal / Betrachter / Trainer / Scout."
+
+msgid "Add milestones to a plan (e.g. \"First team training appearance\")."
+msgstr ""
+"Fügen Sie einem Plan Meilensteine hinzu (z.B. \"Erster Einsatz beim "
+"Mannschaftstraining\")."
+
+msgid "View counts are tracked per post automatically."
+msgstr "Aufrufe werden automatisch pro Beitrag verfolgt."
+
+msgid "Active announcements are shown site-wide."
+msgstr "Aktive Ankündigungen werden plattformweit angezeigt."
+
+msgid "Filter by type, category, or date range."
+msgstr "Nach Typ, Kategorie oder Datumsbereich filtern."
+
+msgid "Create a budget for a team and category (e.g. Travel, Equipment)."
+msgstr ""
+"Erstellen Sie ein Budget für ein Team und eine Kategorie (z.B. Reisen, "
+"Ausrüstung)."
+
+msgid "Actual spending is tracked against the budget automatically."
+msgstr ""
+"Die tatsächlichen Ausgaben werden automatisch dem Budget gegenübergestellt."
+
+msgid ""
+"Track sponsor companies, deal amounts, start/end dates, and contact details."
+msgstr ""
+"Verfolgen Sie Sponsorunternehmen, Dealbeträge, Start-/Enddaten und "
+"Kontaktdaten."
+
+msgid "Types: Shirt / Kit / Stadium / Digital / Official / Other."
+msgstr ""
+"Typen: Trikot / Ausrüstung / Stadion / Digital / Offiziell / Sonstige."
+
+msgid "Delete notes you no longer need."
+msgstr "Löschen Sie Notizen, die Sie nicht mehr benötigen."
+
+msgid "Points are earned on ticket purchases and shop orders."
+msgstr "Punkte werden bei Ticketkäufen und Shopbestellungen gesammelt."
+
+msgid ""
+"All data is read-only — use the respective module pages to make changes."
+msgstr ""
+"Alle Daten sind schreibgeschützt — nutzen Sie die jeweiligen Modulseiten, um"
+" Änderungen vorzunehmen."
+
+msgid ""
+"<strong>KPI cards</strong> — Total teams, active players, upcoming events, "
+"monthly income &amp; expenses."
+msgstr ""
+"<strong>KPI-Karten</strong> — Gesamtteams, aktive Spieler, bevorstehende "
+"Veranstaltungen, monatliche Einnahmen &amp; Ausgaben."
+
+msgid ""
+"<strong>6-month finance chart</strong> — Income vs expense trend bar chart."
+msgstr ""
+"<strong>6-Monats-Finanzdiagramm</strong> — Balkendiagramm zur Entwicklung "
+"von Einnahmen und Ausgaben."
+
+msgid ""
+"<strong>Recent activity</strong> — Latest actions taken across the platform."
+msgstr ""
+"<strong>Letzte Aktivitäten</strong> — Neueste Aktionen auf der gesamten "
+"Plattform."
+
+msgid "<strong>Quick links</strong> — Fast access to frequently used pages."
+msgstr ""
+"<strong>Schnellzugriff</strong> — Schneller Zugang zu häufig genutzten "
+"Seiten."
+
+msgid ""
+"KPI numbers are scoped to your <strong>active club</strong> — switch clubs "
+"using the dropdown in the top-left sidebar."
+msgstr ""
+"KPI-Werte beziehen sich auf Ihren <strong>aktiven Verein</strong> — wechseln"
+" Sie den Verein über das Dropdown-Menü oben links in der Seitenleiste."
+
+msgid ""
+"The bell icon (🔔) in the top navbar shows unread notifications. Click to "
+"expand."
+msgstr ""
+"Das Glockensymbol (🔔) in der oberen Navigationsleiste zeigt ungelesene "
+"Benachrichtigungen. Zum Erweitern klicken."
+
+msgid ""
+"Use the search bar (top navbar) to find players, teams, or events quickly — "
+"minimum 2 characters."
+msgstr ""
+"Nutzen Sie die Suchleiste (obere Navigationsleiste), um Spieler, Teams oder "
+"Veranstaltungen schnell zu finden — mindestens 2 Zeichen."
+
+msgid ""
+"Filter by <strong>Status</strong> (Active / Injured / Suspended / Retired / "
+"Transfer), <strong>Position</strong>, or <strong>Sport</strong>."
+msgstr ""
+"Nach <strong>Status</strong> (Aktiv / Verletzt / Gesperrt / Zurückgetreten /"
+" Transfer), <strong>Position</strong> oder <strong>Sportart</strong> "
+"filtern."
+
+msgid ""
+"Click <strong>Export Excel</strong> to download all players as a "
+"spreadsheet."
+msgstr ""
+"Klicken Sie auf <strong>Excel exportieren</strong>, um alle Spieler als "
+"Tabelle herunterzuladen."
+
+msgid "Click <strong>+ Add Player</strong> and fill in:"
+msgstr ""
+"Klicken Sie auf <strong>+ Spieler hinzufügen</strong> und füllen Sie aus:"
+
+msgid ""
+"<strong>📊 Stats</strong> — Add season statistics (goals, assists, "
+"appearances, cards, rating…)."
+msgstr ""
+"<strong>📊 Statistiken</strong> — Saisonstatistiken hinzufügen (Tore, "
+"Vorlagen, Einsätze, Karten, Wertung…)."
+
+msgid ""
+"<strong>🏥 Injury</strong> — Log a new injury. Player status automatically "
+"changes to <em>Injured</em>."
+msgstr ""
+"<strong>🏥 Verletzung</strong> — Eine neue Verletzung erfassen. Der "
+"Spielerstatus ändert sich automatisch auf <em>Verletzt</em>."
+
+msgid ""
+"<strong>📈 Metric</strong> — Record a performance metric (speed, stamina, "
+"etc.) for trend tracking."
+msgstr ""
+"<strong>📈 Kennzahl</strong> — Eine Leistungskennzahl (Geschwindigkeit, "
+"Ausdauer usw.) für die Trendverfolgung erfassen."
+
+msgid ""
+"<strong>🔍 Scout Report</strong> — Create a scouting report for the player."
+msgstr ""
+"<strong>🔍 Scoutbericht</strong> — Einen Scoutbericht für den Spieler "
+"erstellen."
+
+msgid "<strong>📄 PDF</strong> — Download a formatted player profile PDF."
+msgstr ""
+"<strong>📄 PDF</strong> — Ein formatiertes Spielerprofil als PDF "
+"herunterladen."
+
+msgid ""
+"On a team detail page click <strong>+ Add to Roster</strong> to assign an "
+"existing player."
+msgstr ""
+"Klicken Sie auf der Teamdetailseite auf <strong>+ Zum Kader "
+"hinzufügen</strong>, um einen vorhandenen Spieler zuzuweisen."
+
+msgid ""
+"Set the player's <strong>jersey number</strong>, <strong>position</strong>, "
+"and whether they are <strong>captain</strong>."
+msgstr ""
+"Legen Sie die <strong>Trikotnummer</strong>, die <strong>Position</strong> "
+"des Spielers und fest, ob er <strong>Kapitän</strong> ist."
+
+msgid ""
+"<strong>Import CSV</strong> — Upload a CSV file to bulk-add players. "
+"Columns: Name, Position, Nationality, DOB. New players are created "
+"automatically."
+msgstr ""
+"<strong>CSV importieren</strong> — Eine CSV-Datei hochladen, um Spieler in "
+"großer Menge hinzuzufügen. Spalten: Name, Position, Nationalität, "
+"Geburtsdatum. Neue Spieler werden automatisch angelegt."
+
+msgid ""
+"<strong>Export CSV</strong> — Download the full roster as a spreadsheet."
+msgstr ""
+"<strong>CSV exportieren</strong> — Den vollständigen Kader als Tabelle "
+"herunterladen."
+
+msgid ""
+"Click <strong>Calendar</strong> to see all events on an interactive "
+"monthly/weekly calendar."
+msgstr ""
+"Klicken Sie auf <strong>Kalender</strong>, um alle Veranstaltungen in einem "
+"interaktiven Monats-/Wochenkalender zu sehen."
+
+msgid ""
+"Choose <strong>Event Type</strong> first — if Fixture, extra fields "
+"(opponent, scores) appear."
+msgstr ""
+"Wählen Sie zuerst den <strong>Veranstaltungstyp</strong> — bei Spieltermin "
+"erscheinen zusätzliche Felder (Gegner, Ergebnisse)."
+
+msgid "Select the <strong>Team</strong> the event belongs to."
+msgstr ""
+"Wählen Sie das <strong>Team</strong> aus, zu dem die Veranstaltung gehört."
+
+msgid "Set <strong>Start Date &amp; Time</strong> and optionally an End Date."
+msgstr ""
+"Legen Sie <strong>Startdatum &amp; Uhrzeit</strong> und optional ein "
+"Enddatum fest."
+
+msgid "Add a <strong>Location</strong> (stadium, training ground, etc.)."
+msgstr ""
+"Fügen Sie einen <strong>Ort</strong> hinzu (Stadion, Trainingsgelände usw.)."
+
+msgid ""
+"<strong>Fixture</strong> — A competitive match. Creates a sub-record with "
+"home/away scores and venue."
+msgstr ""
+"<strong>Spieltermin</strong> — Ein Pflichtspiel. Erstellt einen Untereintrag"
+" mit Heim-/Auswärtsergebnissen und Austragungsort."
+
+msgid "<strong>Training</strong> — Training session for a team."
+msgstr "<strong>Training</strong> — Trainingseinheit für ein Team."
+
+msgid "<strong>Meeting</strong> — Staff or board meeting."
+msgstr "<strong>Besprechung</strong> — Personal- oder Vorstandssitzung."
+
+msgid ""
+"<strong>Tournament</strong> — A tournament event (separate from the "
+"Competitions module)."
+msgstr ""
+"<strong>Turnier</strong> — Eine Turnier-Veranstaltung (getrennt vom "
+"Wettbewerbsmodul)."
+
+msgid "Open the competition → click <strong>+ Add Match</strong>."
+msgstr "Wettbewerb öffnen → auf <strong>+ Spiel hinzufügen</strong> klicken."
+
+msgid ""
+"Select <strong>Home Team</strong> and <strong>Away Team</strong> from the "
+"competition's team list."
+msgstr ""
+"<strong>Heimteam</strong> und <strong>Auswärtsteam</strong> aus der "
+"Teamliste des Wettbewerbs auswählen."
+
+msgid ""
+"Set <strong>Date &amp; Time</strong>, <strong>Venue</strong>, and "
+"<strong>Round Number</strong>."
+msgstr ""
+"<strong>Datum &amp; Uhrzeit</strong>, <strong>Austragungsort</strong> und "
+"<strong>Rundennummer</strong> festlegen."
+
+msgid ""
+"Leave scores blank until the match is played — set Status to "
+"<em>Completed</em> and enter scores to auto-update standings."
+msgstr ""
+"Ergebnisse leer lassen, bis das Spiel ausgetragen wurde — Status auf "
+"<em>Abgeschlossen</em> setzen und Ergebnisse eingeben, um die Tabelle "
+"automatisch zu aktualisieren."
+
+msgid ""
+"On the competition detail page, click <strong>📋 Lineup</strong> next to any "
+"match."
+msgstr ""
+"Klicken Sie auf der Wettbewerbsdetailseite auf <strong>📋 "
+"Aufstellung</strong> neben einem Spiel."
+
+msgid ""
+"Switch between <strong>Home</strong> and <strong>Away</strong> team tabs."
+msgstr ""
+"Zwischen den Registerkarten <strong>Heim</strong> und "
+"<strong>Auswärts</strong> wechseln."
+
+msgid ""
+"Select a <strong>formation</strong> (4-4-2, 4-3-3, 4-2-3-1, 3-5-2, 5-3-2, "
+"4-1-4-1, 3-4-3)."
+msgstr ""
+"Eine <strong>Formation</strong> auswählen (4-4-2, 4-3-3, 4-2-3-1, 3-5-2, "
+"5-3-2, 4-1-4-1, 3-4-3)."
+
+msgid ""
+"Click an <strong>empty position slot</strong> on the pitch (it turns "
+"yellow), then click a player from the squad list to assign."
+msgstr ""
+"Auf einen <strong>leeren Positionsslot</strong> auf dem Spielfeld klicken "
+"(er wird gelb), dann einen Spieler aus der Kaderliste auswählen."
+
+msgid ""
+"Hover a player token → click <strong>×</strong> to remove, or "
+"<strong>☆</strong> to set as captain."
+msgstr ""
+"Über ein Spieler-Token fahren → <strong>×</strong> zum Entfernen oder "
+"<strong>☆</strong> zum Festlegen als Kapitän klicken."
+
+msgid ""
+"Click a player <em>without</em> selecting a slot to add them to the "
+"<strong>substitutes bench</strong>."
+msgstr ""
+"Auf einen Spieler klicken <em>ohne</em> einen Slot auszuwählen, um ihn zur "
+"<strong>Auswechselbank</strong> hinzuzufügen."
+
+msgid ""
+"Click <strong>💾 Save Lineup</strong> to save. A toast confirmation appears."
+msgstr ""
+"Auf <strong>💾 Aufstellung speichern</strong> klicken. Eine "
+"Bestätigungsmeldung erscheint."
+
+msgid ""
+"Open a contract in <em>Draft</em> status → click <strong>✍️ Sign "
+"Contract</strong>."
+msgstr ""
+"Einen Vertrag mit Status <em>Entwurf</em> öffnen → auf <strong>✍️ Vertrag "
+"unterzeichnen</strong> klicken."
+
+msgid ""
+"Status changes to <em>Active</em> and the signed date + signed-by user are "
+"recorded."
+msgstr ""
+"Status ändert sich auf <em>Aktiv</em> und das Unterzeichnungsdatum sowie der"
+" unterzeichnende Nutzer werden erfasst."
+
+msgid "On the contract detail page click <strong>+ Add Clause</strong>."
+msgstr ""
+"Auf der Vertragsdetailseite auf <strong>+ Klausel hinzufügen</strong> "
+"klicken."
+
+msgid ""
+"Mark important clauses as <strong>Key Clause</strong> to highlight them."
+msgstr ""
+"Wichtige Klauseln als <strong>Schlüsselklausel</strong> markieren, um sie "
+"hervorzuheben."
+
+msgid ""
+"Use the <strong>Order</strong> field to control clause display sequence."
+msgstr ""
+"Das Feld <strong>Reihenfolge</strong> verwenden, um die Anzeigesequenz der "
+"Klauseln zu steuern."
+
+msgid ""
+"Contracts expiring within the <em>renewal notice</em> window show a ⚠️ "
+"warning."
+msgstr ""
+"Verträge, die innerhalb des <em>Verlängerungshinweis</em>zeitfensters "
+"ablaufen, zeigen eine ⚠️ Warnung."
+
+msgid ""
+"Download a <strong>📄 PDF</strong> version from the contract detail page."
+msgstr ""
+"Eine <strong>📄 PDF</strong>-Version von der Vertragsdetailseite "
+"herunterladen."
+
+msgid "The user account must be created in <strong>Accounts</strong> first."
+msgstr ""
+"Das Benutzerkonto muss zuerst unter <strong>Konten</strong> erstellt werden."
+
+msgid ""
+"Set <strong>Job Title</strong>, <strong>Department</strong>, "
+"<strong>Employment Type</strong> (Full-Time / Part-Time / Contract / "
+"Volunteer / Freelance)."
+msgstr ""
+"<strong>Berufsbezeichnung</strong>, <strong>Abteilung</strong>, "
+"<strong>Beschäftigungsart</strong> festlegen (Vollzeit / Teilzeit / Vertrag "
+"/ Ehrenamt / Freiberuflich)."
+
+msgid ""
+"Enter <strong>Hire Date</strong> and optionally a <strong>Contract "
+"End</strong> date."
+msgstr ""
+"<strong>Einstellungsdatum</strong> und optional ein "
+"<strong>Vertragsende</strong>datum eingeben."
+
+msgid ""
+"Set a base <strong>Salary</strong> — this is used as the default gross in "
+"payroll."
+msgstr ""
+"Ein Basis-<strong>Gehalt</strong> festlegen — dieses wird als Standard-"
+"Bruttobetrag in der Gehaltsabrechnung verwendet."
+
+msgid "Priorities: <strong>Low / Medium / High / Urgent</strong>."
+msgstr "Prioritäten: <strong>Niedrig / Mittel / Hoch / Dringend</strong>."
+
+msgid "Click <strong>+ Add Entry</strong> on the Payroll page."
+msgstr ""
+"Auf der Gehaltsabrechnungsseite auf <strong>+ Eintrag hinzufügen</strong> "
+"klicken."
+
+msgid ""
+"Select the <strong>Staff Member</strong>, set <strong>Period Start &amp; "
+"End</strong> dates."
+msgstr ""
+"Den <strong>Mitarbeiter</strong> auswählen, <strong>Periodenanfang &amp; "
+"Ende</strong> festlegen."
+
+msgid ""
+"Enter <strong>Gross Salary</strong>, <strong>Deductions</strong> (tax, "
+"insurance), and <strong>Bonuses</strong>."
+msgstr ""
+"<strong>Bruttogehalt</strong>, <strong>Abzüge</strong> (Steuern, "
+"Versicherung) und <strong>Boni</strong> eingeben."
+
+msgid ""
+"<strong>Net Salary</strong> = Gross + Bonuses − Deductions (auto-calculated "
+"on save)."
+msgstr ""
+"<strong>Nettogehalt</strong> = Brutto + Boni − Abzüge (wird beim Speichern "
+"automatisch berechnet)."
+
+msgid ""
+"Download a formatted <strong>📄 PDF payroll slip</strong> from the row's PDF "
+"button."
+msgstr ""
+"Eine formatierte <strong>📄 PDF-Gehaltsabrechnung</strong> über die PDF-"
+"Schaltfläche in der Zeile herunterladen."
+
+msgid ""
+"Go to <strong>Medical → + Log Injury</strong>, or click <strong>🏥 "
+"Injury</strong> from a player's detail page."
+msgstr ""
+"Zu <strong>Medizin → + Verletzung erfassen</strong> gehen oder auf der "
+"Spielerdetailseite auf <strong>🏥 Verletzung</strong> klicken."
+
+msgid ""
+"Select the <strong>Player</strong>, <strong>Body Part</strong> (Head / Knee "
+"/ Ankle etc.), and <strong>Severity</strong> (Minor / Moderate / Severe)."
+msgstr ""
+"<strong>Spieler</strong>, <strong>Körperteil</strong> (Kopf / Knie / Knöchel"
+" usw.) und <strong>Schweregrad</strong> (Leicht / Mittel / Schwer) "
+"auswählen."
+
+msgid ""
+"Enter the <strong>Injury Date</strong> and an <strong>Expected "
+"Recovery</strong> date."
+msgstr ""
+"<strong>Verletzungsdatum</strong> und ein <strong>voraussichtliches "
+"Genesungsdatum</strong> eingeben."
+
+msgid ""
+"The player's status automatically changes to <em>Injured</em> when saved."
+msgstr ""
+"Der Spielerstatus ändert sich beim Speichern automatisch auf "
+"<em>Verletzt</em>."
+
+msgid ""
+"Open an injury record → <strong>+ Add Treatment</strong> to log physio "
+"sessions, medication etc."
+msgstr ""
+"Einen Verletzungseintrag öffnen → <strong>+ Behandlung hinzufügen</strong>, "
+"um Physio-Sitzungen, Medikation usw. zu erfassen."
+
+msgid ""
+"Create a <strong>Recovery Plan</strong> with milestones and a target return "
+"date."
+msgstr ""
+"Einen <strong>Genesungsplan</strong> mit Meilensteinen und einem "
+"Zielrückkehrdatum erstellen."
+
+msgid "The <em>Days Out</em> counter is calculated automatically."
+msgstr "Der Zähler <em>Ausfalltage</em> wird automatisch berechnet."
+
+msgid ""
+"When a new injury is saved, an <strong>email alert</strong> is automatically"
+" sent to managers. Ensure the Q cluster worker is running for async "
+"delivery."
+msgstr ""
+"Wenn eine neue Verletzung gespeichert wird, wird automatisch eine "
+"<strong>E-Mail-Benachrichtigung</strong> an Manager gesendet. Stellen Sie "
+"sicher, dass der Q-Cluster-Worker für die asynchrone Zustellung läuft."
+
+msgid ""
+"Record every <strong>Income</strong> or <strong>Expense</strong> with a "
+"title, amount, date and category."
+msgstr ""
+"Jede <strong>Einnahme</strong> oder <strong>Ausgabe</strong> mit Titel, "
+"Betrag, Datum und Kategorie erfassen."
+
+msgid "Attach a <strong>receipt file</strong> for documentation."
+msgstr "Eine <strong>Belegdatei</strong> zur Dokumentation anhängen."
+
+msgid "Export all transactions to <strong>Excel</strong>."
+msgstr "Alle Transaktionen nach <strong>Excel</strong> exportieren."
+
+msgid ""
+"Browse products → <strong>Add to Cart</strong> → <strong>Checkout</strong>."
+msgstr ""
+"Produkte durchsuchen → <strong>In den Warenkorb</strong> → <strong>Zur "
+"Kasse</strong>."
+
+msgid "Completed orders automatically create an <em>Income</em> transaction."
+msgstr ""
+"Abgeschlossene Bestellungen erstellen automatisch eine "
+"<em>Einnahmen</em>transaktion."
+
+msgid "Fans earn <strong>loyalty points</strong> (1 point per € spent)."
+msgstr ""
+"Fans sammeln <strong>Treuepunkte</strong> (1 Punkt pro ausgegebenem €)."
+
+msgid ""
+"Enter <strong>Name</strong>, <strong>SKU</strong>, "
+"<strong>Category</strong>, <strong>Quantity</strong>, and <strong>Unit "
+"Cost</strong>."
+msgstr ""
+"<strong>Name</strong>, <strong>Artikelnummer</strong>, "
+"<strong>Kategorie</strong>, <strong>Menge</strong> und "
+"<strong>Stückkosten</strong> eingeben."
+
+msgid ""
+"Set a <strong>Minimum Stock</strong> level — items below this level are "
+"flagged as ⚠️ Low Stock."
+msgstr ""
+"Einen <strong>Mindestbestand</strong> festlegen — Artikel unterhalb dieses "
+"Niveaus werden als ⚠️ Geringer Bestand markiert."
+
+msgid ""
+"Record <strong>Stock In</strong> (delivery) or <strong>Stock Out</strong> "
+"(usage) from an item's detail page."
+msgstr ""
+"<strong>Wareneingang</strong> (Lieferung) oder <strong>Warenausgang</strong>"
+" (Verbrauch) auf der Artikeldetailseite erfassen."
+
+msgid ""
+"Assign kit to a <strong>player</strong> or <strong>staff member</strong>."
+msgstr ""
+"Ausrüstung einem <strong>Spieler</strong> oder <strong>Mitarbeiter</strong> "
+"zuweisen."
+
+msgid "Set an <strong>Expected Return</strong> date."
+msgstr "Ein <strong>voraussichtliches Rückgabedatum</strong> festlegen."
+
+msgid ""
+"Click <strong>Mark Returned</strong> when the item comes back — stock is "
+"updated automatically."
+msgstr ""
+"Auf <strong>Als zurückgegeben markieren</strong> klicken, wenn der Artikel "
+"zurückkommt — der Bestand wird automatisch aktualisiert."
+
+msgid ""
+"From a player's profile click <strong>🔍 Scout Report</strong>, or go to "
+"Scouting → Reports → New."
+msgstr ""
+"Im Spielerprofil auf <strong>🔍 Scoutbericht</strong> klicken oder zu "
+"Scouting → Berichte → Neu gehen."
+
+msgid ""
+"Rate the player on 4 dimensions (0–10): <strong>Technical, Tactical, "
+"Physical, Mental</strong>."
+msgstr ""
+"Den Spieler auf 4 Dimensionen bewerten (0–10): <strong>Technisch, Taktisch, "
+"Körperlich, Mental</strong>."
+
+msgid ""
+"The <strong>Overall Rating</strong> is the average of the 4 scores — "
+"calculated automatically."
+msgstr ""
+"Die <strong>Gesamtbewertung</strong> ist der Durchschnitt der 4 Wertungen — "
+"wird automatisch berechnet."
+
+msgid ""
+"Add <strong>Strengths</strong>, <strong>Weaknesses</strong>, and free-text "
+"<strong>Notes</strong>."
+msgstr ""
+"<strong>Stärken</strong>, <strong>Schwächen</strong> und freien Text unter "
+"<strong>Notizen</strong> hinzufügen."
+
+msgid ""
+"Add external prospects not yet in the system as <strong>Talent "
+"Profiles</strong>."
+msgstr ""
+"Externe Interessenten, die noch nicht im System sind, als "
+"<strong>Talentprofile</strong> hinzufügen."
+
+msgid ""
+"<strong>Organization</strong> = the parent entity (e.g. \"ApexForge Sports "
+"Group\")."
+msgstr ""
+"<strong>Organisation</strong> = die übergeordnete Einheit (z.B. \"ApexForge "
+"Sports Group\")."
+
+msgid ""
+"<strong>Club</strong> = a specific club under the organization (e.g. "
+"\"ApexForge FC\", \"ApexForge Women\")."
+msgstr ""
+"<strong>Verein</strong> = ein spezifischer Verein unter der Organisation "
+"(z.B. \"ApexForge FC\", \"ApexForge Frauen\")."
+
+msgid ""
+"All data (teams, players, events) is scoped to the <strong>active "
+"club</strong>."
+msgstr ""
+"Alle Daten (Teams, Spieler, Veranstaltungen) beziehen sich auf den "
+"<strong>aktiven Verein</strong>."
+
+msgid ""
+"Click the club name in the <strong>top-left sidebar dropdown</strong> to "
+"switch your active club."
+msgstr ""
+"Auf den Vereinsnamen im <strong>Dropdown-Menü oben links in der "
+"Seitenleiste</strong> klicken, um den aktiven Verein zu wechseln."
+
+msgid ""
+"Go to a club's detail page → <strong>Manage Access</strong> to grant users "
+"access."
+msgstr ""
+"Zur Vereinsdetailseite gehen → <strong>Zugriff verwalten</strong>, um "
+"Benutzern Zugriff zu gewähren."
+
+msgid "Click <strong>Revoke</strong> to remove a user's club access."
+msgstr ""
+"Auf <strong>Widerrufen</strong> klicken, um den Vereinszugriff eines "
+"Benutzers zu entfernen."
+
+msgid ""
+"Create an Academy Program with an <strong>Age Group</strong> (U7 through "
+"U21), <strong>Head Coach</strong>, and <strong>Team</strong>."
+msgstr ""
+"Ein Akademieprogramm mit einer <strong>Altersgruppe</strong> (U7 bis U21), "
+"<strong>Cheftrainer</strong> und <strong>Team</strong> erstellen."
+
+msgid "Add a <strong>Curriculum</strong> description and goals."
+msgstr "Eine <strong>Curriculum</strong>-Beschreibung und Ziele hinzufügen."
+
+msgid ""
+"From a program, create a <strong>Development Plan</strong> for each player."
+msgstr ""
+"Aus einem Programm heraus einen <strong>Entwicklungsplan</strong> für jeden "
+"Spieler erstellen."
+
+msgid ""
+"Set <strong>Focus Area</strong>, <strong>Goals</strong>, <strong>Start &amp;"
+" Target Date</strong>, and an <strong>Overall Rating</strong>."
+msgstr ""
+"<strong>Schwerpunktbereich</strong>, <strong>Ziele</strong>, <strong>Start- "
+"&amp; Zieldatum</strong> und eine <strong>Gesamtbewertung</strong> "
+"festlegen."
+
+msgid ""
+"Toggle a milestone as <strong>Achieved</strong> — the achieved date is "
+"recorded automatically."
+msgstr ""
+"Einen Meilenstein als <strong>Erreicht</strong> markieren — das "
+"Erreichungsdatum wird automatisch erfasst."
+
+msgid ""
+"Click <strong>+ New Post</strong> — write a title and content, choose a "
+"<strong>Category</strong> and upload a <strong>Featured Image</strong>."
+msgstr ""
+"Auf <strong>+ Neuer Beitrag</strong> klicken — einen Titel und Inhalt "
+"schreiben, eine <strong>Kategorie</strong> wählen und ein "
+"<strong>Beitragsbild</strong> hochladen."
+
+msgid ""
+"Check <strong>Publish Now</strong> to make it live immediately, or leave "
+"unchecked to save as draft."
+msgstr ""
+"<strong>Jetzt veröffentlichen</strong> ankreuzen, um sofort live zu gehen, "
+"oder unmarkiert lassen, um als Entwurf zu speichern."
+
+msgid "Mark posts as <strong>Featured</strong> to highlight them at the top."
+msgstr ""
+"Beiträge als <strong>Hervorgehoben</strong> markieren, um sie oben "
+"anzuzeigen."
+
+msgid ""
+"Short-lived notices with a <strong>Start</strong> and <strong>End "
+"Date</strong>."
+msgstr ""
+"Kurzfristige Hinweise mit einem <strong>Start-</strong> und "
+"<strong>Enddatum</strong>."
+
+msgid ""
+"Plan marketing campaigns with a <strong>budget</strong>, "
+"<strong>goals</strong>, and <strong>date range</strong>."
+msgstr ""
+"Marketingkampagnen mit einem <strong>Budget</strong>, "
+"<strong>Zielen</strong> und einem <strong>Zeitraum</strong> planen."
+
+msgid ""
+"Click <strong>Upload Video</strong> → select a file, enter a "
+"<strong>Title</strong> and <strong>Category</strong>."
+msgstr ""
+"Auf <strong>Video hochladen</strong> klicken → eine Datei auswählen, einen "
+"<strong>Titel</strong> und eine <strong>Kategorie</strong> eingeben."
+
+msgid ""
+"Assign to a <strong>Team</strong> and add <strong>Tags</strong> for "
+"searchability."
+msgstr ""
+"Einem <strong>Team</strong> zuweisen und <strong>Tags</strong> zur "
+"Auffindbarkeit hinzufügen."
+
+msgid ""
+"Toggle <strong>Public</strong> to make it visible to all users, or keep it "
+"private (managers only)."
+msgstr ""
+"<strong>Öffentlich</strong> aktivieren, um es für alle Benutzer sichtbar zu "
+"machen, oder privat halten (nur Manager)."
+
+msgid ""
+"Open a video → click <strong>Add Note</strong> to attach a timestamped "
+"annotation."
+msgstr ""
+"Ein Video öffnen → auf <strong>Notiz hinzufügen</strong> klicken, um eine "
+"zeitgestempelte Anmerkung hinzuzufügen."
+
+msgid ""
+"Tag specific <strong>players</strong> in each note for individual analysis."
+msgstr ""
+"Bestimmte <strong>Spieler</strong> in jeder Notiz für individuelle Analysen "
+"markieren."
+
+msgid ""
+"Go to <strong>Fan Portal → Admin</strong> to manage ticket categories and "
+"bulk-create tickets for an event."
+msgstr ""
+"Zu <strong>Fan-Portal → Admin</strong> gehen, um Ticketkategorien zu "
+"verwalten und Tickets für eine Veranstaltung in großer Menge zu erstellen."
+
+msgid ""
+"Set a <strong>Base Price</strong> per category (e.g. VIP, Standard, "
+"Student)."
+msgstr ""
+"Einen <strong>Grundpreis</strong> pro Kategorie festlegen (z.B. VIP, "
+"Standard, Student)."
+
+msgid ""
+"Use <strong>Bulk Create</strong> to generate many tickets at once with seat "
+"row prefixes."
+msgstr ""
+"<strong>Massenerstellung</strong> verwenden, um viele Tickets auf einmal mit"
+" Reihenpräfixen zu erstellen."
+
+msgid "Browse available events → click <strong>Buy Ticket</strong>."
+msgstr ""
+"Verfügbare Veranstaltungen durchsuchen → auf <strong>Ticket kaufen</strong> "
+"klicken."
+
+msgid ""
+"A purchase reference is generated and stored in <strong>My Tickets</strong>."
+msgstr ""
+"Eine Kaufreferenz wird erstellt und unter <strong>Meine Tickets</strong> "
+"gespeichert."
+
+msgid "Fans earn <strong>1 loyalty point per € spent</strong>."
+msgstr "Fans sammeln <strong>1 Treuepunkt pro ausgegebenem €</strong>."
+
+msgid ""
+"Managers can manually <strong>adjust points</strong> (bonus or penalty)."
+msgstr ""
+"Manager können Punkte manuell <strong>anpassen</strong> (Bonus oder Strafe)."
+
+msgid "View the full <strong>Loyalty History</strong> from the fan portal."
+msgstr ""
+"Die vollständige <strong>Treuepunktehistorie</strong> im Fan-Portal "
+"anzeigen."
+
+msgid ""
+"<strong>Players</strong> — Status distribution, top scorers, top assisters, "
+"average performance rating."
+msgstr ""
+"<strong>Spieler</strong> — Statusverteilung, Torjäger, Vorlagengeber, "
+"durchschnittliche Leistungsbewertung."
+
+msgid ""
+"<strong>Medical</strong> — Injury status breakdown (Active / Recovering / "
+"Recovered), severity chart."
+msgstr ""
+"<strong>Medizin</strong> — Verletzungsstatusübersicht (Aktiv / Genesend / "
+"Genesen), Schweregraddiagramm."
+
+msgid ""
+"<strong>Tournaments</strong> — Match totals, completed matches, home win "
+"rate, recent results."
+msgstr ""
+"<strong>Turniere</strong> — Spielgesamtzahlen, abgeschlossene Spiele, "
+"Heimsiegquote, aktuelle Ergebnisse."
+
+msgid ""
+"<strong>Finance</strong> — Year-to-date income, expenses, and net balance."
+msgstr ""
+"<strong>Finanzen</strong> — Einnahmen, Ausgaben und Nettosaldo des laufenden"
+" Jahres."
+
+msgid ""
+"<strong>Staff</strong> — Task status chart (Pending / In Progress / "
+"Completed), overdue count, YTD payroll."
+msgstr ""
+"<strong>Personal</strong> — Aufgabenstatusdiagramm (Ausstehend / In "
+"Bearbeitung / Abgeschlossen), überfällige Anzahl, YTD-Gehaltsabrechnung."
+
+msgid ""
+"<strong>Academy</strong> — Active programs count, average player development"
+" rating."
+msgstr ""
+"<strong>Akademie</strong> — Anzahl aktiver Programme, durchschnittliche "
+"Spielerentwicklungsbewertung."
+
+msgid ""
+"<strong>Contracts</strong> — Active, expiring (within 60 days), and expired "
+"counts."
+msgstr ""
+"<strong>Verträge</strong> — Aktive, ablaufende (innerhalb von 60 Tagen) und "
+"abgelaufene Anzahl."
+
+msgid "Data reflects the currently <strong>active club</strong>."
+msgstr "Die Daten spiegeln den aktuell <strong>aktiven Verein</strong> wider."
+
+msgid ""
+"The <strong>Dashboard</strong> is your home base — a quick snapshot of "
+"what's happening across your club."
+msgstr ""
+"Das <strong>Dashboard</strong> ist Ihre Zentrale — ein schneller Überblick "
+"über alles, was in Ihrem Verein passiert."
+
+msgid ""
+"The <strong>Players</strong> module is the heart of ApexForge — manage every"
+" athlete in your club."
+msgstr ""
+"Das Modul <strong>Spieler</strong> ist das Herzstück von ApexForge — "
+"verwalten Sie jeden Athleten in Ihrem Verein."
+
+msgid ""
+"The <strong>Teams</strong> module lets you organise players into squads, "
+"assign coaches, and track team-level data."
+msgstr ""
+"Das Modul <strong>Teams</strong> ermöglicht es Ihnen, Spieler in Kader zu "
+"organisieren, Trainer zuzuweisen und Teamdaten zu verfolgen."
+
+msgid ""
+"The <strong>Events</strong> module helps you schedule and track all club "
+"activities — matches, training sessions, and more."
+msgstr ""
+"Das Modul <strong>Veranstaltungen</strong> hilft Ihnen, alle "
+"Vereinsaktivitäten zu planen und zu verfolgen — Spiele, Trainingseinheiten "
+"und mehr."
+
+msgid ""
+"The <strong>Tournaments</strong> module lets you create and manage "
+"competitions your club participates in or organises."
+msgstr ""
+"Das Modul <strong>Turniere</strong> ermöglicht es Ihnen, Wettbewerbe zu "
+"erstellen und zu verwalten, an denen Ihr Verein teilnimmt oder die er "
+"organisiert."
+
+msgid ""
+"The <strong>Contracts</strong> module helps you manage all agreements with "
+"players, staff, and third parties."
+msgstr ""
+"Das Modul <strong>Verträge</strong> hilft Ihnen, alle Vereinbarungen mit "
+"Spielern, Personal und Dritten zu verwalten."
+
+msgid ""
+"The <strong>Staff</strong> module lets you manage everyone working at your "
+"club — coaches, medical personnel, administrators, and more."
+msgstr ""
+"Das Modul <strong>Personal</strong> ermöglicht es Ihnen, alle bei Ihrem "
+"Verein tätigen Personen zu verwalten — Trainer, medizinisches Personal, "
+"Administratoren und mehr."
+
+msgid ""
+"The <strong>Medical</strong> module helps you track the health and fitness "
+"of your players."
+msgstr ""
+"Das Modul <strong>Medizin</strong> hilft Ihnen, die Gesundheit und Fitness "
+"Ihrer Spieler zu verfolgen."
+
+msgid ""
+"The <strong>Finance</strong> module gives you full visibility into your "
+"club's financial activity."
+msgstr ""
+"Das Modul <strong>Finanzen</strong> gibt Ihnen vollständige Transparenz über"
+" die finanziellen Aktivitäten Ihres Vereins."
+
+msgid ""
+"The <strong>Inventory</strong> module helps you track all physical assets "
+"belonging to your club."
+msgstr ""
+"Das Modul <strong>Inventar</strong> hilft Ihnen, alle physischen "
+"Vermögenswerte Ihres Vereins zu verfolgen."
+
+msgid ""
+"The <strong>Scouting</strong> module helps you discover and evaluate talent "
+"beyond your current squad."
+msgstr ""
+"Das Modul <strong>Scouting</strong> hilft Ihnen, Talente jenseits Ihres "
+"aktuellen Kaders zu entdecken und zu bewerten."
+
+msgid ""
+"The <strong>Organizations</strong> module lets you manage the clubs, "
+"associations, and bodies your club interacts with."
+msgstr ""
+"Das Modul <strong>Organisationen</strong> ermöglicht es Ihnen, die Vereine, "
+"Verbände und Institutionen zu verwalten, mit denen Ihr Verein interagiert."
+
+msgid ""
+"The <strong>Academy</strong> module helps you manage your youth development "
+"infrastructure."
+msgstr ""
+"Das Modul <strong>Akademie</strong> hilft Ihnen, Ihre "
+"Jugendentwicklungsinfrastruktur zu verwalten."
+
+msgid ""
+"The <strong>Marketing</strong> module helps you manage your club's brand "
+"presence and fan engagement."
+msgstr ""
+"Das Modul <strong>Marketing</strong> hilft Ihnen, die Markenpräsenz Ihres "
+"Vereins und das Fan-Engagement zu verwalten."
+
+msgid ""
+"The <strong>Videos</strong> module lets you store and organise match "
+"footage, training clips, and analysis videos."
+msgstr ""
+"Das Modul <strong>Videos</strong> ermöglicht es Ihnen, Spielaufnahmen, "
+"Trainingsclips und Analysevideos zu speichern und zu organisieren."
+
+msgid ""
+"The <strong>Fans</strong> module helps you build and manage your supporter "
+"community."
+msgstr ""
+"Das Modul <strong>Fans</strong> hilft Ihnen, Ihre Fangemeinde aufzubauen und"
+" zu verwalten."
+
+msgid ""
+"The <strong>Insights</strong> module gives you data-driven views across all "
+"areas of your club."
+msgstr ""
+"Das Modul <strong>Einblicke</strong> gibt Ihnen datengestützte Ansichten "
+"aller Bereiche Ihres Vereins."
+
+msgid "Team List"
+msgstr "Teamliste"
+
+msgid "Team Detail Page — Actions"
+msgstr "Team-Detailseite — Aktionen"
+
+msgid "Event List"
+msgstr "Veranstaltungsliste"
+
+msgid "Event Detail Page — Actions"
+msgstr "Veranstaltungs-Detailseite — Aktionen"
+
+msgid "Tournament List"
+msgstr "Turnierliste"
+
+msgid "Tournament Detail Page — Actions"
+msgstr "Turnier-Detailseite — Aktionen"
+
+msgid "Contract List"
+msgstr "Vertragsliste"
+
+msgid "Contract Detail Page — Actions"
+msgstr "Vertrags-Detailseite — Aktionen"
+
+msgid "Staff List"
+msgstr "Personalliste"
+
+msgid "Staff Detail Page — Actions"
+msgstr "Personal-Detailseite — Aktionen"
+
+msgid "Medical List"
+msgstr "Medizinische Liste"
+
+msgid "Logging a Medical Record"
+msgstr "Einen Krankeneintrag erfassen"
+
+msgid "Medical Detail Page — Actions"
+msgstr "Medizinische Detailseite — Aktionen"
+
+msgid "Finance Overview"
+msgstr "Finanzübersicht"
+
+msgid "Adding a Transaction"
+msgstr "Eine Transaktion hinzufügen"
+
+msgid "Inventory List"
+msgstr "Inventarliste"
+
+msgid "Adding an Item"
+msgstr "Einen Artikel hinzufügen"
+
+msgid "Scout Report List"
+msgstr "Scoutbericht-Liste"
+
+msgid "Creating a Scout Report"
+msgstr "Einen Scoutbericht erstellen"
+
+msgid "Organization List"
+msgstr "Organisationsliste"
+
+msgid "Adding an Organization"
+msgstr "Eine Organisation hinzufügen"
+
+msgid "Academy Overview"
+msgstr "Akademie-Übersicht"
+
+msgid "Marketing Overview"
+msgstr "Marketing-Übersicht"
+
+msgid "Video List"
+msgstr "Videoliste"
+
+msgid "Fan List"
+msgstr "Fanliste"
+
+msgid "Insights Overview"
+msgstr "Einblicke-Übersicht"
+
+msgid "%(n)s tickets created."
+msgstr "%(n)s Tickets erstellt."
+
+msgid "%(name)s added to cart."
+msgstr "%(name)s zum Warenkorb hinzugefügt."
+
+msgid "Academy program created."
+msgstr "Akademieprogramm erstellt."
+
+msgid "Access denied."
+msgstr "Zugriff verweigert."
+
+msgid "Access granted."
+msgstr "Zugriff gewährt."
+
+msgid "Access revoked."
+msgstr "Zugriff widerrufen."
+
+msgid "Accessories"
+msgstr "Zubehör"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Account created! Welcome to ApexForge."
+msgstr "Konto erstellt! Willkommen bei ApexForge."
+
+msgid "Add Product"
+msgstr "Produkt hinzufügen"
+
+msgid "Add Season"
+msgstr "Saison hinzufügen"
+
+msgid "Add Staff Member"
+msgstr "Mitarbeiter Hinzufügen"
+
+msgid "Add milestones to a plan (e.g. \\\"First team training appearance\\\")."
+msgstr ""
+
+msgid "Add or remove entries from the watchlist view."
+msgstr "Einträge in der Watchlist-Ansicht hinzufügen oder entfernen."
+
+msgid "Add your first product"
+msgstr "Erstes Produkt hinzufügen"
+
+msgid "Adjustment"
+msgstr "Anpassung"
+
+msgid "Admin"
+msgstr "Administrator"
+
+msgid "Admission"
+msgstr "Zulassung"
+
+msgid ""
+"After clicking the button below you will be taken to Stripe's checkout page "
+"where you enter your card details. We never see your card number."
+msgstr ""
+"Nach dem Klick auf den Button unten werden Sie zur Stripe-Checkout-Seite "
+"weitergeleitet, wo Sie Ihre Kartendaten eingeben. Wir sehen Ihre "
+"Kartennummer nie."
+
+msgid "All Seasons"
+msgstr "Alle Saisons"
+
+msgid "All Sports"
+msgstr "Alle Sportarten"
+
+msgid "All articles"
+msgstr "Alle Artikel"
+
+msgid "All fixtures"
+msgstr "Alle Spiele"
+
+msgid "All rights reserved."
+msgstr "Alle Rechte vorbehalten."
+
+msgid "All tickets"
+msgstr "Alle Tickets"
+
+msgid "All tiers"
+msgstr "Alle Stufen"
+
+msgid "Already a member? Sign In"
+msgstr "Bereits Mitglied? Anmelden"
+
+msgid "Analyst"
+msgstr "Analyst"
+
+msgid "Analytics"
+msgstr "Analysen"
+
+msgid "Ankle"
+msgstr "Knöchel"
+
+msgid "Announcement created."
+msgstr "Ankündigung erstellt."
+
+msgid "Announcement deleted."
+msgstr "Ankündigung gelöscht."
+
+msgid "Announcement updated."
+msgstr "Ankündigung aktualisiert."
+
+msgid "Any special instructions?"
+msgstr "Besondere Anweisungen?"
+
+msgid ""
+"ApexForge brings fans and club operations together — from buying tickets and"
+" team merch to match analysis and player management."
+msgstr ""
+"ApexForge verbindet Fans und Club-Betrieb — vom Ticketkauf und Merchandise "
+"bis hin zur Spielanalyse und Spielerverwaltung."
+
+msgid "Apps"
+msgstr "Apps"
+
+msgid "Area to Improve"
+msgstr "Verbesserungsbereich"
+
+msgid "Arm"
+msgstr "Arm"
+
+msgid "Athlete / Player"
+msgstr "Athlet / Spieler"
+
+msgid "Attacking Midfielder"
+msgstr "Offensiver Mittelfeldspieler"
+
+msgid "Auto-create 24 demo players for testing"
+msgstr "Automatisch 24 Demo-Spieler für Tests erstellen"
+
+msgid "Back to Cart"
+msgstr "Zurück zum Warenkorb"
+
+msgid "Back to Order"
+msgstr "Zurück zur Bestellung"
+
+msgid "Back to Tickets"
+msgstr "Zurück zu Tickets"
+
+msgid "Become a Member"
+msgstr "Mitglied werden"
+
+msgid "Billed To"
+msgstr "In Rechnung gestellt an"
+
+msgid "Blood Test"
+msgstr "Bluttest"
+
+msgid "Bonus"
+msgstr "Bonus"
+
+msgid "Bonus Clause"
+msgstr "Bonusklausel"
+
+msgid "Both"
+msgstr "Beide"
+
+msgid "Box-to-Box Midfielder"
+msgstr "Box-to-Box-Mittelfeldspieler"
+
+msgid "Branding settings updated."
+msgstr "Markeneinstellungen aktualisiert."
+
+msgid "Browse Events"
+msgstr "Veranstaltungen durchsuchen"
+
+msgid "Browse Store"
+msgstr "Shop durchsuchen"
+
+msgid "Browse all products"
+msgstr "Alle Produkte durchsuchen"
+
+msgid "Browse fixtures freely — sign in to purchase your tickets."
+msgstr ""
+"Spielpläne frei durchsuchen — melden Sie sich an, um Tickets zu kaufen."
+
+msgid "Browse freely — sign in to add to cart and purchase."
+msgstr ""
+"Stöbern Sie frei — melden Sie sich an, um zum Warenkorb hinzuzufügen und zu "
+"kaufen."
+
+msgid "Budget created."
+msgstr "Budget erstellt."
+
+msgid "Budget updated."
+msgstr "Budget aktualisiert."
+
+msgid "Buy Match Tickets"
+msgstr "Spieltickets kaufen"
+
+msgid ""
+"Buy match tickets, choose your seat, and earn loyalty points every time you "
+"attend."
+msgstr ""
+"Kaufen Sie Spieltickets, wählen Sie Ihren Sitzplatz und sammeln Sie bei "
+"jedem Besuch Treuepunkte."
+
+msgid "Campaign created."
+msgstr "Kampagne erstellt."
+
+msgid "Campaign updated."
+msgstr "Kampagne aktualisiert."
+
+msgid "Can't find your answer?"
+msgstr "Antwort nicht gefunden?"
+
+msgid "Cancelled"
+msgstr "Storniert"
+
+msgid "Captain"
+msgstr "Kapitän"
+
+msgid "Card via Stripe"
+msgstr "Karte über Stripe"
+
+msgid "Category created."
+msgstr "Kategorie erstellt."
+
+msgid "Category updated."
+msgstr "Kategorie aktualisiert."
+
+msgid "Center"
+msgstr "Mitte"
+
+msgid "Central Midfielder"
+msgstr "Zentraler Mittelfeldspieler"
+
+msgid "Centre Back"
+msgstr "Innenverteidiger"
+
+msgid "Centre Forward"
+msgstr "Mittelstürmer"
+
+msgid "Checkout"
+msgstr "Kasse"
+
+msgid "Chest"
+msgstr "Brust"
+
+msgid "Choose Fan Photo"
+msgstr "Fan-Foto wählen"
+
+msgid "Clause added."
+msgstr "Klausel hinzugefügt."
+
+msgid "Click a player to add to bench"
+msgstr "Klicken Sie auf einen Spieler, um ihn zur Bank hinzuzufügen"
+
+msgid "Club Management"
+msgstr "Club-Verwaltung"
+
+msgid "Club News"
+msgstr "Club-Nachrichten"
+
+msgid "Club Owner / Entrepreneur"
+msgstr "Clubbesitzer / Unternehmer"
+
+msgid "Club Store"
+msgstr "Vereinsshop"
+
+msgid "Club Store Highlights"
+msgstr "Club-Shop Highlights"
+
+msgid "Club created."
+msgstr "Club erstellt."
+
+msgid "Club updated."
+msgstr "Club aktualisiert."
+
+msgid "Comma-separated roles or blank for all"
+msgstr "Kommagetrennte Rollen oder leer für alle"
+
+msgid "Community"
+msgstr "Gemeinschaft"
+
+msgid "Competition created."
+msgstr "Wettbewerb erstellt."
+
+msgid "Competition updated."
+msgstr "Wettbewerb aktualisiert."
+
+msgid "Complete your profile to start earning loyalty points."
+msgstr "Vervollständigen Sie Ihr Profil, um Treuepunkte zu sammeln."
+
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+msgid "Confidentiality"
+msgstr "Vertraulichkeit"
+
+msgid "Confirm Password"
+msgstr "Passwort bestätigen"
+
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+msgid "Contacted"
+msgstr "Kontaktiert"
+
+msgid "Continue Shopping"
+msgstr "Weiter einkaufen"
+
+msgid "Continue to Payment"
+msgstr "Weiter zur Zahlung"
+
+msgid "Contract created."
+msgstr "Vertrag erstellt."
+
+msgid "Contract marked as signed and active."
+msgstr "Vertrag als unterzeichnet und aktiv markiert."
+
+msgid "Contract updated."
+msgstr "Vertrag aktualisiert."
+
+msgid "Create Competition"
+msgstr "Wettbewerb erstellen"
+
+msgid "Create Free Account"
+msgstr "Kostenloses Konto erstellen"
+
+msgid "Create Season"
+msgstr "Saison erstellen"
+
+msgid "Create a free account to start shopping"
+msgstr "Kostenloses Konto erstellen um loszukaufen"
+
+msgid "Create an account"
+msgstr "Ein Konto erstellen"
+
+msgid ""
+"Create named watchlists to group players and talents you are monitoring."
+msgstr ""
+"Erstellen Sie benannte Watchlisten, um von Ihnen beobachtete Spieler und "
+"Talente zu gruppieren."
+
+msgid "Create your fan profile to buy tickets."
+msgstr "Erstellen Sie Ihr Fan-Profil, um Tickets zu kaufen."
+
+msgid "Created"
+msgstr "Erstellt"
+
+msgid "Critical (3+ months)"
+msgstr "Kritisch (3+ Monate)"
+
+msgid "Cup / Knockout"
+msgstr "Pokal / K.o.-Runde"
+
+msgid "Current"
+msgstr "Aktuell"
+
+msgid "Current balance:"
+msgstr "Aktuelles Guthaben:"
+
+msgid "Dates"
+msgstr ""
+
+msgid "Declined"
+msgstr "Abgelehnt"
+
+msgid "Default club shown when user logs in"
+msgstr "Standard-Club beim Anmelden angezeigt"
+
+msgid "Defensive Midfielder"
+msgstr "Defensiver Mittelfeldspieler"
+
+msgid "Delete this season?"
+msgstr "Diese Saison löschen?"
+
+msgid "Deleted"
+msgstr "Gelöscht"
+
+msgid "Delivered"
+msgstr "Geliefert"
+
+msgid "Delivery Address"
+msgstr "Lieferadresse"
+
+msgid "Demo Squad"
+msgstr "Demo-Kader"
+
+msgid "Development plan created."
+msgstr "Entwicklungsplan erstellt."
+
+msgid "Development plan updated."
+msgstr "Entwicklungsplan aktualisiert."
+
+msgid "Digital"
+msgstr "Digital"
+
+msgid "Digital / Media"
+msgstr "Digital / Medien"
+
+msgid "Disbanded"
+msgstr "Aufgelöst"
+
+msgid "Donation"
+msgstr "Spende"
+
+msgid "Download PDF"
+msgstr "PDF herunterladen"
+
+msgid "Download PDF Invoice"
+msgstr "PDF-Rechnung herunterladen"
+
+msgid "Download slip"
+msgstr "Beleg herunterladen"
+
+msgid "Draft"
+msgstr "Entwurf"
+
+msgid "Earn loyalty points on every purchase. Free to join, cancel anytime."
+msgstr ""
+"Sammeln Sie Treuepunkte bei jedem Kauf. Kostenlos beitreten, jederzeit "
+"kündigen."
+
+msgid ""
+"Earn points on every purchase. Climb from Bronze to Platinum and unlock "
+"exclusive member perks."
+msgstr ""
+"Sammeln Sie Punkte bei jedem Kauf. Steigen Sie von Bronze bis Platin auf und"
+" schalten Sie exklusive Mitgliedervorteile frei."
+
+msgid "Earned"
+msgstr "Verdient"
+
+msgid "Edit Category"
+msgstr "Kategorie Bearbeiten"
+
+msgid "Edit Club"
+msgstr "Club Bearbeiten"
+
+msgid "Edit Competition"
+msgstr "Wettbewerb Bearbeiten"
+
+msgid "Edit Contract"
+msgstr "Vertrag Bearbeiten"
+
+msgid "Edit Event"
+msgstr "Veranstaltung Bearbeiten"
+
+msgid "Edit Injury"
+msgstr "Verletzung Bearbeiten"
+
+msgid "Edit Item"
+msgstr "Artikel Bearbeiten"
+
+msgid "Edit Organization"
+msgstr "Organisation Bearbeiten"
+
+msgid "Edit Player"
+msgstr "Spieler Bearbeiten"
+
+msgid "Edit Post"
+msgstr "Beitrag Bearbeiten"
+
+msgid "Edit Program"
+msgstr "Programm Bearbeiten"
+
+msgid "Edit Staff Member"
+msgstr "Mitarbeiter Bearbeiten"
+
+msgid "Edit Talent"
+msgstr "Talent Bearbeiten"
+
+msgid "Edit Task"
+msgstr "Aufgabe Bearbeiten"
+
+msgid "Edit Team"
+msgstr "Team Bearbeiten"
+
+msgid "Edit Tournament"
+msgstr "Turnier Bearbeiten"
+
+msgid "Edit Transaction"
+msgstr "Transaktion Bearbeiten"
+
+msgid "Edit fan profile"
+msgstr "Fan-Profil bearbeiten"
+
+msgid "Edit profile"
+msgstr "Profil bearbeiten"
+
+msgid "Elbow"
+msgstr "Ellbogen"
+
+msgid "Email Support"
+msgstr "E-Mail Support"
+
+msgid "Email address is required"
+msgstr "E-Mail-Adresse ist erforderlich"
+
+msgid "Empty slot (click to select, then pick player)"
+msgstr "Leerer Platz (klicken zum Auswählen, dann Spieler wählen)"
+
+msgid "Ended"
+msgstr "Beendet"
+
+msgid "Equity Investment"
+msgstr "Eigenkapitalinvestition"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Est."
+msgstr "Gegr."
+
+msgid "Event created."
+msgstr "Veranstaltung erstellt."
+
+msgid "Event deleted."
+msgstr "Veranstaltung gelöscht."
+
+msgid "Event updated."
+msgstr "Veranstaltung aktualisiert."
+
+msgid "Everything in One Place"
+msgstr "Alles an einem Ort"
+
+msgid ""
+"Everything you need to know about shopping, tickets, payments and your "
+"account."
+msgstr ""
+"Alles, was Sie über Einkaufen, Tickets, Zahlungen und Ihr Konto wissen "
+"müssen."
+
+msgid "Expense"
+msgstr "Ausgabe"
+
+msgid "Exported"
+msgstr "Exportiert"
+
+msgid "Facility Lease"
+msgstr "Anlagenleasing"
+
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+msgid "Fair"
+msgstr "Mäßig"
+
+msgid "Fan / Investor"
+msgstr "Fan / Investor"
+
+msgid "Fan Members"
+msgstr "Fan-Mitglieder"
+
+msgid "Fan Portal Photo"
+msgstr "Fan-Portal-Foto"
+
+msgid "Fans"
+msgstr "Fans"
+
+msgid "Favourite player"
+msgstr "Lieblingsspieler"
+
+msgid "Filter players…"
+msgstr "Spieler filtern…"
+
+msgid "Final"
+msgstr "Finale"
+
+msgid "Fixture / Match"
+msgstr "Spiel / Match"
+
+msgid "Fixtures"
+msgstr "Spiele"
+
+msgid "For Fans"
+msgstr "Für Fans"
+
+msgid "Formation"
+msgstr "Formation"
+
+msgid "Free to join"
+msgstr "Kostenlos beitreten"
+
+msgid "Freelance"
+msgstr "Freiberuflich"
+
+msgid "Friendly Tournament"
+msgstr "Freundschaftsturnier"
+
+msgid "Full library"
+msgstr "Gesamte Bibliothek"
+
+msgid "Full store"
+msgstr "Ganzer Shop"
+
+msgid "Full-Time"
+msgstr "Vollzeit"
+
+msgid "General Admission"
+msgstr "Allgemeine Zulassung"
+
+msgid "Get Tickets"
+msgstr "Tickets kaufen"
+
+msgid "Get tickets"
+msgstr "Tickets kaufen"
+
+msgid "Goalkeeper"
+msgstr "Torwart"
+
+msgid "Grant"
+msgstr "Zuschuss"
+
+msgid "Groin"
+msgstr "Leiste"
+
+msgid "Group Stage"
+msgstr "Gruppenphase"
+
+msgid "Group Stage + Knockout"
+msgstr "Gruppenphase + K.o."
+
+msgid "Gym Rehabilitation"
+msgstr "Gym-Rehabilitation"
+
+msgid "Head"
+msgstr "Kopf"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "Help & Support"
+msgstr "Hilfe & Support"
+
+msgid "Help Centre"
+msgstr "Hilfezentrum"
+
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+msgid "High"
+msgstr "Hoch"
+
+msgid "Highlights"
+msgstr "Highlights"
+
+msgid "Hip"
+msgstr "Hüfte"
+
+msgid "How the injury happened"
+msgstr "Wie die Verletzung passierte"
+
+msgid "Ice / Cold Therapy"
+msgstr "Eis / Kältetherapie"
+
+msgid "Imaging (X-ray/MRI/CT)"
+msgstr "Bildgebung (Röntgen/MRT/CT)"
+
+msgid "Imported"
+msgstr "Importiert"
+
+msgid "In Progress"
+msgstr "In Bearbeitung"
+
+msgid "Incident"
+msgstr "Vorfall"
+
+msgid "Included"
+msgstr "Inklusive"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Injury logged."
+msgstr "Verletzung erfasst."
+
+msgid "Injury recorded."
+msgstr "Verletzung aufgezeichnet."
+
+msgid "Injury updated."
+msgstr "Verletzung aktualisiert."
+
+msgid "Interview"
+msgstr "Interview"
+
+msgid "Investment recorded."
+msgstr "Investition erfasst."
+
+msgid "Investment updated."
+msgstr "Investition aktualisiert."
+
+msgid "Invite for Trial"
+msgstr "Zum Probetraining Einladen"
+
+msgid "Invoice"
+msgstr "Rechnung"
+
+msgid "Invoice Date"
+msgstr "Rechnungsdatum"
+
+msgid "Item Categories"
+msgstr "Artikelkategorien"
+
+msgid "Item added to inventory."
+msgstr "Artikel zum Inventar hinzugefügt."
+
+msgid "Item updated."
+msgstr "Artikel aktualisiert."
+
+msgid "Jersey"
+msgstr "Trikot"
+
+msgid "Join & Loyalty"
+msgstr "Beitreten & Treue"
+
+msgid "Join Free"
+msgstr "Kostenlos beitreten"
+
+msgid ""
+"Join thousands of fans. Get your tickets, shop official gear, earn loyalty "
+"points, and never miss a moment."
+msgstr ""
+"Schließen Sie sich Tausenden von Fans an. Kaufen Sie Ihre Tickets, shoppen "
+"Sie offizielle Ausrüstung, sammeln Sie Treuepunkte und verpassen Sie keinen "
+"Moment."
+
+msgid "Joined"
+msgstr "Beigetreten"
+
+msgid "Joined Date"
+msgstr "Beitrittsdatum"
+
+msgid "Kit Sponsor"
+msgstr "Trikotsponsor"
+
+msgid "Kit assigned."
+msgstr "Kit zugewiesen."
+
+msgid "Kit marked as returned."
+msgstr "Kit als zurückgegeben markiert."
+
+msgid "Knee"
+msgstr "Knie"
+
+msgid "Knockout Round"
+msgstr "K.o.-Runde"
+
+msgid "Latest"
+msgstr "Neueste"
+
+msgid "Latest News"
+msgstr "Neueste Nachrichten"
+
+msgid ""
+"Latest club announcements, transfer news, match reports, and interviews."
+msgstr ""
+"Neueste Club-Ankündigungen, Transfernachrichten, Spielberichte und "
+"Interviews."
+
+msgid "League"
+msgstr "Liga"
+
+msgid "Leave blank to auto-generate"
+msgstr "Leer lassen für automatische Generierung"
+
+msgid "Leave blank to use category base price"
+msgstr "Leer lassen, um Kategoriepreis zu verwenden"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Left Back"
+msgstr "Linker Verteidiger"
+
+msgid "Left Midfielder"
+msgstr "Linker Mittelfeldspieler"
+
+msgid "Left Wing-Back"
+msgstr "Linker Flügelverteidiger"
+
+msgid "Left Winger"
+msgstr "Linker Flügelstürmer"
+
+msgid "Lineup"
+msgstr "Aufstellung"
+
+msgid "Lineup Builder"
+msgstr "Aufstellungsersteller"
+
+msgid "Lineup saved successfully."
+msgstr "Aufstellung erfolgreich gespeichert."
+
+msgid "Live"
+msgstr "Live"
+
+msgid "Loan"
+msgstr "Darlehen"
+
+msgid "Logged In"
+msgstr "Angemeldet"
+
+msgid "Logged Out"
+msgstr "Abgemeldet"
+
+msgid "Low"
+msgstr "Niedrig"
+
+msgid "Low-stock alert threshold"
+msgstr "Schwellenwert für niedrigen Lagerbestand"
+
+msgid "Loyalty Programme"
+msgstr "Treueprogramm"
+
+msgid "Loyalty points adjusted for %(name)s."
+msgstr "Treuepunkte für %(name)s angepasst."
+
+msgid "Loyalty rewards"
+msgstr "Treueprämien"
+
+msgid "Manage products available in the club shop"
+msgstr "Produkte im Club-Shop verwalten"
+
+msgid "Manage seasons used for rosters and teams."
+msgstr "Verwalten Sie Saisons für Kader und Teams."
+
+msgid "Managing Access"
+msgstr "Zugang verwalten"
+
+msgid "Mark as current season"
+msgstr "Als aktuelle Saison markieren"
+
+msgid "Mark this player as team captain"
+msgstr "Diesen Spieler als Teamkapitän markieren"
+
+msgid "Massage"
+msgstr "Massage"
+
+msgid "Match Analysis"
+msgstr "Spielanalyse"
+
+msgid "Match Report"
+msgstr "Spielbericht"
+
+msgid "Match Tickets"
+msgstr "Spieltickets"
+
+msgid "Match added."
+msgstr "Spiel hinzugefügt."
+
+msgid ""
+"Match highlights, press conferences, behind-the-scenes, and exclusive fan "
+"content."
+msgstr ""
+"Spielhighlights, Pressekonferenzen, Behind-the-Scenes und exklusive Fan-"
+"Inhalte."
+
+msgid "Match updated."
+msgstr "Spiel aktualisiert."
+
+msgid "Maximum tier reached!"
+msgstr "Höchststufe erreicht!"
+
+msgid "Media"
+msgstr "Medien"
+
+msgid "Medical record added."
+msgstr "Krankenakte hinzugefügt."
+
+msgid "Medication"
+msgstr "Medikation"
+
+msgid "Medium"
+msgstr "Mittel"
+
+msgid "Meeting"
+msgstr "Besprechung"
+
+msgid "Membership tiers"
+msgstr "Mitgliedschaftsstufen"
+
+msgid "Memorabilia"
+msgstr "Memorabilia"
+
+msgid "Merchandise"
+msgstr "Merchandise"
+
+msgid "Metric recorded."
+msgstr "Metrik aufgezeichnet."
+
+msgid "Milestone added."
+msgstr "Meilenstein hinzugefügt."
+
+msgid "Minor"
+msgstr "Leicht"
+
+msgid "Minor (< 7 days)"
+msgstr "Leicht (< 7 Tage)"
+
+msgid "Mins"
+msgstr "Min."
+
+msgid "Moderate"
+msgstr "Mäßig"
+
+msgid "Moderate (1–4 weeks)"
+msgstr "Mäßig (1–4 Wochen)"
+
+msgid "Monitor"
+msgstr "Überwachen"
+
+msgid "My Account"
+msgstr "Mein Konto"
+
+msgid "My Cart"
+msgstr "Mein Warenkorb"
+
+msgid "My History"
+msgstr "Meine Geschichte"
+
+msgid "My Orders"
+msgstr "Meine Bestellungen"
+
+msgid "My Portal"
+msgstr "Mein Portal"
+
+msgid "My Recent Tickets"
+msgstr "Meine letzten Tickets"
+
+msgid "My Store"
+msgstr "Mein Shop"
+
+msgid "Neck"
+msgstr "Nacken"
+
+msgid "Need Help?"
+msgstr "Hilfe benötigt?"
+
+msgid "New"
+msgstr "Neu"
+
+msgid "New Club"
+msgstr "Neuer Club"
+
+msgid "New Transaction"
+msgstr "Neue Transaktion"
+
+msgid "Newline-separated milestones"
+msgstr "Zeilengetrennte Meilensteine"
+
+msgid "Newline-separated perks list"
+msgstr "Zeilengetrennte Vorteile"
+
+msgid "Newsletter"
+msgstr "Newsletter"
+
+msgid "Newsletter & offers"
+msgstr "Newsletter & Angebote"
+
+msgid "No fans found."
+msgstr "Keine Fans gefunden."
+
+msgid "No news published yet. Check back soon!"
+msgstr ""
+"Noch keine Neuigkeiten veröffentlicht. Schauen Sie bald wieder vorbei!"
+
+msgid "No players found"
+msgstr "Keine Spieler gefunden"
+
+msgid "No players in roster. Go to"
+msgstr "Keine Spieler im Kader. Gehe zu"
+
+msgid "No products yet."
+msgstr "Noch keine Produkte."
+
+msgid "No seasons yet."
+msgstr "Noch keine Saisons."
+
+msgid "No substitutes selected"
+msgstr "Keine Auswechselspieler ausgewählt"
+
+msgid "No teams available. Create teams first."
+msgstr "Keine Teams verfügbar. Erstellen Sie zuerst Teams."
+
+msgid "No upcoming events at the moment. Check back soon!"
+msgstr ""
+"Momentan keine bevorstehenden Veranstaltungen. Schauen Sie bald wieder "
+"vorbei!"
+
+msgid "No upcoming fixtures with tickets yet. Check back soon!"
+msgstr ""
+"Noch keine bevorstehenden Spiele mit Tickets. Schauen Sie bald wieder "
+"vorbei!"
+
+msgid "Not Suitable"
+msgstr "Nicht Geeignet"
+
+msgid "Note added."
+msgstr "Notiz hinzugefügt."
+
+msgid "Note deleted."
+msgstr "Notiz gelöscht."
+
+msgid "Number of tickets"
+msgstr "Anzahl der Tickets"
+
+msgid "Official Club Store"
+msgstr "Offizieller Club-Shop"
+
+msgid "Official Partner"
+msgstr "Offizieller Partner"
+
+msgid "Official Shop"
+msgstr "Offizieller Shop"
+
+msgid "Official Sports Platform"
+msgstr "Offizielle Sportplattform"
+
+msgid "Official jerseys, training gear, and memorabilia coming soon."
+msgstr ""
+"Offizielle Trikots, Trainingsausrüstung und Memorabilia demnächst verfügbar."
+
+msgid "One perk per line"
+msgstr "Ein Vorteil pro Zeile"
+
+msgid "Order Reference"
+msgstr "Bestellreferenz"
+
+msgid "Order notes"
+msgstr "Bestellhinweise"
+
+msgid "Order status updated."
+msgstr "Bestellstatus aktualisiert."
+
+msgid "Organization created."
+msgstr "Organisation erstellt."
+
+msgid "Organization updated."
+msgstr "Organisation aktualisiert."
+
+msgid "Other"
+msgstr "Andere"
+
+msgid "Our support team replies within 24 hours."
+msgstr "Unser Support-Team antwortet innerhalb von 24 Stunden."
+
+msgid "Owner"
+msgstr "Inhaber"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Part-Time"
+msgstr "Teilzeit"
+
+msgid "Passwords do not match."
+msgstr "Passwörter stimmen nicht überein."
+
+msgid "Paused"
+msgstr "Pausiert"
+
+msgid "Pay"
+msgstr "Bezahlen"
+
+msgid "Payment"
+msgstr "Zahlung"
+
+msgid "Payment Method"
+msgstr "Zahlungsmethode"
+
+msgid "Payment Successful"
+msgstr "Zahlung erfolgreich"
+
+msgid "Payment Successful!"
+msgstr "Zahlung erfolgreich!"
+
+msgid "Payment error: %(err)s"
+msgstr "Zahlungsfehler: %(err)s"
+
+msgid "Payment on Stripe's secure page"
+msgstr "Zahlung auf der sicheren Seite von Stripe"
+
+msgid "Payment successful! Order #%(pk)s confirmed."
+msgstr "Zahlung erfolgreich! Bestellung #%(pk)s bestätigt."
+
+msgid "Payment was cancelled. Your order has been voided."
+msgstr "Zahlung storniert. Ihre Bestellung wurde storniert."
+
+msgid "Payments processed by Stripe"
+msgstr "Zahlungen abgewickelt über Stripe"
+
+msgid "Payroll entry created."
+msgstr "Gehaltsabrechnung erstellt."
+
+msgid "Penalty Clause"
+msgstr "Strafklausel"
+
+msgid "Performance Clause"
+msgstr "Leistungsklausel"
+
+msgid "Perks"
+msgstr "Vorteile"
+
+msgid "Permission denied."
+msgstr "Berechtigung verweigert."
+
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+msgid "Personal"
+msgstr "Persönlich"
+
+msgid "Personal Details"
+msgstr "Persönliche Daten"
+
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+msgid "Physical Exam"
+msgstr "Körperliche Untersuchung"
+
+msgid "Physiotherapy"
+msgstr "Physiotherapie"
+
+msgid "Platform"
+msgstr "Plattform"
+
+msgid "Player Contract"
+msgstr "Spielervertrag"
+
+msgid "Player added to roster."
+msgstr "Spieler zum Kader hinzugefügt."
+
+msgid "Player created."
+msgstr "Spieler erstellt."
+
+msgid "Player deleted."
+msgstr "Spieler gelöscht."
+
+msgid "Player updated."
+msgstr "Spieler aktualisiert."
+
+msgid "Please complete your fan profile before buying tickets."
+msgstr "Bitte vervollständigen Sie Ihr Fan-Profil, bevor Sie Tickets kaufen."
+
+msgid "Please upload a CSV file."
+msgstr "Bitte laden Sie eine CSV-Datei hoch."
+
+msgid "Please upload a video file or provide a URL."
+msgstr "Bitte laden Sie eine Videodatei hoch oder geben Sie eine URL an."
+
+msgid "Point Guard"
+msgstr "Point Guard"
+
+msgid "Points"
+msgstr "Punkte"
+
+msgid "Points (positive = add, negative = deduct)"
+msgstr "Punkte (positiv = hinzufügen, negativ = abziehen)"
+
+msgid "Poor"
+msgstr "Schlecht"
+
+msgid "Positive = earned, negative = spent/expired"
+msgstr "Positiv = verdient, negativ = ausgegeben/abgelaufen"
+
+msgid "Positive Moment"
+msgstr "Positiver Moment"
+
+msgid "Post deleted."
+msgstr "Beitrag gelöscht."
+
+msgid "Post saved."
+msgstr "Beitrag gespeichert."
+
+msgid "Post updated."
+msgstr "Beitrag aktualisiert."
+
+msgid "Postponed"
+msgstr "Verschoben"
+
+msgid "Power Forward"
+msgstr "Power Forward"
+
+msgid "Prescription"
+msgstr "Rezept"
+
+msgid "Price override"
+msgstr "Preisüberschreibung"
+
+msgid "Primary / secondary colors"
+msgstr "Primär- / Sekundärfarben"
+
+msgid "Print"
+msgstr "Drucken"
+
+msgid "Proceed to Checkout"
+msgstr "Zur Kasse gehen"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Product added to store."
+msgstr "Produkt zum Shop hinzugefügt."
+
+msgid "Product updated."
+msgstr "Produkt aktualisiert."
+
+msgid "Products coming soon!"
+msgstr "Produkte demnächst verfügbar!"
+
+msgid "Profile updated successfully."
+msgstr "Profil erfolgreich aktualisiert."
+
+msgid "Profile updated."
+msgstr "Profil aktualisiert."
+
+msgid "Program updated."
+msgstr "Programm aktualisiert."
+
+msgid "Prospect"
+msgstr "Perspektive"
+
+msgid "Quarter-Final"
+msgstr "Viertelfinale"
+
+msgid "Questions about your order? Contact our support team."
+msgstr "Fragen zu Ihrer Bestellung? Kontaktieren Sie unser Support-Team."
+
+msgid "Read All News"
+msgstr "Alle Nachrichten lesen"
+
+msgid "Read News"
+msgstr "Nachrichten lesen"
+
+msgid "Reason"
+msgstr "Grund"
+
+msgid "Receive club news, match alerts, and exclusive offers."
+msgstr ""
+"Erhalten Sie Club-Nachrichten, Spielbenachrichtigungen und exklusive "
+"Angebote."
+
+msgid "Recovered"
+msgstr "Erholt"
+
+msgid "Recovering"
+msgstr "Erholt sich"
+
+msgid "Recovery plan created."
+msgstr "Genesungsplan erstellt."
+
+msgid "Recovery plan updated."
+msgstr "Genesungsplan aktualisiert."
+
+msgid "Redeemed"
+msgstr "Eingelöst"
+
+msgid "Refunded"
+msgstr "Erstattet"
+
+msgid "Refunds & Returns"
+msgstr "Rückerstattungen & Rücksendungen"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Rejected"
+msgstr "Abgelehnt"
+
+msgid "Renewal Option"
+msgstr "Verlängerungsoption"
+
+msgid "Renewed"
+msgstr "Erneuert"
+
+msgid "Report updated."
+msgstr "Bericht aktualisiert."
+
+msgid "Reserved"
+msgstr "Reserviert"
+
+msgid "Rest"
+msgstr "Ruhe"
+
+msgid "Retired"
+msgstr "Im Ruhestand"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Right Back"
+msgstr "Rechter Verteidiger"
+
+msgid "Right Midfielder"
+msgstr "Rechter Mittelfeldspieler"
+
+msgid "Right Wing-Back"
+msgstr "Rechter Flügelverteidiger"
+
+msgid "Right Winger"
+msgstr "Rechter Flügelstürmer"
+
+msgid "Round Robin"
+msgstr "Gruppenphase"
+
+msgid "Round of 16"
+msgstr "Achtelfinale"
+
+msgid "Row"
+msgstr "Reihe"
+
+msgid "Row prefix (e.g. A)"
+msgstr "Reihenprefix (z.B. A)"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "Save Lineup"
+msgstr "Aufstellung speichern"
+
+msgid "Schedule & Prize"
+msgstr "Zeitplan & Preis"
+
+msgid "Schedule & Status"
+msgstr "Zeitplan & Status"
+
+msgid "Scheduled"
+msgstr "Geplant"
+
+msgid "Score"
+msgstr "Ergebnis"
+
+msgid "Scout"
+msgstr "Scout"
+
+msgid "Scout report submitted."
+msgstr "Scout-Bericht eingereicht."
+
+msgid "Search by name or email…"
+msgstr "Suche nach Name oder E-Mail…"
+
+msgid "Season created."
+msgstr "Saison erstellt."
+
+msgid "Season deleted."
+msgstr "Saison gelöscht."
+
+msgid "Seasons"
+msgstr "Saisons"
+
+msgid "Second Striker"
+msgstr "Zweiter Stürmer"
+
+msgid "Secure checkout"
+msgstr "Sicherer Checkout"
+
+msgid "Secure payment via Stripe"
+msgstr "Sichere Zahlung über Stripe"
+
+msgid "Select a player from the squad"
+msgstr "Wählen Sie einen Spieler aus dem Kader"
+
+msgid "Select all teams that participate in this competition."
+msgstr "Wählen Sie alle Teams aus, die an diesem Wettbewerb teilnehmen."
+
+msgid "Select club"
+msgstr "Club auswählen"
+
+msgid "Semi-Final"
+msgstr "Halbfinale"
+
+msgid "Send us an email and we'll get back to you within 24 hours."
+msgstr ""
+"Senden Sie uns eine E-Mail und wir melden uns innerhalb von 24 Stunden."
+
+msgid "Senior"
+msgstr "Senioren"
+
+msgid "Set Current"
+msgstr "Als aktuell festlegen"
+
+msgid "Set up your fan profile"
+msgstr "Fan-Profil einrichten"
+
+msgid "Severe"
+msgstr "Schwer"
+
+msgid "Severe (1–3 months)"
+msgstr "Schwer (1–3 Monate)"
+
+msgid "Shin"
+msgstr "Schienbein"
+
+msgid "Shipped"
+msgstr "Versandt"
+
+msgid "Shirt Sponsor"
+msgstr "Trikotsponsor"
+
+msgid "Shooting Guard"
+msgstr "Shooting Guard"
+
+msgid "Shop Now"
+msgstr "Jetzt einkaufen"
+
+msgid "Shop Order #%(pk)s"
+msgstr "Shop-Bestellung #%(pk)s"
+
+msgid ""
+"Shop jerseys, training gear, and exclusive memorabilia delivered to your "
+"door."
+msgstr ""
+"Bestellen Sie Trikots, Trainingsausrüstung und exklusive Erinnerungsstücke —"
+" direkt zu Ihnen nach Hause."
+
+msgid "Shopping & Products"
+msgstr "Einkaufen & Produkte"
+
+msgid "Shoulder"
+msgstr "Schulter"
+
+msgid "Showing"
+msgstr "Anzeige"
+
+msgid "Sign In / Register"
+msgstr "Anmelden / Registrieren"
+
+msgid "Sign In to Checkout"
+msgstr "Anmelden zum Auschecken"
+
+msgid "Sign Now"
+msgstr "Jetzt Unterzeichnen"
+
+msgid "Sign in to complete your purchase."
+msgstr "Melden Sie sich an, um Ihren Kauf abzuschließen."
+
+msgid "Sign up to purchase"
+msgstr "Anmelden zum Kaufen"
+
+msgid "Small Forward"
+msgstr "Small Forward"
+
+msgid "Social Media"
+msgstr "Soziale Medien"
+
+msgid "Sponsor"
+msgstr ""
+
+msgid "Sponsorship Agreement"
+msgstr "Sponsoringvertrag"
+
+msgid "Sponsorship added."
+msgstr "Sponsoring hinzugefügt."
+
+msgid "Sponsorship updated."
+msgstr "Sponsoring aktualisiert."
+
+msgid "Sports Management & Fan Engagement Platform"
+msgstr "Sportverwaltungs- & Fan-Engagement-Plattform"
+
+msgid "Sports Management Platform"
+msgstr "Sportverwaltungsplattform"
+
+msgid "Sports Platform"
+msgstr "Sportplattform"
+
+msgid "Squad"
+msgstr "Kader"
+
+msgid "Stadium Sponsor"
+msgstr "Stadionsponsor"
+
+msgid "Staff Contract"
+msgstr "Mitarbeitervertrag"
+
+msgid "Staff Login"
+msgstr "Personal-Anmeldung"
+
+msgid "Staff member added."
+msgstr "Mitarbeiter hinzugefügt."
+
+msgid "Staff member updated."
+msgstr "Mitarbeiter aktualisiert."
+
+msgid ""
+"Staff portal with player management, contracts, scouting, finance, and full "
+"analytics suite."
+msgstr ""
+"Personal-Portal mit Spielerverwaltung, Verträgen, Scouting, Finanzen und "
+"vollständiger Analytiksuite."
+
+msgid "Stage & Group"
+msgstr "Phase & Gruppe"
+
+msgid "Starter"
+msgstr "Starter"
+
+msgid "Starters"
+msgstr "Starter"
+
+msgid "Stats saved."
+msgstr "Statistiken gespeichert."
+
+msgid "Still need help?"
+msgstr "Noch Hilfe benötigt?"
+
+msgid "Stock In"
+msgstr "Lager Eingang"
+
+msgid "Stock Out"
+msgstr "Lager Ausgang"
+
+msgid "Stock updated."
+msgstr "Lagerbestand aktualisiert."
+
+msgid "Store Management"
+msgstr "Shop-Verwaltung"
+
+msgid "Street, City, Postal code, Country"
+msgstr "Straße, Stadt, Postleitzahl, Land"
+
+msgid "Striker"
+msgstr "Stürmer"
+
+msgid "Substitutes"
+msgstr "Auswechselspieler"
+
+msgid "Substitutes Bench"
+msgstr "Auswechselbank"
+
+msgid "Subtotal"
+msgstr "Zwischensumme"
+
+msgid "Success"
+msgstr "Erfolg"
+
+msgid "Super Admin"
+msgstr "Super-Administrator"
+
+msgid "Surgery"
+msgstr "Operation"
+
+msgid "Suspended"
+msgstr "Gesperrt"
+
+msgid "Sweeper"
+msgstr "Ausputzer"
+
+msgid "Switched to %(club)s."
+msgstr "Zu %(club)s gewechselt."
+
+msgid "Tactical Board"
+msgstr "Taktiktafel"
+
+msgid "Tailwind colour keyword: blue, amber, emerald, violet, red …"
+msgstr "Tailwind Farb-Schlüsselwort: blau, amber, smaragd, violett, rot ..."
+
+msgid "Taken from your account — no need to re-enter."
+msgstr "Aus Ihrem Konto übernommen — muss nicht erneut eingegeben werden."
+
+msgid "Talent added."
+msgstr "Talent hinzugefügt."
+
+msgid "Talent updated."
+msgstr "Talent aktualisiert."
+
+msgid "Task created."
+msgstr "Aufgabe erstellt."
+
+msgid "Task updated."
+msgstr "Aufgabe aktualisiert."
+
+msgid "Tax"
+msgstr "Steuer"
+
+msgid "Team created successfully."
+msgstr "Team erfolgreich erstellt."
+
+msgid "Team deleted."
+msgstr "Team gelöscht."
+
+msgid "Team updated."
+msgstr "Team aktualisiert."
+
+msgid "Terminated"
+msgstr "Beendet"
+
+msgid "Termination"
+msgstr "Kündigung"
+
+msgid "Thank you for your purchase! For questions, contact"
+msgstr "Vielen Dank für Ihren Kauf! Bei Fragen wenden Sie sich an"
+
+msgid "The Platform"
+msgstr "Die Plattform"
+
+msgid ""
+"The complete hub for fans, staff, and club management. Buy tickets, follow "
+"news, shop merchandise, and more."
+msgstr ""
+"Der vollständige Hub für Fans, Personal und Club-Management. Tickets kaufen,"
+" Nachrichten verfolgen, Merchandise kaufen und mehr."
+
+msgid "Thigh"
+msgstr "Oberschenkel"
+
+msgid ""
+"This area is for club staff only. You have been redirected to your fan "
+"portal."
+msgstr ""
+"Dieser Bereich ist nur für Clubmitarbeiter. Sie wurden zu Ihrem Fan-Portal "
+"weitergeleitet."
+
+msgid ""
+"This photo appears on your Fan Portal. Your account photo (top-right) is set"
+" separately."
+msgstr ""
+"Dieses Foto erscheint in Ihrem Fan-Portal. Ihr Kontofoto (oben rechts) wird "
+"separat eingestellt."
+
+msgid "This player is already on the roster for that season."
+msgstr "Dieser Spieler steht bereits im Kader dieser Saison."
+
+msgid "Ticket Confirmed!"
+msgstr "Ticket bestätigt!"
+
+msgid "Ticket categories"
+msgstr "Ticketkategorien"
+
+msgid "Ticket confirmed — Reference:"
+msgstr "Ticket bestätigt — Referenz:"
+
+msgid "Ticket confirmed! Reference: %(ref)s. You earned %(pts)s points."
+msgstr ""
+"Ticket bestätigt! Referenz: %(ref)s. Sie haben %(pts)s Punkte verdient."
+
+msgid "Ticket payment was cancelled."
+msgstr "Ticketzahlung storniert."
+
+msgid "Ticket purchase #%(ref)s"
+msgstr "Ticketkauf #%(ref)s"
+
+msgid "Tickets & Events"
+msgstr "Tickets & Veranstaltungen"
+
+msgid "Total paid"
+msgstr "Insgesamt bezahlt"
+
+msgid "Tournament"
+msgstr "Turnier"
+
+msgid "Tournament created."
+msgstr "Turnier erstellt."
+
+msgid "Tournament updated."
+msgstr "Turnier aktualisiert."
+
+msgid "Training Gear"
+msgstr "Trainingsausrüstung"
+
+msgid "Training Session"
+msgstr "Trainingseinheit"
+
+msgid "Transaction added."
+msgstr "Transaktion hinzugefügt."
+
+msgid "Transaction updated."
+msgstr "Transaktion aktualisiert."
+
+msgid "Transfer"
+msgstr "Transfer"
+
+msgid "Transfer Listed"
+msgstr "Auf der Transferliste"
+
+msgid "Treatment added."
+msgstr "Behandlung hinzugefügt."
+
+msgid "Under 10"
+msgstr "Unter 10"
+
+msgid "Under 12"
+msgstr "Unter 12"
+
+msgid "Under 14"
+msgstr "Unter 14"
+
+msgid "Under 16"
+msgstr "Unter 16"
+
+msgid "Under 18"
+msgstr "Unter 18"
+
+msgid "Under 21"
+msgstr "Unter 21"
+
+msgid "Under 8"
+msgstr "Unter 8"
+
+msgid "Unlock ticket purchasing, loyalty points, and membership tiers."
+msgstr "Schalten Sie Ticketkauf, Treuepunkte und Mitgliedschaftsstufen frei."
+
+msgid "Updated"
+msgstr "Aktualisiert"
+
+msgid "Urgent"
+msgstr "Dringend"
+
+msgid "Used"
+msgstr "Verwendet"
+
+msgid "Vaccination"
+msgstr "Impfung"
+
+msgid "Vendor Contract"
+msgstr "Lieferantenvertrag"
+
+msgid "Video Categories"
+msgstr "Videokategorien"
+
+msgid "Video content coming soon!"
+msgstr "Videoinhalte demnächst verfügbar!"
+
+msgid "Video updated."
+msgstr "Video aktualisiert."
+
+msgid "Video uploaded."
+msgstr "Video hochgeladen."
+
+msgid "Videos & Highlights"
+msgstr "Videos & Highlights"
+
+msgid "View All Fixtures & Tickets"
+msgstr "Alle Spiele & Tickets ansehen"
+
+msgid "View Cart"
+msgstr "Warenkorb ansehen"
+
+msgid "View Invoice"
+msgstr "Rechnung ansehen"
+
+msgid "View Order"
+msgstr "Bestellung ansehen"
+
+msgid "View Shop"
+msgstr "Shop ansehen"
+
+msgid "Viewed"
+msgstr "Angesehen"
+
+msgid "Viewer"
+msgstr "Betrachter"
+
+msgid "Visit Shop"
+msgstr "Shop besuchen"
+
+msgid "Visit Store"
+msgstr "Shop besuchen"
+
+msgid "Volunteer"
+msgstr "Freiwilliger"
+
+msgid "Warning"
+msgstr "Warnung"
+
+msgid "Watch Now"
+msgstr "Jetzt ansehen"
+
+msgid "Watchlist created."
+msgstr "Beobachtungsliste erstellt."
+
+msgid "Welcome"
+msgstr "Willkommen"
+
+msgid "Welcome back, %(name)s!"
+msgstr "Willkommen zurück, %(name)s!"
+
+msgid "What are Loyalty Points?"
+msgstr "Was sind Treuepunkte?"
+
+msgid "Wrist"
+msgstr "Handgelenk"
+
+msgid "You do not have permission to access branding settings."
+msgstr "Sie haben keine Berechtigung, auf Markeneinstellungen zuzugreifen."
+
+msgid "You do not have permission to access this page."
+msgstr "Sie haben keine Berechtigung, auf diese Seite zuzugreifen."
+
+msgid "You don't have access to that club."
+msgstr "Sie haben keinen Zugang zu diesem Club."
+
+msgid ""
+"You earn 1 point for every €1 spent on tickets and shop orders. Points "
+"unlock higher membership tiers with exclusive perks."
+msgstr ""
+"Sie verdienen 1 Punkt für jeden ausgegebenen €1 für Tickets und Shop-"
+"Bestellungen. Punkte schalten höhere Mitgliedschaftsstufen mit exklusiven "
+"Vorteilen frei."
+
+msgid "You earned"
+msgstr "Sie haben verdient"
+
+msgid "You have been signed out."
+msgstr "Sie wurden abgemeldet."
+
+msgid "You haven't bought any tickets yet."
+msgstr "Sie haben noch keine Tickets gekauft."
+
+msgid "You'll be redirected to Stripe's secure payment page."
+msgstr "Sie werden zur sicheren Zahlungsseite von Stripe weitergeleitet."
+
+msgid "You're in!"
+msgstr "Sie sind dabei!"
+
+msgid ""
+"You're receiving this email because a password reset was requested for your "
+"account."
+msgstr ""
+"Sie erhalten diese E-Mail, weil für Ihr Konto eine Passwortzurücksetzung "
+"angefordert wurde."
+
+msgid "YouTube / Vimeo URL"
+msgstr "YouTube / Vimeo URL"
+
+msgid "Your Account"
+msgstr "Ihr Konto"
+
+msgid "Youth"
+msgstr "Jugend"
+
+msgid "activity log"
+msgstr "Aktivitätsprotokoll"
+
+msgid "activity logs"
+msgstr "Aktivitätsprotokolle"
+
+msgid "and click"
+msgstr "und klicken Sie auf"
+
+msgid "announcement"
+msgstr "Ankündigung"
+
+msgid "attendance"
+msgstr "Anwesenheit"
+
+msgid "budget"
+msgstr "Budget"
+
+msgid "budget categories"
+msgstr "Budgetkategorien"
+
+msgid "budget category"
+msgstr "Budgetkategorie"
+
+msgid "campaign"
+msgstr "Kampagne"
+
+msgid "cart"
+msgstr "Warenkorb"
+
+msgid "club"
+msgstr "Club"
+
+msgid "club branding"
+msgstr "Club-Markenimage"
+
+msgid "club name"
+msgstr "Clubname"
+
+msgid "division"
+msgstr "Division"
+
+msgid "django.shortcuts\", fromlist=[\"redirect\"]).redirect(\"core:dashboard"
+msgstr ""
+
+msgid "e.g. Gold, Silver, Bronze"
+msgstr "z.B. Gold, Silber, Bronze"
+
+msgid "e.g. Red & White"
+msgstr "z.B. Rot & Weiß"
+
+msgid "email address"
+msgstr "E-Mail-Adresse"
+
+msgid "event"
+msgstr "Veranstaltung"
+
+msgid "events"
+msgstr "Veranstaltungen"
+
+msgid "first name"
+msgstr "Vorname"
+
+msgid "fixture"
+msgstr "Spiel"
+
+msgid "full name"
+msgstr "Vollständiger Name"
+
+msgid "has been confirmed. We'll get your items shipped soon!"
+msgstr "wurde bestätigt. Wir versenden Ihre Artikel bald!"
+
+msgid "injury log"
+msgstr "Verletzungsprotokoll"
+
+msgid "injury logs"
+msgstr "Verletzungsprotokolle"
+
+msgid "investment"
+msgstr "Investition"
+
+msgid "last name"
+msgstr "Nachname"
+
+msgid "lineup"
+msgstr "Aufstellung"
+
+msgid "lineup player"
+msgstr "Aufstellungsspieler"
+
+msgid "lineup players"
+msgstr "Aufstellungsspieler"
+
+msgid "lineups"
+msgstr "Aufstellungen"
+
+msgid "loyalty points"
+msgstr "Treuepunkte"
+
+msgid "loyalty points!"
+msgstr "Treuepunkte!"
+
+msgid "news post"
+msgstr "Newsbeitrag"
+
+msgid "news posts"
+msgstr "Newsbeiträge"
+
+msgid "notification"
+msgstr "Benachrichtigung"
+
+msgid "notifications"
+msgstr "Benachrichtigungen"
+
+msgid "of"
+msgstr "von"
+
+msgid "optional"
+msgstr "optional"
+
+msgid "order"
+msgstr "Bestellung"
+
+msgid "order item"
+msgstr "Bestellartikel"
+
+msgid "performance metric"
+msgstr "Leistungsmetrik"
+
+msgid "performance metrics"
+msgstr "Leistungsmetriken"
+
+msgid "player"
+msgstr "Spieler"
+
+msgid "player stats"
+msgstr "Spielerstatistiken"
+
+msgid "product"
+msgstr "Produkt"
+
+msgid "pts to next tier"
+msgstr "Pkt. bis zur nächsten Stufe"
+
+msgid "registered fans"
+msgstr "registrierte Fans"
+
+msgid "role"
+msgstr "Rolle"
+
+msgid "roster entries"
+msgstr "Kadereinträge"
+
+msgid "roster entry"
+msgstr "Kadereintrag"
+
+msgid "scout report"
+msgstr "Scout-Bericht"
+
+msgid "scout reports"
+msgstr "Scout-Berichte"
+
+msgid "season"
+msgstr "Saison"
+
+msgid "sponsor portal"
+msgstr "Sponsorportal"
+
+msgid "sponsorship"
+msgstr "Sponsoring"
+
+msgid "sponsorships"
+msgstr "Sponsorings"
+
+msgid "talent profile"
+msgstr "Talentprofil"
+
+msgid "talent profiles"
+msgstr "Talentprofile"
+
+msgid "team"
+msgstr "Mannschaft"
+
+msgid "team name"
+msgstr "Teamname"
+
+msgid "to generate players."
+msgstr "um Spieler zu generieren."
+
+msgid "tournament"
+msgstr "Turnier"
+
+msgid "transaction"
+msgstr "Transaktion"
+
+msgid "transactions"
+msgstr "Transaktionen"
+
+msgid "user"
+msgstr "Benutzer"
+
+msgid "user profile"
+msgstr "Benutzerprofil"
+
+msgid "user profiles"
+msgstr "Benutzerprofile"
+
+msgid "users"
+msgstr "Benutzer"
+
+msgid "watchlist"
+msgstr "Beobachtungsliste"
+
+msgid "with Stripe"
+msgstr "mit Stripe"
+
+msgid "— Select player —"
+msgstr ""
+
+msgid "— Select position —"
+msgstr ""
+
+msgid "— Select season —"
+msgstr ""
+
+msgid "FAQ"
+msgstr "Häufige Fragen"
+
+msgid "Contact Us"
+msgstr "Kontaktieren Sie uns"
+
+msgid "Terms"
+msgstr "Bedingungen"
+
+msgid "Terms of Service"
+msgstr "Nutzungsbedingungen"
+
+msgid "Privacy Policy"
+msgstr "Datenschutzrichtlinie"
+
+msgid "Privacy"
+msgstr "Datenschutz"
+
+msgid "Legal"
+msgstr "Rechtliches"
+
+msgid "Legal & Contact"
+msgstr "Rechtliches & Kontakt"
+
+msgid "Follow Us"
+msgstr "Folge Uns"
+
+msgid "Frequently Asked Questions"
+msgstr "Häufig Gestellte Fragen"
+
+msgid ""
+"Everything you need to know about our platform, shop, tickets and "
+"membership."
+msgstr ""
+"Alles, was Sie über unsere Plattform, Shop, Tickets und Mitgliedschaft "
+"wissen müssen."
+
+msgid ""
+"Frequently asked questions about ApexForge — tickets, shop, account, "
+"membership and more."
+msgstr ""
+"Häufig gestellte Fragen zu ApexForge — Tickets, Shop, Konto, Mitgliedschaft "
+"und mehr."
+
+msgid "Still have questions?"
+msgstr "Haben Sie noch Fragen?"
+
+msgid ""
+"Our support team is here to help. Send us a message and we'll get back to "
+"you within 24 hours."
+msgstr ""
+"Unser Support-Team hilft Ihnen gerne. Senden Sie uns eine Nachricht und wir "
+"melden uns innerhalb von 24 Stunden."
+
+msgid "Contact Support"
+msgstr "Support Kontaktieren"
+
+msgid "About the Platform"
+msgstr "Über die Plattform"
+
+msgid "What is ApexForge?"
+msgstr "Was ist ApexForge?"
+
+msgid "Who can use ApexForge?"
+msgstr "Wer kann ApexForge nutzen?"
+
+msgid "Is registration free?"
+msgstr "Ist die Registrierung kostenlos?"
+
+msgid "Last updated"
+msgstr "Zuletzt aktualisiert"
+
+msgid "Acceptance of Terms"
+msgstr "Annahme der Bedingungen"
+
+msgid "Use of the Platform"
+msgstr "Nutzung der Plattform"
+
+msgid "Account Registration"
+msgstr "Kontoregistrierung"
+
+msgid "Purchases and Payments"
+msgstr "Käufe und Zahlungen"
+
+msgid "Returns and Refunds"
+msgstr "Rückgaben und Erstattungen"
+
+msgid "Intellectual Property"
+msgstr "Geistiges Eigentum"
+
+msgid "Limitation of Liability"
+msgstr "Haftungsbeschränkung"
+
+msgid "Governing Law"
+msgstr "Anwendbares Recht"
+
+msgid "Changes to Terms"
+msgstr "Änderungen der Bedingungen"
+
+msgid ""
+"ApexForge Terms of Service — please read these terms carefully before using "
+"our platform."
+msgstr ""
+"ApexForge Nutzungsbedingungen — bitte lesen Sie diese Bedingungen sorgfältig"
+" durch, bevor Sie unsere Plattform nutzen."
+
+msgid "Contact form"
+msgstr "Kontaktformular"
+
+msgid "GDPR Compliant"
+msgstr "DSGVO-konform"
+
+msgid "Data Controller"
+msgstr "Verantwortlicher"
+
+msgid "Data We Collect"
+msgstr "Daten, die wir erheben"
+
+msgid "How We Use Your Data"
+msgstr "Wie Wir Ihre Daten Nutzen"
+
+msgid "Legal Basis"
+msgstr "Rechtsgrundlage"
+
+msgid "Data Retention"
+msgstr "Datenspeicherung"
+
+msgid "Data Sharing"
+msgstr "Datenweitergabe"
+
+msgid "Your Rights (GDPR)"
+msgstr "Ihre Rechte (DSGVO)"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Security"
+msgstr "Sicherheit"
+
+msgid "Changes to This Policy"
+msgstr "Änderungen dieser Richtlinie"
+
+msgid "Right of access"
+msgstr "Auskunftsrecht"
+
+msgid "Right to rectification"
+msgstr "Recht auf Berichtigung"
+
+msgid "Right to erasure"
+msgstr "Recht auf Löschung"
+
+msgid "Right to restrict processing"
+msgstr "Recht auf Einschränkung"
+
+msgid "Right to data portability"
+msgstr "Recht auf Datenübertragbarkeit"
+
+msgid "Right to object"
+msgstr "Widerspruchsrecht"
+
+msgid "Account data"
+msgstr "Kontodaten"
+
+msgid "Profile data"
+msgstr "Profildaten"
+
+msgid "Transaction data"
+msgstr "Transaktionsdaten"
+
+msgid "Usage data"
+msgstr "Nutzungsdaten"
+
+msgid "Communication data"
+msgstr "Kommunikationsdaten"
+
+msgid "Email providers"
+msgstr "E-Mail-Anbieter"
+
+msgid "Legal authorities"
+msgstr "Behörden"
+
+msgid ""
+"ApexForge Privacy Policy — how we collect, use and protect your personal "
+"data."
+msgstr ""
+"ApexForge Datenschutzrichtlinie — wie wir Ihre persönlichen Daten erfassen, "
+"nutzen und schützen."
+
+msgid "our contact form"
+msgstr "unser Kontaktformular"
+
+msgid "Get in Touch"
+msgstr "Kontakt Aufnehmen"
+
+msgid ""
+"Have a question or need support? Send us a message and we'll get back to you"
+" within 24 hours."
+msgstr ""
+"Haben Sie eine Frage oder benötigen Sie Unterstützung? Senden Sie uns eine "
+"Nachricht und wir melden uns innerhalb von 24 Stunden."
+
+msgid "We reply within 24 hours."
+msgstr "Wir antworten innerhalb von 24 Stunden."
+
+msgid "Mon – Fri, 9:00 – 17:00"
+msgstr "Mo – Fr, 9:00 – 17:00"
+
+msgid "Send us a Message"
+msgstr "Senden Sie Uns eine Nachricht"
+
+msgid "Email Address"
+msgstr "E-Mail-Adresse"
+
+msgid "Subject"
+msgstr "Betreff"
+
+msgid "Send Message"
+msgstr "Nachricht Senden"
+
+msgid "Message Sent!"
+msgstr "Nachricht Gesendet!"
+
+msgid "Thank you for reaching out. We'll reply within 24 hours."
+msgstr ""
+"Vielen Dank für Ihre Nachricht. Wir melden uns innerhalb von 24 Stunden."
+
+msgid "Send Another Message"
+msgstr "Eine Weitere Nachricht Senden"
+
+msgid "Your first name"
+msgstr "Ihr Vorname"
+
+msgid "Your last name"
+msgstr "Ihr Nachname"
+
+msgid "your@email.com"
+msgstr "sie@email.com"
+
+msgid "How can we help you?"
+msgstr "Wie können wir Ihnen helfen?"
+
+msgid "— Select a topic —"
+msgstr "— Thema wählen —"
+
+msgid "General Enquiry"
+msgstr "Allgemeine Anfrage"
+
+msgid "Technical Support"
+msgstr "Technischer Support"
+
+msgid "Orders & Payments"
+msgstr "Bestellungen & Zahlungen"
+
+msgid "Account & Profile"
+msgstr "Konto & Profil"
+
+msgid "Press & Media"
+msgstr "Presse & Medien"
+
+msgid "I agree to the"
+msgstr "Ich stimme der"
+
+msgid "and consent to my data being processed to handle my request."
+msgstr ""
+"und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu."
+
+msgid "First name is required."
+msgstr "Vorname ist erforderlich."
+
+msgid "Last name is required."
+msgstr "Nachname ist erforderlich."
+
+msgid "You must agree to the Privacy Policy."
+msgstr "Sie müssen der Datenschutzrichtlinie zustimmen."
+
+msgid ""
+"ApexForge get in touch with the ApexForge team. We reply within 24 hours."
+msgstr ""
+"ApexForge - kontaktieren Sie das ApexForge-Team. Wir antworten innerhalb von"
+" 24 Stunden."
+
+msgid "contact message"
+msgstr "Kontaktnachricht"
+
+msgid "contact messages"
+msgstr "Kontaktnachrichten"
+
+msgid "Social media links not configured yet."
+msgstr "Social-Media-Links noch nicht konfiguriert."

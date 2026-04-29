@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Players" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Players" %}</h1>
+    <p class="text-sm text-gray-500 mt-1">{{ page.paginator.count }} {% trans "players in database" %}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'players:export' %}" class="btn-secondary">⬇️ Excel</a>
+    {% if request.user.can_manage %}
+    <a href="{% url 'players:create' %}" class="btn-primary">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+      {% trans "New Player" %}
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Filters -->
+<div class="card p-4 mb-6">
+  <form class="flex flex-wrap gap-3 items-end">
+    <div class="flex-1 min-w-48">
+      <input type="search" name="q" value="{{ query }}" placeholder="{% trans 'Search by name...' %}"
+             class="form-input w-full"
+             hx-get="{% url 'players:list' %}" hx-trigger="keyup changed delay:400ms"
+             hx-target="#players-table" hx-include="[name='status']">
+    </div>
+    <div>
+      <select name="status" class="form-select"
+              hx-get="{% url 'players:list' %}" hx-trigger="change"
+              hx-target="#players-table" hx-include="[name='q']">
+        <option value="">{% trans "All statuses" %}</option>
+        {% for val, label in status_choices %}
+        <option value="{{ val }}" {% if val == current_status %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+  </form>
+</div>
+
+<!-- Table -->
+<div id="players-table" class="card overflow-hidden">
+  {% include "players/partials/player_rows.html" %}
+</div>
+{% endblock %}

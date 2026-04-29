@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Orders" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🛒 {% trans "Orders" %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="space-y-3">
+  {% for order in page %}
+  <a href="{% url 'finance:order_detail' order.pk %}" class="card p-4 flex items-center gap-4 hover:shadow-md transition-shadow group block">
+    <div class="h-12 w-12 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-700 shrink-0 font-bold text-sm">
+      #{{ order.pk }}
+    </div>
+    <div class="flex-1 min-w-0">
+      <p class="font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 transition-colors">
+        {{ order.customer.get_full_name|default:order.customer.email }}
+      </p>
+      <p class="text-xs text-gray-500">{{ order.created_at|date:"j M Y, H:i" }} · {{ order.items.count }} {% trans "item(s)" %}</p>
+    </div>
+    <div class="shrink-0 flex items-center gap-4">
+      {{ order.status|status_badge }}
+      <p class="font-bold text-gray-900 dark:text-white">{{ order.total|currency }}</p>
+    </div>
+  </a>
+  {% empty %}
+  <div class="card p-12 text-center text-gray-500">
+    <p class="text-3xl mb-2">🛒</p>
+    <p>{% trans "No orders yet." %}</p>
+  </div>
+  {% endfor %}
+
+  {% if page.has_other_pages %}
+  <div class="flex justify-center gap-2 pt-4">
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+    <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+    {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

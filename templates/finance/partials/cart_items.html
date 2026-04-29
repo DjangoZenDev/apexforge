@@ -1,0 +1,35 @@
+{% load i18n core_tags %}
+{% if cart_items %}
+<div class="divide-y divide-gray-100 dark:divide-gray-700">
+  {% for item in cart_items %}
+  <div class="py-4 flex items-center gap-4">
+    {% if item.product.image %}
+    <img src="{{ item.product.image.url }}" class="h-14 w-14 rounded-lg object-cover shrink-0">
+    {% else %}
+    <div class="h-14 w-14 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xl shrink-0">🏷</div>
+    {% endif %}
+    <div class="flex-1 min-w-0">
+      <p class="font-medium text-gray-900 dark:text-white truncate">{{ item.product.name }}</p>
+      <p class="text-sm text-gray-500">{{ item.product.price|currency }} × {{ item.quantity }}</p>
+    </div>
+    <div class="shrink-0 flex items-center gap-3">
+      <p class="font-semibold text-gray-900 dark:text-white">{{ item.subtotal|currency }}</p>
+      <button hx-post="{% url 'finance:cart_remove' item.pk %}"
+              hx-target="#cart-container"
+              hx-swap="innerHTML"
+              class="text-gray-400 hover:text-red-500 transition-colors p-1">✕</button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="pt-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+  <p class="text-sm text-gray-500">{{ cart_items|length }} {% trans "item(s)" %}</p>
+  <p class="text-xl font-black text-gray-900 dark:text-white">{{ cart_total|currency }}</p>
+</div>
+{% else %}
+<div class="py-12 text-center text-gray-400">
+  <p class="text-4xl mb-2">🛒</p>
+  <p class="text-sm">{% trans "Your cart is empty." %}</p>
+  <a href="{% url 'finance:shop' %}" class="btn-secondary inline-flex mt-3 text-sm">{% trans "Browse shop" %}</a>
+</div>
+{% endif %}

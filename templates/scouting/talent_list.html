@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Talent Database" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">⭐ {% trans "Talent Database" %}</h1>
+  <a href="{% url 'scouting:talent_create' %}" class="btn-primary">+ {% trans "Add Talent" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card p-4 mb-4">
+  <form class="flex flex-wrap gap-3 items-end">
+    <div class="flex-1 min-w-40">
+      <input type="search" name="q" value="{{ query }}" placeholder="{% trans 'Search talents...' %}" class="form-input w-full"
+             hx-get="{% url 'scouting:talent_list' %}" hx-trigger="keyup changed delay:400ms" hx-target="#talent-table" hx-include="[name='status']">
+    </div>
+    <select name="status" class="form-select" hx-get="{% url 'scouting:talent_list' %}" hx-trigger="change" hx-target="#talent-table" hx-include="[name='q']">
+      <option value="">{% trans "All statuses" %}</option>
+      {% for val, label in status_choices %}<option value="{{ val }}" {% if val == current_status %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+    <input type="number" name="min_rating" value="{{ request.GET.min_rating }}" min="1" max="10" placeholder="{% trans 'Min rating' %}" class="form-input w-28">
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+  </form>
+</div>
+
+<div id="talent-table">{% include "scouting/partials/talent_rows.html" %}</div>
+{% endblock %}

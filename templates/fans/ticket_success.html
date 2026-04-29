@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Ticket Confirmed!" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto mt-12 text-center">
+  <div class="card p-10">
+    <div class="text-6xl mb-4">🎟️</div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{% trans "You're in!" %}</h1>
+    <p class="text-gray-500 mb-2">
+      {% trans "Ticket confirmed — Reference:" %}
+      <span class="font-bold text-gray-900 dark:text-white font-mono">{{ purchase.reference }}</span>
+    </p>
+    <p class="text-sm text-emerald-600 font-medium mb-6">
+      ⭐ {% trans "You earned" %} <strong>{{ purchase.loyalty_earned }}</strong> {% trans "loyalty points!" %}
+    </p>
+
+    {% for ticket in purchase.tickets.all %}
+    <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 text-left mb-4">
+      <p class="font-semibold text-gray-900 dark:text-white">{{ ticket.event.title|default:"—" }}</p>
+      <p class="text-sm text-gray-500 mt-1">{{ ticket.category.name }}
+        {% if ticket.seat_row %} · {% trans "Row" %} {{ ticket.seat_row }} {% trans "Seat" %} {{ ticket.seat_number }}{% else %} · {% trans "General Admission" %}{% endif %}
+      </p>
+      <p class="text-lg font-bold text-primary-600 mt-2">€{{ ticket.effective_price|floatformat:2 }}</p>
+    </div>
+    {% endfor %}
+
+    <div class="flex gap-3 justify-center mt-2">
+      <a href="{% url 'fans:my_tickets' %}" class="btn-primary">🎟️ {% trans "My Tickets" %}</a>
+      <a href="{% url 'fans:portal' %}" class="btn-secondary">🏠 {% trans "Fan Portal" %}</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

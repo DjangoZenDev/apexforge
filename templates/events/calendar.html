@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Calendar" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Calendar" %}</h1>
+    <p class="text-sm text-gray-500 mt-1">{% trans "All fixtures, training sessions and tournaments" %}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'events:list' %}" class="btn-secondary">📋 {% trans "List view" %}</a>
+    {% if request.user.can_manage or request.user.is_coach %}
+    <a href="{% url 'events:create' %}" class="btn-primary">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+      {% trans "New Event" %}
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Legend -->
+<div class="flex flex-wrap gap-3 mb-4">
+  {% for label, color in legend %}
+  <span class="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400">
+    <span class="h-3 w-3 rounded-full" style="background:{{ color }}"></span>
+    {{ label }}
+  </span>
+  {% endfor %}
+</div>
+
+<div class="card p-4" x-data="calendarApp()" x-init="init()">
+  <!-- Calendar header -->
+  <div class="flex items-center justify-between mb-4">
+    <button @click="prevMonth()" class="btn-secondary p-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white" x-text="monthYearLabel"></h2>
+    <button @click="nextMonth()" class="btn-secondary p-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Day headers -->
+  <div class="grid grid-cols-7 mb-2">
+    <template x-for="day in ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']">
+      <div class="text-center text-xs font-medium text-gray-500 py-2" x-text="day"></div>
+    </template>
+  </div>
+
+  <!-- Calendar grid -->
+  <div class="grid grid-cols-7 gap-1">
+    <template x-for="cell in calendarCells" :key="cell.key">
+      <div class="min-h-24 rounded-lg p-1 border transition-colors"
+           :class="cell.isToday ? 'border-primary-400 bg-primary-50 dark:bg-primary-900/20' :
+                   cell.isCurrentMonth ? 'border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800' :
+                   'border-transparent bg-gray-50 dark:bg-gray-900/30'">
+        <div class="text-right mb-1">
+          <span class="text-xs font-medium"
+                :class="cell.isToday ? 'bg-primary-600 text-white rounded-full px-1.5 py-0.5' :
+                        cell.isCurrentMonth ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400'"
+                x-text="cell.day"></span>
+        </div>
+        <template x-for="ev in cell.events" :key="ev.id">
+          <a :href="ev.url"
+             class="block text-xs rounded px-1 py-0.5 mb-0.5 text-white truncate font-medium hover:opacity-90 transition-opacity"
+             :style="'background:' + ev.color"
+             x-text="ev.title"></a>
+        </template>
+      </div>
+    </template>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+const CALENDAR_EVENTS = {{ calendar_events_json|safe }};
+
+function calendarApp() {
+  return {
+    today: new Date(),
+    current: new Date(),
+    calendarCells: [],
+    monthYearLabel: '',
+
+    init() {
+      this.render();
+    },
+
+    render() {
+      const year = this.current.getFullYear();
+      const month = this.current.getMonth();
+      this.monthYearLabel = this.current.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+
+      const firstDay = new Date(year, month, 1);
+      let startDow = firstDay.getDay(); // 0=Sun
+      startDow = startDow === 0 ? 6 : startDow - 1; // Mon-based
+
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const daysInPrev = new Date(year, month, 0).getDate();
+
+      const cells = [];
+      // Prev month padding
+      for (let i = startDow - 1; i >= 0; i--) {
+        cells.push({ key: `prev-${i}`, day: daysInPrev - i, isCurrentMonth: false, isToday: false, events: [] });
+      }
+      // Current month
+      const todayStr = this.today.toISOString().slice(0, 10);
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+        const evs = CALENDAR_EVENTS.filter(e => e.start === dateStr);
+        cells.push({ key: dateStr, day: d, isCurrentMonth: true, isToday: dateStr === todayStr, events: evs });
+      }
+      // Next month padding to fill 6 rows
+      let next = 1;
+      while (cells.length % 7 !== 0) {
+        cells.push({ key: `next-${next}`, day: next++, isCurrentMonth: false, isToday: false, events: [] });
+      }
+      this.calendarCells = cells;
+    },
+
+    prevMonth() { this.current = new Date(this.current.getFullYear(), this.current.getMonth() - 1, 1); this.render(); },
+    nextMonth() { this.current = new Date(this.current.getFullYear(), this.current.getMonth() + 1, 1); this.render(); },
+  };
+}
+</script>
+{% endblock %}

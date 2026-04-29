@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Fan Members" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between flex-wrap gap-3">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">👥 {% trans "Fan Members" %}</h1>
+    <p class="text-sm text-gray-500 mt-0.5">{{ page.paginator.count }} {% trans "registered fans" %}</p>
+  </div>
+  <a href="{% url 'fans:loyalty_adjust' %}" class="btn-secondary text-sm">⭐ {% trans "Adjust Points" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Filters -->
+<div class="card p-4 mb-5 flex flex-wrap gap-3 items-end">
+  <form method="get" class="flex flex-wrap gap-3 flex-1">
+    <div class="flex-1 min-w-48">
+      <input type="text" name="q" value="{{ q }}"
+             placeholder="{% trans 'Search by name or email…' %}"
+             class="form-input w-full">
+    </div>
+    <div>
+      <select name="tier" class="form-select">
+        <option value="">{% trans "All tiers" %}</option>
+        {% for val, label in tier_choices %}
+        <option value="{{ val }}" {% if val == current_tier %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn-primary">{% trans "Search" %}</button>
+    {% if q or current_tier %}
+    <a href="{% url 'fans:fan_list' %}" class="btn-secondary">{% trans "Clear" %}</a>
+    {% endif %}
+  </form>
+</div>
+
+<!-- Table -->
+<div class="card overflow-hidden">
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-100 dark:divide-gray-700 text-sm">
+      <thead class="bg-gray-50 dark:bg-gray-700/50">
+        <tr>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Fan" %}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Tier" %}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Points" %}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Joined" %}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Newsletter" %}</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+        {% for fan in page %}
+        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              {% if fan.avatar %}
+                <img src="{{ fan.avatar.url }}" class="h-9 w-9 rounded-full object-cover shrink-0">
+              {% else %}
+                <div class="h-9 w-9 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shrink-0">
+                  <span class="text-white font-bold text-sm">{{ fan.user.first_name|first|default:"?" }}</span>
+                </div>
+              {% endif %}
+              <div>
+                <p class="font-medium text-gray-900 dark:text-white">{{ fan.user.get_full_name|default:fan.user.email }}</p>
+                <p class="text-xs text-gray-500">{{ fan.user.email }}</p>
+              </div>
+            </div>
+          </td>
+          <td class="px-4 py-3">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold
+              {% if fan.tier == 'platinum' %}bg-violet-100 dark:bg-violet-900/40 text-violet-600
+              {% elif fan.tier == 'gold' %}bg-amber-100 dark:bg-amber-900/40 text-amber-600
+              {% elif fan.tier == 'silver' %}bg-gray-100 dark:bg-gray-700 text-gray-500
+              {% else %}bg-orange-100 dark:bg-orange-900/40 text-orange-600{% endif %}">
+              ★ {{ fan.get_tier_display }}
+            </span>
+          </td>
+          <td class="px-4 py-3 font-semibold text-primary-600">{{ fan.loyalty_points|intcomma }}</td>
+          <td class="px-4 py-3 text-gray-500">{{ fan.created_at|date:"j M Y" }}</td>
+          <td class="px-4 py-3">
+            {% if fan.newsletter_opt_in %}
+              <span class="text-emerald-600 text-xs font-medium">✓ {% trans "Yes" %}</span>
+            {% else %}
+              <span class="text-gray-400 text-xs">— {% trans "No" %}</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="px-4 py-12 text-center text-gray-400">
+            <p class="text-3xl mb-2">👥</p>
+            <p class="text-sm">{% trans "No fans found." %}</p>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  {% if page.has_other_pages %}
+  <div class="px-4 py-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-sm">
+    <p class="text-gray-500">
+      {% trans "Showing" %} {{ page.start_index }}–{{ page.end_index }} {% trans "of" %} {{ page.paginator.count }}
+    </p>
+    <div class="flex gap-1">
+      {% if page.has_previous %}
+      <a href="?page={{ page.previous_page_number }}&q={{ q }}&tier={{ current_tier }}" class="btn-secondary text-xs px-3 py-1.5">←</a>
+      {% endif %}
+      {% if page.has_next %}
+      <a href="?page={{ page.next_page_number }}&q={{ q }}&tier={{ current_tier }}" class="btn-secondary text-xs px-3 py-1.5">→</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

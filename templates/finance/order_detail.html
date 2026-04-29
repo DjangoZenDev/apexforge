@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Order" %} #{{ order.pk }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-start justify-between gap-4 flex-wrap">
+  <div>
+    <a href="{% url 'finance:orders' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "My Orders" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{% trans "Order" %} #{{ order.pk }}</h1>
+    <p class="text-sm text-gray-500 mt-0.5">{{ order.created_at|date:"j F Y, H:i" }}</p>
+  </div>
+  <div class="flex items-center gap-2 flex-wrap shrink-0 mt-1">
+    {{ order.status|status_badge }}
+    <a href="{% url 'finance:order_invoice' order.pk %}" class="btn-secondary text-sm" target="_blank">🧾 {% trans "Invoice" %}</a>
+    <a href="{% url 'finance:order_invoice' order.pk %}?format=pdf" class="btn-secondary text-sm">⬇️ {% trans "PDF" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="lg:col-span-2 space-y-4">
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Items" %}</h2>
+      <div class="divide-y divide-gray-100 dark:divide-gray-700">
+        {% for item in order.items.all %}
+        <div class="py-3 flex items-center gap-4">
+          {% if item.product.image %}
+          <img src="{{ item.product.image.url }}" class="h-14 w-14 rounded-lg object-cover shrink-0">
+          {% else %}
+          <div class="h-14 w-14 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-2xl shrink-0">🏷</div>
+          {% endif %}
+          <div class="flex-1 min-w-0">
+            <p class="font-medium text-gray-900 dark:text-white">{{ item.product.name }}</p>
+            <p class="text-sm text-gray-500">€{{ item.price|floatformat:2 }} × {{ item.quantity }}</p>
+          </div>
+          <p class="font-semibold text-gray-900 dark:text-white shrink-0">€{{ item.subtotal|floatformat:2 }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="pt-4 border-t border-gray-100 dark:border-gray-700 space-y-1.5 text-sm">
+        <div class="flex justify-between text-gray-500">
+          <span>{% trans "Subtotal" %}</span><span>€{{ order.total|floatformat:2 }}</span>
+        </div>
+        <div class="flex justify-between text-gray-500">
+          <span>{% trans "Shipping" %}</span><span class="text-emerald-600">{% trans "Free" %}</span>
+        </div>
+        <div class="flex justify-between font-black text-base text-gray-900 dark:text-white border-t border-gray-100 dark:border-gray-700 pt-2 mt-1">
+          <span>{% trans "Total" %}</span>
+          <span class="text-primary-600">€{{ order.total|floatformat:2 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="flex gap-3 flex-wrap">
+      <a href="{% url 'finance:shop' %}" class="btn-secondary">🛍️ {% trans "Continue Shopping" %}</a>
+      <a href="{% url 'finance:order_invoice' order.pk %}" class="btn-secondary" target="_blank">🧾 {% trans "View Invoice" %}</a>
+      <a href="{% url 'finance:order_invoice' order.pk %}?format=pdf" class="btn-primary">⬇️ {% trans "Download PDF Invoice" %}</a>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Customer" %}</h2>
+      <p class="text-sm font-medium text-gray-900 dark:text-white">{{ order.customer.get_full_name|default:order.customer.email }}</p>
+      <p class="text-sm text-gray-500">{{ order.customer.email }}</p>
+    </div>
+
+    {% if order.shipping_address %}
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-2">{% trans "Shipping Address" %}</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400 whitespace-pre-line">{{ order.shipping_address }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Support info -->
+    <div class="card p-6 border border-gray-100 dark:border-gray-700">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-3">💬 {% trans "Need Help?" %}</h2>
+      <p class="text-sm text-gray-500 mb-3">{% trans "Questions about your order? Contact our support team." %}</p>
+      <a href="mailto:support@apexforge.com?subject=Order%20%23{{ order.pk }}"
+         class="btn-secondary w-full justify-center text-sm">
+        ✉️ {% trans "Email Support" %}
+      </a>
+    </div>
+
+    {% if request.user.can_manage %}
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-3">{% trans "Update Status" %}</h2>
+      <form method="post" action="{% url 'finance:order_status' order.pk %}">
+        {% csrf_token %}
+        <select name="status" class="form-select w-full mb-3">
+          {% for val, label in status_choices %}
+          <option value="{{ val }}" {% if val == order.status %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn-primary w-full">{% trans "Update" %}</button>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Scout Reports" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🔍 {% trans "Scout Reports" %}</h1>
+  {% if request.user.can_manage or request.user.is_scout %}
+  <a href="{% url 'scouting:report_create' %}" class="btn-primary">+ {% trans "New Report" %}</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card p-4 mb-4">
+  <form class="flex flex-wrap gap-3 items-end">
+    <div class="flex-1 min-w-40">
+      <input type="search" name="q" value="{{ query }}" placeholder="{% trans 'Search by talent or scout...' %}" class="form-input w-full">
+    </div>
+    <select name="recommendation" class="form-select">
+      <option value="">{% trans "All recommendations" %}</option>
+      {% for val, label in recommendation_choices %}<option value="{{ val }}" {% if val == current_rec %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+  </form>
+</div>
+
+<div class="space-y-3">
+  {% for report in page %}
+  <a href="{% url 'scouting:report_detail' report.pk %}" class="card p-4 flex items-center gap-4 hover:shadow-md transition-shadow group block">
+    <div class="h-12 w-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-lg shrink-0">
+      {{ report.player.full_name|first }}
+    </div>
+    <div class="flex-1 min-w-0">
+      <p class="font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 transition-colors">{{ report.player.full_name }}</p>
+      <p class="text-xs text-gray-500">{{ report.player.position }} · {% trans "Scouted by" %} {{ report.scout.get_full_name|default:report.scout.email }} · {{ report.match_date|date:"j M Y" }}</p>
+    </div>
+    <div class="shrink-0 flex items-center gap-4">
+      {% if report.recommendation %}
+      <span class="text-xs px-2 py-1 rounded-full
+        {% if report.recommendation == 'sign' %}bg-emerald-100 text-emerald-700
+        {% elif report.recommendation == 'monitor' %}bg-amber-100 text-amber-700
+        {% else %}bg-gray-100 text-gray-600{% endif %}">
+        {{ report.get_recommendation_display }}
+      </span>
+      {% endif %}
+      <div class="text-right">
+        <p class="text-2xl font-black text-amber-500">{{ report.overall }}</p>
+        <p class="text-xs text-gray-400">/10</p>
+      </div>
+    </div>
+  </a>
+  {% empty %}
+  <div class="text-center py-16 text-gray-500">
+    <p class="text-3xl mb-2">🔍</p>
+    <p>{% trans "No scout reports found." %}</p>
+    {% if request.user.is_scout %}<a href="{% url 'scouting:report_create' %}" class="btn-primary inline-flex mt-4">{% trans "Write first report" %}</a>{% endif %}
+  </div>
+  {% endfor %}
+
+  {% if page.has_other_pages %}
+  <div class="flex justify-center gap-2 pt-4">
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+    <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+    {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

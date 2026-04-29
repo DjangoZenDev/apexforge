@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Events" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Events" %}</h1>
+  <div class="flex gap-2">
+    <a href="{% url 'events:calendar' %}" class="btn-secondary">📅 {% trans "Calendar" %}</a>
+    {% if request.user.can_manage or request.user.is_coach %}
+    <a href="{% url 'events:create' %}" class="btn-primary">+ {% trans "New Event" %}</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card p-4 mb-6">
+  <form class="flex flex-wrap gap-3">
+    <select name="type" class="form-select" hx-get="{% url 'events:list' %}" hx-trigger="change" hx-target="#events-list">
+      <option value="">{% trans "All types" %}</option>
+      {% for val, label in type_choices %}<option value="{{ val }}" {% if request.GET.type == val %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+    <select name="status" class="form-select" hx-get="{% url 'events:list' %}" hx-trigger="change" hx-target="#events-list">
+      <option value="">{% trans "All statuses" %}</option>
+      {% for val, label in status_choices %}<option value="{{ val }}" {% if request.GET.status == val %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+  </form>
+</div>
+
+<div id="events-list" class="space-y-3">
+  {% for event in page %}
+  <div class="card p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+    <div class="h-14 w-14 rounded-xl flex flex-col items-center justify-center shrink-0
+      {% if event.event_type == 'fixture' %}bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700
+      {% elif event.event_type == 'training' %}bg-blue-100 dark:bg-blue-900/30 text-blue-700
+      {% elif event.event_type == 'tournament' %}bg-amber-100 dark:bg-amber-900/30 text-amber-700
+      {% else %}bg-gray-100 dark:bg-gray-700 text-gray-600{% endif %}">
+      <span class="text-lg font-black leading-none">{{ event.start_date|date:"d" }}</span>
+      <span class="text-xs font-medium">{{ event.start_date|date:"M" }}</span>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2">
+        <a href="{{ event.get_absolute_url }}" class="font-semibold text-gray-900 dark:text-white hover:text-primary-600 transition-colors">
+          {{ event.title }}
+        </a>
+        {{ event.status|status_badge }}
+      </div>
+      <p class="text-sm text-gray-500 mt-0.5">
+        {% if event.team %}{{ event.team.name }} · {% endif %}
+        {% if event.venue %}{{ event.venue }}{% endif %}
+        {% if event.start_time %} · {{ event.start_time|time:"H:i" }}{% endif %}
+      </p>
+    </div>
+    <div class="shrink-0 flex gap-2">
+      {% if request.user.can_manage or request.user.is_coach %}
+      <a href="{% url 'events:edit' event.pk %}" class="text-gray-400 hover:text-primary-600 p-1">✏️</a>
+      {% endif %}
+    </div>
+  </div>
+  {% empty %}
+  <div class="text-center py-16 text-gray-500">
+    <p>{% trans "No events found." %}</p>
+    {% if request.user.can_manage %}<a href="{% url 'events:create' %}" class="btn-primary inline-flex mt-4">{% trans "Schedule first event" %}</a>{% endif %}
+  </div>
+  {% endfor %}
+  {% if page.has_other_pages %}
+  <div class="flex justify-center gap-2 pt-4">
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+    <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+    {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

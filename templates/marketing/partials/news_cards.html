@@ -1,0 +1,39 @@
+{% load i18n %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {% for post in page %}
+  <a href="{{ post.get_absolute_url }}" class="card overflow-hidden group hover:shadow-md transition-shadow">
+    {% if post.hero_image %}
+      <img src="{{ post.hero_image.url }}" alt="{{ post.title }}" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300">
+    {% else %}
+      <div class="w-full h-44 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center">
+        <span class="text-4xl">📰</span>
+      </div>
+    {% endif %}
+    <div class="p-4">
+      <span class="text-xs text-primary-600 font-semibold uppercase tracking-wide">{{ post.get_category_display }}</span>
+      <h3 class="font-semibold text-gray-900 dark:text-white mt-1 group-hover:text-primary-600 transition-colors line-clamp-2">{{ post.title }}</h3>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">{{ post.excerpt|default:post.content|truncatechars:100 }}</p>
+      <div class="flex items-center gap-2 mt-3 text-xs text-gray-400">
+        <span>{{ post.author.get_full_name|default:"Staff" }}</span>
+        <span>·</span>
+        <span>{{ post.published_at|date:"j M Y"|default:"Draft" }}</span>
+        <span>·</span>
+        <span>{{ post.views }} {% trans "views" %}</span>
+      </div>
+    </div>
+  </a>
+  {% empty %}
+  <div class="col-span-full text-center py-16 text-gray-500">
+    <p class="text-4xl mb-3">📰</p>
+    <p>{% trans "No news posts yet." %}</p>
+    {% if request.user.can_manage %}<a href="{% url 'marketing:news_create' %}" class="btn-primary inline-flex mt-4">{% trans "Write first post" %}</a>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% if page.has_other_pages %}
+<div class="flex justify-center gap-2 mt-6">
+  {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+  <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+</div>
+{% endif %}

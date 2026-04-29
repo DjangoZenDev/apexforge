@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Watchlist" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">👁 {% trans "My Watchlist" %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if not watchlists %}
+<div class="card p-12 text-center text-gray-500">
+  <p class="text-4xl mb-3">👁</p>
+  <p class="font-medium">{% trans "Your watchlist is empty." %}</p>
+  <a href="{% url 'scouting:talent_list' %}" class="btn-primary inline-flex mt-4">{% trans "Browse Talents" %}</a>
+</div>
+{% else %}
+
+{% with watchlist=watchlists.first %}{% if watchlist and watchlist.players.exists %}
+<div class="mb-6">
+  <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">{% trans "Players" %}</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for player in watchlist.players.all %}
+    <div class="card p-4 flex items-center gap-3">
+      {% if player.photo %}
+        <img src="{{ player.photo.url }}" class="h-11 w-11 rounded-full object-cover shrink-0">
+      {% else %}
+        <div class="h-11 w-11 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold shrink-0">
+          {{ player.full_name|first }}
+        </div>
+      {% endif %}
+      <div class="flex-1 min-w-0">
+        <a href="{{ player.get_absolute_url }}" class="font-semibold text-gray-900 dark:text-white hover:text-primary-600 truncate block">{{ player.full_name }}</a>
+        <p class="text-xs text-gray-500">{{ player.position }}</p>
+      </div>
+      <form method="post" action="{% url 'scouting:watchlist_remove_player' player.pk %}">
+        {% csrf_token %}
+        <button type="submit" class="text-gray-400 hover:text-red-500 transition-colors p-1" title="{% trans 'Remove' %}">✕</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if watchlist and watchlist.talents.exists %}
+<div>
+  <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">{% trans "Talents" %}</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    {% for talent in watchlist.talents.all %}
+    <div class="card p-4">
+      <div class="flex items-center gap-3 mb-3">
+        {% if talent.photo %}
+          <img src="{{ talent.photo.url }}" class="h-11 w-11 rounded-full object-cover">
+        {% else %}
+          <div class="h-11 w-11 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold">
+            {{ talent.full_name|first }}
+          </div>
+        {% endif %}
+        <div class="flex-1 min-w-0">
+          <a href="{{ talent.get_absolute_url }}" class="font-semibold text-gray-900 dark:text-white hover:text-primary-600 truncate block text-sm">{{ talent.full_name }}</a>
+          <p class="text-xs text-gray-500">{{ talent.position }} · {{ talent.nationality }}</p>
+        </div>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-xs text-gray-500">{{ talent.current_club|default:"—" }}</p>
+          {{ talent.status|status_badge }}
+        </div>
+        <div class="flex items-center gap-2">
+          <p class="text-xl font-black text-amber-500">{{ talent.rating }}</p>
+          <form method="post" action="{% url 'scouting:watchlist_remove_talent' talent.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="text-gray-400 hover:text-red-500 transition-colors p-1 text-xs" title="{% trans 'Remove' %}">✕</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% endif %}{% endwith %}
+{% endblock %}

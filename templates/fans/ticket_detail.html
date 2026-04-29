@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Ticket" %} — {{ ticket.event.title }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'fans:ticket_list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Tickets" %}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ ticket.event.title }}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-md">
+  <div class="card p-6 mb-4">
+    <div class="flex items-center justify-between mb-4">
+      <span class="badge bg-{{ ticket.category.color }}-100 text-{{ ticket.category.color }}-700 text-sm">{{ ticket.category.name }}</span>
+      <span class="badge bg-emerald-100 text-emerald-700">{% trans "Available" %}</span>
+    </div>
+    <dl class="space-y-3 text-sm">
+      <div class="flex justify-between"><dt class="text-gray-500">{% trans "Date" %}</dt><dd class="font-medium">{{ ticket.event.start_date }}</dd></div>
+      {% if ticket.event.venue %}<div class="flex justify-between"><dt class="text-gray-500">{% trans "Venue" %}</dt><dd class="font-medium">{{ ticket.event.venue }}</dd></div>{% endif %}
+      {% if ticket.seat_row %}<div class="flex justify-between"><dt class="text-gray-500">{% trans "Seat" %}</dt><dd class="font-medium">Row {{ ticket.seat_row }} · Seat {{ ticket.seat_number }}</dd></div>{% endif %}
+      <div class="flex justify-between border-t pt-3">
+        <dt class="text-base font-semibold text-gray-900 dark:text-white">{% trans "Price" %}</dt>
+        <dd class="text-xl font-black text-primary-600">€{{ ticket.effective_price|intcomma }}</dd>
+      </div>
+    </dl>
+    {% if ticket.category.perks_list %}
+    <div class="mt-4 border-t pt-4">
+      <p class="text-xs font-semibold text-gray-500 uppercase mb-2">{% trans "Includes" %}</p>
+      <ul class="space-y-1">
+        {% for perk in ticket.category.perks_list %}<li class="text-sm text-gray-600 dark:text-gray-400">✓ {{ perk }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+  <div class="flex gap-3">
+    <a href="{% url 'fans:ticket_buy' ticket.pk %}" class="btn-primary flex-1 justify-center">🎟️ {% trans "Buy Now" %}</a>
+    <a href="{% url 'fans:ticket_list' %}" class="btn-secondary">{% trans "Back" %}</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% load i18n core_tags humanize %}
+
+{% block title %}{% trans "Finance" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Finance Dashboard" %}</h1>
+    <p class="text-sm text-gray-500 mt-1">{% trans "Financial overview, budgets, and sponsorships" %}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'finance:export_transactions' %}" class="btn-secondary">⬇️ Excel</a>
+    <a href="{% url 'finance:transaction_create' %}" class="btn-primary">+ {% trans "Add Transaction" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- KPI row -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5">
+    <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Monthly Income" %}</p>
+    <p class="text-2xl font-bold text-emerald-600">€{{ monthly_income|floatformat:0|intcomma }}</p>
+    <p class="text-xs text-gray-400 mt-1">{% trans "this month" %}</p>
+  </div>
+  <div class="card p-5">
+    <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Monthly Expenses" %}</p>
+    <p class="text-2xl font-bold text-red-500">€{{ monthly_expense|floatformat:0|intcomma }}</p>
+    <p class="text-xs text-gray-400 mt-1">{% trans "this month" %}</p>
+  </div>
+  <div class="card p-5">
+    <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Net Balance" %}</p>
+    <p class="text-2xl font-bold {% if net_monthly >= 0 %}text-emerald-600{% else %}text-red-500{% endif %}">
+      {% if net_monthly >= 0 %}+{% endif %}€{{ net_monthly|floatformat:0|intcomma }}
+    </p>
+    <p class="text-xs text-gray-400 mt-1">{% trans "this month" %}</p>
+  </div>
+  <div class="card p-5">
+    <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">{% trans "Sponsorships" %}</p>
+    <p class="text-2xl font-bold text-purple-600">€{{ total_sponsorship|floatformat:0|intcomma }}</p>
+    <p class="text-xs text-gray-400 mt-1">{% trans "active value" %}</p>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Recent transactions -->
+  <div class="lg:col-span-2 card overflow-hidden">
+    <div class="card-header flex items-center justify-between">
+      <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Recent Transactions" %}</h2>
+      <a href="{% url 'finance:transactions' %}" class="text-xs text-primary-600 hover:underline">{% trans "All transactions" %}</a>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-100 dark:divide-gray-700">
+        <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+          {% for tx in recent_transactions %}
+          <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded-full flex items-center justify-center text-sm shrink-0
+                  {% if tx.transaction_type == 'income' %}bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600
+                  {% else %}bg-red-100 dark:bg-red-900/30 text-red-600{% endif %}">
+                  {% if tx.transaction_type == 'income' %}↑{% else %}↓{% endif %}
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">{{ tx.title }}</p>
+                  <p class="text-xs text-gray-500">{{ tx.date }} · {{ tx.category.name|default:"Uncategorised" }}</p>
+                </div>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-right">
+              <p class="text-sm font-bold {% if tx.transaction_type == 'income' %}text-emerald-600{% else %}text-red-500{% endif %}">
+                {% if tx.transaction_type == 'income' %}+{% else %}-{% endif %}€{{ tx.amount|floatformat:2 }}
+              </p>
+              <p class="text-xs text-gray-400">{{ tx.get_status_display }}</p>
+            </td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="2" class="px-4 py-8 text-center text-gray-500 text-sm">{% trans "No transactions yet." %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Expense breakdown -->
+  <div class="card p-6">
+    <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Expenses by Category" %}</h2>
+    {% if expense_by_category %}
+    <canvas id="expenseChart" height="220"></canvas>
+    {% else %}
+    <p class="text-sm text-gray-500 text-center py-8">{% trans "No expense data yet." %}</p>
+    {% endif %}
+  </div>
+
+  <!-- Sponsorships -->
+  <div class="card p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Active Sponsors" %}</h2>
+      <a href="{% url 'finance:sponsorships' %}" class="text-xs text-primary-600 hover:underline">{% trans "All" %}</a>
+    </div>
+    <div class="space-y-3">
+      {% for sponsor in active_sponsorships %}
+      <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700">
+        {% if sponsor.logo %}
+          <img src="{{ sponsor.logo.url }}" class="h-8 w-8 rounded object-contain">
+        {% else %}
+          <div class="h-8 w-8 rounded bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-xs font-bold text-primary-700">
+            {{ sponsor.company_name|first }}
+          </div>
+        {% endif %}
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ sponsor.company_name }}</p>
+          <p class="text-xs text-gray-500">{{ sponsor.get_sponsor_type_display }}</p>
+        </div>
+        <p class="text-sm font-bold text-emerald-600 shrink-0">€{{ sponsor.amount|floatformat:0|intcomma }}</p>
+      </div>
+      {% empty %}
+      <p class="text-sm text-gray-500 text-center py-4">{% trans "No active sponsors." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Budgets -->
+  <div class="lg:col-span-2 card p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Budgets" %}</h2>
+      <a href="{% url 'finance:budgets' %}" class="text-xs text-primary-600 hover:underline">{% trans "All budgets" %}</a>
+    </div>
+    <div class="space-y-4">
+      {% for budget in budgets %}
+      <div>
+        <div class="flex items-center justify-between text-sm mb-1">
+          <span class="font-medium text-gray-900 dark:text-white">{{ budget.name }}</span>
+          <span class="text-gray-500">€{{ budget.spent|floatformat:0|intcomma }} / €{{ budget.amount|floatformat:0|intcomma }}</span>
+        </div>
+        <div class="h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+          {% with pct=budget.spent|percentage:budget.amount %}
+          <div class="h-2 rounded-full {% if budget.spent > budget.amount %}bg-red-500{% elif budget.spent > budget.amount|floatformat:0 %}bg-amber-500{% else %}bg-emerald-500{% endif %}"
+               style="width: min({{ pct }}, 100%)"></div>
+          {% endwith %}
+        </div>
+        <p class="text-xs text-gray-500 mt-0.5">{{ budget.remaining|currency }} {% trans "remaining" %}</p>
+      </div>
+      {% empty %}
+      <p class="text-sm text-gray-500 text-center py-4">{% trans "No budgets set up." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% if expense_by_category %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const data = {{ expense_by_category|safe }};
+  new Chart(document.getElementById('expenseChart'), {
+    type: 'doughnut',
+    data: {
+      labels: data.map(d => d.category__name || 'Other'),
+      datasets: [{
+        data: data.map(d => parseFloat(d.total)),
+        backgroundColor: data.map(d => d.category__color || '#6b7280'),
+        borderWidth: 2,
+        borderColor: document.documentElement.classList.contains('dark') ? '#1f2937' : '#fff',
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } } },
+      cutout: '65%',
+    }
+  });
+});
+</script>
+{% endif %}
+{% endblock %}

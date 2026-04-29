@@ -1,0 +1,15 @@
+{% extends "emails/base_email.html" %}
+{% block subject %}🏥 Injury Report — {{ injury.player.full_name }}{% endblock %}
+{% block body %}
+<h2>New Injury Reported</h2>
+<div class="alert-box {% if injury.severity == 'critical' %}danger{% elif injury.severity == 'severe' %}warning{% else %}info{% endif %}">
+  <p>
+    <strong>{{ injury.player.full_name }}</strong> has been reported injured.<br><br>
+    <strong>Type:</strong> {{ injury.injury_type }}<br>
+    <strong>Body part:</strong> {{ injury.get_body_part_display }}<br>
+    <strong>Severity:</strong> {{ injury.get_severity_display }}<br>
+    <strong>Expected recovery:</strong> {{ injury.expected_recovery_date|default:"TBD" }}
+  </p>
+</div>
+<a href="{{ site_url }}/medical/" class="btn">View Medical Records →</a>
+{% endblock %}

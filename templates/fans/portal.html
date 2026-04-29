@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Fan Portal" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-5 pb-3 flex items-center justify-between gap-4 flex-wrap">
+
+  <!-- Fan identity card -->
+  <div class="flex items-center gap-4">
+
+    <!-- Fan photo with tier ring colour + edit on hover -->
+    <a href="{% url 'fans:profile_edit' %}" class="shrink-0 relative group" title="{% trans 'Edit fan profile' %}">
+
+      <!-- Tier-coloured ring -->
+      <div class="p-0.5 rounded-2xl shadow-lg
+        {% if profile and profile.tier == 'platinum' %}bg-gradient-to-br from-violet-400 to-violet-600
+        {% elif profile and profile.tier == 'gold' %}bg-gradient-to-br from-amber-400 to-amber-600
+        {% elif profile and profile.tier == 'silver' %}bg-gradient-to-br from-gray-400 to-gray-500
+        {% elif profile %}bg-gradient-to-br from-orange-400 to-orange-600
+        {% else %}bg-gradient-to-br from-primary-500 to-accent-500{% endif %}">
+        {% if profile and profile.avatar %}
+          <img src="{{ profile.avatar.url }}"
+               class="h-20 w-20 rounded-[14px] object-cover block">
+        {% else %}
+          <div class="h-20 w-20 rounded-[14px] bg-gray-900 flex items-center justify-center">
+            <span class="text-white font-black text-3xl">{{ request.user.first_name|first|default:"?" }}</span>
+          </div>
+        {% endif %}
+      </div>
+
+
+      <!-- Edit pencil on hover -->
+      <div class="absolute top-1 right-1 h-6 w-6 rounded-full bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+        <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z"/>
+        </svg>
+      </div>
+      <!-- Fan label -->
+      <p class="text-center text-xs font-semibold text-gray-400 mt-2 tracking-widest uppercase">{% trans "Fan" %}</p>
+    </a>
+
+    <!-- Name + tier + points -->
+    <div class="mt-1 ml-4">
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white leading-tight">
+        👋 {% trans "Welcome" %}{% if request.user.first_name %}, {{ request.user.first_name }}{% endif %}!
+      </h1>
+      {% if profile %}
+      <div class="flex items-center gap-2 mt-1.5 flex-wrap">
+        <span class="text-sm font-semibold
+          {% if profile.tier == 'platinum' %}text-violet-400
+          {% elif profile.tier == 'gold' %}text-amber-400
+          {% elif profile.tier == 'silver' %}text-gray-400
+          {% else %}text-orange-400{% endif %}">
+          ★ {{ profile.get_tier_display }}
+        </span>
+        <span class="text-sm text-gray-500">· {{ profile.loyalty_points|intcomma }} {% trans "pts" %}</span>
+        <a href="{% url 'fans:profile_edit' %}" class="text-xs text-primary-500 hover:underline">{% trans "Edit profile" %}</a>
+      </div>
+      {% else %}
+      <p class="text-sm text-gray-500 mt-1">{% trans "Complete your profile to start earning loyalty points." %}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="flex gap-2 shrink-0">
+    <a href="{% url 'finance:shop' %}" class="btn-primary">🛍️ {% trans "Shop Now" %}</a>
+    <a href="{% url 'fans:ticket_list' %}" class="btn-secondary">🎟️ {% trans "Get Tickets" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{# ── Profile setup prompt ──────────────────────────────────────────────── #}
+{% if not profile %}
+<div class="card p-6 mb-6 border-l-4 border-primary-500 flex items-center gap-4">
+  <div class="text-4xl">👤</div>
+  <div class="flex-1">
+    <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Set up your fan profile" %}</h2>
+    <p class="text-sm text-gray-500 mt-0.5">{% trans "Unlock ticket purchasing, loyalty points, and membership tiers." %}</p>
+  </div>
+  <a href="{% url 'fans:profile_edit' %}" class="btn-primary shrink-0">{% trans "Create Profile" %}</a>
+</div>
+{% endif %}
+
+{# ── Loyalty tier progress ─────────────────────────────────────────────── #}
+{% if profile %}
+{% with profile.tier_progress as tp %}
+<div class="card p-5 mb-6">
+  <div class="flex items-center justify-between mb-3">
+    <div class="flex items-center gap-3">
+      <div class="h-10 w-10 rounded-full flex items-center justify-center text-lg font-bold
+        {% if profile.tier == 'platinum' %}bg-violet-100 dark:bg-violet-900/40 text-violet-500
+        {% elif profile.tier == 'gold' %}bg-amber-100 dark:bg-amber-900/40 text-amber-500
+        {% elif profile.tier == 'silver' %}bg-gray-100 dark:bg-gray-700 text-gray-400
+        {% else %}bg-orange-100 dark:bg-orange-900/40 text-orange-500{% endif %}">★</div>
+      <div>
+        <p class="font-semibold text-gray-900 dark:text-white">{{ profile.get_tier_display }}</p>
+        <p class="text-xs text-gray-500">{{ tp.0|intcomma }} {% trans "loyalty points" %}</p>
+      </div>
+    </div>
+    <a href="{% url 'fans:loyalty' %}" class="text-sm text-primary-600 hover:underline">{% trans "View history" %} →</a>
+  </div>
+  {% if tp.1 %}
+  <div class="flex items-center gap-3">
+    <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+      <div class="h-2 rounded-full bg-gradient-to-r from-primary-500 to-accent-500" style="width: {{ tp.2 }}%"></div>
+    </div>
+    <span class="text-xs text-gray-500 shrink-0">{{ tp.1|intcomma }} {% trans "pts to next tier" %}</span>
+  </div>
+  {% else %}
+  <p class="text-xs text-violet-600 font-medium">🏆 {% trans "Maximum tier reached!" %}</p>
+  {% endif %}
+</div>
+{% endwith %}
+{% endif %}
+
+{# ── Quick stats ───────────────────────────────────────────────────────── #}
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-4 text-center">
+    <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ my_tickets|length }}</p>
+    <p class="text-xs text-gray-500 mt-1">{% trans "My Tickets" %}</p>
+    <a href="{% url 'fans:my_tickets' %}" class="text-xs text-primary-600 hover:underline mt-1 block">{% trans "View all" %}</a>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ my_orders|length }}</p>
+    <p class="text-xs text-gray-500 mt-1">{% trans "My Orders" %}</p>
+    <a href="{% url 'finance:orders' %}" class="text-xs text-primary-600 hover:underline mt-1 block">{% trans "View all" %}</a>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ upcoming_events|length }}</p>
+    <p class="text-xs text-gray-500 mt-1">{% trans "Upcoming Events" %}</p>
+    <a href="{% url 'fans:ticket_list' %}" class="text-xs text-primary-600 hover:underline mt-1 block">{% trans "Get tickets" %}</a>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-2xl font-bold {% if profile %}text-primary-600{% else %}text-gray-400{% endif %}">
+      {% if profile %}{{ profile.loyalty_points|intcomma }}{% else %}—{% endif %}
+    </p>
+    <p class="text-xs text-gray-500 mt-1">{% trans "Loyalty Points" %}</p>
+    {% if profile %}<a href="{% url 'fans:loyalty' %}" class="text-xs text-primary-600 hover:underline mt-1 block">{% trans "Details" %}</a>{% endif %}
+  </div>
+</div>
+
+{# ── Loyalty points explainer ──────────────────────────────────────────── #}
+<div class="card p-5 mb-6 border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/10">
+  <div class="flex items-start gap-4">
+    <div class="text-3xl shrink-0">⭐</div>
+    <div class="flex-1">
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-1">{% trans "What are Loyalty Points?" %}</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+        {% trans "You earn 1 point for every €1 spent on tickets and shop orders. Points unlock higher membership tiers with exclusive perks." %}
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+        <div class="flex items-center gap-2 p-2 rounded-lg bg-orange-100 dark:bg-orange-900/30">
+          <span class="text-orange-500 font-bold text-sm">🥉</span>
+          <div><p class="font-semibold text-gray-800 dark:text-gray-200">{% trans "Bronze" %}</p><p class="text-gray-500">0 pts</p></div>
+        </div>
+        <div class="flex items-center gap-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-700">
+          <span class="text-gray-400 font-bold text-sm">🥈</span>
+          <div><p class="font-semibold text-gray-800 dark:text-gray-200">{% trans "Silver" %}</p><p class="text-gray-500">500 pts</p></div>
+        </div>
+        <div class="flex items-center gap-2 p-2 rounded-lg bg-amber-100 dark:bg-amber-900/30">
+          <span class="text-amber-500 font-bold text-sm">🥇</span>
+          <div><p class="font-semibold text-gray-800 dark:text-gray-200">{% trans "Gold" %}</p><p class="text-gray-500">2,000 pts</p></div>
+        </div>
+        <div class="flex items-center gap-2 p-2 rounded-lg bg-violet-100 dark:bg-violet-900/30">
+          <span class="text-violet-500 font-bold text-sm">💎</span>
+          <div><p class="font-semibold text-gray-800 dark:text-gray-200">{% trans "Platinum" %}</p><p class="text-gray-500">5,000 pts</p></div>
+        </div>
+      </div>
+    </div>
+    {% if profile %}
+    <a href="{% url 'fans:loyalty' %}" class="btn-secondary text-xs shrink-0">{% trans "My History" %} →</a>
+    {% endif %}
+  </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+
+  {# ── Upcoming events ──────────────────────────────────────────────────── #}
+  <div class="card overflow-hidden">
+    <div class="card-header flex items-center justify-between">
+      <h2 class="font-semibold text-gray-900 dark:text-white">🗓️ {% trans "Upcoming Events" %}</h2>
+      <a href="{% url 'fans:ticket_list' %}" class="text-xs text-primary-600 hover:underline">{% trans "All tickets" %} →</a>
+    </div>
+    {% if upcoming_events %}
+    <ul class="divide-y divide-gray-100 dark:divide-gray-700">
+      {% for event in upcoming_events %}
+      <li class="px-5 py-3 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <div>
+          <p class="text-sm font-medium text-gray-900 dark:text-white">{{ event.title }}</p>
+          <p class="text-xs text-gray-500">📅 {{ event.start_date|date:"d M Y" }}{% if event.venue %} · {{ event.venue }}{% endif %}</p>
+        </div>
+        <a href="{% url 'fans:ticket_list' %}" class="btn-secondary text-xs py-1 px-3">{% trans "Tickets" %}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="px-5 py-10 text-center">
+      <p class="text-3xl mb-2">📅</p>
+      <p class="text-sm text-gray-500">{% trans "No upcoming events at the moment. Check back soon!" %}</p>
+    </div>
+    {% endif %}
+  </div>
+
+  {# ── My recent tickets ────────────────────────────────────────────────── #}
+  <div class="card overflow-hidden">
+    <div class="card-header flex items-center justify-between">
+      <h2 class="font-semibold text-gray-900 dark:text-white">🎟️ {% trans "My Recent Tickets" %}</h2>
+      <a href="{% url 'fans:my_tickets' %}" class="text-xs text-primary-600 hover:underline">{% trans "All tickets" %} →</a>
+    </div>
+    {% if my_tickets %}
+    <ul class="divide-y divide-gray-100 dark:divide-gray-700">
+      {% for ticket in my_tickets %}
+      <li class="px-5 py-3">
+        <p class="text-sm font-medium text-gray-900 dark:text-white">{{ ticket.event.title|default:"—" }}</p>
+        <p class="text-xs text-gray-500">{{ ticket.category.name }} · €{{ ticket.effective_price|floatformat:2 }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% elif not profile %}
+    <div class="px-5 py-10 text-center">
+      <p class="text-3xl mb-2">🎟️</p>
+      <p class="text-sm text-gray-500">{% trans "Create your fan profile to buy tickets." %}</p>
+      <a href="{% url 'fans:profile_edit' %}" class="btn-primary mt-3 inline-block text-sm">{% trans "Create Profile" %}</a>
+    </div>
+    {% else %}
+    <div class="px-5 py-10 text-center">
+      <p class="text-3xl mb-2">🎟️</p>
+      <p class="text-sm text-gray-500">{% trans "You haven't bought any tickets yet." %}</p>
+      <a href="{% url 'fans:ticket_list' %}" class="btn-primary mt-3 inline-block text-sm">{% trans "Browse Events" %}</a>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
+
+{# ── Featured shop items ───────────────────────────────────────────────── #}
+{% if featured_products %}
+<div>
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">🛍️ {% trans "Club Store Highlights" %}</h2>
+    <a href="{% url 'finance:shop' %}" class="text-sm text-primary-600 hover:underline">{% trans "Browse all products" %} →</a>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {% for product in featured_products %}
+    <a href="{{ product.get_absolute_url }}" class="card overflow-hidden hover:shadow-lg transition-shadow group block">
+      {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}"
+           class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-200">
+      {% else %}
+      <div class="w-full h-36 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/40 dark:to-accent-900/40 flex items-center justify-center text-4xl">
+        🛒
+      </div>
+      {% endif %}
+      <div class="p-3">
+        <p class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ product.name }}</p>
+        <p class="text-sm font-bold text-primary-600 mt-0.5">€{{ product.price|floatformat:2 }}</p>
+        <p class="text-xs text-gray-400 mt-0.5">{{ product.get_category_display }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+<div class="card p-8 text-center mt-2">
+  <p class="text-4xl mb-3">🛍️</p>
+  <h3 class="font-semibold text-gray-900 dark:text-white mb-1">{% trans "Club Store" %}</h3>
+  <p class="text-sm text-gray-500 mb-4">{% trans "Official jerseys, training gear, and memorabilia coming soon." %}</p>
+  <a href="{% url 'finance:shop' %}" class="btn-secondary">{% trans "Visit Store" %}</a>
+</div>
+{% endif %}
+
+{% endblock %}

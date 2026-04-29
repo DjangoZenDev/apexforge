@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Academy Programs" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🎓 {% trans "Academy Programs" %}</h1>
+  <a href="{% url 'academy:program_create' %}" class="btn-primary">+ {% trans "New Program" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Age group filter -->
+<div class="card p-4 mb-6">
+  <form class="flex flex-wrap gap-3 items-end">
+    <select name="age_group" class="form-select">
+      <option value="">{% trans "All Age Groups" %}</option>
+      {% for val, label in age_group_choices %}
+        <option value="{{ val }}" {% if request.GET.age_group == val %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+    <a href="{% url 'academy:programs' %}" class="btn-secondary">{% trans "Clear" %}</a>
+  </form>
+</div>
+
+{% if programs %}
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+  {% for program in programs %}
+  <div class="card p-5 flex flex-col gap-3 hover:shadow-md transition-shadow">
+    <div class="flex items-start justify-between gap-2">
+      <div>
+        <h2 class="text-base font-semibold text-gray-900 dark:text-white">{{ program.name }}</h2>
+        <span class="inline-block mt-1 text-xs bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300 px-2 py-0.5 rounded-full font-medium">
+          {{ program.get_age_group_display }}
+        </span>
+      </div>
+      <span class="text-2xl">
+        {% if program.age_group == 'u8' or program.age_group == 'u10' %}⚽
+        {% elif program.age_group == 'u12' or program.age_group == 'u14' %}🏃
+        {% elif program.age_group == 'u16' or program.age_group == 'u18' %}🌟
+        {% else %}🏆{% endif %}
+      </span>
+    </div>
+
+    {% if program.description %}
+    <p class="text-sm text-gray-500 line-clamp-2">{{ program.description }}</p>
+    {% endif %}
+
+    <div class="grid grid-cols-2 gap-3 text-sm">
+      <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-2.5 text-center">
+        <p class="text-xs text-gray-400 uppercase mb-0.5">{% trans "Players" %}</p>
+        <p class="font-bold text-gray-900 dark:text-white text-lg">{{ program.player_count }}</p>
+      </div>
+      <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-2.5 text-center">
+        <p class="text-xs text-gray-400 uppercase mb-0.5">{% trans "Season" %}</p>
+        <p class="font-bold text-gray-900 dark:text-white text-sm">{{ program.season }}</p>
+      </div>
+    </div>
+
+    {% if program.head_coach %}
+    <div class="flex items-center gap-2 text-sm text-gray-500">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+      </svg>
+      {{ program.head_coach.get_full_name }}
+    </div>
+    {% endif %}
+
+    <div class="flex gap-2 pt-1 border-t border-gray-100 dark:border-gray-700">
+      <a href="{% url 'academy:program_detail' program.pk %}" class="btn-primary text-xs flex-1 text-center">{% trans "View Plans" %}</a>
+      <a href="{% url 'academy:program_edit' program.pk %}" class="btn-secondary text-xs">{% trans "Edit" %}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="card p-12 text-center">
+  <p class="text-4xl mb-3">🎓</p>
+  <p class="text-gray-500 text-sm">{% trans "No academy programs yet. Create the first one!" %}</p>
+  <a href="{% url 'academy:program_create' %}" class="btn-primary mt-4 inline-block">{% trans "New Program" %}</a>
+</div>
+{% endif %}
+{% endblock %}

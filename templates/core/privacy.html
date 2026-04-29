@@ -1,0 +1,102 @@
+{% extends "base_public.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Privacy Policy" %}{% endblock %}
+{% block meta_description %}{% trans "ApexForge Privacy Policy — how we collect, use and protect your personal data." %}{% endblock %}
+
+{% block main_content %}
+<!-- Hero -->
+<section class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-900/50 border border-primary-700 text-primary-400 text-sm font-medium mb-6">
+      🔒 {% trans "Legal" %}
+    </div>
+    <h1 class="text-4xl font-black text-white mb-4">{% trans "Privacy Policy" %}</h1>
+    <p class="text-gray-400">{% trans "Last updated" %}: {% now "d F Y" %}</p>
+  </div>
+</section>
+
+<section class="max-w-3xl mx-auto px-4 py-12">
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+
+    <!-- GDPR summary banner -->
+    <div class="bg-primary-50 border border-primary-200 rounded-xl p-4 mb-8 flex items-start gap-3">
+      <span class="text-2xl shrink-0">🇪🇺</span>
+      <div>
+        <p class="font-semibold text-primary-900 text-sm">{% trans "GDPR Compliant" %}</p>
+        <p class="text-primary-700 text-xs mt-0.5">{% trans "We comply with the General Data Protection Regulation (GDPR). You have the right to access, correct, or delete your personal data at any time." %}</p>
+      </div>
+    </div>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">1. {% trans "Data Controller" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">
+      {% blocktrans %}{{ branding.name }} is the data controller responsible for your personal data. If you have questions about this Privacy Policy, please contact us at{% endblocktrans %}
+      {% if branding.email %}<a href="mailto:{{ branding.email }}" class="text-primary-600 hover:underline">{{ branding.email }}</a>.{% else %}{% trans "the address provided below." %}{% endif %}
+    </p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">2. {% trans "Data We Collect" %}</h2>
+    <p class="text-gray-600 mb-3 leading-relaxed">{% trans "We collect the following categories of personal data:" %}</p>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1 text-sm leading-relaxed">
+      <li><strong>{% trans "Account data" %}</strong>: {% trans "Name, email address, password (hashed), role." %}</li>
+      <li><strong>{% trans "Profile data" %}</strong>: {% trans "Profile photo, date of birth, phone number, bio." %}</li>
+      <li><strong>{% trans "Transaction data" %}</strong>: {% trans "Orders, ticket purchases, payment references (not card data)." %}</li>
+      <li><strong>{% trans "Usage data" %}</strong>: {% trans "Log-in times, pages visited, search queries." %}</li>
+      <li><strong>{% trans "Communication data" %}</strong>: {% trans "Messages sent via our contact form." %}</li>
+    </ul>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">3. {% trans "How We Use Your Data" %}</h2>
+    <p class="text-gray-600 mb-3 leading-relaxed">{% trans "We use your personal data to:" %}</p>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1 text-sm leading-relaxed">
+      <li>{% trans "Provide and improve our platform services." %}</li>
+      <li>{% trans "Process your orders and ticket purchases." %}</li>
+      <li>{% trans "Send transactional emails (order confirmations, receipts)." %}</li>
+      <li>{% trans "Send newsletters if you have opted in (you can unsubscribe at any time)." %}</li>
+      <li>{% trans "Comply with legal obligations." %}</li>
+      <li>{% trans "Prevent fraud and ensure platform security." %}</li>
+    </ul>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">4. {% trans "Legal Basis" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}We process your data on the legal basis of (a) contract performance when processing your orders; (b) legitimate interests for platform security and fraud prevention; (c) your consent for marketing communications; and (d) legal obligation where required by law.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">5. {% trans "Data Retention" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}We retain your personal data for as long as your account is active or as needed to provide services. Transaction data is retained for 7 years for tax and legal purposes. You may request deletion of your account data at any time.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">6. {% trans "Data Sharing" %}</h2>
+    <p class="text-gray-600 mb-3 leading-relaxed">{% trans "We do not sell your personal data. We may share data with:" %}</p>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1 text-sm leading-relaxed">
+      <li><strong>Stripe</strong>: {% trans "Payment processing. Stripe's privacy policy applies to payment data." %}</li>
+      <li><strong>{% trans "Email providers" %}</strong>: {% trans "For transactional emails only." %}</li>
+      <li><strong>{% trans "Legal authorities" %}</strong>: {% trans "When required by law or court order." %}</li>
+    </ul>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">7. {% trans "Your Rights (GDPR)" %}</h2>
+    <p class="text-gray-600 mb-3 leading-relaxed">{% trans "Under GDPR, you have the following rights:" %}</p>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1 text-sm leading-relaxed">
+      <li><strong>{% trans "Right of access" %}</strong> — {% trans "Request a copy of your personal data." %}</li>
+      <li><strong>{% trans "Right to rectification" %}</strong> — {% trans "Correct inaccurate data." %}</li>
+      <li><strong>{% trans "Right to erasure" %}</strong> — {% trans "Request deletion of your data ('right to be forgotten')." %}</li>
+      <li><strong>{% trans "Right to restrict processing" %}</strong> — {% trans "Ask us to limit how we use your data." %}</li>
+      <li><strong>{% trans "Right to data portability" %}</strong> — {% trans "Receive your data in a structured, machine-readable format." %}</li>
+      <li><strong>{% trans "Right to object" %}</strong> — {% trans "Object to processing based on legitimate interests." %}</li>
+    </ul>
+    <p class="text-gray-600 mb-6 leading-relaxed text-sm">{% trans "To exercise any of these rights, contact us at" %} {% if branding.email %}<a href="mailto:{{ branding.email }}" class="text-primary-600 hover:underline">{{ branding.email }}</a>{% else %}<a href="{% url 'core:contact' %}" class="text-primary-600 hover:underline">{% trans "our contact form" %}</a>{% endif %}.</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">8. {% trans "Cookies" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}We use essential cookies for session management, language preference, and security (CSRF protection). No third-party tracking cookies are used. You can disable cookies in your browser settings, but this may affect platform functionality.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">9. {% trans "Security" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}We implement appropriate technical and organisational measures to protect your personal data, including HTTPS encryption, hashed passwords, and regular security reviews. However, no transmission over the internet is 100% secure.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">10. {% trans "Changes to This Policy" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}We may update this Privacy Policy from time to time. We will notify you of significant changes by email or by a prominent notice on the platform.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">11. {% trans "Contact" %}</h2>
+    <p class="text-gray-600 leading-relaxed">{% trans "For privacy-related queries or to exercise your rights:" %}</p>
+    <ul class="list-none mt-3 text-gray-600 text-sm space-y-1">
+      {% if branding.email %}<li>📧 <a href="mailto:{{ branding.email }}" class="text-primary-600 hover:underline">{{ branding.email }}</a></li>{% endif %}
+      <li>🌐 <a href="{% url 'core:contact' %}" class="text-primary-600 hover:underline">{% trans "Contact form" %}</a></li>
+    </ul>
+
+  </div>
+</section>
+{% endblock %}

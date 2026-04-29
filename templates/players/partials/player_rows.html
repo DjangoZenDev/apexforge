@@ -1,0 +1,64 @@
+{% load i18n core_tags %}
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+    <thead class="bg-gray-50 dark:bg-gray-700/50">
+      <tr>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Player" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Position" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Nationality" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Age" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Team" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Status" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Value" %}</th>
+        <th class="px-4 py-3"></th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+      {% for player in page %}
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+        <td class="px-4 py-3">
+          <a href="{{ player.get_absolute_url }}" class="flex items-center gap-3 group">
+            {% if player.photo %}
+              <img src="{{ player.photo.url }}" class="h-9 w-9 rounded-full object-cover">
+            {% else %}
+              <div class="h-9 w-9 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-sm font-bold">
+                {{ player.full_name|first }}
+              </div>
+            {% endif %}
+            <span class="font-medium text-gray-900 dark:text-white group-hover:text-primary-600 transition-colors">{{ player.full_name }}</span>
+          </a>
+        </td>
+        <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{{ player.position|default:"—" }}</td>
+        <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{{ player.nationality|default:"—" }}</td>
+        <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{{ player.age|default:"—" }}</td>
+        <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{{ player.current_team|default:"—" }}</td>
+        <td class="px-4 py-3">{{ player.status|status_badge }}</td>
+        <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
+          {% if player.market_value %}{{ player.market_value|currency }}{% else %}—{% endif %}
+        </td>
+        <td class="px-4 py-3">
+          {% if request.user.can_manage %}
+          <a href="{% url 'players:edit' player.pk %}" class="text-xs text-gray-400 hover:text-primary-600">✏️</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="8" class="px-4 py-12 text-center text-gray-500">
+          <p>{% trans "No players found." %}</p>
+          {% if request.user.can_manage %}
+          <a href="{% url 'players:create' %}" class="btn-primary inline-flex mt-3">{% trans "Add first player" %}</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% if page.has_other_pages %}
+<div class="flex justify-center gap-2 p-4">
+  {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+  <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+</div>
+{% endif %}

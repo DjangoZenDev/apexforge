@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "My Profile" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Profile Settings" %}</h1>
+  <p class="text-sm text-gray-500 mt-1">{% trans "Manage your account information and preferences." %}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl">
+  <form method="post" enctype="multipart/form-data" class="space-y-6">
+    {% csrf_token %}
+
+    <!-- Avatar + name card -->
+    <div class="card p-6">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-5">{% trans "Personal Information" %}</h2>
+      <div class="flex items-center gap-6 mb-6">
+        <div class="relative group">
+          <img id="avatar-preview" src="{{ profile.avatar_url }}"
+               alt="Avatar" class="h-20 w-20 rounded-full object-cover ring-4 ring-primary-100 dark:ring-primary-900">
+          <label for="{{ form.avatar.id_for_label }}"
+                 class="absolute inset-0 flex items-center justify-center rounded-full bg-black/40 opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </label>
+          {{ form.avatar }}
+        </div>
+        <div>
+          <p class="font-semibold text-gray-900 dark:text-white">{{ request.user.get_full_name }}</p>
+          <p class="text-sm text-gray-500">{{ request.user.email }}</p>
+          <p class="text-xs mt-1">{% include "partials/role_badge.html" with role=request.user.role %}</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "First name" %}</label>
+          {{ form.first_name }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Last name" %}</label>
+          {{ form.last_name }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Phone" %}</label>
+          {{ form.phone }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Date of birth" %}</label>
+          {{ form.date_of_birth }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "City" %}</label>
+          {{ form.city }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Country" %}</label>
+          {{ form.country }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Nationality" %}</label>
+          {{ form.nationality }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Language" %}</label>
+          {{ form.preferred_language }}
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Bio" %}</label>
+        {{ form.bio }}
+      </div>
+    </div>
+
+    <!-- Social -->
+    <div class="card p-6">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-5">{% trans "Social & Links" %}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Website" %}</label>
+          {{ form.website }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Twitter / X</label>
+          {{ form.twitter }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Instagram</label>
+          {{ form.instagram }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">LinkedIn</label>
+          {{ form.linkedin }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Preferences -->
+    <div class="card p-6">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-5">{% trans "Preferences" %}</h2>
+      <div class="space-y-3">
+        <label class="flex items-center gap-3 cursor-pointer">
+          {{ form.notifications_email }}
+          <span class="text-sm text-gray-700 dark:text-gray-300">{% trans "Email notifications" %}</span>
+        </label>
+        <label class="flex items-center gap-3 cursor-pointer">
+          {{ form.notifications_web }}
+          <span class="text-sm text-gray-700 dark:text-gray-300">{% trans "In-app notifications" %}</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex gap-3">
+      <button type="submit" class="btn-primary">{% trans "Save changes" %}</button>
+      <a href="{% url 'core:dashboard' %}" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.getElementById('{{ form.avatar.id_for_label }}').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    document.getElementById('avatar-preview').src = URL.createObjectURL(file);
+  }
+});
+</script>
+{% endblock %}

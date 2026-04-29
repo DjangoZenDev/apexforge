@@ -1,0 +1,30 @@
+{% load i18n %}
+{% for note in notes %}
+<div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/30">
+  <div class="flex items-start gap-2">
+    <span class="font-mono text-xs bg-gray-900 text-white px-1.5 py-0.5 rounded mt-0.5 shrink-0">{{ note.timestamp_display }}</span>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-1.5 mb-0.5">
+        <span class="badge text-xs
+          {% if note.note_type == 'tactical' %}bg-blue-100 text-blue-700
+          {% elif note.note_type == 'positive' %}bg-emerald-100 text-emerald-700
+          {% elif note.note_type == 'improvement' %}bg-orange-100 text-orange-700
+          {% elif note.note_type == 'incident' %}bg-red-100 text-red-700
+          {% else %}bg-gray-100 text-gray-600{% endif %}">
+          {{ note.get_note_type_display }}
+        </span>
+      </div>
+      <p class="text-sm text-gray-700 dark:text-gray-300">{{ note.note_text }}</p>
+      {% if note.tagged_players.exists %}
+      <p class="text-xs text-gray-400 mt-0.5">🏃 {% for p in note.tagged_players.all %}{{ p }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+      {% endif %}
+    </div>
+    <form method="post" action="{% url 'videos:delete_note' note.pk %}" class="shrink-0">
+      {% csrf_token %}
+      <button type="submit" class="text-gray-300 hover:text-red-400 text-xs">✕</button>
+    </form>
+  </div>
+</div>
+{% empty %}
+<div class="px-4 py-8 text-center text-sm text-gray-500">{% trans "No notes yet. Add one above!" %}</div>
+{% endfor %}

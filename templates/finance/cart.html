@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load i18n core_tags humanize %}
+
+{% block title %}{% trans "Shopping Cart" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🛒 {% trans "Your Cart" %}</h1>
+    {% if cart.item_count %}
+    <p class="text-sm text-gray-500 mt-1">{{ cart.item_count }} {% trans "item(s)" %} · €{{ cart.total|floatformat:2 }}</p>
+    {% endif %}
+  </div>
+  <a href="{% url 'finance:shop' %}" class="btn-secondary">← {% trans "Continue Shopping" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if cart.item_count %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+  <!-- Cart items -->
+  <div class="lg:col-span-2 space-y-3" id="cart-items">
+    {% for item in cart.cart_items.all %}
+    <div class="card p-4 flex items-center gap-4">
+      {% if item.product.image %}
+        <img src="{{ item.product.image.url }}" class="h-16 w-16 rounded-xl object-cover shrink-0">
+      {% else %}
+        <div class="h-16 w-16 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-2xl shrink-0">👕</div>
+      {% endif %}
+      <div class="flex-1 min-w-0">
+        <a href="{{ item.product.get_absolute_url }}" class="font-semibold text-gray-900 dark:text-white hover:text-primary-600">
+          {{ item.product.name }}
+        </a>
+        <p class="text-sm text-gray-500 mt-0.5">{{ item.product.get_category_display }}</p>
+        <p class="text-sm text-gray-500">€{{ item.price|floatformat:2 }} {% trans "each" %}</p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <span class="text-sm font-medium bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg text-gray-700 dark:text-gray-300">
+          × {{ item.quantity }}
+        </span>
+        <p class="font-bold text-primary-600 w-20 text-right">€{{ item.subtotal|floatformat:2 }}</p>
+        <form method="post" action="{% url 'finance:cart_remove' item.pk %}">
+          {% csrf_token %}
+          <button type="submit" title="{% trans 'Remove' %}"
+                  class="text-gray-300 hover:text-red-500 transition-colors p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Order summary -->
+  <div class="space-y-4">
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Order Summary" %}</h2>
+      <div class="space-y-2 text-sm mb-5">
+        <div class="flex justify-between text-gray-600 dark:text-gray-400">
+          <span>{% trans "Items" %} ({{ cart.item_count }})</span>
+          <span>€{{ cart.total|floatformat:2 }}</span>
+        </div>
+        <div class="flex justify-between text-gray-600 dark:text-gray-400">
+          <span>{% trans "Shipping" %}</span>
+          <span class="text-emerald-600 font-medium">{% trans "Free" %}</span>
+        </div>
+        <div class="flex justify-between font-bold text-gray-900 dark:text-white text-base border-t border-gray-100 dark:border-gray-700 pt-2">
+          <span>{% trans "Total" %}</span>
+          <span class="text-primary-600">€{{ cart.total|floatformat:2 }}</span>
+        </div>
+      </div>
+
+      {% if request.user.is_authenticated %}
+      <a href="{% url 'finance:checkout' %}" class="btn-primary w-full py-3 justify-center text-base">
+        🔒 {% trans "Proceed to Checkout" %}
+      </a>
+      {% else %}
+      <div class="text-center">
+        <p class="text-sm text-gray-500 mb-3">{% trans "Sign in to complete your purchase." %}</p>
+        <a href="{% url 'accounts:login' %}?next={% url 'finance:checkout' %}"
+           class="btn-primary w-full py-3 justify-center text-base block">
+          🔐 {% trans "Sign In to Checkout" %}
+        </a>
+        <a href="{% url 'accounts:register' %}" class="btn-secondary w-full py-2 justify-center mt-2 block text-sm">
+          {% trans "Create an account" %}
+        </a>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Security badges -->
+    <div class="card p-4 flex items-center gap-3">
+      <div class="text-2xl">🔒</div>
+      <div>
+        <p class="text-xs font-medium text-gray-700 dark:text-gray-300">{% trans "Secure checkout" %}</p>
+        <p class="text-xs text-gray-400">{% trans "Payments processed by Stripe" %}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% else %}
+<div class="text-center py-20">
+  <p class="text-6xl mb-4">🛒</p>
+  <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{% trans "Your cart is empty" %}</h2>
+  <p class="text-gray-500 mb-6">{% trans "Browse the shop and add some items." %}</p>
+  <a href="{% url 'finance:shop' %}" class="btn-primary">🛍️ {% trans "Go to Shop" %}</a>
+</div>
+{% endif %}
+{% endblock %}

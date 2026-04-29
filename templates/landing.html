@@ -1,0 +1,835 @@
+{% load i18n static core_tags %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'en' }}" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ branding.name|default:"ApexForge" }} — {% trans "Sports Management Platform" %}</title>
+  <meta name="description" content="{{ branding.tagline|default:'The complete sports management and fan engagement platform.' }}">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' },
+            accent:  { 400:'#fbbf24',500:'#f59e0b',600:'#d97706' },
+          },
+          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
+          animation: {
+            'fade-up': 'fadeUp 0.6s ease-out both',
+            'fade-in': 'fadeIn 0.4s ease-out both',
+          },
+          keyframes: {
+            fadeUp:  { '0%': { opacity:'0', transform:'translateY(24px)' }, '100%': { opacity:'1', transform:'translateY(0)' } },
+            fadeIn:  { '0%': { opacity:'0' }, '100%': { opacity:'1' } },
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js"></script>
+  <style>[x-cloak]{display:none!important}</style>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Hero gradient */
+    .hero-bg {
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(6,78,59,0.7) 60%, rgba(0,0,0,0.6) 100%),
+        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=80') center/cover no-repeat;
+    }
+
+    /* Smooth scroll offset for fixed nav */
+    [id] { scroll-margin-top: 72px; }
+
+    /* Card hover lift */
+    .lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .lift:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.18); }
+
+    /* Sticky nav glass */
+    .nav-glass {
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Section divider */
+    .wave-divider svg { display: block; }
+  </style>
+</head>
+<body class="bg-gray-950 text-white antialiased">
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- STICKY NAVIGATION -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<nav class="nav-glass fixed inset-x-0 top-0 z-50 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center gap-6">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 shrink-0">
+      {% if branding.logo %}
+      <img src="{{ branding.logo.url }}" alt="{{ branding.name }}" class="h-8 w-8 rounded-lg object-cover">
+      {% else %}
+      <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+        <span class="text-white font-black text-sm">AF</span>
+      </div>
+      {% endif %}
+      <span class="text-lg font-black text-white">{{ branding.name|default:"ApexForge" }}</span>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="hidden md:flex items-center gap-0.5 ml-4">
+        <a href="{% url 'core:landing' %}"        class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Home" %}</a>
+        <a href="{% url 'marketing:news_list' %}" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "News" %}</a>
+        <a href="{% url 'fans:ticket_list' %}"    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Tickets" %}</a>
+        <a href="{% url 'finance:shop' %}"        class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Shop" %}</a>
+        <a href="{% url 'core:public_faq' %}"     class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "FAQ" %}</a>
+        <a href="{% url 'core:contact' %}"        class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Contact" %}</a>
+    </div>
+
+    <!-- Auth buttons + language switcher -->
+    <div class="flex items-center gap-2 ml-auto shrink-0">
+
+      <!-- Language switcher -->
+      {% get_current_language as CURRENT_LANG %}
+      {% lang_url 'en' as lurl_en %}{% lang_url 'nl' as lurl_nl %}{% lang_url 'de' as lurl_de %}
+      {% lang_url 'fr' as lurl_fr %}{% lang_url 'es' as lurl_es %}{% lang_url 'it' as lurl_it %}
+      <div class="relative" x-data="{ langOpen: false }">
+        <button @click="langOpen = !langOpen"
+                class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-300 hover:text-white hover:bg-white/10 transition-colors border border-white/20">
+          🌐 {{ CURRENT_LANG|upper }}
+          <svg class="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-cloak x-show="langOpen" @click.outside="langOpen=false"
+             x-transition:enter="transition ease-out duration-100"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             class="absolute right-0 mt-1 w-28 bg-gray-800 rounded-xl shadow-xl border border-gray-700 py-1 z-50">
+          <a href="{{ lurl_en }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'en' %}font-bold text-primary-400{% endif %}">🇬🇧 EN</a>
+          <a href="{{ lurl_nl }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'nl' %}font-bold text-primary-400{% endif %}">🇳🇱 NL</a>
+          <a href="{{ lurl_de }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'de' %}font-bold text-primary-400{% endif %}">🇩🇪 DE</a>
+          <a href="{{ lurl_fr }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'fr' %}font-bold text-primary-400{% endif %}">🇫🇷 FR</a>
+          <a href="{{ lurl_es }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'es' %}font-bold text-primary-400{% endif %}">🇪🇸 ES</a>
+          <a href="{{ lurl_it }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'it' %}font-bold text-primary-400{% endif %}">🇮🇹 IT</a>
+        </div>
+      </div>
+
+      {% if user.is_authenticated %}
+      <a href="{% if user.is_fan_investor %}{% url 'fans:portal' %}{% else %}{% url 'core:dashboard' %}{% endif %}"
+         class="hidden sm:inline-flex px-4 py-1.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+        {% trans "Dashboard" %}
+      </a>
+      <form method="post" action="{% url 'accounts:logout' %}" class="inline">
+        {% csrf_token %}
+        <button type="submit"
+                class="px-4 py-1.5 rounded-lg text-sm font-medium bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-500 hover:to-red-400 transition-all shadow-sm shadow-red-600/30">
+          {% trans "Sign Out" %}
+        </button>
+      </form>
+      {% else %}
+      <a href="{% url 'accounts:login' %}"
+         class="hidden sm:inline-flex px-4 py-1.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+        {% trans "Sign In" %}
+      </a>
+      <a href="{% url 'accounts:register' %}"
+         class="px-4 py-1.5 rounded-lg text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:from-primary-500 hover:to-primary-400 transition-all shadow-sm shadow-primary-600/30">
+        {% trans "Join Free" %}
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- Mobile menu button -->
+    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+            class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 ml-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 px-4 py-3 space-y-1">
+      <a href="{% url 'core:landing' %}"        class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Home" %}</a>
+      <a href="{% url 'marketing:news_list' %}" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "News" %}</a>
+      <a href="{% url 'fans:ticket_list' %}"    class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Tickets" %}</a>
+      <a href="{% url 'finance:shop' %}"        class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Shop" %}</a>
+      <a href="{% url 'core:public_faq' %}"     class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "FAQ" %}</a>
+      <a href="{% url 'core:contact' %}"        class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Contact" %}</a>
+    </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- ANNOUNCEMENT BANNER -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+{% if announcement %}
+<div class="fixed top-16 inset-x-0 z-40 text-sm text-center py-2 px-4 font-medium
+  {% if announcement.level == 'info' %}bg-blue-600
+  {% elif announcement.level == 'success' %}bg-primary-600
+  {% elif announcement.level == 'warning' %}bg-amber-500
+  {% else %}bg-red-600{% endif %}">
+  {{ announcement.message }}
+</div>
+{% endif %}
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- HERO SECTION -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section class="hero-bg min-h-screen flex flex-col justify-center {% if announcement %}pt-24{% else %}pt-16{% endif %}">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 py-24 lg:py-40">
+    <div class="max-w-3xl">
+
+      <!-- Club badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-xs font-semibold uppercase tracking-widest mb-6">
+        <span class="h-1.5 w-1.5 rounded-full bg-primary-400 animate-pulse"></span>
+        {% trans "Official Sports Platform" %}
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-6">
+        {{ branding.name|default:"ApexForge" }}<br>
+        <span class="text-primary-400">{% trans "Sports Platform" %}</span>
+      </h1>
+
+      <p class="text-xl text-gray-300 leading-relaxed mb-4 max-w-xl">
+        {% if branding.tagline %}
+          {{ branding.tagline }}
+        {% else %}
+          {% trans "The complete hub for fans, staff, and club management. Buy tickets, follow news, shop merchandise, and more." %}
+        {% endif %}
+      </p>
+      {% if branding.city or branding.country %}
+      <p class="text-sm text-gray-500 mb-10">
+        📍 {% if branding.city %}{{ branding.city }}{% endif %}{% if branding.city and branding.country %}, {% endif %}{% if branding.country %}{{ branding.country }}{% endif %}
+        {% if branding.founded_year %} · {% trans "Est." %} {{ branding.founded_year }}{% endif %}
+      </p>
+      {% else %}
+      <div class="mb-10"></div>
+      {% endif %}
+
+      <!-- CTA buttons -->
+      <div class="flex flex-wrap gap-3">
+        <a href="#tickets"
+           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-bold text-base shadow-xl shadow-primary-600/30 transition-all hover:-translate-y-0.5">
+          🎟️ {% trans "Get Tickets" %}
+        </a>
+        <a href="#shop"
+           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-base backdrop-blur-sm transition-all hover:-translate-y-0.5">
+          🛍️ {% trans "Visit Shop" %}
+        </a>
+        <a href="#news"
+           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-gray-300 hover:text-white font-semibold text-base transition-colors">
+          📰 {% trans "Latest News" %}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
+    <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- ABOUT / PLATFORM FEATURES -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section id="about" class="bg-gray-900 py-24">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+
+    <div class="text-center mb-16">
+      <p class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-3">{% trans "The Platform" %}</p>
+      <h2 class="text-4xl font-black text-white mb-4">{% trans "Everything in One Place" %}</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        {% trans "ApexForge brings fans and club operations together — from buying tickets and team merch to match analysis and player management." %}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 6 feature cards -->
+      <div class="lift bg-gray-800 border border-gray-700 rounded-2xl p-6">
+        <div class="text-4xl mb-4">🎟️</div>
+        <h3 class="text-lg font-bold text-white mb-2">{% trans "Tickets & Events" %}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{% trans "Buy match tickets, choose your seat, and earn loyalty points every time you attend." %}</p>
+        <a href="#tickets" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "Get Tickets" %} →</a>
+      </div>
+
+      <div class="lift bg-gray-800 border border-gray-700 rounded-2xl p-6">
+        <div class="text-4xl mb-4">🛍️</div>
+        <h3 class="text-lg font-bold text-white mb-2">{% trans "Official Shop" %}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{% trans "Shop jerseys, training gear, and exclusive memorabilia delivered to your door." %}</p>
+        <a href="#shop" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "Browse Store" %} →</a>
+      </div>
+
+      <div class="lift bg-gray-800 border border-gray-700 rounded-2xl p-6">
+        <div class="text-4xl mb-4">📰</div>
+        <h3 class="text-lg font-bold text-white mb-2">{% trans "Club News" %}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{% trans "Latest club announcements, transfer news, match reports, and interviews." %}</p>
+        <a href="#news" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "Read News" %} →</a>
+      </div>
+
+      <div class="lift bg-gray-800 border border-gray-700 rounded-2xl p-6">
+        <div class="text-4xl mb-4">🎬</div>
+        <h3 class="text-lg font-bold text-white mb-2">{% trans "Videos & Highlights" %}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{% trans "Match highlights, press conferences, behind-the-scenes, and exclusive fan content." %}</p>
+        <a href="#videos" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "Watch Now" %} →</a>
+      </div>
+
+      <div class="lift bg-gray-800 border border-gray-700 rounded-2xl p-6">
+        <div class="text-4xl mb-4">⭐</div>
+        <h3 class="text-lg font-bold text-white mb-2">{% trans "Loyalty Programme" %}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{% trans "Earn points on every purchase. Climb from Bronze to Platinum and unlock exclusive member perks." %}</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'fans:portal' %}" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "My Portal" %} →</a>
+        {% else %}
+        <a href="{% url 'accounts:register' %}" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "Join Free" %} →</a>
+        {% endif %}
+      </div>
+
+      <div class="lift bg-gray-800 border border-gray-700 rounded-2xl p-6">
+        <div class="text-4xl mb-4">🏟️</div>
+        <h3 class="text-lg font-bold text-white mb-2">{% trans "Club Management" %}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{% trans "Staff portal with player management, contracts, scouting, finance, and full analytics suite." %}</p>
+        {% if user.is_authenticated and not user.is_fan_investor %}
+        <a href="{% url 'core:dashboard' %}" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "Go to Dashboard" %} →</a>
+        {% elif user.is_authenticated and user.is_fan_investor %}
+        <form method="post" action="{% url 'accounts:logout' %}" class="inline">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{% url 'accounts:login' %}">
+          <button type="submit" class="text-primary-400 text-sm font-semibold hover:text-primary-300 bg-transparent border-0 p-0 cursor-pointer">{% trans "Staff Login" %} →</button>
+        </form>
+        {% else %}
+        <a href="{% url 'accounts:login' %}" class="text-primary-400 text-sm font-semibold hover:text-primary-300">{% trans "Staff Login" %} →</a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- LATEST NEWS -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section id="news" class="bg-gray-950 py-24">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <p class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-2">{% trans "Latest" %}</p>
+        <h2 class="text-4xl font-black text-white">{% trans "Club News" %}</h2>
+      </div>
+      <a href="{% url 'marketing:news_list' %}" class="text-primary-400 hover:text-primary-300 text-sm font-semibold hidden sm:flex items-center gap-1">
+        {% trans "All articles" %}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+    </div>
+
+    {% if latest_news %}
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Featured / lead article -->
+      {% with post=latest_news.0 %}
+      <a href="{{ post.get_absolute_url }}" class="lift lg:col-span-2 group relative rounded-2xl overflow-hidden block" style="min-height: 340px;">
+        {% if post.hero_image %}
+        <img src="{{ post.hero_image.url }}" alt="{{ post.title }}"
+             class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        {% else %}
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-900 to-gray-900"></div>
+        {% endif %}
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <span class="inline-block text-xs font-semibold uppercase tracking-widest text-primary-400 mb-2">{{ post.get_category_display }}</span>
+          <h3 class="text-xl lg:text-2xl font-bold text-white leading-snug mb-2 group-hover:text-primary-300 transition-colors">{{ post.title }}</h3>
+          {% if post.excerpt %}
+          <p class="text-gray-300 text-sm line-clamp-2">{{ post.excerpt }}</p>
+          {% endif %}
+          <p class="text-xs text-gray-400 mt-2">{{ post.published_at|date:"d M Y" }} {% if post.author %}· {{ post.author.get_full_name }}{% endif %}</p>
+        </div>
+      </a>
+      {% endwith %}
+
+      <!-- Side articles -->
+      <div class="flex flex-col gap-4">
+        {% for post in latest_news|slice:"1:4" %}
+        <a href="{{ post.get_absolute_url }}" class="lift group flex gap-4 bg-gray-800/60 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 transition-colors">
+          {% if post.hero_image %}
+          <img src="{{ post.hero_image.url }}" alt="" class="w-20 h-20 rounded-lg object-cover shrink-0">
+          {% else %}
+          <div class="w-20 h-20 rounded-lg bg-gradient-to-br from-primary-800 to-gray-700 flex items-center justify-center text-2xl shrink-0">📰</div>
+          {% endif %}
+          <div class="min-w-0">
+            <span class="text-xs text-primary-400 font-medium">{{ post.get_category_display }}</span>
+            <h4 class="text-sm font-semibold text-white mt-0.5 leading-snug line-clamp-2 group-hover:text-primary-300 transition-colors">{{ post.title }}</h4>
+            <p class="text-xs text-gray-500 mt-1">{{ post.published_at|date:"d M Y" }}</p>
+          </div>
+        </a>
+        {% endfor %}
+
+        <a href="{% url 'marketing:news_list' %}"
+           class="mt-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-600 text-gray-300 hover:text-white hover:border-primary-500 text-sm font-medium transition-colors">
+          {% trans "Read All News" %} →
+        </a>
+      </div>
+
+    </div>
+    {% else %}
+    <div class="text-center py-16 text-gray-600">
+      <p class="text-5xl mb-4">📰</p>
+      <p class="text-lg">{% trans "No news published yet. Check back soon!" %}</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- VIDEOS -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section id="videos" class="bg-gray-900 py-24">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <p class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-2">{% trans "Media" %}</p>
+        <h2 class="text-4xl font-black text-white">{% trans "Videos & Highlights" %}</h2>
+      </div>
+      <a href="{% url 'videos:library' %}" class="text-primary-400 hover:text-primary-300 text-sm font-semibold hidden sm:flex items-center gap-1">
+        {% trans "Full library" %}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+    </div>
+
+    {% if videos %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {% for video in videos %}
+      <a href="{% url 'videos:detail' video.pk %}" class="lift group block rounded-2xl overflow-hidden bg-gray-800 border border-gray-700">
+        <div class="relative aspect-video bg-gray-900">
+          {% if video.thumbnail %}
+          <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          {% else %}
+          <div class="w-full h-full flex items-center justify-center text-5xl">🎬</div>
+          {% endif %}
+          <!-- Play button overlay -->
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
+            <div class="w-14 h-14 rounded-full bg-white/20 border-2 border-white flex items-center justify-center backdrop-blur-sm">
+              <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+          {% if video.video_url %}
+          <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">YouTube</span>
+          {% endif %}
+        </div>
+        <div class="p-4">
+          <h4 class="text-sm font-semibold text-white line-clamp-2 group-hover:text-primary-300 transition-colors">{{ video.title }}</h4>
+          <p class="text-xs text-gray-500 mt-1">{{ video.created_at|date:"d M Y" }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-16 text-gray-600">
+      <p class="text-5xl mb-4">🎬</p>
+      <p class="text-lg">{% trans "Video content coming soon!" %}</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SHOP -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section id="shop" class="bg-gray-950 py-24">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <p class="text-accent-400 font-semibold text-sm uppercase tracking-widest mb-2">{% trans "Merchandise" %}</p>
+        <h2 class="text-4xl font-black text-white">{% trans "Official Club Store" %}</h2>
+        <p class="text-gray-400 mt-2">{% trans "Browse freely — sign in to add to cart and purchase." %}</p>
+      </div>
+      <a href="{% url 'finance:shop' %}" class="text-accent-400 hover:text-accent-300 text-sm font-semibold hidden sm:flex items-center gap-1">
+        {% trans "Full store" %}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+    </div>
+
+    {% if featured_products %}
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      {% for product in featured_products %}
+      <div class="lift group bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden">
+        <a href="{% url 'finance:product_detail' product.slug %}">
+          <div class="aspect-square bg-gray-700 overflow-hidden">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            {% else %}
+            <div class="w-full h-full flex items-center justify-center text-5xl bg-gradient-to-br from-gray-700 to-gray-900">
+              {% if product.category == 'jersey' %}👕
+              {% elif product.category == 'accessories' %}🧢
+              {% elif product.category == 'memorabilia' %}🏆
+              {% elif product.category == 'training' %}🏋️
+              {% else %}🛍️{% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </a>
+        <div class="p-4">
+          <p class="text-xs text-gray-500 mb-1">{{ product.get_category_display }}</p>
+          <a href="{% url 'finance:product_detail' product.slug %}"
+             class="text-sm font-semibold text-white group-hover:text-primary-300 transition-colors line-clamp-2">{{ product.name }}</a>
+          <div class="flex items-center justify-between mt-3">
+            <p class="text-lg font-bold text-accent-400">€{{ product.price }}</p>
+            <a href="{% url 'accounts:register' %}"
+               title="{% trans 'Sign up to purchase' %}"
+               class="h-8 w-8 rounded-full bg-primary-600/20 border border-primary-600/40 text-primary-400 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Sign-up CTA bar -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-primary-900/50 to-accent-900/30 border border-primary-700/30 rounded-2xl px-6 py-5">
+      <div>
+        <p class="text-white font-semibold">🔒 {% trans "Create a free account to start shopping" %}</p>
+        <p class="text-gray-400 text-sm mt-0.5">{% trans "Earn loyalty points on every purchase. Free to join, cancel anytime." %}</p>
+      </div>
+      <a href="{% url 'accounts:register' %}"
+         class="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-semibold transition-colors shadow-lg shadow-primary-600/30">
+        {% trans "Join Free" %} →
+      </a>
+    </div>
+
+    {% else %}
+    <div class="text-center py-16 text-gray-600">
+      <p class="text-5xl mb-4">🛍️</p>
+      <p class="text-lg">{% trans "Products coming soon!" %}</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- TICKETS -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section id="tickets" class="bg-gray-900 py-24">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <p class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-2">{% trans "Fixtures" %}</p>
+        <h2 class="text-4xl font-black text-white">{% trans "Buy Match Tickets" %}</h2>
+        <p class="text-gray-400 mt-2">{% trans "Browse fixtures freely — sign in to purchase your tickets." %}</p>
+      </div>
+      <a href="{% url 'fans:ticket_list' %}" class="text-primary-400 hover:text-primary-300 text-sm font-semibold hidden sm:flex items-center gap-1">
+        {% trans "All fixtures" %}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+    </div>
+
+    {% if upcoming_events %}
+    <div class="space-y-4">
+      {% for event in upcoming_events %}
+      <div class="lift bg-gray-800 border border-gray-700 hover:border-primary-600/50 rounded-2xl overflow-hidden transition-colors">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5">
+
+          <!-- Date block -->
+          <div class="shrink-0 text-center bg-primary-600/20 border border-primary-600/30 rounded-xl px-4 py-3 min-w-[72px]">
+            <p class="text-xs font-semibold text-primary-300 uppercase">{{ event.start_date|date:"M" }}</p>
+            <p class="text-3xl font-black text-white leading-none">{{ event.start_date|date:"d" }}</p>
+            <p class="text-xs text-gray-400">{{ event.start_date|date:"Y" }}</p>
+          </div>
+
+          <!-- Event info -->
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2 mb-1">
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary-600/20 text-primary-300 border border-primary-600/30">
+                {% trans "Upcoming" %}
+              </span>
+              {% if event.venue %}
+              <span class="text-xs text-gray-500">📍 {{ event.venue }}</span>
+              {% endif %}
+            </div>
+            <h3 class="text-lg font-bold text-white">{{ event.title }}</h3>
+            {% if event.start_time %}
+            <p class="text-sm text-gray-400 mt-0.5">🕐 {{ event.start_time|time:"H:i" }}</p>
+            {% endif %}
+
+            <!-- Ticket categories available -->
+            {% if event.tickets.all %}
+            <div class="flex flex-wrap gap-2 mt-3">
+              {% for ticket in event.tickets.all %}
+              {% if ticket.status == 'available' and not ticket.category in seen_cats %}
+              <span class="text-xs px-2.5 py-1 rounded-full
+                border
+                {% if ticket.category.color == 'amber' %}border-amber-500/40 text-amber-400 bg-amber-500/10
+                {% elif ticket.category.color == 'violet' %}border-violet-500/40 text-violet-400 bg-violet-500/10
+                {% else %}border-primary-500/40 text-primary-400 bg-primary-500/10{% endif %}">
+                {{ ticket.category.name }} — €{{ ticket.effective_price|floatformat:2 }}
+              </span>
+              {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Action -->
+          <div class="shrink-0 flex flex-col items-end gap-2">
+            <a href="{% url 'accounts:register' %}?next={% url 'fans:ticket_list' %}"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-primary-600/20">
+              🎟️ {% trans "Get Tickets" %}
+            </a>
+            <p class="text-xs text-gray-500">{% trans "Sign up to purchase" %}</p>
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="{% url 'fans:ticket_list' %}"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-600 text-gray-300 hover:text-white hover:border-primary-500 font-medium transition-colors">
+        {% trans "View All Fixtures & Tickets" %}
+      </a>
+    </div>
+
+    {% else %}
+    <div class="text-center py-16 text-gray-600">
+      <p class="text-5xl mb-4">🎟️</p>
+      <p class="text-lg">{% trans "No upcoming fixtures with tickets yet. Check back soon!" %}</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- JOIN CTA SECTION -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section class="bg-gray-950 py-24">
+  <div class="max-w-4xl mx-auto px-4 lg:px-8 text-center">
+    <div class="bg-gradient-to-br from-primary-900/60 to-gray-800 border border-primary-700/30 rounded-3xl px-8 py-16">
+      <div class="text-6xl mb-6">🏆</div>
+      <h2 class="text-4xl font-black text-white mb-4">{% trans "Become a Member" %}</h2>
+      <p class="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
+        {% trans "Join thousands of fans. Get your tickets, shop official gear, earn loyalty points, and never miss a moment." %}
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="{% url 'accounts:register' %}"
+           class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-bold text-base shadow-2xl shadow-primary-600/30 transition-all hover:-translate-y-0.5">
+          ✨ {% trans "Create Free Account" %}
+        </a>
+        <a href="{% url 'accounts:login' %}"
+           class="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-gray-600 hover:border-primary-500 text-gray-300 hover:text-white font-semibold text-base transition-all hover:-translate-y-0.5">
+          {% trans "Already a member? Sign In" %}
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-3 gap-8 mt-12 pt-10 border-t border-white/10">
+        <div>
+          <p class="text-3xl font-black text-primary-400">€0</p>
+          <p class="text-sm text-gray-400 mt-1">{% trans "Free to join" %}</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-primary-400">3</p>
+          <p class="text-sm text-gray-400 mt-1">{% trans "Membership tiers" %}</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-primary-400">⭐</p>
+          <p class="text-sm text-gray-400 mt-1">{% trans "Loyalty rewards" %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 border-t border-gray-800 text-gray-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-x-8 gap-y-10 mb-10">
+
+      <!-- ① Brand -->
+      <div class="md:col-span-2">
+        <a href="{% url 'core:landing' %}" class="flex items-center gap-3 mb-3 group">
+          {% if branding.logo %}
+            <img src="{{ branding.logo.url }}" alt="Logo" class="h-9 w-9 rounded-lg object-cover">
+          {% else %}
+            <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shrink-0">
+              <span class="text-white font-black text-sm">AF</span>
+            </div>
+          {% endif %}
+          <span class="text-white font-bold text-base group-hover:text-primary-400 transition-colors">{{ branding.name|default:"ApexForge" }}</span>
+        </a>
+        <p class="text-sm leading-relaxed mb-2 text-gray-400">
+          {% if branding.tagline %}{{ branding.tagline }}{% else %}{% trans "The complete sports management and fan engagement platform." %}{% endif %}
+        </p>
+
+        <!-- Security badges -->
+        <div class="mb-4">
+          <p class="text-xs text-gray-600 uppercase tracking-wider mb-2">{% trans "Safe & Secure" %}</p>
+          <div class="flex flex-wrap gap-2">
+            <!-- SSL badge -->
+            <span class="flex items-center gap-1 px-2 py-1 rounded bg-gray-800 border border-gray-700 text-xs text-gray-400">
+              <svg class="w-3 h-3 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              SSL
+            </span>
+            <!-- GDPR badge -->
+            <span class="flex items-center gap-1 px-2 py-1 rounded bg-gray-800 border border-gray-700 text-xs text-gray-400">
+              <svg class="w-3 h-3 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              GDPR
+            </span>
+            <!-- Verified badge -->
+            <span class="flex items-center gap-1 px-2 py-1 rounded bg-gray-800 border border-gray-700 text-xs text-gray-400">
+              <svg class="w-3 h-3 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              {% trans "Verified" %}
+            </span>
+          </div>
+        </div>
+
+        <!-- Payment methods -->
+        <div>
+          <p class="text-xs text-gray-600 uppercase tracking-wider mb-2">{% trans "We Accept" %}</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded bg-white text-gray-900 text-xs font-black tracking-tight leading-none">VISA</span>
+            <span class="px-2 py-1 rounded bg-[#eb001b] text-white text-xs font-bold leading-none flex items-center">MC</span>
+            <span class="px-2 py-1 rounded bg-[#003087] text-white text-xs font-bold leading-none">PayPal</span>
+            <span class="px-2 py-1 rounded bg-gray-700 text-white text-xs font-bold leading-none">iDEAL</span>
+            <span class="px-2 py-1 rounded bg-gray-700 text-white text-xs font-bold leading-none">Maestro</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ② Platform -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-widest">{% trans "Platform" %}</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="{% url 'core:landing' %}"        class="hover:text-primary-400 transition-colors">{% trans "Home" %}</a></li>
+          <li><a href="{% url 'marketing:news_list' %}" class="hover:text-primary-400 transition-colors">{% trans "News" %}</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'fans:ticket_list' %}"    class="hover:text-primary-400 transition-colors">{% trans "Tickets" %}</a></li>
+          <li><a href="{% url 'finance:shop' %}"        class="hover:text-primary-400 transition-colors">{% trans "Club Store" %}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+
+      <!-- ③ Legal -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-widest">{% trans "Legal" %}</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="{% url 'core:terms' %}"      class="hover:text-primary-400 transition-colors">{% trans "Terms of Service" %}</a></li>
+          <li><a href="{% url 'core:privacy' %}"    class="hover:text-primary-400 transition-colors">{% trans "Privacy Policy" %}</a></li>
+          <li><a href="{% url 'core:contact' %}"    class="hover:text-primary-400 transition-colors">{% trans "Contact" %}</a></li>
+          <li><a href="{% url 'core:public_faq' %}" class="hover:text-primary-400 transition-colors">{% trans "FAQ" %}</a></li>
+        </ul>
+      </div>
+
+      <!-- ④ Newsletter + Social + Contact -->
+      <div class="md:col-span-2">
+        <h4 class="text-white font-semibold mb-3 text-xs uppercase tracking-widest">{% trans "Stay Connected" %}</h4>
+        <p class="text-xs text-gray-500 mb-3 leading-relaxed">{% trans "Get match alerts, exclusive offers and club news straight to your inbox." %}</p>
+
+        <!-- Newsletter form -->
+        <form class="mb-5" action="{% url 'accounts:register' %}" method="get">
+          <div class="flex gap-2">
+            <input type="email" name="email" placeholder="{% trans 'Your email address' %}"
+                   class="flex-1 min-w-0 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+            <button type="submit"
+                    class="shrink-0 px-3 py-2 rounded-lg bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white text-xs font-semibold transition-all">
+              {% trans "Subscribe" %}
+            </button>
+          </div>
+          <p class="text-xs text-gray-600 mt-1.5">{% trans "No spam. Unsubscribe anytime." %}</p>
+        </form>
+
+        <!-- Social icons — always visible; fallback to platform signup if no URL configured -->
+        <p class="text-xs text-gray-600 uppercase tracking-wider mb-2">{% trans "Follow Us" %}</p>
+        <div class="flex items-center gap-2 mb-5">
+          <a href="{{ branding.instagram|default:'https://instagram.com' }}" target="_blank" rel="noopener" title="Instagram"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-500 hover:to-orange-400 flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="{{ branding.twitter|default:'https://x.com' }}" target="_blank" rel="noopener" title="X / Twitter"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-black flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="{{ branding.facebook|default:'https://facebook.com' }}" target="_blank" rel="noopener" title="Facebook"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-[#1877f2] flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="{{ branding.youtube|default:'https://youtube.com' }}" target="_blank" rel="noopener" title="YouTube"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-[#ff0000] flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="{{ branding.tiktok|default:'https://tiktok.com' }}" target="_blank" rel="noopener" title="TikTok"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-black flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.73a4.85 4.85 0 0 1-1.01-.04z"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Bottom bar -->
+    <div class="border-t border-gray-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-xs text-gray-700">
+        © {% now "Y" %} {{ branding.name|default:"ApexForge" }}. {% trans "All rights reserved." %}
+      </p>
+      <p class="text-xs text-gray-700">{% trans "Made with" %} ❤️ {% trans "for sport" %}</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Mobile menu toggle script -->
+<script>
+  // Close mobile menu on nav link click
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.add('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>

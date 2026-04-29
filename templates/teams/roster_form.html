@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}{% trans "Add Player to Roster" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'teams:detail' team.pk %}" class="text-sm text-gray-500 hover:text-primary-600">← {{ team.name }}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{% trans "Add Player to Roster" %}</h1>
+  <p class="text-sm text-gray-500 mt-0.5">{{ team.name }}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+{% trans "Optional notes…" as ph_notes %}
+<div class="max-w-xl">
+  <form method="post" class="space-y-5">
+    {% csrf_token %}
+
+    <div class="card p-6 space-y-5">
+
+      {# ── Player ──────────────────────────────────────────────────────────── #}
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Player" %} <span class="text-red-500">*</span>
+        </label>
+        {% render_field form.player class="form-select w-full" %}
+        {% if form.player.errors %}
+          <p class="mt-1 text-xs text-red-500">{{ form.player.errors.0 }}</p>
+        {% endif %}
+      </div>
+
+      {# ── Season ──────────────────────────────────────────────────────────── #}
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Season" %} <span class="text-red-500">*</span>
+        </label>
+        {% render_field form.season class="form-select w-full" %}
+        {% if form.season.errors %}
+          <p class="mt-1 text-xs text-red-500">{{ form.season.errors.0 }}</p>
+        {% endif %}
+      </div>
+
+      {# ── Jersey number + Position ─────────────────────────────────────────── #}
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+            {% trans "Jersey Number" %}
+          </label>
+          {% render_field form.jersey_number class="form-input w-full" %}
+          {% if form.jersey_number.errors %}
+            <p class="mt-1 text-xs text-red-500">{{ form.jersey_number.errors.0 }}</p>
+          {% endif %}
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+            {% trans "Position" %}
+          </label>
+          {% render_field form.position class="form-select w-full" %}
+          {% if form.position.errors %}
+            <p class="mt-1 text-xs text-red-500">{{ form.position.errors.0 }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      {# ── Captain toggle ───────────────────────────────────────────────────── #}
+      <div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/40 border border-gray-100 dark:border-gray-700">
+        {% render_field form.is_captain class="w-4 h-4 rounded text-primary-600 focus:ring-primary-500" %}
+        <div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{% trans "Captain" %}</span>
+          <p class="text-xs text-gray-400">{% trans "Mark this player as team captain" %}</p>
+        </div>
+      </div>
+
+      {# ── Join Date ────────────────────────────────────────────────────────── #}
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Joined Date" %}
+        </label>
+        {% render_field form.joined_date class="form-input w-full" %}
+      </div>
+
+      {# ── Notes ────────────────────────────────────────────────────────────── #}
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Notes" %}
+        </label>
+        {% render_field form.notes class="form-input w-full" rows="2" placeholder=ph_notes %}
+      </div>
+
+    </div>
+
+    <div class="flex gap-3 pb-4">
+      <button type="submit" class="btn-primary">
+        ✅ {% trans "Add to Roster" %}
+      </button>
+      <a href="{% url 'teams:detail' team.pk %}" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+
+  </form>
+</div>
+{% endblock %}

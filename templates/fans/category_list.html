@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Ticket Categories" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'fans:ticket_admin' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Ticket Admin" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{% trans "Ticket Categories" %}</h1>
+  </div>
+  <a href="{% url 'fans:category_create' %}" class="btn-primary">+ {% trans "New Category" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  {% for cat in categories %}
+  <div class="card p-5">
+    <div class="flex items-center justify-between mb-2">
+      <span class="badge bg-{{ cat.color }}-100 text-{{ cat.color }}-700 text-sm">{{ cat.name }}</span>
+      {% if not cat.is_active %}<span class="badge bg-gray-100 text-gray-400">{% trans "Inactive" %}</span>{% endif %}
+    </div>
+    <p class="text-2xl font-black text-gray-900 dark:text-white mb-2">€{{ cat.base_price|intcomma }}</p>
+    {% if cat.perks_list %}
+    <ul class="text-xs text-gray-500 space-y-0.5 mb-3">
+      {% for perk in cat.perks_list %}<li>✓ {{ perk }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    <a href="{% url 'fans:category_edit' cat.pk %}" class="text-xs text-primary-600 hover:underline">{% trans "Edit" %}</a>
+  </div>
+  {% empty %}
+  <div class="card p-8 text-center col-span-3">
+    <p class="text-gray-400 text-sm">{% trans "No categories yet." %}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

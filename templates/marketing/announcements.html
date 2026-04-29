@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Announcements" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">📢 {% trans "Announcements" %}</h1>
+  {% if request.user.can_manage %}
+  <a href="{% url 'marketing:announcement_create' %}" class="btn-primary">+ {% trans "New Announcement" %}</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="space-y-4">
+  {% for ann in announcements %}
+  <div class="card p-5 border-l-4
+    {% if ann.level == 'info' %}border-blue-400
+    {% elif ann.level == 'warning' %}border-amber-400
+    {% elif ann.level == 'danger' %}border-red-500
+    {% else %}border-primary-500{% endif %}">
+    <div class="flex items-start justify-between gap-4">
+      <div class="flex-1">
+        <div class="flex items-center gap-2 mb-1">
+          <h3 class="font-semibold text-gray-900 dark:text-white">{{ ann.title }}</h3>
+          {% if ann.is_expired %}<span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500">{% trans "Expired" %}</span>{% endif %}
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{{ ann.body }}</p>
+        <p class="text-xs text-gray-400 mt-2">
+          {{ ann.created_at|date:"j M Y" }}
+          {% if ann.expires_at %} · {% trans "Expires" %} {{ ann.expires_at|date:"j M Y" }}{% endif %}
+        </p>
+      </div>
+      {% if request.user.can_manage %}
+      <div class="flex gap-2 shrink-0">
+        <a href="{% url 'marketing:announcement_edit' ann.pk %}" class="text-gray-400 hover:text-primary-600 p-1">✏️</a>
+        <form method="post" action="{% url 'marketing:announcement_delete' ann.pk %}"
+              x-data x-on:submit.prevent="if(confirm('{% trans "Delete?" %}')) $el.submit()">
+          {% csrf_token %}
+          <button type="submit" class="text-gray-400 hover:text-red-500 p-1">🗑</button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  {% empty %}
+  <div class="card p-12 text-center text-gray-500">
+    <p class="text-3xl mb-2">📢</p>
+    <p>{% trans "No announcements." %}</p>
+    {% if request.user.can_manage %}
+    <a href="{% url 'marketing:announcement_create' %}" class="btn-primary inline-flex mt-4">{% trans "Post first announcement" %}</a>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

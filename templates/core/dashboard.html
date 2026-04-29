@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% load i18n core_tags humanize %}
+
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+      {% trans "Good" %}
+      {% now "H" as hour %}{% if hour|add:"0" < 12 %}{% trans "morning" %}{% elif hour|add:"0" < 17 %}{% trans "afternoon" %}{% else %}{% trans "evening" %}{% endif %},
+      {{ request.user.get_short_name }}! 👋
+    </h1>
+    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{% now "l, j F Y" %}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'events:create' %}" class="btn-secondary">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      {% trans "New Event" %}
+    </a>
+    {% if request.user.can_manage %}
+    <a href="{% url 'players:create' %}" class="btn-primary">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+      {% trans "Add Player" %}
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% comment %}── KPI Cards ──{% endcomment %}
+{% if kpis %}
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5 flex items-center gap-4">
+    <div class="h-12 w-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-2xl">🏆</div>
+    <div>
+      <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">{% trans "Teams" %}</p>
+      <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ kpis.total_teams|default:0 }}</p>
+    </div>
+  </div>
+  <div class="card p-5 flex items-center gap-4">
+    <div class="h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-2xl">⚽</div>
+    <div>
+      <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">{% trans "Players" %}</p>
+      <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ kpis.total_players|default:0 }}</p>
+    </div>
+  </div>
+  <div class="card p-5 flex items-center gap-4">
+    <div class="h-12 w-12 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-2xl">📅</div>
+    <div>
+      <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">{% trans "Upcoming" %}</p>
+      <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ kpis.upcoming_events|default:0 }}</p>
+    </div>
+  </div>
+  <div class="card p-5 flex items-center gap-4">
+    <div class="h-12 w-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-2xl">💰</div>
+    <div>
+      <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">{% trans "Net (month)" %}</p>
+      <p class="text-xl font-bold {% if kpis.monthly_income > kpis.monthly_expense %}text-emerald-600{% else %}text-red-500{% endif %}">
+        {{ kpis.monthly_income|floatformat:0|intcomma|default:0 }} €
+      </p>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+  {% comment %}── Finance Chart ──{% endcomment %}
+  {% if request.user.can_manage and chart_labels %}
+  <div class="lg:col-span-2 card">
+    <div class="card-header flex items-center justify-between">
+      <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Revenue vs Expenses (6 months)" %}</h2>
+      <a href="{% url 'finance:dashboard' %}" class="text-xs text-primary-600 hover:underline">{% trans "View details" %}</a>
+    </div>
+    <div class="card-body">
+      <canvas id="financeChart" height="220"></canvas>
+    </div>
+  </div>
+  {% endif %}
+
+  {% comment %}── Upcoming Events ──{% endcomment %}
+  <div class="card">
+    <div class="card-header flex items-center justify-between">
+      <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Upcoming Events" %}</h2>
+      <a href="{% url 'events:calendar' %}" class="text-xs text-primary-600 hover:underline">{% trans "Calendar" %}</a>
+    </div>
+    <div class="divide-y divide-gray-100 dark:divide-gray-700">
+      {% for event in upcoming_events %}
+      <a href="{{ event.get_absolute_url }}"
+         class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+        <div class="h-10 w-10 rounded-lg flex flex-col items-center justify-center text-center shrink-0
+          {% if event.event_type == 'fixture' %}bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700
+          {% elif event.event_type == 'training' %}bg-blue-100 dark:bg-blue-900/30 text-blue-700
+          {% elif event.event_type == 'tournament' %}bg-amber-100 dark:bg-amber-900/30 text-amber-700
+          {% else %}bg-gray-100 dark:bg-gray-700 text-gray-600{% endif %}">
+          <span class="text-xs font-bold leading-none">{{ event.start_date|date:"d" }}</span>
+          <span class="text-xs leading-none">{{ event.start_date|date:"M" }}</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ event.title }}</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">
+            {{ event.team.name|default:"" }}{% if event.venue %} · {{ event.venue }}{% endif %}
+          </p>
+        </div>
+      </a>
+      {% empty %}
+      <div class="px-4 py-8 text-center text-sm text-gray-500">{% trans "No upcoming events" %}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %}── Recent Activity ──{% endcomment %}
+  <div class="lg:col-span-2 card">
+    <div class="card-header flex items-center justify-between">
+      <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Recent Activity" %}</h2>
+      <a href="{% url 'core:activity_log' %}" class="text-xs text-primary-600 hover:underline">{% trans "All activity" %}</a>
+    </div>
+    <div class="divide-y divide-gray-100 dark:divide-gray-700">
+      {% for log in recent_activity %}
+      <div class="flex items-start gap-3 px-4 py-3">
+        <div class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center shrink-0 text-sm">
+          {% if log.action == 'create' %}➕
+          {% elif log.action == 'update' %}✏️
+          {% elif log.action == 'delete' %}🗑️
+          {% elif log.action == 'login' %}🔑
+          {% else %}⚡{% endif %}
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-800 dark:text-gray-200">{{ log.description }}</p>
+          <p class="text-xs text-gray-400 mt-0.5">
+            {% if log.user %}{{ log.user.get_full_name }} · {% endif %}{{ log.created_at|timesince }} {% trans "ago" %}
+          </p>
+        </div>
+      </div>
+      {% empty %}
+      <div class="px-4 py-8 text-center text-sm text-gray-500">{% trans "No activity yet" %}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %}── Notifications ──{% endcomment %}
+  <div class="card">
+    <div class="card-header flex items-center justify-between">
+      <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Notifications" %}</h2>
+      <form method="post" action="{% url 'core:notif_read_all' %}" class="inline">
+        {% csrf_token %}
+        <button class="text-xs text-primary-600 hover:underline">{% trans "Mark all read" %}</button>
+      </form>
+    </div>
+    <div class="divide-y divide-gray-100 dark:divide-gray-700">
+      {% for notif in notifications %}
+      <div class="flex items-start gap-3 px-4 py-3 {% if not notif.is_read %}bg-primary-50/40 dark:bg-primary-900/10{% endif %}">
+        <span class="mt-1.5 h-2 w-2 rounded-full shrink-0
+          {% if notif.level == 'success' %}bg-emerald-500
+          {% elif notif.level == 'warning' %}bg-amber-500
+          {% elif notif.level == 'error' %}bg-red-500
+          {% else %}bg-blue-500{% endif %}"></span>
+        <div>
+          <p class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ notif.title }}</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ notif.message|truncatechars:60 }}</p>
+        </div>
+      </div>
+      {% empty %}
+      <div class="px-4 py-8 text-center text-sm text-gray-500">{% trans "All caught up!" %}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% if chart_labels %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const ctx = document.getElementById('financeChart');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ chart_labels|safe }},
+      datasets: [
+        {
+          label: '{% trans "Income" %}',
+          data: {{ chart_income|safe }},
+          backgroundColor: 'rgba(5, 150, 105, 0.8)',
+          borderRadius: 6,
+        },
+        {
+          label: '{% trans "Expenses" %}',
+          data: {{ chart_expense|safe }},
+          backgroundColor: 'rgba(245, 158, 11, 0.8)',
+          borderRadius: 6,
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: {
+            callback: v => '€' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v)
+          }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+});
+</script>
+{% endif %}
+{% endblock %}

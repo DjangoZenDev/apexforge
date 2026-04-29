@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}{% trans "Fan Profile" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'fans:portal' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Fan Portal" %}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">👤 {% trans "Edit Fan Profile" %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl">
+  <form method="post" enctype="multipart/form-data" class="space-y-5" id="fan-profile-form">
+    {% csrf_token %}
+
+    <!-- Fan portal photo upload -->
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-1">🖼️ {% trans "Fan Portal Photo" %}</h2>
+      <p class="text-xs text-gray-500 mb-4">{% trans "This photo appears on your Fan Portal. Your account photo (top-right) is set separately." %}</p>
+      <div class="flex items-center gap-5">
+
+        <!-- Current fan avatar preview -->
+        <div class="relative shrink-0">
+          {% if form.instance.avatar %}
+            <img id="avatar-preview"
+                 src="{{ form.instance.avatar.url }}"
+                 class="h-24 w-24 rounded-2xl object-cover ring-4 ring-primary-100 dark:ring-primary-900 cursor-pointer"
+                 onclick="document.getElementById('id_avatar').click()">
+          {% else %}
+            <div id="avatar-placeholder"
+                 class="h-24 w-24 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center cursor-pointer shadow-lg"
+                 onclick="document.getElementById('id_avatar').click()">
+              <span class="text-white font-black text-3xl">{{ request.user.first_name|first|default:"?" }}</span>
+            </div>
+            <img id="avatar-preview" src="" class="h-24 w-24 rounded-2xl object-cover ring-4 ring-primary-100 dark:ring-primary-900 hidden cursor-pointer"
+                 onclick="document.getElementById('id_avatar').click()">
+          {% endif %}
+          <div class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-primary-600 flex items-center justify-center cursor-pointer shadow"
+               onclick="document.getElementById('id_avatar').click()">
+            <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <label for="id_avatar" class="btn-secondary text-sm cursor-pointer inline-flex items-center gap-2">
+            📷 {% trans "Choose Fan Photo" %}
+          </label>
+          {% render_field form.avatar class="hidden" %}
+          <p id="file-name" class="text-xs text-gray-500 mt-2"></p>
+          {% if form.avatar.errors %}<p class="text-red-500 text-xs mt-1">{{ form.avatar.errors.0 }}</p>{% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal details card -->
+    <div class="card p-6 space-y-4">
+      <h2 class="font-semibold text-gray-900 dark:text-white">📋 {% trans "Personal Details" %}</h2>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Phone number" %}
+        </label>
+        {% render_field form.phone class="form-input w-full" placeholder="+1 555 000 0000" %}
+        {% if form.phone.errors %}<p class="text-red-500 text-xs mt-1">{{ form.phone.errors.0 }}</p>{% endif %}
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Date of birth" %}
+        </label>
+        {% render_field form.date_of_birth class="form-input w-full" %}
+        {% if form.date_of_birth.errors %}<p class="text-red-500 text-xs mt-1">{{ form.date_of_birth.errors.0 }}</p>{% endif %}
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Bio" %} <span class="text-gray-400 text-xs">({% trans "optional" %})</span>
+        </label>
+        {% trans "Tell us a bit about yourself..." as bio_placeholder %}
+        {% render_field form.bio class="form-input w-full" rows="3" placeholder=bio_placeholder %}
+        {% if form.bio.errors %}<p class="text-red-500 text-xs mt-1">{{ form.bio.errors.0 }}</p>{% endif %}
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          {% trans "Favourite player" %} <span class="text-gray-400 text-xs">({% trans "optional" %})</span>
+        </label>
+        {% render_field form.favorite_player class="form-select w-full" %}
+        {% if form.favorite_player.errors %}<p class="text-red-500 text-xs mt-1">{{ form.favorite_player.errors.0 }}</p>{% endif %}
+      </div>
+    </div>
+
+    <!-- Preferences card -->
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">⚙️ {% trans "Preferences" %}</h2>
+      <label class="flex items-center gap-3 cursor-pointer">
+        {% render_field form.newsletter_opt_in class="form-checkbox h-4 w-4 text-primary-600 rounded" %}
+        <div>
+          <p class="text-sm font-medium text-gray-900 dark:text-white">{% trans "Newsletter & offers" %}</p>
+          <p class="text-xs text-gray-500">{% trans "Receive club news, match alerts, and exclusive offers." %}</p>
+        </div>
+      </label>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex gap-3 pb-4">
+      <button type="submit" class="btn-primary px-8 py-3">💾 {% trans "Save Profile" %}</button>
+      <a href="{% url 'fans:portal' %}" class="btn-secondary py-3">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+
+<script>
+document.getElementById('id_avatar').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  document.getElementById('file-name').textContent = file.name;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    const preview = document.getElementById('avatar-preview');
+    const placeholder = document.getElementById('avatar-placeholder');
+    preview.src = ev.target.result;
+    preview.classList.remove('hidden');
+    if (placeholder) placeholder.classList.add('hidden');
+  };
+  reader.readAsDataURL(file);
+});
+</script>
+{% endblock %}

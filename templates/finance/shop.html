@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load i18n core_tags humanize %}
+
+{% block title %}{% trans "Shop" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🛍️ {% trans "Club Shop" %}</h1>
+    <p class="text-sm text-gray-500 mt-1">{% trans "Official merchandise and club products" %}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'finance:cart' %}" class="btn-secondary relative">
+      🛒 {% trans "Cart" %}
+      {% if cart.item_count %}
+      <span class="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-accent-500 text-white text-xs flex items-center justify-center font-bold">{{ cart.item_count }}</span>
+      {% endif %}
+    </a>
+    <a href="{% url 'finance:orders' %}" class="btn-secondary">📦 {% trans "Orders" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Category filter -->
+<div class="flex flex-wrap gap-2 mb-6">
+  <a href="{% url 'finance:shop' %}" class="px-4 py-2 rounded-full text-sm font-medium transition-colors
+     {% if not current_category %}bg-primary-600 text-white{% else %}bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary-400{% endif %}">
+    {% trans "All" %}
+  </a>
+  {% for val, label in category_choices %}
+  <a href="?category={{ val }}" class="px-4 py-2 rounded-full text-sm font-medium transition-colors
+     {% if current_category == val %}bg-primary-600 text-white{% else %}bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary-400{% endif %}">
+    {{ label }}
+  </a>
+  {% endfor %}
+</div>
+
+<!-- Products grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+  {% for product in products %}
+  <div class="card overflow-hidden group hover:shadow-lg transition-shadow">
+    <a href="{{ product.get_absolute_url }}">
+      {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}"
+             class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300">
+      {% else %}
+        <div class="w-full h-44 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 flex items-center justify-center">
+          <span class="text-5xl">👕</span>
+        </div>
+      {% endif %}
+    </a>
+    <div class="p-4">
+      <p class="text-xs text-gray-500 mb-1">{{ product.get_category_display }}</p>
+      <a href="{{ product.get_absolute_url }}" class="font-semibold text-gray-900 dark:text-white text-sm hover:text-primary-600 transition-colors line-clamp-2">
+        {{ product.name }}
+      </a>
+      <div class="flex items-center justify-between mt-3">
+        <p class="text-lg font-bold text-primary-600">€{{ product.price }}</p>
+        {% if product.stock > 0 %}
+        <form method="post" action="{% url 'finance:cart_add' product.pk %}">
+          {% csrf_token %}
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit"
+                  hx-post="{% url 'finance:cart_add' product.pk %}"
+                  hx-target="#cart-badge"
+                  hx-swap="outerHTML"
+                  class="h-8 w-8 rounded-full bg-primary-600 text-white flex items-center justify-center hover:bg-primary-700 transition-colors text-lg font-bold">
+            +
+          </button>
+        </form>
+        {% else %}
+        <span class="text-xs text-red-500 font-medium">{% trans "Out of stock" %}</span>
+        {% endif %}
+      </div>
+      <p class="text-xs text-gray-400 mt-1">{{ product.stock }} {% trans "in stock" %}</p>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-span-full text-center py-16 text-gray-500">
+    <p class="text-4xl mb-3">🛍️</p>
+    <p>{% trans "No products available yet." %}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

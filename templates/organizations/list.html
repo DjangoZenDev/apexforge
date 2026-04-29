@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Organizations" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🏢 {% trans "Organizations" %}</h1>
+  <a href="{% url 'organizations:create' %}" class="btn-primary">+ {% trans "New Organization" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if orgs %}
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+  {% for org in orgs %}
+  <div class="card p-5 hover:shadow-md transition-shadow">
+    <div class="flex items-center gap-3 mb-3">
+      {% if org.logo %}
+        <div class="w-12 h-12 rounded-xl bg-gray-50 dark:bg-gray-700/40 flex items-center justify-center p-1 shrink-0">
+          <img src="{{ org.logo.url }}" alt="{{ org.name }}" class="max-h-full max-w-full object-contain">
+        </div>
+      {% else %}
+        <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-2xl shrink-0">🏢</div>
+      {% endif %}
+      <div>
+        <h2 class="font-semibold text-gray-900 dark:text-white">{{ org.name }}</h2>
+        {% if org.country %}<p class="text-xs text-gray-400">🌍 {{ org.country }}</p>{% endif %}
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-2 text-center text-sm mb-3">
+      <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-2">
+        <p class="text-xs text-gray-400">{% trans "Clubs" %}</p>
+        <p class="font-bold text-gray-900 dark:text-white text-lg">{{ org.club_count }}</p>
+      </div>
+      <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-2">
+        <p class="text-xs text-gray-400">{% trans "Country" %}</p>
+        <p class="font-bold text-gray-900 dark:text-white text-sm">{{ org.country|default:"—" }}</p>
+      </div>
+    </div>
+    <div class="flex gap-2">
+      <a href="{% url 'organizations:detail' org.pk %}" class="btn-primary text-xs flex-1 text-center">{% trans "View Clubs" %}</a>
+      <a href="{% url 'organizations:edit' org.pk %}" class="btn-secondary text-xs">{% trans "Edit" %}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="card p-12 text-center">
+  <p class="text-4xl mb-3">🏢</p>
+  <p class="text-gray-500 text-sm mb-4">{% trans "No organizations yet." %}</p>
+  <a href="{% url 'organizations:create' %}" class="btn-primary">{% trans "Create First Organization" %}</a>
+</div>
+{% endif %}
+{% endblock %}

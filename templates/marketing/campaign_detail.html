@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{{ campaign.name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ campaign.name }}</h1>
+    <p class="text-sm text-gray-500 mt-1">{{ campaign.start_date|date:"j M Y" }} – {{ campaign.end_date|date:"j M Y" }}</p>
+  </div>
+  {% if request.user.can_manage %}
+  <a href="{% url 'marketing:campaign_edit' campaign.pk %}" class="btn-secondary">✏️ {% trans "Edit" %}</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="space-y-4">
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Details" %}</h2>
+      <dl class="space-y-3 text-sm">
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Status" %}</dt><dd>{{ campaign.status|status_badge }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Channel" %}</dt><dd>{{ campaign.get_channel_display }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Budget" %}</dt><dd class="font-medium">{{ campaign.budget|currency }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Spent" %}</dt><dd class="font-medium text-red-600">{{ campaign.spent|currency }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Impressions" %}</dt><dd>{{ campaign.impressions|default:"—" }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Clicks" %}</dt><dd>{{ campaign.clicks|default:"—" }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Conversions" %}</dt><dd>{{ campaign.conversions|default:"—" }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Revenue" %}</dt><dd class="font-medium text-emerald-600">{{ campaign.revenue|currency }}</dd></div>
+      </dl>
+    </div>
+
+    {% if campaign.description %}
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-2">{% trans "Description" %}</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400">{{ campaign.description }}</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="lg:col-span-2 space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="card p-5 text-center">
+        <p class="text-xs text-gray-500 mb-1">{% trans "CTR" %}</p>
+        <p class="text-3xl font-black text-primary-600">{{ campaign.ctr|floatformat:1 }}%</p>
+        <p class="text-xs text-gray-400 mt-1">{% trans "Click-through rate" %}</p>
+      </div>
+      <div class="card p-5 text-center">
+        <p class="text-xs text-gray-500 mb-1">{% trans "Conversion Rate" %}</p>
+        <p class="text-3xl font-black text-amber-500">{{ campaign.conversion_rate|floatformat:1 }}%</p>
+        <p class="text-xs text-gray-400 mt-1">{% trans "Clicks → conversions" %}</p>
+      </div>
+      <div class="card p-5 text-center">
+        <p class="text-xs text-gray-500 mb-1">{% trans "ROI" %}</p>
+        <p class="text-3xl font-black {% if campaign.roi >= 0 %}text-emerald-600{% else %}text-red-600{% endif %}">{{ campaign.roi|floatformat:0 }}%</p>
+        <p class="text-xs text-gray-400 mt-1">{% trans "Return on investment" %}</p>
+      </div>
+    </div>
+
+    {% if campaign.target_audience or campaign.notes %}
+    <div class="card p-6 space-y-4">
+      {% if campaign.target_audience %}
+      <div>
+        <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{% trans "Target Audience" %}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{{ campaign.target_audience }}</p>
+      </div>
+      {% endif %}
+      {% if campaign.notes %}
+      <div>
+        <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{% trans "Notes" %}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{{ campaign.notes }}</p>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

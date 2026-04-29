@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Sponsor Portal" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 text-center">
+  <h1 class="text-3xl font-black text-gray-900 dark:text-white">{% trans "Our Partners" %}</h1>
+  <p class="text-gray-500 mt-2">{% trans "Proud to work with these outstanding organisations" %}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+{% regroup portals by tier as tier_groups %}
+{% for group in tier_groups %}
+<div class="mb-10">
+  {% if group.grouper %}
+  <div class="flex items-center gap-3 mb-4">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white">
+      {% if group.grouper == 'Gold' %}🥇{% elif group.grouper == 'Silver' %}🥈{% elif group.grouper == 'Bronze' %}🥉{% else %}🤝{% endif %}
+      {{ group.grouper }} {% trans "Partners" %}
+    </h2>
+    <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+  </div>
+  {% endif %}
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {% for portal in group.list %}
+    <div class="card p-6 text-center hover:shadow-md transition-shadow group">
+      {% if portal.sponsorship.logo %}
+        <img src="{{ portal.sponsorship.logo.url }}" alt="{{ portal.sponsorship.company_name }}"
+             class="h-16 mx-auto object-contain mb-3 group-hover:scale-105 transition-transform">
+      {% else %}
+        <div class="h-16 w-16 mx-auto rounded-xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 flex items-center justify-center mb-3 text-2xl font-black text-primary-600">
+          {{ portal.sponsorship.company_name|first }}
+        </div>
+      {% endif %}
+      <h3 class="font-semibold text-gray-900 dark:text-white text-sm">{{ portal.sponsorship.company_name }}</h3>
+      {% if portal.tagline %}<p class="text-xs text-gray-500 mt-1">{{ portal.tagline }}</p>{% endif %}
+      <p class="text-xs text-primary-600 font-medium mt-2">{{ portal.sponsorship.get_sponsor_type_display }}</p>
+      {% if portal.sponsorship.website %}
+      <a href="{{ portal.sponsorship.website }}" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-primary-600 mt-2 transition-colors">
+        {% trans "Visit website" %} ↗
+      </a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% empty %}
+<div class="text-center py-16 text-gray-500">
+  <p class="text-4xl mb-3">🤝</p>
+  <p>{% trans "No sponsors to display yet." %}</p>
+</div>
+{% endfor %}
+
+<!-- Become a partner CTA -->
+<div class="mt-10 card p-8 text-center bg-gradient-to-br from-primary-600 to-primary-800 border-0">
+  <h2 class="text-2xl font-bold text-white mb-2">{% trans "Become a Partner" %}</h2>
+  <p class="text-primary-100 mb-4">{% trans "Join our growing family of sponsors and reach thousands of passionate fans." %}</p>
+  <a href="mailto:{{ branding.email }}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-primary-700 font-semibold hover:bg-primary-50 transition-colors">
+    {% trans "Get in touch" %} →
+  </a>
+</div>
+{% endblock %}

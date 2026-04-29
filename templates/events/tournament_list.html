@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Tournaments" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🏆 {% trans "Tournaments" %}</h1>
+  {% if request.user.can_manage or request.user.is_coach %}
+  <a href="{% url 'events:tournament_create' %}" class="btn-primary">+ {% trans "New Tournament" %}</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {% for tournament in tournaments %}
+  <div class="card p-5">
+    <div class="flex items-start justify-between mb-3">
+      <div>
+        <h3 class="font-semibold text-gray-900 dark:text-white">{{ tournament.event.title }}</h3>
+        <p class="text-xs text-gray-500 mt-0.5">{{ tournament.event.start_date|date:"j M Y" }}{% if tournament.event.end_date %} – {{ tournament.event.end_date|date:"j M Y" }}{% endif %}</p>
+      </div>
+      {{ tournament.event.status|status_badge }}
+    </div>
+    {% if tournament.event.venue %}
+    <p class="text-xs text-gray-500 mb-3">📍 {{ tournament.event.venue }}</p>
+    {% endif %}
+    <div class="flex items-center justify-between text-sm">
+      <span class="text-gray-500">{{ tournament.teams.count }} {% trans "teams" %}</span>
+      {% if tournament.format %}<span class="text-xs px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/30 text-amber-700">{{ tournament.format }}</span>{% endif %}
+    </div>
+    {% if request.user.can_manage or request.user.is_coach %}
+    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700">
+      <a href="{% url 'events:tournament_edit' tournament.pk %}" class="text-xs text-gray-400 hover:text-primary-600">✏️ {% trans "Edit" %}</a>
+    </div>
+    {% endif %}
+  </div>
+  {% empty %}
+  <div class="col-span-full card p-12 text-center text-gray-500">
+    <p class="text-3xl mb-2">🏆</p>
+    <p>{% trans "No tournaments scheduled." %}</p>
+    {% if request.user.can_manage %}
+    <a href="{% url 'events:tournament_create' %}" class="btn-primary inline-flex mt-4">{% trans "Create first tournament" %}</a>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

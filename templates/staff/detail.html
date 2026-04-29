@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{{ member.user.get_full_name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'staff:list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Staff" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ member.user.get_full_name }}</h1>
+    <p class="text-sm text-gray-500">{{ member.job_title }}{% if member.department %} · {{ member.department.name }}{% endif %}</p>
+  </div>
+  <a href="{% url 'staff:edit' member.pk %}" class="btn-primary">{% trans "Edit" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="lg:col-span-2 space-y-4">
+    <div class="card p-6">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase mb-4">{% trans "Staff Details" %}</h2>
+      <dl class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
+        <div><dt class="text-gray-500">{% trans "Employment Type" %}</dt><dd class="font-medium mt-1">{{ member.get_employment_type_display }}</dd></div>
+        <div><dt class="text-gray-500">{% trans "Hire Date" %}</dt><dd class="mt-1">{{ member.hire_date }}</dd></div>
+        {% if member.contract_end %}<div><dt class="text-gray-500">{% trans "Contract End" %}</dt><dd class="mt-1">{{ member.contract_end }}</dd></div>{% endif %}
+        {% if member.salary %}<div><dt class="text-gray-500">{% trans "Salary" %}</dt><dd class="font-bold mt-1">€{{ member.salary|intcomma }}</dd></div>{% endif %}
+        {% if member.phone %}<div><dt class="text-gray-500">{% trans "Phone" %}</dt><dd class="mt-1">{{ member.phone }}</dd></div>{% endif %}
+        {% if member.team %}<div><dt class="text-gray-500">{% trans "Team" %}</dt><dd class="mt-1">{{ member.team.name }}</dd></div>{% endif %}
+        {% if member.bio %}<div class="col-span-2"><dt class="text-gray-500">{% trans "Bio" %}</dt><dd class="mt-1">{{ member.bio }}</dd></div>{% endif %}
+      </dl>
+    </div>
+
+    <!-- Tasks -->
+    <div class="card p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-semibold text-gray-500 uppercase">{% trans "Recent Tasks" %}</h2>
+        <a href="{% url 'staff:tasks' %}" class="text-xs text-primary-600 hover:underline">{% trans "View all" %}</a>
+      </div>
+      {% for task in tasks %}
+      <div class="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
+        <span class="h-2 w-2 rounded-full shrink-0 {% if task.status == 'completed' %}bg-emerald-500{% elif task.is_overdue %}bg-red-500{% elif task.priority == 'urgent' %}bg-orange-500{% else %}bg-blue-400{% endif %}"></span>
+        <p class="flex-1 text-sm text-gray-700 dark:text-gray-300">{{ task.title }}</p>
+        <span class="text-xs text-gray-400">{{ task.due_date }}</span>
+      </div>
+      {% empty %}
+      <p class="text-sm text-gray-400 text-center py-2">{% trans "No tasks." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Payroll Sidebar -->
+  <div class="card p-5">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xs font-semibold text-gray-500 uppercase">{% trans "Recent Payroll" %}</h2>
+      <a href="{% url 'staff:payroll' %}" class="text-xs text-primary-600 hover:underline">{% trans "View all" %}</a>
+    </div>
+    {% for payroll in payrolls %}
+    <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
+      <div>
+        <p class="text-sm font-medium text-gray-900 dark:text-white">{{ payroll.period_start|date:"M Y" }}</p>
+        <p class="text-xs text-gray-400">{% trans "Net:" %} €{{ payroll.net_salary|intcomma }}</p>
+      </div>
+      <span class="badge {% if payroll.is_paid %}bg-emerald-100 text-emerald-700{% else %}bg-amber-100 text-amber-700{% endif %}">
+        {% if payroll.is_paid %}{% trans "Paid" %}{% else %}{% trans "Pending" %}{% endif %}
+      </span>
+    </div>
+    {% empty %}
+    <p class="text-sm text-gray-400 text-center py-2">{% trans "No payroll entries." %}</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

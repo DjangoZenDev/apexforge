@@ -1,0 +1,24 @@
+{% load i18n %}
+{% if results %}
+<ul class="py-2">
+  {% for result in results %}
+  <li>
+    <a href="{{ result.url }}"
+       class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+      <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium
+        {% if result.type == 'Team' %}bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300
+        {% elif result.type == 'Player' %}bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300
+        {% elif result.type == 'Event' %}bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300
+        {% else %}bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300{% endif %}">
+        {{ result.type }}
+      </span>
+      <span class="text-sm text-gray-800 dark:text-gray-200">{{ result.label }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% elif query %}
+<div class="px-4 py-6 text-center text-sm text-gray-500">
+  {% trans "No results for" %} "<strong>{{ query }}</strong>"
+</div>
+{% endif %}

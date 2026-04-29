@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Scout Report" %} — {{ report.player.full_name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Scout Report" %}</h1>
+    <p class="text-sm text-gray-500 mt-1">{{ report.player.full_name }} · {{ report.match_date|date:"j F Y" }}</p>
+  </div>
+  {% if request.user.can_manage or request.user.is_scout %}
+  <a href="{% url 'scouting:report_edit' report.pk %}" class="btn-secondary">✏️ {% trans "Edit" %}</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl space-y-6">
+  <div class="card p-6">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <a href="{{ report.player.get_absolute_url }}" class="text-lg font-bold text-primary-600 hover:underline">{{ report.player.full_name }}</a>
+        <p class="text-sm text-gray-500">{{ report.player.position }} · {{ report.player.nationality }}</p>
+        {% if report.venue %}<p class="text-xs text-gray-400 mt-1">{{ report.venue }}</p>{% endif %}
+      </div>
+      <div class="text-center">
+        <p class="text-5xl font-black text-amber-500">{{ report.overall }}</p>
+        <p class="text-xs text-gray-400">/10 {% trans "overall" %}</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+      {% for label, value in ratings %}
+      <div class="text-center p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+        <p class="text-xs text-gray-500 mb-1">{{ label }}</p>
+        <p class="text-3xl font-black text-gray-900 dark:text-white">{{ value }}</p>
+        <div class="mt-2 h-1.5 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+          <div class="h-full bg-amber-500 rounded-full" style="width: {{ value }}0%"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if report.summary %}
+    <div class="border-t border-gray-100 dark:border-gray-700 pt-4">
+      <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{% trans "Summary" %}</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ report.summary }}</p>
+    </div>
+    {% endif %}
+
+    {% if report.strengths %}
+    <div class="mt-4">
+      <h3 class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 mb-2">✓ {% trans "Strengths" %}</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400">{{ report.strengths }}</p>
+    </div>
+    {% endif %}
+
+    {% if report.weaknesses %}
+    <div class="mt-4">
+      <h3 class="text-sm font-semibold text-red-600 dark:text-red-400 mb-2">✗ {% trans "Areas to Improve" %}</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400">{{ report.weaknesses }}</p>
+    </div>
+    {% endif %}
+
+    {% if report.recommendation %}
+    <div class="mt-4 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-xl">
+      <h3 class="text-sm font-semibold text-primary-700 dark:text-primary-400 mb-1">{% trans "Recommendation" %}</h3>
+      <p class="text-sm text-primary-800 dark:text-primary-300">{{ report.get_recommendation_display }}</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="card p-4 flex items-center justify-between text-sm text-gray-500">
+    <span>{% trans "Scouted by" %} <strong class="text-gray-900 dark:text-white">{{ report.scout.get_full_name|default:report.scout.email }}</strong></span>
+    <a href="{% url 'scouting:report_list' %}" class="text-primary-600 hover:underline">← {% trans "All reports" %}</a>
+  </div>
+</div>
+{% endblock %}

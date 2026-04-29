@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ title }}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl">
+  <form method="post" class="space-y-6">
+    {% csrf_token %}
+    <div class="card p-6 space-y-5">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white">{% trans "Campaign Info" %}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Campaign Name" %} *</label>
+          {{ form.name }}{% if form.name.errors %}<p class="mt-1 text-xs text-red-500">{{ form.name.errors.0 }}</p>{% endif %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Channel" %}</label>
+          {{ form.channel }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Status" %}</label>
+          {{ form.status }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Start Date" %} *</label>
+          {{ form.start_date }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "End Date" %} *</label>
+          {{ form.end_date }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Budget (€)" %}</label>
+          {{ form.budget }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Spent (€)" %}</label>
+          {{ form.spent }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Impressions" %}</label>
+          {{ form.impressions }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Clicks" %}</label>
+          {{ form.clicks }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Conversions" %}</label>
+          {{ form.conversions }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Revenue (€)" %}</label>
+          {{ form.revenue }}
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Target Audience" %}</label>
+          {{ form.target_audience }}
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Description" %}</label>
+          {{ form.description }}
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Notes" %}</label>
+          {{ form.notes }}
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <button type="submit" class="btn-primary">{% trans "Save Campaign" %}</button>
+      <a href="{% url 'marketing:campaigns' %}" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

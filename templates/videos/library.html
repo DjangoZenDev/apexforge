@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Video Library" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🎬 {% trans "Video Library" %}</h1>
+  <a href="{% url 'videos:upload' %}" class="btn-primary">+ {% trans "Upload Video" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Category tabs -->
+<div class="flex gap-2 mb-4 overflow-x-auto pb-1">
+  <a href="{% url 'videos:library' %}" class="badge {% if not current_category %}bg-primary-600 text-white{% else %}bg-gray-100 text-gray-600 hover:bg-gray-200{% endif %} px-3 py-1.5 whitespace-nowrap">
+    {% trans "All" %}
+  </a>
+  {% for cat in categories %}
+  <a href="?category={{ cat.name }}" class="badge {% if current_category == cat.name %}bg-primary-600 text-white{% else %}bg-gray-100 text-gray-600 hover:bg-gray-200{% endif %} px-3 py-1.5 whitespace-nowrap">
+    {{ cat.icon }} {{ cat.get_name_display }}
+  </a>
+  {% endfor %}
+</div>
+
+<div class="card p-4 mb-4">
+  <form class="flex gap-3 items-end">
+    <input type="search" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Search title or tags...' %}" class="form-input flex-1">
+    {% if current_category %}<input type="hidden" name="category" value="{{ current_category }}">{% endif %}
+    <button type="submit" class="btn-primary">{% trans "Search" %}</button>
+  </form>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+  {% for video in page %}
+  <a href="{% url 'videos:detail' video.pk %}" class="card overflow-hidden hover:shadow-md transition-shadow group">
+    <div class="relative h-40 bg-gray-900 flex items-center justify-center overflow-hidden">
+      {% if video.thumbnail %}
+      <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+      {% else %}
+      <div class="text-5xl opacity-30">🎬</div>
+      {% endif %}
+      {% if video.duration_sec %}
+      <span class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">{{ video.duration_display }}</span>
+      {% endif %}
+      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+        <div class="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center">▶️</div>
+      </div>
+    </div>
+    <div class="p-3">
+      <p class="font-medium text-sm text-gray-900 dark:text-white line-clamp-2">{{ video.title }}</p>
+      <div class="flex items-center justify-between mt-1.5">
+        <span class="text-xs text-gray-400">{{ video.date }}</span>
+        {% if video.category %}<span class="text-xs text-gray-400">{{ video.category.icon }} {{ video.category.get_name_display }}</span>{% endif %}
+      </div>
+      {% if video.tag_list %}
+      <div class="flex flex-wrap gap-1 mt-2">
+        {% for tag in video.tag_list|slice:":3" %}
+        <span class="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-1.5 py-0.5 rounded">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </a>
+  {% empty %}
+  <div class="col-span-full card p-12 text-center text-gray-500">{% trans "No videos yet. Upload the first one!" %}</div>
+  {% endfor %}
+</div>
+{% if page.has_other_pages %}
+<div class="flex justify-center gap-2 mt-6">
+  {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="btn-secondary">←</a>{% endif %}
+  <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a href="?page={{ page.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="btn-secondary">→</a>{% endif %}
+</div>
+{% endif %}
+{% endblock %}

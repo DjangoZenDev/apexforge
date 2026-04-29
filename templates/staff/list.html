@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Staff" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">👥 {% trans "Staff & HR" %}</h1>
+  <div class="flex gap-2">
+    <a href="{% url 'staff:tasks' %}" class="btn-secondary">📋 {% trans "Tasks" %}</a>
+    <a href="{% url 'staff:payroll' %}" class="btn-secondary">💰 {% trans "Payroll" %}</a>
+    <a href="{% url 'staff:create' %}" class="btn-primary">+ {% trans "Add Staff" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card p-4 mb-4">
+  <form class="flex flex-wrap gap-3 items-end">
+    <input type="search" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Search staff...' %}" class="form-input flex-1 min-w-40">
+    <select name="dept" class="form-select">
+      <option value="">{% trans "All departments" %}</option>
+      {% for dept in departments %}<option value="{{ dept.pk }}" {% if request.GET.dept == dept.pk|stringformat:"s" %}selected{% endif %}>{{ dept.icon }} {{ dept.name }}</option>{% endfor %}
+    </select>
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+  </form>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+  {% for member in staff %}
+  <a href="{% url 'staff:detail' member.pk %}" class="card p-5 hover:shadow-md transition-shadow flex items-center gap-4">
+    {% if member.user.avatar %}
+    <img src="{{ member.user.avatar.url }}" alt="{{ member.user }}" class="h-14 w-14 rounded-full object-cover shrink-0">
+    {% else %}
+    <div class="h-14 w-14 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 font-bold text-xl shrink-0">
+      {{ member.user.first_name.0 }}{{ member.user.last_name.0 }}
+    </div>
+    {% endif %}
+    <div class="flex-1 min-w-0">
+      <p class="font-semibold text-gray-900 dark:text-white">{{ member.user.get_full_name }}</p>
+      <p class="text-sm text-gray-500 truncate">{{ member.job_title }}</p>
+      {% if member.department %}<p class="text-xs text-gray-400 mt-0.5">{{ member.department.icon }} {{ member.department.name }}</p>{% endif %}
+      <p class="text-xs text-gray-400 mt-0.5">{{ member.get_employment_type_display }}</p>
+    </div>
+  </a>
+  {% empty %}
+  <div class="col-span-full card p-12 text-center text-gray-500">{% trans "No staff members yet." %}</div>
+  {% endfor %}
+</div>
+{% endblock %}

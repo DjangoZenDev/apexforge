@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Sign In" %}{% endblock %}
+
+{% block public_content %}
+<div class="min-h-screen flex bg-gray-50 dark:bg-gray-900">
+
+  <!-- Left panel — branding -->
+  <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-gray-900 via-primary-950 to-gray-900 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: radial-gradient(circle at 20% 80%, #059669 0%, transparent 50%), radial-gradient(circle at 80% 20%, #f59e0b 0%, transparent 50%);">
+    </div>
+    <div class="relative z-10 flex flex-col justify-between p-12 w-full">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+          <span class="text-white font-black text-lg">AF</span>
+        </div>
+        <span class="text-white font-bold text-xl">ApexForge</span>
+      </div>
+      <div>
+        <h2 class="text-4xl font-black text-white leading-tight">
+          {% trans "Forge Champions," %}<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">
+            {% trans "Build Legacies" %}
+          </span>
+        </h2>
+        <p class="text-gray-400 mt-4 text-lg">
+          {% trans "The complete sports management and entrepreneurship platform." %}
+        </p>
+        <div class="grid grid-cols-3 gap-4 mt-8">
+          <div class="flex items-center gap-2"><div class="h-2 w-2 rounded-full bg-primary-500"></div><span class="text-gray-400 text-sm">{% trans "Teams" %}</span></div>
+          <div class="flex items-center gap-2"><div class="h-2 w-2 rounded-full bg-primary-500"></div><span class="text-gray-400 text-sm">{% trans "Players" %}</span></div>
+          <div class="flex items-center gap-2"><div class="h-2 w-2 rounded-full bg-primary-500"></div><span class="text-gray-400 text-sm">{% trans "Finance" %}</span></div>
+          <div class="flex items-center gap-2"><div class="h-2 w-2 rounded-full bg-primary-500"></div><span class="text-gray-400 text-sm">{% trans "Scouting" %}</span></div>
+          <div class="flex items-center gap-2"><div class="h-2 w-2 rounded-full bg-primary-500"></div><span class="text-gray-400 text-sm">{% trans "Analytics" %}</span></div>
+          <div class="flex items-center gap-2"><div class="h-2 w-2 rounded-full bg-primary-500"></div><span class="text-gray-400 text-sm">{% trans "Marketing" %}</span></div>
+        </div>
+      </div>
+      <p class="text-gray-600 text-sm">© {% now "Y" %} ApexForge Platform</p>
+    </div>
+  </div>
+
+  <!-- Right panel — form -->
+  <div class="flex-1 flex items-center justify-center p-6">
+    <div class="w-full max-w-md">
+
+      <!-- Mobile logo -->
+      <div class="flex items-center gap-3 mb-8 lg:hidden">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+          <span class="text-white font-black text-lg">AF</span>
+        </div>
+        <span class="text-gray-900 dark:text-white font-bold text-xl">ApexForge</span>
+      </div>
+
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">{% trans "Welcome back" %}</h1>
+      <p class="text-gray-500 dark:text-gray-400 mb-8">{% trans "Sign in to your account to continue." %}</p>
+
+      <form method="post" action="" class="space-y-5" x-data="{ loading: false }" @submit="loading = true">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <div class="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-xl p-4 text-sm">
+          {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+        </div>
+        {% endif %}
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Email address" %}</label>
+          <input type="email" name="username" value="{{ form.username.value|default:'' }}"
+                 placeholder="you@example.com" autofocus
+                 class="form-input block w-full rounded-xl border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
+          {% if form.username.errors %}
+          <p class="mt-1 text-xs text-red-500">{{ form.username.errors.0 }}</p>
+          {% endif %}
+        </div>
+
+        <div>
+          <div class="flex justify-between items-center mb-1.5">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{% trans "Password" %}</label>
+            <a href="{% url 'accounts:password_reset' %}" class="text-xs text-primary-600 hover:underline">{% trans "Forgot password?" %}</a>
+          </div>
+          <input type="password" name="password" placeholder="••••••••"
+                 class="form-input block w-full rounded-xl border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
+          {% if form.password.errors %}
+          <p class="mt-1 text-xs text-red-500">{{ form.password.errors.0 }}</p>
+          {% endif %}
+        </div>
+
+        <div class="flex items-center gap-2">
+          <input type="checkbox" name="remember_me" id="remember_me"
+                 class="h-4 w-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500">
+          <label for="remember_me" class="text-sm text-gray-600 dark:text-gray-400">{% trans "Remember me" %}</label>
+        </div>
+
+        <button type="submit" :disabled="loading"
+                class="btn-primary w-full justify-center py-3 text-base">
+          <svg x-show="loading" class="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          <span x-text="loading ? '{% trans "Signing in..." %}' : '{% trans "Sign in" %}'">{% trans "Sign in" %}</span>
+        </button>
+      </form>
+
+      <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+        {% trans "Don't have an account?" %}
+        <a href="{% url 'accounts:register' %}" class="text-primary-600 font-medium hover:underline">{% trans "Create one" %}</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

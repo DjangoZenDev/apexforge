@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Performance Insights" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">📊 {% trans "Performance Insights" %}</h1>
+  <p class="text-sm text-gray-500 mt-0.5">{% trans "Live analytics across all modules" %}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- ── Top KPI row ─────────────────────────────────────────────────────────── -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+  <div class="card p-4 text-center">
+    <p class="text-xs text-gray-400 uppercase">{% trans "Active Players" %}</p>
+    <p class="text-2xl font-black text-primary-600 mt-1">{{ player_status.active|default:0 }}</p>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-xs text-gray-400 uppercase">{% trans "Injured" %}</p>
+    <p class="text-2xl font-black text-red-500 mt-1">{{ injury_by_status.active|default:0 }}</p>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-xs text-gray-400 uppercase">{% trans "Overdue Tasks" %}</p>
+    <p class="text-2xl font-black text-amber-500 mt-1">{{ overdue_tasks }}</p>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-xs text-gray-400 uppercase">{% trans "Expiring Contracts" %}</p>
+    <p class="text-2xl font-black text-orange-500 mt-1">{{ contract_stats.expiring|default:0 }}</p>
+  </div>
+</div>
+
+<!-- ── Row 1: Charts ──────────────────────────────────────────────────────── -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+
+  <!-- Player status pie -->
+  <div class="card p-4">
+    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">👥 {% trans "Player Status" %}</h3>
+    <canvas id="chartPlayerStatus" class="max-h-48"></canvas>
+  </div>
+
+  <!-- Injury severity bar -->
+  <div class="card p-4">
+    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">🏥 {% trans "Injury by Severity" %}</h3>
+    <canvas id="chartInjurySeverity" class="max-h-48"></canvas>
+  </div>
+
+  <!-- Task status doughnut -->
+  <div class="card p-4">
+    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">📋 {% trans "Task Status" %}</h3>
+    <canvas id="chartTaskStatus" class="max-h-48"></canvas>
+  </div>
+</div>
+
+<!-- ── Row 2: Finance + Academy ──────────────────────────────────────────── -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+
+  <!-- Finance summary -->
+  <div class="card p-5">
+    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">💰 {% trans "Financial Overview (YTD)" %}</h3>
+    <div class="space-y-3">
+      <div class="flex justify-between items-center">
+        <span class="text-sm text-gray-500">{% trans "Income" %}</span>
+        <span class="text-sm font-bold text-emerald-600">€{{ finance_income|intcomma }}</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-sm text-gray-500">{% trans "Expenses" %}</span>
+        <span class="text-sm font-bold text-red-500">€{{ finance_expense|intcomma }}</span>
+      </div>
+      <div class="flex justify-between items-center border-t pt-3">
+        <span class="text-sm font-semibold text-gray-900 dark:text-white">{% trans "Balance" %}</span>
+        <span class="text-lg font-black {% if finance_balance >= 0 %}text-emerald-600{% else %}text-red-500{% endif %}">
+          €{{ finance_balance|intcomma }}
+        </span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-sm text-gray-500">{% trans "Payroll YTD" %}</span>
+        <span class="text-sm font-bold text-gray-700 dark:text-gray-300">€{{ payroll_ytd|intcomma }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Academy + Contracts -->
+  <div class="card p-5">
+    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">🎓 {% trans "Academy & Contracts" %}</h3>
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div class="text-center bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
+        <p class="text-xs text-gray-400 mb-1">{% trans "Programs" %}</p>
+        <p class="text-2xl font-black text-violet-600">{{ academy_programs }}</p>
+      </div>
+      <div class="text-center bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
+        <p class="text-xs text-gray-400 mb-1">{% trans "Avg Rating" %}</p>
+        <p class="text-2xl font-black text-blue-600">{{ avg_overall|floatformat:1|default:"—" }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <div class="text-center bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-2">
+        <p class="text-xs text-emerald-600 font-medium">{% trans "Active" %}</p>
+        <p class="text-lg font-bold text-emerald-700">{{ contract_stats.active|default:0 }}</p>
+      </div>
+      <div class="text-center bg-amber-50 dark:bg-amber-900/20 rounded-lg p-2">
+        <p class="text-xs text-amber-600 font-medium">{% trans "Expiring" %}</p>
+        <p class="text-lg font-bold text-amber-700">{{ contract_stats.expiring|default:0 }}</p>
+      </div>
+      <div class="text-center bg-gray-50 dark:bg-gray-700/50 rounded-lg p-2">
+        <p class="text-xs text-gray-500 font-medium">{% trans "Expired" %}</p>
+        <p class="text-lg font-bold text-gray-600">{{ contract_stats.expired|default:0 }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Row 3: Top scorers + Recent matches ───────────────────────────────── -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+
+  <!-- Top scorers -->
+  <div class="card overflow-hidden">
+    <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+      <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">⚽ {% trans "Top Scorers" %}</h3>
+    </div>
+    <ol class="divide-y divide-gray-100 dark:divide-gray-700">
+      {% for stat in top_scorers %}
+      <li class="px-4 py-2.5 flex items-center gap-3">
+        <span class="text-sm text-gray-400 w-5 text-right shrink-0">{{ forloop.counter }}</span>
+        <span class="text-sm font-medium text-gray-900 dark:text-white flex-1">{{ stat.player.full_name }}</span>
+        <span class="text-sm font-bold text-primary-600">{{ stat.goals }} ⚽</span>
+      </li>
+      {% empty %}
+      <li class="px-4 py-8 text-center text-sm text-gray-400">{% trans "No stats recorded yet." %}</li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  <!-- Recent matches -->
+  <div class="card overflow-hidden">
+    <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+      <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">🏆 {% trans "Recent Matches" %}</h3>
+    </div>
+    <ul class="divide-y divide-gray-100 dark:divide-gray-700">
+      {% for match in recent_matches %}
+      <li class="px-4 py-2.5 flex items-center justify-between gap-2">
+        <span class="text-sm text-gray-700 dark:text-gray-300 truncate">{{ match.home_team }} vs {{ match.away_team }}</span>
+        <span class="text-sm font-bold text-gray-900 dark:text-white shrink-0">
+          {{ match.home_score }} – {{ match.away_score }}
+        </span>
+      </li>
+      {% empty %}
+      <li class="px-4 py-8 text-center text-sm text-gray-400">{% trans "No completed matches." %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<!-- ── Active injuries ───────────────────────────────────────────────────── -->
+{% if active_injuries %}
+<div class="card overflow-hidden">
+  <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+    <h3 class="text-sm font-semibold text-red-600 dark:text-red-400">🏥 {% trans "Active Injuries" %}</h3>
+  </div>
+  <ul class="divide-y divide-gray-100 dark:divide-gray-700">
+    {% for inj in active_injuries %}
+    <li class="px-4 py-3 flex items-center justify-between gap-3">
+      <div>
+        <p class="text-sm font-medium text-gray-900 dark:text-white">{{ inj.player.full_name }}</p>
+        <p class="text-xs text-gray-400">{{ inj.injury_type }} · {{ inj.get_body_part_display }}</p>
+      </div>
+      <div class="text-right">
+        <span class="badge {% if inj.severity == 'critical' %}bg-red-100 text-red-700{% elif inj.severity == 'severe' %}bg-orange-100 text-orange-700{% elif inj.severity == 'moderate' %}bg-amber-100 text-amber-700{% else %}bg-gray-100 text-gray-600{% endif %}">
+          {{ inj.get_severity_display }}
+        </span>
+        <p class="text-xs text-gray-400 mt-1">{{ inj.days_out }} {% trans "days" %}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+(function () {
+  const isDark = document.documentElement.classList.contains('dark');
+  const textColor = isDark ? '#9ca3af' : '#6b7280';
+  const gridColor = isDark ? '#374151' : '#f3f4f6';
+
+  const COLORS = ['#059669','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#14b8a6'];
+
+  function makeChart(id, type, labels, data, label) {
+    const ctx = document.getElementById(id);
+    if (!ctx) return;
+    new Chart(ctx, {
+      type: type,
+      data: {
+        labels: labels,
+        datasets: [{
+          label: label || '',
+          data: data,
+          backgroundColor: COLORS,
+          borderColor: isDark ? '#1f2937' : '#fff',
+          borderWidth: 2,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { labels: { color: textColor, font: { size: 11 } } }
+        },
+        scales: type === 'bar' ? {
+          x: { ticks: { color: textColor }, grid: { color: gridColor } },
+          y: { ticks: { color: textColor }, grid: { color: gridColor } }
+        } : {}
+      }
+    });
+  }
+
+  makeChart('chartPlayerStatus', 'doughnut',
+    {{ chart_status_labels|safe }}, {{ chart_status_values|safe }});
+  makeChart('chartInjurySeverity', 'bar',
+    {{ chart_severity_labels|safe }}, {{ chart_severity_values|safe }}, '{% trans "Injuries" %}');
+  makeChart('chartTaskStatus', 'doughnut',
+    {{ chart_task_labels|safe }}, {{ chart_task_values|safe }});
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{{ talent.full_name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div class="flex items-center gap-4">
+    {% if talent.photo %}
+      <img src="{{ talent.photo.url }}" class="h-16 w-16 rounded-full object-cover">
+    {% else %}
+      <div class="h-16 w-16 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-2xl">
+        {{ talent.full_name|first }}
+      </div>
+    {% endif %}
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ talent.full_name }}</h1>
+      <p class="text-sm text-gray-500">{{ talent.position }} · {{ talent.nationality }} · {{ talent.current_club }}</p>
+    </div>
+  </div>
+  {% if request.user.can_manage or request.user.is_scout %}
+  <div class="flex gap-2">
+    <a href="{% url 'scouting:talent_edit' talent.pk %}" class="btn-secondary">✏️ {% trans "Edit" %}</a>
+    <a href="{% url 'scouting:report_create' %}?talent={{ talent.pk }}" class="btn-primary">+ {% trans "Add Report" %}</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="space-y-4">
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Profile" %}</h2>
+      <dl class="space-y-3 text-sm">
+        {% if talent.date_of_birth %}
+        <div class="flex justify-between">
+          <dt class="text-gray-500">{% trans "Age" %}</dt>
+          <dd class="font-medium">{{ talent.date_of_birth|timesince|truncatewords:1 }}</dd>
+        </div>
+        {% endif %}
+        <div class="flex justify-between">
+          <dt class="text-gray-500">{% trans "Position" %}</dt>
+          <dd class="font-medium">{{ talent.position }}</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt class="text-gray-500">{% trans "Nationality" %}</dt>
+          <dd class="font-medium">{{ talent.nationality }}</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt class="text-gray-500">{% trans "Current Club" %}</dt>
+          <dd class="font-medium">{{ talent.current_club|default:"—" }}</dd>
+        </div>
+        {% if talent.contact_info %}
+        <div class="flex justify-between">
+          <dt class="text-gray-500">{% trans "Contact" %}</dt>
+          <dd class="font-medium">{{ talent.contact_info }}</dd>
+        </div>
+        {% endif %}
+        {% if talent.video_url %}
+        <div class="flex justify-between">
+          <dt class="text-gray-500">{% trans "Video" %}</dt>
+          <dd class="font-medium"><a href="{{ talent.video_url }}" target="_blank" class="text-primary-600 hover:underline">{% trans "Watch" %}</a></dd>
+        </div>
+        {% endif %}
+        <div class="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-700">
+          <dt class="text-gray-500">{% trans "Status" %}</dt>
+          <dd>{{ talent.status|status_badge }}</dd>
+        </div>
+        <div class="flex justify-between items-center">
+          <dt class="text-gray-500">{% trans "Overall Rating" %}</dt>
+          <dd class="text-3xl font-black text-amber-500">{{ talent.rating }}<span class="text-sm text-gray-400 font-normal">/10</span></dd>
+        </div>
+      </dl>
+    </div>
+
+    {% if talent.notes %}
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-2">{% trans "Notes" %}</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400">{{ talent.notes }}</p>
+    </div>
+    {% endif %}
+
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-3">{% trans "Added By" %}</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400">{{ talent.added_by.get_full_name|default:talent.added_by.email }}</p>
+      <p class="text-xs text-gray-400 mt-1">{{ talent.created_at|date:"j M Y" }}</p>
+    </div>
+  </div>
+
+  <div class="lg:col-span-2 space-y-4">
+    <div class="card p-6">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Scout Reports" %} <span class="text-sm font-normal text-gray-400">({{ reports.count }})</span></h2>
+      {% if reports %}
+      <div class="space-y-4">
+        {% for report in reports %}
+        <div class="border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <p class="font-medium text-gray-900 dark:text-white">{{ report.scout.get_full_name|default:report.scout.email }}</p>
+              <p class="text-xs text-gray-400">{{ report.scouted_at|date:"j M Y" }} {% if report.match_context %}· {{ report.match_context }}{% endif %}</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-black text-amber-500">{{ report.overall }}</p>
+              <p class="text-xs text-gray-400">/10</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
+            <div class="text-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <p class="text-xs text-gray-500">{% trans "Technical" %}</p>
+              <p class="font-bold text-gray-900 dark:text-white">{{ report.technical }}</p>
+            </div>
+            <div class="text-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <p class="text-xs text-gray-500">{% trans "Physical" %}</p>
+              <p class="font-bold text-gray-900 dark:text-white">{{ report.physical }}</p>
+            </div>
+            <div class="text-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <p class="text-xs text-gray-500">{% trans "Tactical" %}</p>
+              <p class="font-bold text-gray-900 dark:text-white">{{ report.tactical }}</p>
+            </div>
+            <div class="text-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <p class="text-xs text-gray-500">{% trans "Mental" %}</p>
+              <p class="font-bold text-gray-900 dark:text-white">{{ report.mental }}</p>
+            </div>
+          </div>
+          {% if report.summary %}
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ report.summary }}</p>
+          {% endif %}
+          <a href="{% url 'scouting:report_detail' report.pk %}" class="text-xs text-primary-600 hover:underline mt-2 inline-block">{% trans "Full report" %} →</a>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="text-sm text-gray-400 py-6 text-center">{% trans "No scout reports yet." %}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

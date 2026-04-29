@@ -1,0 +1,71 @@
+{% extends "emails/base_email.html" %}
+{% block subject %}ApexForge Daily Digest — {{ today }}{% endblock %}
+{% block body %}
+<h2>Good morning, {{ user.first_name|default:user.email }}! 👋</h2>
+<p>Here's your daily summary for <strong>{{ club_name }}</strong>.</p>
+
+{% if expiring_contracts %}
+<div class="alert-box warning">
+  <p><strong>⚠️ {{ expiring_contracts|length }} contract(s) expiring within 30 days</strong></p>
+</div>
+<table class="data">
+  <thead><tr><th>Player / Staff</th><th>End Date</th><th>Days Left</th></tr></thead>
+  <tbody>
+    {% for c in expiring_contracts %}
+    <tr>
+      <td>{{ c.title }}</td>
+      <td>{{ c.end_date }}</td>
+      <td><span class="badge {% if c.days_left <= 7 %}badge-red{% else %}badge-amber{% endif %}">{{ c.days_left }}d</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if active_injuries %}
+<div class="alert-box danger">
+  <p><strong>🏥 {{ active_injuries|length }} active injury/injuries</strong></p>
+</div>
+<table class="data">
+  <thead><tr><th>Player</th><th>Injury</th><th>Severity</th><th>Days Out</th></tr></thead>
+  <tbody>
+    {% for inj in active_injuries %}
+    <tr>
+      <td>{{ inj.player.full_name }}</td>
+      <td>{{ inj.injury_type }}</td>
+      <td><span class="badge {% if inj.severity == 'critical' %}badge-red{% elif inj.severity == 'severe' %}badge-amber{% else %}badge-gray{% endif %}">{{ inj.get_severity_display }}</span></td>
+      <td>{{ inj.days_out }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if overdue_tasks %}
+<div class="alert-box danger">
+  <p><strong>📋 {{ overdue_tasks|length }} overdue task(s)</strong></p>
+</div>
+<table class="data">
+  <thead><tr><th>Task</th><th>Assigned To</th><th>Due Date</th></tr></thead>
+  <tbody>
+    {% for task in overdue_tasks %}
+    <tr>
+      <td>{{ task.title }}</td>
+      <td>{{ task.assigned_to.get_full_name|default:"—" }}</td>
+      <td><span class="badge badge-red">{{ task.due_date }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if not expiring_contracts and not active_injuries and not overdue_tasks %}
+<div class="alert-box success">
+  <p><strong>✅ All clear! No urgent items today.</strong></p>
+</div>
+{% endif %}
+
+<p style="margin-top:24px;">
+  <a href="{{ site_url }}" class="btn">Open ApexForge →</a>
+</p>
+{% endblock %}

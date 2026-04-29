@@ -1,0 +1,42 @@
+{% load i18n core_tags %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+  {% for talent in page %}
+  <a href="{{ talent.get_absolute_url }}" class="card p-5 hover:shadow-md transition-shadow group">
+    <div class="flex items-center gap-3 mb-3">
+      {% if talent.photo %}
+        <img src="{{ talent.photo.url }}" class="h-12 w-12 rounded-full object-cover">
+      {% else %}
+        <div class="h-12 w-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-lg">
+          {{ talent.full_name|first }}
+        </div>
+      {% endif %}
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold text-gray-900 dark:text-white truncate group-hover:text-primary-600 transition-colors">{{ talent.full_name }}</p>
+        <p class="text-xs text-gray-500">{{ talent.position }} · {{ talent.nationality }}</p>
+      </div>
+    </div>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs text-gray-500">{{ talent.current_club }}</p>
+        {{ talent.status|status_badge }}
+      </div>
+      <div class="text-right">
+        <p class="text-2xl font-black text-amber-500">{{ talent.rating }}</p>
+        <p class="text-xs text-gray-400">/10</p>
+      </div>
+    </div>
+  </a>
+  {% empty %}
+  <div class="col-span-full text-center py-12 text-gray-500">
+    <p class="text-3xl mb-2">⭐</p><p>{% trans "No talents found." %}</p>
+    <a href="{% url 'scouting:talent_create' %}" class="btn-primary inline-flex mt-3">{% trans "Add first talent" %}</a>
+  </div>
+  {% endfor %}
+</div>
+{% if page.has_other_pages %}
+<div class="flex justify-center gap-2 mt-4">
+  {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+  <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+</div>
+{% endif %}

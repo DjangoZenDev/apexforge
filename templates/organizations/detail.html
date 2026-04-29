@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ org.name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between gap-4">
+  <div>
+    <a href="{% url 'organizations:list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Organizations" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ org.name }}</h1>
+  </div>
+  <div class="flex gap-2 shrink-0">
+    <a href="{% url 'organizations:club_create' org.pk %}" class="btn-primary">+ {% trans "Add Club" %}</a>
+    <a href="{% url 'organizations:edit' org.pk %}" class="btn-secondary">{% trans "Edit" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+  <!-- Sidebar info -->
+  <div class="lg:col-span-1 space-y-4">
+    <div class="card p-4 space-y-3">
+      {% if org.logo %}
+      <div class="flex items-center justify-center h-28 w-full rounded-xl bg-gray-50 dark:bg-gray-700/40 p-3">
+        <img src="{{ org.logo.url }}" alt="{{ org.name }}" class="max-h-full max-w-full object-contain">
+      </div>
+      {% endif %}
+      {% if org.country %}<div><p class="text-xs text-gray-400">{% trans "Country" %}</p><p class="text-sm font-medium text-gray-900 dark:text-white">{{ org.country }}</p></div>{% endif %}
+      {% if org.contact_email %}<div><p class="text-xs text-gray-400">{% trans "Email" %}</p><p class="text-sm text-gray-700 dark:text-gray-300">{{ org.contact_email }}</p></div>{% endif %}
+      {% if org.website %}<div><p class="text-xs text-gray-400">{% trans "Website" %}</p><a href="{{ org.website }}" class="text-sm text-primary-600 hover:underline" target="_blank">{{ org.website }}</a></div>{% endif %}
+      {% if org.description %}<div><p class="text-xs text-gray-400">{% trans "About" %}</p><p class="text-sm text-gray-600 dark:text-gray-400">{{ org.description }}</p></div>{% endif %}
+    </div>
+  </div>
+
+  <!-- Clubs grid -->
+  <div class="lg:col-span-3">
+    {% if clubs %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for club in clubs %}
+      <div class="card p-4 hover:shadow-md transition-shadow">
+        <div class="flex items-center gap-3 mb-3">
+          {% if club.logo %}
+            <img src="{{ club.logo.url }}" alt="{{ club.name }}" class="w-10 h-10 rounded-lg object-cover">
+          {% else %}
+            <div class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center">⚽</div>
+          {% endif %}
+          <div>
+            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">{{ club.name }}</h3>
+            {% if club.city %}<p class="text-xs text-gray-400">📍 {{ club.city }}</p>{% endif %}
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 space-y-1 mb-3">
+          {% if club.stadium %}<p>🏟️ {{ club.stadium }}{% if club.stadium_capacity %} ({{ club.stadium_capacity|default:"-" }}){% endif %}</p>{% endif %}
+          {% if club.founded_year %}<p>📅 {% trans "Founded" %} {{ club.founded_year }}</p>{% endif %}
+          {% if club.colors %}<p>🎨 {{ club.colors }}</p>{% endif %}
+          <p>👥 {{ club.member_count }} {% trans "member(s)" %}</p>
+        </div>
+        <div class="flex gap-2">
+          <a href="{% url 'organizations:club_detail' club.pk %}" class="btn-primary text-xs flex-1 text-center">{% trans "Manage" %}</a>
+          <a href="{% url 'organizations:switch_club' club.pk %}" class="btn-secondary text-xs">{% trans "Switch" %}</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="card p-10 text-center">
+      <p class="text-gray-400 text-sm mb-3">{% trans "No clubs yet." %}</p>
+      <a href="{% url 'organizations:club_create' org.pk %}" class="btn-primary">{% trans "Add First Club" %}</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

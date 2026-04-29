@@ -1,0 +1,46 @@
+{% load i18n %}
+<div class="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+  <h3 class="font-semibold text-sm text-gray-900 dark:text-white">{% trans "Notifications" %}</h3>
+  <button hx-post="{% url 'core:notif_read_all' %}"
+          hx-target="#notif-panel"
+          hx-swap="innerHTML"
+          class="text-xs text-primary-600 hover:underline">{% trans "Mark all read" %}</button>
+</div>
+
+{% if notifications %}
+<ul class="divide-y divide-gray-100 dark:divide-gray-700 max-h-64 overflow-y-auto">
+  {% for notif in notifications %}
+  <li id="notif-{{ notif.pk }}"
+      class="flex gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors
+             {% if not notif.is_read %}bg-primary-50/50 dark:bg-primary-900/10{% endif %}">
+    <span class="mt-0.5 h-2 w-2 rounded-full shrink-0
+                 {% if notif.level == 'success' %}bg-emerald-500
+                 {% elif notif.level == 'warning' %}bg-amber-500
+                 {% elif notif.level == 'error' %}bg-red-500
+                 {% else %}bg-blue-500{% endif %}"></span>
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ notif.title }}</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{{ notif.message|truncatechars:80 }}</p>
+      <p class="text-xs text-gray-400 mt-1">{{ notif.created_at|timesince }} {% trans "ago" %}</p>
+    </div>
+    {% if not notif.is_read %}
+    <button hx-post="{% url 'core:notif_read' notif.pk %}"
+            hx-target="#notif-{{ notif.pk }}"
+            hx-swap="outerHTML"
+            class="shrink-0 text-gray-300 hover:text-primary-500">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+    </button>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="px-4 py-8 text-center">
+  <svg class="w-10 h-10 mx-auto text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5"/>
+  </svg>
+  <p class="text-sm text-gray-500">{% trans "No new notifications" %}</p>
+</div>
+{% endif %}

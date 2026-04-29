@@ -1,0 +1,44 @@
+{
+  "name": "ApexForge",
+  "short_name": "ApexForge",
+  "description": "Sports Management & Entrepreneurship Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#059669",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/static/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/",
+      "description": "Go to dashboard"
+    },
+    {
+      "name": "Players",
+      "url": "/players/",
+      "description": "Browse players"
+    },
+    {
+      "name": "Calendar",
+      "url": "/events/calendar/",
+      "description": "View calendar"
+    }
+  ],
+  "categories": ["sports", "productivity", "business"]
+}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'finance:shop' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Continue Shopping" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ product.name }}</h1>
+    <p class="text-sm text-gray-500">{{ product.get_category_display }}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'finance:cart' %}" class="btn-secondary relative">
+      🛒 {% trans "My Cart" %}
+      {% if cart.item_count %}
+      <span class="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-accent-500 text-white text-xs flex items-center justify-center font-bold">{{ cart.item_count }}</span>
+      {% endif %}
+    </a>
+    {% if request.user.can_manage %}
+    <a href="{% url 'finance:product_edit' product.pk %}" class="btn-secondary">✏️ {% trans "Edit" %}</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl">
+  <div>
+    {% if product.image %}
+    <div class="rounded-2xl overflow-hidden aspect-square mb-4">
+      <img src="{{ product.image.url }}" class="w-full h-full object-cover">
+    </div>
+    {% else %}
+    <div class="rounded-2xl bg-gray-100 dark:bg-gray-700 aspect-square flex items-center justify-center text-6xl mb-4">🏷</div>
+    {% endif %}
+  </div>
+
+  <div class="space-y-6">
+    <div class="card p-6">
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-3xl font-black text-amber-500">{{ product.price|currency }}</p>
+        {% if product.is_active %}
+        <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700">{% trans "In Stock" %}: {{ product.stock }}</span>
+        {% else %}
+        <span class="text-xs px-2.5 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500">{% trans "Unavailable" %}</span>
+        {% endif %}
+      </div>
+
+      {% if product.description %}
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{{ product.description }}</p>
+      {% endif %}
+
+      {% if product.is_active and product.stock > 0 %}
+      <form method="post" action="{% url 'finance:cart_add' product.pk %}">
+        {% csrf_token %}
+        <div class="flex gap-3 items-center mb-3">
+          <input type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" class="form-input w-20">
+          <button type="submit" class="btn-primary flex-1"
+                  hx-post="{% url 'finance:cart_add' product.pk %}"
+                  hx-target="#cart-badge"
+                  hx-swap="outerHTML">
+            🛒 {% trans "Add to Cart" %}
+          </button>
+        </div>
+      </form>
+      <div class="flex gap-2">
+        <a href="{% url 'finance:shop' %}" class="btn-secondary flex-1 justify-center">← {% trans "Continue Shopping" %}</a>
+        <a href="{% url 'finance:cart' %}" class="btn-secondary flex-1 justify-center">🛒 {% trans "View Cart" %}</a>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="card p-5">
+      <dl class="space-y-2 text-sm">
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "SKU" %}</dt><dd class="font-mono text-xs">{{ product.slug }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Category" %}</dt><dd>{{ product.category|default:"—" }}</dd></div>
+        <div class="flex justify-between"><dt class="text-gray-500">{% trans "Stock" %}</dt><dd>{{ product.stock }}</dd></div>
+      </dl>
+    </div>
+  </div>
+</div>
+{% endblock %}

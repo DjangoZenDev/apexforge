@@ -1,0 +1,675 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Help Center" %} — ApexForge{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">❓ {% trans "Help Center" %}</h1>
+  <p class="text-sm text-gray-500 mt-1">{% trans "Everything you need to know about using ApexForge." %}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div x-data="{ active: 'dashboard' }" class="flex gap-6">
+
+  {# ── Sidebar navigation ─────────────────────────────────────────────────── #}
+  <aside class="w-56 shrink-0 hidden lg:block">
+    <div class="card p-3 sticky top-4 space-y-0.5">
+      <p class="text-xs font-semibold text-gray-400 uppercase px-3 py-2">{% trans "Modules" %}</p>
+      {% for key,lbl in help_nav %}
+      <button @click="active='{{ key }}'"
+              :class="active==='{{ key }}' ? 'bg-primary-600 text-white' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'"
+              class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors">{{ lbl }}</button>
+      {% endfor %}
+    </div>
+  </aside>
+
+  {# ── Mobile module selector ─────────────────────────────────────────────── #}
+  <div class="lg:hidden w-full mb-4">
+    <select x-model="active" class="form-input w-full">
+      <option value="dashboard">{% trans "Dashboard" %}</option>
+      <option value="players">{% trans "Players" %}</option>
+      <option value="teams">{% trans "Teams" %}</option>
+      <option value="events">{% trans "Events" %}</option>
+      <option value="tournaments">{% trans "Tournaments" %}</option>
+      <option value="contracts">{% trans "Contracts" %}</option>
+      <option value="staff">{% trans "Staff" %}</option>
+      <option value="medical">{% trans "Medical" %}</option>
+      <option value="finance">{% trans "Finance" %}</option>
+      <option value="inventory">{% trans "Inventory" %}</option>
+      <option value="scouting">{% trans "Scouting" %}</option>
+      <option value="organizations">{% trans "Organizations" %}</option>
+      <option value="academy">{% trans "Academy" %}</option>
+      <option value="marketing">{% trans "Marketing" %}</option>
+      <option value="videos">{% trans "Videos" %}</option>
+      <option value="fans">{% trans "Fans" %}</option>
+      <option value="insights">{% trans "Insights" %}</option>
+    </select>
+  </div>
+
+  {# ── Content panels ─────────────────────────────────────────────────────── #}
+  <div class="flex-1 space-y-0 min-w-0">
+
+    {# ══ DASHBOARD ══════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'dashboard'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🏠 {% trans "Dashboard" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Your command centre — an overview of the entire club at a glance." %}</p>
+        <div class="space-y-4 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-1">{% trans "What you see" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}<strong>KPI cards</strong> — Total teams, active players, upcoming events, monthly income &amp; expenses.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>6-month finance chart</strong> — Income vs expense trend bar chart.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Recent activity</strong> — Latest actions taken across the platform.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Quick links</strong> — Fast access to frequently used pages.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-1">{% trans "Tips" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}KPI numbers are scoped to your <strong>active club</strong> — switch clubs using the dropdown in the top-left sidebar.{% endblocktrans %}</li>
+              <li>{% blocktrans %}The bell icon (🔔) in the top navbar shows unread notifications. Click to expand.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Use the search bar (top navbar) to find players, teams, or events quickly — minimum 2 characters.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ PLAYERS ════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'players'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">👤 {% trans "Players" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Manage every player in your club — profiles, stats, injuries, and performance." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Player List" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Filter by <strong>Status</strong> (Active / Injured / Suspended / Retired / Transfer), <strong>Position</strong>, or <strong>Sport</strong>.{% endblocktrans %}</li>
+              <li>{% trans "Use the search box to find by name." %}</li>
+              <li>{% blocktrans %}Click <strong>Export Excel</strong> to download all players as a spreadsheet.{% endblocktrans %}</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Creating a Player" %}</h3>
+            <p class="mb-2">{% blocktrans %}Click <strong>+ Add Player</strong> and fill in:{% endblocktrans %}</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <thead class="bg-gray-50 dark:bg-gray-700/50">
+                  <tr><th class="px-3 py-2 text-left">{% trans "Field" %}</th><th class="px-3 py-2 text-left">{% trans "Required" %}</th><th class="px-3 py-2 text-left">{% trans "Notes" %}</th></tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Full Name" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "First and last name" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Sport" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Football, Basketball, etc." %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Position" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "e.g. Midfielder, Forward" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Date of Birth" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Auto-calculates age" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Nationality" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Country name" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Status" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Active / Injured / Suspended / Retired / Transfer" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Height / Weight" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "cm and kg" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Market Value" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Used in finance reports" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Photo" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "JPG/PNG, shown on profile" %}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Player Detail Page — Actions" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}<strong>📊 Stats</strong> — Add season statistics (goals, assists, appearances, cards, rating…).{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>🏥 Injury</strong> — Log a new injury. Player status automatically changes to <em>Injured</em>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>📈 Metric</strong> — Record a performance metric (speed, stamina, etc.) for trend tracking.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>🔍 Scout Report</strong> — Create a scouting report for the player.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>📄 PDF</strong> — Download a formatted player profile PDF.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ TEAMS ══════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'teams'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🏆 {% trans "Teams" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Create and manage teams, rosters, seasons and divisions." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Creating a Team" %}</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <thead class="bg-gray-50 dark:bg-gray-700/50">
+                  <tr><th class="px-3 py-2 text-left">{% trans "Field" %}</th><th class="px-3 py-2 text-left">{% trans "Required" %}</th><th class="px-3 py-2 text-left">{% trans "Notes" %}</th></tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Team Name" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Full team name" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Sport" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Football, Basketball, etc." %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Status" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Active / Inactive / Disbanded" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Home Venue" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Stadium or ground name" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Manager / Coach" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Link to Staff members" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Logo" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "JPG/PNG team badge" %}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Managing the Roster" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}On a team detail page click <strong>+ Add to Roster</strong> to assign an existing player.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set the player's <strong>jersey number</strong>, <strong>position</strong>, and whether they are <strong>captain</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Import CSV</strong> — Upload a CSV file to bulk-add players. Columns: Name, Position, Nationality, DOB. New players are created automatically.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Export CSV</strong> — Download the full roster as a spreadsheet.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ EVENTS ═════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'events'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">📅 {% trans "Events" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Schedule and track fixtures, training sessions, meetings and more." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Event Types" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}<strong>Fixture</strong> — A competitive match. Creates a sub-record with home/away scores and venue.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Training</strong> — Training session for a team.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Meeting</strong> — Staff or board meeting.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Tournament</strong> — A tournament event (separate from the Competitions module).{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Calendar View" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Click <strong>Calendar</strong> to see all events on an interactive monthly/weekly calendar.{% endblocktrans %}</li>
+              <li>{% trans "Events are colour-coded by type." %}</li>
+              <li>{% trans "Click any event on the calendar to see details." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Creating an Event" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Choose <strong>Event Type</strong> first — if Fixture, extra fields (opponent, scores) appear.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Select the <strong>Team</strong> the event belongs to.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set <strong>Start Date &amp; Time</strong> and optionally an End Date.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Add a <strong>Location</strong> (stadium, training ground, etc.).{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ TOURNAMENTS ════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'tournaments'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🏅 {% trans "Tournaments" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Run competitions, track standings, schedule matches, and build lineups." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Step 1 — Create a Competition" %}</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <thead class="bg-gray-50 dark:bg-gray-700/50">
+                  <tr><th class="px-3 py-2 text-left">{% trans "Field" %}</th><th class="px-3 py-2 text-left">{% trans "Required" %}</th><th class="px-3 py-2 text-left">{% trans "Notes" %}</th></tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Name" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "e.g. Premier League 2026-27" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Slug" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Auto-generated from name — leave blank" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Season" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "e.g. 2026-27" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Sport" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Football, Basketball, etc." %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Competition Type" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "League / Cup / Group+Knockout / Round Robin / Friendly" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Status" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Draft → Upcoming → Active → Completed" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Start / End Date" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Competition date range" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Teams" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Tick participating teams (create teams first)" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Prize Pool" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Total prize in €" %}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Step 2 — Add Matches" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Open the competition → click <strong>+ Add Match</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Select <strong>Home Team</strong> and <strong>Away Team</strong> from the competition's team list.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set <strong>Date &amp; Time</strong>, <strong>Venue</strong>, and <strong>Round Number</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Leave scores blank until the match is played — set Status to <em>Completed</em> and enter scores to auto-update standings.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Step 3 — Lineup Builder" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}On the competition detail page, click <strong>📋 Lineup</strong> next to any match.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Switch between <strong>Home</strong> and <strong>Away</strong> team tabs.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Select a <strong>formation</strong> (4-4-2, 4-3-3, 4-2-3-1, 3-5-2, 5-3-2, 4-1-4-1, 3-4-3).{% endblocktrans %}</li>
+              <li>{% blocktrans %}Click an <strong>empty position slot</strong> on the pitch (it turns yellow), then click a player from the squad list to assign.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Hover a player token → click <strong>×</strong> to remove, or <strong>☆</strong> to set as captain.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Click a player <em>without</em> selecting a slot to add them to the <strong>substitutes bench</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Click <strong>💾 Save Lineup</strong> to save. A toast confirmation appears.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ CONTRACTS ══════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'contracts'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">📝 {% trans "Contracts" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Create and manage all contract types — player, staff, sponsorship, vendor and more." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Creating a Contract" %}</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <thead class="bg-gray-50 dark:bg-gray-700/50">
+                  <tr><th class="px-3 py-2 text-left">{% trans "Field" %}</th><th class="px-3 py-2 text-left">{% trans "Required" %}</th><th class="px-3 py-2 text-left">{% trans "Notes" %}</th></tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Title" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Descriptive name for the contract" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Contract Type" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Player / Staff / Sponsorship / Vendor / Facility / Other" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Party Name" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "The other party's name" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Start / End Date" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Contract duration" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Value" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Contract monetary value" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Currency" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "EUR / USD / GBP" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "Status" %}</td><td class="px-3 py-2 text-emerald-600">{% trans "Yes" %}</td><td class="px-3 py-2">{% trans "Draft → Active → Expired / Terminated" %}</td></tr>
+                  <tr><td class="px-3 py-2 font-medium">{% trans "File Upload" %}</td><td class="px-3 py-2 text-gray-400">{% trans "No" %}</td><td class="px-3 py-2">{% trans "Attach the signed PDF/DOC" %}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Signing a Contract" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Open a contract in <em>Draft</em> status → click <strong>✍️ Sign Contract</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Status changes to <em>Active</em> and the signed date + signed-by user are recorded.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Adding Clauses" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}On the contract detail page click <strong>+ Add Clause</strong>.{% endblocktrans %}</li>
+              <li>{% trans "Clause types: Performance / Bonus / Penalty / Confidentiality / Termination / Renewal / Other." %}</li>
+              <li>{% blocktrans %}Mark important clauses as <strong>Key Clause</strong> to highlight them.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Use the <strong>Order</strong> field to control clause display sequence.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Alerts" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Contracts expiring within the <em>renewal notice</em> window show a ⚠️ warning.{% endblocktrans %}</li>
+              <li>{% trans "Managers receive an email notification for expiring contracts (via daily digest)." %}</li>
+              <li>{% blocktrans %}Download a <strong>📄 PDF</strong> version from the contract detail page.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ STAFF ══════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'staff'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">👔 {% trans "Staff & HR" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Manage staff members, departments, tasks, and payroll." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Adding a Staff Member" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}The user account must be created in <strong>Accounts</strong> first.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set <strong>Job Title</strong>, <strong>Department</strong>, <strong>Employment Type</strong> (Full-Time / Part-Time / Contract / Volunteer / Freelance).{% endblocktrans %}</li>
+              <li>{% blocktrans %}Enter <strong>Hire Date</strong> and optionally a <strong>Contract End</strong> date.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set a base <strong>Salary</strong> — this is used as the default gross in payroll.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Tasks" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% trans "Create tasks and assign them to any staff member." %}</li>
+              <li>{% blocktrans %}Priorities: <strong>Low / Medium / High / Urgent</strong>.{% endblocktrans %}</li>
+              <li>{% trans "Overdue tasks (past due date, not completed) are flagged automatically." %}</li>
+              <li>{% trans "Managers see all tasks; staff see only their own." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Payroll" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Click <strong>+ Add Entry</strong> on the Payroll page.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Select the <strong>Staff Member</strong>, set <strong>Period Start &amp; End</strong> dates.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Enter <strong>Gross Salary</strong>, <strong>Deductions</strong> (tax, insurance), and <strong>Bonuses</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Net Salary</strong> = Gross + Bonuses − Deductions (auto-calculated on save).{% endblocktrans %}</li>
+              <li>{% blocktrans %}Download a formatted <strong>📄 PDF payroll slip</strong> from the row's PDF button.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ MEDICAL ════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'medical'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🏥 {% trans "Medical" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Track player injuries, recovery plans and treatments." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Logging an Injury" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Go to <strong>Medical → + Log Injury</strong>, or click <strong>🏥 Injury</strong> from a player's detail page.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Select the <strong>Player</strong>, <strong>Body Part</strong> (Head / Knee / Ankle etc.), and <strong>Severity</strong> (Minor / Moderate / Severe).{% endblocktrans %}</li>
+              <li>{% blocktrans %}Enter the <strong>Injury Date</strong> and an <strong>Expected Recovery</strong> date.{% endblocktrans %}</li>
+              <li>{% blocktrans %}The player's status automatically changes to <em>Injured</em> when saved.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Recovery Plans & Treatments" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Open an injury record → <strong>+ Add Treatment</strong> to log physio sessions, medication etc.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Create a <strong>Recovery Plan</strong> with milestones and a target return date.{% endblocktrans %}</li>
+              <li>{% blocktrans %}The <em>Days Out</em> counter is calculated automatically.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Email Alerts" %}</h3>
+            <p>{% blocktrans %}When a new injury is saved, an <strong>email alert</strong> is automatically sent to managers. Ensure the Q cluster worker is running for async delivery.{% endblocktrans %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ FINANCE ════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'finance'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">💰 {% trans "Finance" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Transactions, budgets, sponsorships, investments, and the club shop." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Transactions" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Record every <strong>Income</strong> or <strong>Expense</strong> with a title, amount, date and category.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Attach a <strong>receipt file</strong> for documentation.{% endblocktrans %}</li>
+              <li>{% trans "Filter by type, category, or date range." %}</li>
+              <li>{% blocktrans %}Export all transactions to <strong>Excel</strong>.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Budgets" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% trans "Create a budget for a team and category (e.g. Travel, Equipment)." %}</li>
+              <li>{% trans "Actual spending is tracked against the budget automatically." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Sponsorships" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% trans "Track sponsor companies, deal amounts, start/end dates, and contact details." %}</li>
+              <li>{% trans "Types: Shirt / Kit / Stadium / Digital / Official / Other." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Shop" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Browse products → <strong>Add to Cart</strong> → <strong>Checkout</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Completed orders automatically create an <em>Income</em> transaction.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Fans earn <strong>loyalty points</strong> (1 point per € spent).{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ INVENTORY ══════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'inventory'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">📦 {% trans "Inventory" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Track equipment, kits and supplies across the club." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Adding an Item" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Enter <strong>Name</strong>, <strong>SKU</strong>, <strong>Category</strong>, <strong>Quantity</strong>, and <strong>Unit Cost</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set a <strong>Minimum Stock</strong> level — items below this level are flagged as ⚠️ Low Stock.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Stock Movements" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Record <strong>Stock In</strong> (delivery) or <strong>Stock Out</strong> (usage) from an item's detail page.{% endblocktrans %}</li>
+              <li>{% trans "Every movement is logged with the user who performed it." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Kit Assignment" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Assign kit to a <strong>player</strong> or <strong>staff member</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set an <strong>Expected Return</strong> date.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Click <strong>Mark Returned</strong> when the item comes back — stock is updated automatically.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ SCOUTING ═══════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'scouting'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🔍 {% trans "Scouting" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Discover and track talent, write scout reports, and manage watchlists." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Scout Reports" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}From a player's profile click <strong>🔍 Scout Report</strong>, or go to Scouting → Reports → New.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Rate the player on 4 dimensions (0–10): <strong>Technical, Tactical, Physical, Mental</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}The <strong>Overall Rating</strong> is the average of the 4 scores — calculated automatically.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Add <strong>Strengths</strong>, <strong>Weaknesses</strong>, and free-text <strong>Notes</strong>.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Talent Profiles" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Add external prospects not yet in the system as <strong>Talent Profiles</strong>.{% endblocktrans %}</li>
+              <li>{% trans "Status: Available / Trialing / Signed / Rejected." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Watchlists" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% trans "Create named watchlists to group players and talents you are monitoring." %}</li>
+              <li>{% trans "Add or remove entries from the watchlist view." %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ ORGANIZATIONS ══════════════════════════════════════════════════════ #}
+    <div x-show="active === 'organizations'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🏢 {% trans "Organizations & Clubs" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Multi-club structure — organizations contain one or more clubs." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Structure" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}<strong>Organization</strong> = the parent entity (e.g. "ApexForge Sports Group").{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Club</strong> = a specific club under the organization (e.g. "ApexForge FC", "ApexForge Women").{% endblocktrans %}</li>
+              <li>{% blocktrans %}All data (teams, players, events) is scoped to the <strong>active club</strong>.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Switching Clubs" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Click the club name in the <strong>top-left sidebar dropdown</strong> to switch your active club.{% endblocktrans %}</li>
+              <li>{% trans "All KPIs, player lists, and reports update to reflect the selected club." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Managing Access" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Go to a club's detail page → <strong>Manage Access</strong> to grant users access.{% endblocktrans %}</li>
+              <li>{% trans "Roles: Manager / Staff / Viewer / Coach / Scout." %}</li>
+              <li>{% blocktrans %}Click <strong>Revoke</strong> to remove a user's club access.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ ACADEMY ════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'academy'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🎓 {% trans "Academy" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Structured youth development — programs, plans, and milestones." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Programs" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Create an Academy Program with an <strong>Age Group</strong> (U7 through U21), <strong>Head Coach</strong>, and <strong>Team</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Add a <strong>Curriculum</strong> description and goals.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Development Plans" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}From a program, create a <strong>Development Plan</strong> for each player.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set <strong>Focus Area</strong>, <strong>Goals</strong>, <strong>Start &amp; Target Date</strong>, and an <strong>Overall Rating</strong>.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Milestones" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% trans "Add milestones to a plan (e.g. \"First team training appearance\")." %}</li>
+              <li>{% blocktrans %}Toggle a milestone as <strong>Achieved</strong> — the achieved date is recorded automatically.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ MARKETING ══════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'marketing'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">📣 {% trans "Marketing & News" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Publish news, manage announcements, run campaigns, and showcase sponsors." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "News Posts" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Click <strong>+ New Post</strong> — write a title and content, choose a <strong>Category</strong> and upload a <strong>Featured Image</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Check <strong>Publish Now</strong> to make it live immediately, or leave unchecked to save as draft.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Mark posts as <strong>Featured</strong> to highlight them at the top.{% endblocktrans %}</li>
+              <li>{% trans "View counts are tracked per post automatically." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Announcements" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Short-lived notices with a <strong>Start</strong> and <strong>End Date</strong>.{% endblocktrans %}</li>
+              <li>{% trans "Active announcements are shown site-wide." %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Campaigns" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Plan marketing campaigns with a <strong>budget</strong>, <strong>goals</strong>, and <strong>date range</strong>.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ VIDEOS ═════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'videos'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🎥 {% trans "Videos" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Upload match footage, training clips and analysis videos." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Uploading a Video" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Click <strong>Upload Video</strong> → select a file, enter a <strong>Title</strong> and <strong>Category</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Assign to a <strong>Team</strong> and add <strong>Tags</strong> for searchability.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Toggle <strong>Public</strong> to make it visible to all users, or keep it private (managers only).{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Video Notes & Analysis" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Open a video → click <strong>Add Note</strong> to attach a timestamped annotation.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Tag specific <strong>players</strong> in each note for individual analysis.{% endblocktrans %}</li>
+              <li>{% trans "Delete notes you no longer need." %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ FANS ═══════════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'fans'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">🎟️ {% trans "Fan Portal" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Ticket sales, loyalty points, and fan engagement." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Tickets (Manager)" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Go to <strong>Fan Portal → Admin</strong> to manage ticket categories and bulk-create tickets for an event.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Set a <strong>Base Price</strong> per category (e.g. VIP, Standard, Student).{% endblocktrans %}</li>
+              <li>{% blocktrans %}Use <strong>Bulk Create</strong> to generate many tickets at once with seat row prefixes.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Buying a Ticket (Fan)" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}Browse available events → click <strong>Buy Ticket</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}A purchase reference is generated and stored in <strong>My Tickets</strong>.{% endblocktrans %}</li>
+              <li>{% blocktrans %}Fans earn <strong>1 loyalty point per € spent</strong>.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Loyalty Points" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% trans "Points are earned on ticket purchases and shop orders." %}</li>
+              <li>{% blocktrans %}Managers can manually <strong>adjust points</strong> (bonus or penalty).{% endblocktrans %}</li>
+              <li>{% blocktrans %}View the full <strong>Loyalty History</strong> from the fan portal.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ══ INSIGHTS ═══════════════════════════════════════════════════════════ #}
+    <div x-show="active === 'insights'" x-cloak class="space-y-4">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-1">📊 {% trans "Insights" %}</h2>
+        <p class="text-sm text-gray-500 mb-4">{% trans "Read-only analytics dashboard pulling data from across the entire platform." %}</p>
+        <div class="space-y-5 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "What's included" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% blocktrans %}<strong>Players</strong> — Status distribution, top scorers, top assisters, average performance rating.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Medical</strong> — Injury status breakdown (Active / Recovering / Recovered), severity chart.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Tournaments</strong> — Match totals, completed matches, home win rate, recent results.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Finance</strong> — Year-to-date income, expenses, and net balance.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Staff</strong> — Task status chart (Pending / In Progress / Completed), overdue count, YTD payroll.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Academy</strong> — Active programs count, average player development rating.{% endblocktrans %}</li>
+              <li>{% blocktrans %}<strong>Contracts</strong> — Active, expiring (within 60 days), and expired counts.{% endblocktrans %}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">{% trans "Tips" %}</h3>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>{% trans "All data is read-only — use the respective module pages to make changes." %}</li>
+              <li>{% blocktrans %}Data reflects the currently <strong>active club</strong>.{% endblocktrans %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>{# end content panels #}
+</div>{# end flex #}
+{% endblock %}

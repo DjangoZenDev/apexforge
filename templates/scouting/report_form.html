@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "New Scout Report" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">📝 {% trans "New Scout Report" %}</h1>
+  <p class="text-sm text-gray-500 mt-1">{% trans "Rate and analyse a player's performance." %}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl">
+  <form method="post" enctype="multipart/form-data" class="space-y-6">
+    {% csrf_token %}
+    <div class="card p-6 space-y-4">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white">{% trans "Match Details" %}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Player" %} *</label>
+          {{ form.player }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Match date" %}</label>
+          {{ form.match_date }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Venue" %}</label>
+          {{ form.venue }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Opponent" %}</label>
+          {{ form.opponent }}
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-6" x-data="{ tech: 5, tact: 5, phys: 5, ment: 5 }">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-4">{% trans "Ratings" %} (1–10)</h2>
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Technical" %}</label>
+          {{ form.technical }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tactical" %}</label>
+          {{ form.tactical }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Physical" %}</label>
+          {{ form.physical }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Mental" %}</label>
+          {{ form.mental }}
+        </div>
+      </div>
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Recommendation" %}</label>
+        {{ form.recommendation }}
+      </div>
+    </div>
+
+    <div class="card p-6 space-y-4">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white">{% trans "Analysis" %}</h2>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Strengths" %}</label>
+        {{ form.strengths }}
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Weaknesses" %}</label>
+        {{ form.weaknesses }}
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Summary" %} *</label>
+        {{ form.summary }}
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Attachment" %}</label>
+        {{ form.attachment }}
+      </div>
+    </div>
+
+    <div class="flex gap-3">
+      <button type="submit" class="btn-primary">{% trans "Submit report" %}</button>
+      <a href="{% url 'scouting:dashboard' %}" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

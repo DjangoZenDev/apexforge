@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Medical Records" %} — {{ player }}{% endblock %}
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'players:detail' player.pk %}" class="text-sm text-gray-500 hover:text-primary-600">← {{ player }}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">📋 {% trans "Medical Records" %}</h1>
+  </div>
+  <a href="{% url 'medical:record_create' player.pk %}" class="btn-primary">+ {% trans "Add Record" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="space-y-3">
+  {% for record in records %}
+  <div class="card p-4 flex items-start gap-4">
+    <div class="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0 text-lg">📄</div>
+    <div class="flex-1">
+      <div class="flex items-center justify-between">
+        <span class="font-medium text-sm text-gray-900 dark:text-white">{{ record.get_record_type_display }}</span>
+        <span class="text-xs text-gray-400">{{ record.date }}</span>
+      </div>
+      {% if record.physician %}<p class="text-xs text-gray-500 mt-0.5">{% trans "Dr." %} {{ record.physician }}{% if record.facility %} · {{ record.facility }}{% endif %}</p>{% endif %}
+      <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">{{ record.description }}</p>
+      {% if record.file %}<a href="{{ record.file.url }}" class="text-xs text-primary-600 hover:underline mt-1 inline-block" target="_blank">📎 {% trans "View File" %}</a>{% endif %}
+      {% if record.is_confidential %}<span class="ml-2 text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded-full">🔒 {% trans "Confidential" %}</span>{% endif %}
+    </div>
+  </div>
+  {% empty %}
+  <div class="card p-12 text-center text-gray-500">{% trans "No medical records on file." %}</div>
+  {% endfor %}
+</div>
+{% endblock %}

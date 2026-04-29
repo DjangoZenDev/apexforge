@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{{ competition.name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'tournaments:list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Tournaments" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ competition.name }}</h1>
+    <p class="text-sm text-gray-500">{{ competition.get_competition_type_display }}{% if competition.season %} · {{ competition.season }}{% endif %}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'tournaments:match_create' competition.slug %}" class="btn-secondary">+ {% trans "Add Match" %}</a>
+    <a href="{% url 'tournaments:edit' competition.slug %}" class="btn-primary">{% trans "Edit" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Matches -->
+  <div class="lg:col-span-2">
+    <div class="card overflow-hidden">
+      <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+        <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Fixtures & Results" %}</h2>
+      </div>
+      <div class="divide-y divide-gray-100 dark:divide-gray-700">
+        {% for match in matches %}
+        <div class="px-4 py-3 flex items-center gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/30">
+          <div class="flex-1 text-right">
+            <span class="text-sm font-medium text-gray-900 dark:text-white">{{ match.home_team.name }}</span>
+          </div>
+          <div class="shrink-0 text-center min-w-20">
+            {% if match.status == 'completed' %}
+            <span class="font-bold text-lg text-gray-900 dark:text-white">{{ match.result_display }}</span>
+            {% else %}
+            <div>
+              <p class="text-xs text-gray-500">{{ match.date|date:"d M" }}</p>
+              <span class="badge {% if match.status == 'live' %}bg-red-100 text-red-600{% elif match.status == 'postponed' %}bg-orange-100 text-orange-600{% else %}bg-gray-100 text-gray-600{% endif %}">{{ match.get_status_display }}</span>
+            </div>
+            {% endif %}
+          </div>
+          <div class="flex-1">
+            <span class="text-sm font-medium text-gray-900 dark:text-white">{{ match.away_team.name }}</span>
+          </div>
+          <a href="{% url 'tournaments:lineup' match.pk %}" class="text-xs text-primary-500 hover:text-primary-700 font-semibold shrink-0">📋 {% trans "Lineup" %}</a>
+          <a href="{% url 'tournaments:match_edit' match.pk %}" class="text-xs text-gray-400 hover:text-primary-600 shrink-0">{% trans "Edit" %}</a>
+        </div>
+        {% empty %}
+        <div class="px-4 py-8 text-center text-sm text-gray-500">{% trans "No matches scheduled yet." %}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Standings -->
+  <div>
+    <div class="card overflow-hidden">
+      <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+        <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Standings" %}</h2>
+      </div>
+      {% if standings %}
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs">
+          <thead class="bg-gray-50 dark:bg-gray-700/50">
+            <tr>
+              <th class="px-3 py-2 text-left text-gray-500 font-medium">#</th>
+              <th class="px-3 py-2 text-left text-gray-500 font-medium">{% trans "Team" %}</th>
+              <th class="px-3 py-2 text-center text-gray-500 font-medium">P</th>
+              <th class="px-3 py-2 text-center text-gray-500 font-medium">W</th>
+              <th class="px-3 py-2 text-center text-gray-500 font-medium">D</th>
+              <th class="px-3 py-2 text-center text-gray-500 font-medium">L</th>
+              <th class="px-3 py-2 text-center text-gray-500 font-medium">GD</th>
+              <th class="px-3 py-2 text-center font-bold text-gray-900 dark:text-white">Pts</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+            {% for s in standings %}
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+              <td class="px-3 py-2 text-gray-400">{{ forloop.counter }}</td>
+              <td class="px-3 py-2 font-medium text-gray-900 dark:text-white">{{ s.team.name }}</td>
+              <td class="px-3 py-2 text-center text-gray-600">{{ s.played }}</td>
+              <td class="px-3 py-2 text-center text-emerald-600">{{ s.won }}</td>
+              <td class="px-3 py-2 text-center text-gray-500">{{ s.drawn }}</td>
+              <td class="px-3 py-2 text-center text-red-500">{{ s.lost }}</td>
+              <td class="px-3 py-2 text-center {% if s.goal_difference > 0 %}text-emerald-600{% elif s.goal_difference < 0 %}text-red-500{% else %}text-gray-500{% endif %}">
+                {% if s.goal_difference > 0 %}+{% endif %}{{ s.goal_difference }}
+              </td>
+              <td class="px-3 py-2 text-center font-bold text-gray-900 dark:text-white">{{ s.points }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p class="px-4 py-6 text-center text-sm text-gray-500">{% trans "No standings yet." %}</p>
+      {% endif %}
+    </div>
+
+    <!-- Teams -->
+    <div class="card p-4 mt-4">
+      <p class="text-xs font-semibold text-gray-500 uppercase mb-3">{% trans "Participating Teams" %}</p>
+      <div class="space-y-2">
+        {% for team in competition.teams.all %}
+        <a href="{% url 'teams:detail' team.pk %}" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-primary-600">
+          <span class="h-2 w-2 rounded-full bg-primary-500"></span>{{ team.name }}
+        </a>
+        {% empty %}
+        <p class="text-sm text-gray-400">{% trans "No teams assigned." %}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

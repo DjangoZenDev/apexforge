@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'inventory:list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Inventory" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ item.name }}</h1>
+    <p class="text-sm text-gray-500 font-mono">{{ item.sku }}</p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'inventory:movement' item.pk %}" class="btn-secondary">📥 {% trans "Stock Movement" %}</a>
+    <a href="{% url 'inventory:assign' item.pk %}" class="btn-secondary">🎽 {% trans "Assign Kit" %}</a>
+    <a href="{% url 'inventory:edit' item.pk %}" class="btn-primary">{% trans "Edit" %}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="lg:col-span-2 space-y-4">
+    <!-- Stock Status -->
+    <div class="card p-6">
+      <div class="grid grid-cols-3 gap-6 text-center">
+        <div>
+          <p class="text-xs text-gray-500 uppercase mb-1">{% trans "Current Stock" %}</p>
+          <p class="text-3xl font-bold {% if item.is_low_stock %}text-amber-500{% else %}text-emerald-600{% endif %}">{{ item.quantity }}</p>
+          {% if item.is_low_stock %}<p class="text-xs text-amber-500 mt-1">⚠️ {% trans "Low stock" %}</p>{% endif %}
+        </div>
+        <div>
+          <p class="text-xs text-gray-500 uppercase mb-1">{% trans "Min Quantity" %}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ item.min_quantity }}</p>
+        </div>
+        <div>
+          <p class="text-xs text-gray-500 uppercase mb-1">{% trans "Total Value" %}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-white">€{{ item.total_value|floatformat:2|intcomma }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock Movements -->
+    <div class="card overflow-hidden">
+      <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+        <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "Recent Stock Movements" %}</h2>
+      </div>
+      <div class="divide-y divide-gray-100 dark:divide-gray-700">
+        {% for mv in movements %}
+        <div class="px-4 py-3 flex items-center justify-between">
+          <div>
+            <span class="text-sm font-medium text-gray-900 dark:text-white">{{ mv.get_movement_type_display }}</span>
+            {% if mv.notes %}<p class="text-xs text-gray-500">{{ mv.notes }}</p>{% endif %}
+          </div>
+          <div class="text-right">
+            <p class="font-bold text-sm {% if mv.quantity >= 0 %}text-emerald-600{% else %}text-red-500{% endif %}">
+              {% if mv.quantity >= 0 %}+{% endif %}{{ mv.quantity }}
+            </p>
+            <p class="text-xs text-gray-400">{{ mv.created_at|date:"d M Y" }}</p>
+          </div>
+        </div>
+        {% empty %}
+        <div class="px-4 py-6 text-center text-sm text-gray-500">{% trans "No movements yet." %}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    <!-- Details -->
+    <div class="card p-5">
+      <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3">{% trans "Details" %}</h2>
+      <dl class="space-y-2 text-sm">
+        <div><dt class="text-gray-500">{% trans "Category" %}</dt><dd class="font-medium mt-0.5">{% if item.category %}{{ item.category.icon }} {{ item.category.name }}{% else %}—{% endif %}</dd></div>
+        <div><dt class="text-gray-500">{% trans "Unit Price" %}</dt><dd class="font-medium mt-0.5">€{{ item.unit_price|floatformat:2 }}</dd></div>
+        {% if item.supplier %}<div><dt class="text-gray-500">{% trans "Supplier" %}</dt><dd class="mt-0.5">{{ item.supplier }}</dd></div>{% endif %}
+        {% if item.location %}<div><dt class="text-gray-500">{% trans "Location" %}</dt><dd class="mt-0.5">{{ item.location }}</dd></div>{% endif %}
+        {% if item.team %}<div><dt class="text-gray-500">{% trans "Team" %}</dt><dd class="mt-0.5">{{ item.team.name }}</dd></div>{% endif %}
+      </dl>
+    </div>
+
+    <!-- Active Assignments -->
+    <div class="card p-5">
+      <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3">{% trans "Active Assignments" %}</h2>
+      {% for a in assignments %}
+      <div class="flex items-center justify-between text-sm py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
+        <div>
+          <p class="font-medium text-gray-900 dark:text-white">{{ a.assigned_to_player|default:a.assigned_to_user }}</p>
+          <p class="text-xs text-gray-400">{{ a.assigned_date }}</p>
+        </div>
+        <form method="post" action="{% url 'inventory:return' a.pk %}">
+          {% csrf_token %}
+          <button type="submit" class="text-xs text-emerald-600 hover:underline">{% trans "Return" %}</button>
+        </form>
+      </div>
+      {% empty %}
+      <p class="text-sm text-gray-400 text-center py-2">{% trans "No active assignments." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

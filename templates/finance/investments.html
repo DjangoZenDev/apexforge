@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Investments" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">📈 {% trans "Investments" %}</h1>
+  {% if request.user.can_manage %}
+  <a href="{% url 'finance:investment_create' %}" class="btn-primary">+ {% trans "New Investment" %}</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="space-y-4">
+  {% for inv in investments %}
+  <div class="card p-5">
+    <div class="flex items-start justify-between mb-4">
+      <div>
+        <p class="font-semibold text-gray-900 dark:text-white">{{ inv.investor_name }}</p>
+        <p class="text-xs text-gray-500">{{ inv.get_investment_type_display }} · {{ inv.date|date:"j M Y" }}</p>
+      </div>
+      {{ inv.status|status_badge }}
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+      <div>
+        <p class="text-xs text-gray-500">{% trans "Amount" %}</p>
+        <p class="font-bold text-gray-900 dark:text-white">{{ inv.amount|currency }}</p>
+      </div>
+      {% if inv.equity_percentage %}
+      <div>
+        <p class="text-xs text-gray-500">{% trans "Equity" %}</p>
+        <p class="font-bold text-gray-900 dark:text-white">{{ inv.equity_percentage }}%</p>
+      </div>
+      {% endif %}
+      {% if inv.expected_return %}
+      <div>
+        <p class="text-xs text-gray-500">{% trans "Expected Return" %}</p>
+        <p class="font-bold text-emerald-600">{{ inv.expected_return|currency }}</p>
+      </div>
+      {% endif %}
+      {% if inv.maturity_date %}
+      <div>
+        <p class="text-xs text-gray-500">{% trans "Maturity" %}</p>
+        <p class="font-bold text-gray-900 dark:text-white">{{ inv.maturity_date|date:"j M Y" }}</p>
+      </div>
+      {% endif %}
+    </div>
+    {% if inv.notes %}
+    <p class="mt-3 text-sm text-gray-500 border-t border-gray-100 dark:border-gray-700 pt-3">{{ inv.notes }}</p>
+    {% endif %}
+    {% if request.user.can_manage %}
+    <div class="mt-3 flex gap-3 justify-end">
+      <a href="{% url 'finance:investment_edit' inv.pk %}" class="text-xs text-gray-400 hover:text-primary-600">✏️ {% trans "Edit" %}</a>
+    </div>
+    {% endif %}
+  </div>
+  {% empty %}
+  <div class="card p-12 text-center text-gray-500">
+    <p class="text-3xl mb-2">📈</p>
+    <p>{% trans "No investments recorded yet." %}</p>
+    {% if request.user.can_manage %}
+    <a href="{% url 'finance:investment_create' %}" class="btn-primary inline-flex mt-4">{% trans "Record first investment" %}</a>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ event.title }}</h1>
+    <p class="text-sm text-gray-500 mt-1">
+      {{ event.start_date|date:"l, j F Y" }}{% if event.start_time %} · {{ event.start_time|time:"H:i" }}{% endif %}
+      {% if event.venue %} · {{ event.venue }}{% endif %}
+    </p>
+  </div>
+  {% if request.user.can_manage or request.user.is_coach %}
+  <div class="flex gap-2">
+    <a href="{% url 'events:edit' event.pk %}" class="btn-secondary">✏️ {% trans "Edit" %}</a>
+    <form method="post" action="{% url 'events:delete' event.pk %}"
+          x-data x-on:submit.prevent="if(confirm('{% trans "Delete event?" %}')) $el.submit()">
+      {% csrf_token %}
+      <button type="submit" class="btn-danger">{% trans "Delete" %}</button>
+    </form>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="card p-6 space-y-4">
+    <dl class="space-y-3 text-sm">
+      <div class="flex justify-between"><dt class="text-gray-500">{% trans "Type" %}</dt><dd>{{ event.get_event_type_display }}</dd></div>
+      <div class="flex justify-between"><dt class="text-gray-500">{% trans "Status" %}</dt><dd>{{ event.status|status_badge }}</dd></div>
+      {% if event.team %}<div class="flex justify-between"><dt class="text-gray-500">{% trans "Team" %}</dt><dd><a href="{{ event.team.get_absolute_url }}" class="text-primary-600 hover:underline">{{ event.team }}</a></dd></div>{% endif %}
+      {% if event.opponent %}<div class="flex justify-between"><dt class="text-gray-500">{% trans "Opponent" %}</dt><dd>{{ event.opponent }}</dd></div>{% endif %}
+      <div class="flex justify-between"><dt class="text-gray-500">{% trans "Location" %}</dt><dd>{% if event.is_home %}🏠 {% trans "Home" %}{% else %}✈️ {% trans "Away" %}{% endif %}</dd></div>
+    </dl>
+    {% if event.description %}
+    <p class="text-sm text-gray-600 dark:text-gray-400 border-t border-gray-100 dark:border-gray-700 pt-4">{{ event.description }}</p>
+    {% endif %}
+  </div>
+
+  {% if fixture %}
+  <div class="lg:col-span-2 card p-6">
+    <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Match Result" %}</h2>
+    {% if fixture.home_score is not None %}
+    <div class="flex items-center justify-center gap-6 py-6">
+      <div class="text-center">
+        <p class="text-lg font-bold text-gray-900 dark:text-white">{{ event.team.name|default:"Home" }}</p>
+        <p class="text-5xl font-black text-primary-600 mt-2">{{ fixture.home_score }}</p>
+      </div>
+      <div class="text-3xl font-black text-gray-400">–</div>
+      <div class="text-center">
+        <p class="text-lg font-bold text-gray-900 dark:text-white">{{ event.opponent|default:"Away" }}</p>
+        <p class="text-5xl font-black text-gray-600 mt-2">{{ fixture.away_score }}</p>
+      </div>
+    </div>
+    {% if fixture.result %}
+    <div class="text-center">
+      <span class="inline-flex px-4 py-1 rounded-full text-sm font-bold
+        {% if fixture.result == 'W' %}bg-emerald-100 text-emerald-700
+        {% elif fixture.result == 'L' %}bg-red-100 text-red-700
+        {% else %}bg-gray-100 text-gray-700{% endif %}">
+        {% if fixture.result == 'W' %}{% trans "Victory" %}{% elif fixture.result == 'L' %}{% trans "Defeat" %}{% else %}{% trans "Draw" %}{% endif %}
+      </span>
+    </div>
+    {% endif %}
+    {% else %}
+    <p class="text-gray-500 text-sm">{% trans "Match result not yet recorded." %}</p>
+    {% endif %}
+    {% if fixture.match_report %}
+    <div class="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+      <p class="text-sm text-gray-700 dark:text-gray-300">{{ fixture.match_report }}</p>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

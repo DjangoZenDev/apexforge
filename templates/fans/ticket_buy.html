@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Buy Ticket" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'fans:ticket_list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Back to Tickets" %}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">🎟️ {% trans "Confirm Purchase" %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-lg">
+
+  <!-- Ticket summary -->
+  <div class="card p-6 mb-4">
+    <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% trans "Ticket Details" %}</h2>
+    <dl class="space-y-3 text-sm">
+      {% if ticket.event %}
+      <div class="flex justify-between">
+        <dt class="text-gray-500">{% trans "Event" %}</dt>
+        <dd class="font-medium text-gray-900 dark:text-white">{{ ticket.event.title }}</dd>
+      </div>
+      <div class="flex justify-between">
+        <dt class="text-gray-500">{% trans "Date" %}</dt>
+        <dd class="font-medium text-gray-900 dark:text-white">{{ ticket.event.start_date|date:"d M Y" }}</dd>
+      </div>
+      {% if ticket.event.venue %}
+      <div class="flex justify-between">
+        <dt class="text-gray-500">{% trans "Venue" %}</dt>
+        <dd class="font-medium text-gray-900 dark:text-white">{{ ticket.event.venue }}</dd>
+      </div>
+      {% endif %}
+      {% endif %}
+      <div class="flex justify-between">
+        <dt class="text-gray-500">{% trans "Category" %}</dt>
+        <dd><span class="inline-block text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">{{ ticket.category.name }}</span></dd>
+      </div>
+      {% if ticket.seat_row %}
+      <div class="flex justify-between">
+        <dt class="text-gray-500">{% trans "Seat" %}</dt>
+        <dd class="font-medium text-gray-900 dark:text-white">{% trans "Row" %} {{ ticket.seat_row }} · {% trans "Seat" %} {{ ticket.seat_number }}</dd>
+      </div>
+      {% else %}
+      <div class="flex justify-between">
+        <dt class="text-gray-500">{% trans "Admission" %}</dt>
+        <dd class="font-medium text-gray-900 dark:text-white">{% trans "General Admission" %}</dd>
+      </div>
+      {% endif %}
+      {% if ticket.category.perks_list %}
+      <div>
+        <dt class="text-gray-500 mb-1">{% trans "Perks" %}</dt>
+        <dd>
+          <ul class="space-y-0.5">
+            {% for perk in ticket.category.perks_list %}
+            <li class="text-xs text-gray-600 dark:text-gray-400">✓ {{ perk }}</li>
+            {% endfor %}
+          </ul>
+        </dd>
+      </div>
+      {% endif %}
+      <div class="flex justify-between border-t border-gray-100 dark:border-gray-700 pt-3 mt-3">
+        <dt class="text-base font-semibold text-gray-900 dark:text-white">{% trans "Total" %}</dt>
+        <dd class="text-2xl font-black text-primary-600">€{{ ticket.effective_price|floatformat:2 }}</dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- Loyalty points preview -->
+  <div class="card p-4 mb-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
+    <p class="text-sm text-amber-700 dark:text-amber-300 font-medium">
+      ⭐ {% trans "You will earn" %} <strong>{{ ticket.effective_price|floatformat:0 }}</strong> {% trans "loyalty points with this purchase." %}
+    </p>
+    {% if fan %}
+    <p class="text-xs text-amber-600 dark:text-amber-400 mt-1">
+      {% trans "Current balance:" %} {{ fan.loyalty_points }} {% trans "pts" %} · <span class="font-medium">{{ fan.get_tier_display }}</span>
+    </p>
+    {% endif %}
+  </div>
+
+  <!-- Payment notice -->
+  <div class="card p-4 mb-5 flex items-start gap-3 border border-gray-200 dark:border-gray-700">
+    <div class="text-2xl">🔒</div>
+    <div>
+      <p class="text-sm font-medium text-gray-900 dark:text-white">{% trans "Secure payment via Stripe" %}</p>
+      <p class="text-xs text-gray-500 mt-0.5">{% trans "You'll be redirected to Stripe's secure payment page." %}</p>
+    </div>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="flex gap-3">
+      <button type="submit" class="btn-primary flex-1 py-3 justify-center text-base">
+        🔒 {% trans "Pay" %} €{{ ticket.effective_price|floatformat:2 }} {% trans "with Stripe" %}
+      </button>
+      <a href="{% url 'fans:ticket_list' %}" class="btn-secondary py-3">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

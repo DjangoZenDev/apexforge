@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}{% trans "Adjust Loyalty Points" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'fans:ticket_admin' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Ticket Admin" %}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">⭐ {% trans "Adjust Loyalty Points" %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-lg">
+  <form method="post" class="card p-6 space-y-4">
+    {% csrf_token %}
+    {% for field in form %}
+    <div>
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ field.label }}</label>
+      {% render_field field class="form-input w-full" %}
+      {% if field.errors %}<p class="text-red-500 text-xs mt-1">{{ field.errors.0 }}</p>{% endif %}
+    </div>
+    {% endfor %}
+    <p class="text-xs text-gray-400">{% trans "Use a positive number to add points, negative to deduct. The fan's tier will be recalculated automatically." %}</p>
+    <div class="flex gap-3 pt-2">
+      <button type="submit" class="btn-primary">{% trans "Apply Adjustment" %}</button>
+      <a href="{% url 'fans:ticket_admin' %}" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

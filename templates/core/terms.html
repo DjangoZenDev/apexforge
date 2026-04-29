@@ -1,0 +1,68 @@
+{% extends "base_public.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Terms of Service" %}{% endblock %}
+{% block meta_description %}{% trans "ApexForge Terms of Service — please read these terms carefully before using our platform." %}{% endblock %}
+
+{% block main_content %}
+<!-- Hero -->
+<section class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-900/50 border border-primary-700 text-primary-400 text-sm font-medium mb-6">
+      📋 {% trans "Legal" %}
+    </div>
+    <h1 class="text-4xl font-black text-white mb-4">{% trans "Terms of Service" %}</h1>
+    <p class="text-gray-400">{% trans "Last updated" %}: {% now "d F Y" %}</p>
+  </div>
+</section>
+
+<section class="max-w-3xl mx-auto px-4 py-12">
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 prose prose-gray max-w-none">
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">1. {% trans "Acceptance of Terms" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}By accessing or using the ApexForge platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">2. {% trans "Use of the Platform" %}</h2>
+    <p class="text-gray-600 mb-3 leading-relaxed">{% blocktrans %}You agree to use the platform only for lawful purposes and in accordance with these Terms. You must not:{% endblocktrans %}</p>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1 text-sm leading-relaxed">
+      <li>{% trans "Use the platform in any way that violates applicable laws or regulations." %}</li>
+      <li>{% trans "Transmit any unsolicited or unauthorized advertising or promotional material." %}</li>
+      <li>{% trans "Attempt to gain unauthorized access to any part of the platform." %}</li>
+      <li>{% trans "Engage in any conduct that restricts or inhibits anyone's use of the platform." %}</li>
+      <li>{% trans "Impersonate any person or entity or misrepresent your affiliation with any person or entity." %}</li>
+    </ul>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">3. {% trans "Account Registration" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}To access certain features of the platform, you must register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information as necessary. You are responsible for safeguarding your password and for all activities that occur under your account.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">4. {% trans "Purchases and Payments" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}All purchases made through the platform are subject to our order confirmation. Prices are displayed in Euros (€) and include applicable taxes unless otherwise stated. Payments are processed securely through Stripe. We reserve the right to refuse or cancel orders at our discretion.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">5. {% trans "Tickets" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}Tickets purchased through the platform are for the stated event only. Tickets are generally non-transferable and non-refundable unless the event is cancelled or rescheduled. In the event of cancellation, a full refund will be issued to the original payment method within 10 business days.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">6. {% trans "Returns and Refunds" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}Physical products may be returned within 14 days of receipt, provided they are unused and in original packaging. To initiate a return, contact our support team. Refunds are processed within 5-10 business days. Digital products and tickets are non-refundable except as required by law.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">7. {% trans "Intellectual Property" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}The platform and its original content, features, and functionality are owned by ApexForge and are protected by international copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, or create derivative works without our explicit written permission.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">8. {% trans "Limitation of Liability" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}To the maximum extent permitted by law, ApexForge shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the platform or any content or services obtained through the platform.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">9. {% trans "Governing Law" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}These Terms shall be governed by and construed in accordance with the laws of the Netherlands, without regard to its conflict of law provisions.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">10. {% trans "Changes to Terms" %}</h2>
+    <p class="text-gray-600 mb-6 leading-relaxed">{% blocktrans %}We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of the platform after changes constitutes your acceptance of the new Terms.{% endblocktrans %}</p>
+
+    <h2 class="text-xl font-bold text-gray-900 mb-3">11. {% trans "Contact" %}</h2>
+    <p class="text-gray-600 leading-relaxed">{% blocktrans %}If you have questions about these Terms, please contact us:{% endblocktrans %}</p>
+    <ul class="list-none mt-3 text-gray-600 text-sm space-y-1">
+      {% if branding.email %}<li>📧 <a href="mailto:{{ branding.email }}" class="text-primary-600 hover:underline">{{ branding.email }}</a></li>{% endif %}
+      <li>🌐 <a href="{% url 'core:contact' %}" class="text-primary-600 hover:underline">{% trans "Contact form" %}</a></li>
+    </ul>
+
+  </div>
+</section>
+{% endblock %}

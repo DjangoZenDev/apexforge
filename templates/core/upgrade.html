@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Upgrade to Pro — ApexForge{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center px-4 py-16">
+  <div class="max-w-2xl w-full text-center">
+
+    <div class="flex justify-center mb-6">
+      <div class="w-20 h-20 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center">
+        <svg class="w-10 h-10 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="text-3xl font-bold text-white mb-3">This feature is in ApexForge Pro</h1>
+    <p class="text-gray-400 text-lg mb-8">
+      You are using the <span class="text-yellow-500 font-semibold">Free Edition</span> which includes
+      Dashboard, Teams, and Players. Upgrade to unlock all 19 modules.
+    </p>
+
+    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 mb-8 text-left">
+      <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Unlock with Pro</p>
+      <div class="grid grid-cols-2 gap-3">
+        {% for feature in features %}
+        <div class="flex items-center gap-2 text-sm text-gray-300">
+          <svg class="w-4 h-4 text-primary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          {{ feature }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://djangozen.com/apexforge" target="_blank" rel="noopener"
+         class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary-600 hover:bg-primary-500 text-white font-semibold rounded-lg transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        View Pricing &amp; Upgrade
+      </a>
+      <a href="{% url 'core:dashboard' %}"
+         class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gray-700 hover:bg-gray-600 text-gray-300 font-semibold rounded-lg transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Back to Dashboard
+      </a>
+    </div>
+
+    <p class="mt-8 text-sm text-gray-500">
+      Starting from <span class="text-white font-semibold">€699</span> one-time licence &middot; No recurring fees &middot;
+      <a href="https://djangozen.com/support/" target="_blank" class="text-primary-400 hover:text-primary-300">Questions? Contact us</a>
+    </p>
+
+  </div>
+</div>
+{% endblock %}

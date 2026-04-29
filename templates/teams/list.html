@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n core_tags %}
+
+{% block title %}{% trans "Teams" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Teams" %}</h1>
+    <p class="text-sm text-gray-500 mt-1">{{ page.paginator.count }} {% trans "teams registered" %}</p>
+  </div>
+  {% if request.user.can_manage %}
+  <div class="flex gap-2">
+    <a href="{% url 'teams:seasons' %}" class="btn-secondary">
+      📅 {% trans "Seasons" %}
+    </a>
+    <a href="{% url 'teams:create' %}" class="btn-primary">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+      {% trans "New Team" %}
+    </a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Filters — managers/coaches/scouts only -->
+{% if request.user.can_manage or request.user.is_coach or request.user.is_scout %}
+<div class="card p-4 mb-6">
+  <form method="get" class="flex flex-wrap gap-3 items-end">
+    <div class="flex-1 min-w-48">
+      <input type="search" name="q" value="{{ query }}" placeholder="{% trans 'Search teams...' %}"
+             class="form-input w-full" hx-get="{% url 'teams:list' %}" hx-trigger="keyup changed delay:400ms"
+             hx-target="#teams-grid" hx-include="[name='sport'],[name='status']">
+    </div>
+    <div>
+      <select name="sport" class="form-select"
+              hx-get="{% url 'teams:list' %}" hx-trigger="change" hx-target="#teams-grid" hx-include="[name='q'],[name='status']">
+        {% for val, label in sports %}<option value="{{ val }}" {% if val == current_sport %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+    </div>
+    <div>
+      <select name="status" class="form-select"
+              hx-get="{% url 'teams:list' %}" hx-trigger="change" hx-target="#teams-grid" hx-include="[name='q'],[name='sport']">
+        <option value="">{% trans "All statuses" %}</option>
+        <option value="active" {% if current_status == 'active' %}selected{% endif %}>{% trans "Active" %}</option>
+        <option value="inactive" {% if current_status == 'inactive' %}selected{% endif %}>{% trans "Inactive" %}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+  </form>
+</div>
+{% endif %}
+
+<!-- Teams grid -->
+<div id="teams-grid">
+  {% include "teams/partials/team_cards.html" %}
+</div>
+{% endblock %}

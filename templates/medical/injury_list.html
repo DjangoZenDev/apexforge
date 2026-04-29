@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Medical — Injuries" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">🩺 {% trans "Injury Tracker" %}</h1>
+  <a href="{% url 'medical:injury_create' %}" class="btn-primary">+ {% trans "Report Injury" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card p-4 mb-4">
+  <form class="flex flex-wrap gap-3 items-end">
+    <select name="status" class="form-select">
+      <option value="">{% trans "All statuses" %}</option>
+      {% for val, label in status_choices %}<option value="{{ val }}" {% if request.GET.status == val %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+    <select name="severity" class="form-select">
+      <option value="">{% trans "All severities" %}</option>
+      {% for val, label in severity_choices %}<option value="{{ val }}" {% if request.GET.severity == val %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+    <input type="search" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Search player...' %}" class="form-input flex-1 min-w-40">
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+    <a href="{% url 'medical:injury_list' %}" class="btn-secondary">{% trans "Clear" %}</a>
+  </form>
+</div>
+
+<div class="card overflow-hidden">
+  <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+    <thead class="bg-gray-50 dark:bg-gray-700/50">
+      <tr>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Player" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Injury" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Body Part" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Severity" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Status" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Date" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Days Out" %}</th>
+        <th class="px-4 py-3"></th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+      {% for injury in page %}
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 font-medium text-sm text-gray-900 dark:text-white">{{ injury.player }}</td>
+        <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">{{ injury.injury_type }}</td>
+        <td class="px-4 py-3 text-sm text-gray-500">{{ injury.get_body_part_display }}</td>
+        <td class="px-4 py-3">
+          <span class="badge {% if injury.severity == 'critical' %}bg-red-100 text-red-700{% elif injury.severity == 'severe' %}bg-orange-100 text-orange-700{% elif injury.severity == 'moderate' %}bg-amber-100 text-amber-700{% else %}bg-blue-100 text-blue-700{% endif %}">
+            {{ injury.get_severity_display }}
+          </span>
+        </td>
+        <td class="px-4 py-3">
+          <span class="badge {% if injury.status == 'active' %}bg-red-100 text-red-700{% elif injury.status == 'recovering' %}bg-amber-100 text-amber-700{% else %}bg-emerald-100 text-emerald-700{% endif %}">
+            {{ injury.get_status_display }}
+          </span>
+        </td>
+        <td class="px-4 py-3 text-sm text-gray-500">{{ injury.injury_date }}</td>
+        <td class="px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300">{{ injury.days_out }}</td>
+        <td class="px-4 py-3 text-right">
+          <a href="{% url 'medical:injury_detail' injury.pk %}" class="text-xs text-primary-600 hover:underline">{% trans "View" %}</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="8" class="px-4 py-12 text-center text-sm text-gray-500">{% trans "No injuries recorded." %}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if page.has_other_pages %}
+  <div class="flex justify-center gap-2 p-4 border-t border-gray-100 dark:border-gray-700">
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+    <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+    {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

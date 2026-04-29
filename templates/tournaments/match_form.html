@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}{% if match %}{% trans "Edit Match" %}{% else %}{% trans "Add Match" %}{% endif %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'tournaments:detail' competition.slug %}" class="text-sm text-gray-500 hover:text-primary-600">← {{ competition.name }}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">
+    {% if match %}{% trans "Edit Match" %}{% else %}{% trans "Add Match" %}{% endif %}
+  </h1>
+</div>
+{% endblock %}
+
+{% block content %}
+{% trans "Stadium name…" as ph_venue %}
+{% trans "Optional match notes…" as ph_notes %}
+{% trans "e.g. 1" as ph_round %}
+<div class="max-w-2xl">
+  <form method="post" class="space-y-5">
+    {% csrf_token %}
+
+    {# ── Teams & Score ──────────────────────────────────────────────────────── #}
+    <div class="card p-6 space-y-4">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide border-b border-gray-100 dark:border-gray-700 pb-2">
+        {% trans "Teams" %}
+      </h2>
+
+      <div class="grid grid-cols-5 gap-3 items-end">
+        <div class="col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ form.home_team.label }} <span class="text-red-500">*</span>
+          </label>
+          {% render_field form.home_team class="form-input w-full" %}
+          {% if form.home_team.errors %}<p class="text-red-500 text-xs mt-1">{{ form.home_team.errors.0 }}</p>{% endif %}
+        </div>
+        <div class="text-center text-gray-400 font-bold text-lg pb-2">vs</div>
+        <div class="col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ form.away_team.label }} <span class="text-red-500">*</span>
+          </label>
+          {% render_field form.away_team class="form-input w-full" %}
+          {% if form.away_team.errors %}<p class="text-red-500 text-xs mt-1">{{ form.away_team.errors.0 }}</p>{% endif %}
+        </div>
+      </div>
+
+      {% if match %}
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Score" %}</label>
+        <div class="flex items-center gap-3">
+          <div class="flex-1">
+            <label class="text-xs text-gray-400 mb-1 block">{{ match.home_team }}</label>
+            {% render_field form.home_score class="form-input w-full text-center text-lg font-bold" placeholder="0" %}
+          </div>
+          <span class="text-gray-400 font-bold text-xl pb-1">–</span>
+          <div class="flex-1">
+            <label class="text-xs text-gray-400 mb-1 block">{{ match.away_team }}</label>
+            {% render_field form.away_score class="form-input w-full text-center text-lg font-bold" placeholder="0" %}
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.home_score.label }}</label>
+          {% render_field form.home_score class="form-input w-full" placeholder="—" %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.away_score.label }}</label>
+          {% render_field form.away_score class="form-input w-full" placeholder="—" %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    {# ── Schedule ──────────────────────────────────────────────────────────── #}
+    <div class="card p-6 space-y-4">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide border-b border-gray-100 dark:border-gray-700 pb-2">
+        {% trans "Schedule & Status" %}
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ form.date.label }} <span class="text-red-500">*</span>
+          </label>
+          {% render_field form.date class="form-input w-full" %}
+          {% if form.date.errors %}<p class="text-red-500 text-xs mt-1">{{ form.date.errors.0 }}</p>{% endif %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.status.label }}</label>
+          {% render_field form.status class="form-input w-full" %}
+          {% if form.status.errors %}<p class="text-red-500 text-xs mt-1">{{ form.status.errors.0 }}</p>{% endif %}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.venue.label }}</label>
+          {% render_field form.venue class="form-input w-full" placeholder=ph_venue %}
+          {% if form.venue.errors %}<p class="text-red-500 text-xs mt-1">{{ form.venue.errors.0 }}</p>{% endif %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.round_number.label }}</label>
+          {% render_field form.round_number class="form-input w-full" placeholder=ph_round %}
+          {% if form.round_number.errors %}<p class="text-red-500 text-xs mt-1">{{ form.round_number.errors.0 }}</p>{% endif %}
+        </div>
+      </div>
+    </div>
+
+    {# ── Stage / Group ─────────────────────────────────────────────────────── #}
+    <div class="card p-6 space-y-4">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide border-b border-gray-100 dark:border-gray-700 pb-2">
+        {% trans "Stage & Group" %} <span class="text-gray-400 font-normal normal-case text-xs ml-1">({% trans "optional" %})</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.stage.label }}</label>
+          {% render_field form.stage class="form-input w-full" %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.group.label }}</label>
+          {% render_field form.group class="form-input w-full" %}
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ form.notes.label }}</label>
+        {% render_field form.notes class="form-input w-full" rows="2" placeholder=ph_notes %}
+      </div>
+    </div>
+
+    {# ── Actions ───────────────────────────────────────────────────────────── #}
+    <div class="flex gap-3 pb-4">
+      <button type="submit" class="btn-primary">
+        {% if match %}{% trans "Save Changes" %}{% else %}{% trans "Add Match" %}{% endif %}
+      </button>
+      <a href="{% url 'tournaments:detail' competition.slug %}" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

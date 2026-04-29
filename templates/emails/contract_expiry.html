@@ -1,0 +1,13 @@
+{% extends "emails/base_email.html" %}
+{% block subject %}⚠️ Contract Expiring Soon — {{ contract.title }}{% endblock %}
+{% block body %}
+<h2>Contract Expiring Soon</h2>
+<p>The following contract is expiring in <strong>{{ days_left }} day(s)</strong>:</p>
+<div class="alert-box warning">
+  <p><strong>{{ contract.title }}</strong><br>
+  End date: <strong>{{ contract.end_date }}</strong><br>
+  Type: {{ contract.get_contract_type_display }}</p>
+</div>
+<p>Please review and take action before the contract expires.</p>
+<a href="{{ site_url }}/contracts/{{ contract.pk }}/" class="btn">View Contract →</a>
+{% endblock %}

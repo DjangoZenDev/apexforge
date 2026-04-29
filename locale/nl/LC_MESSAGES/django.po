@@ -1,0 +1,6115 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ApexForge 1.0\n"
+"Report-Msgid-Bugs-To: matrixxdev@proton.me\n"
+"POT-Creation-Date: 2026-04-25 00:00+0000\n"
+"PO-Revision-Date: 2026-04-25 00:00+0000\n"
+"Last-Translator: ApexForge Auto-Translator\n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "2nd Nationality"
+msgstr "2e nationaliteit"
+
+msgid "About"
+msgstr "Over"
+
+msgid "Academy"
+msgstr "Academie"
+
+msgid "Academy & Contracts"
+msgstr "Academie & Contracten"
+
+msgid "Academy Programs"
+msgstr "Academieprogramma's"
+
+msgid "Action"
+msgstr "Actie"
+
+msgid "Active"
+msgstr "Actief"
+
+msgid "Active / Available in shop"
+msgstr "Actief / Verkrijgbaar in de winkel"
+
+msgid "Active Assignments"
+msgstr "Actieve opdrachten"
+
+msgid "Active Injuries"
+msgstr "Actieve verwondingen"
+
+msgid "Active Players"
+msgstr "Actieve spelers"
+
+msgid "Active Sponsors"
+msgstr "Actieve sponsoren"
+
+msgid "Activity"
+msgstr "Activiteit"
+
+msgid "Activity Log"
+msgstr "Activiteitenlogboek"
+
+msgid "Actual Recovery"
+msgstr "Daadwerkelijk herstel"
+
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "Add Clause"
+msgstr "Clausule toevoegen"
+
+msgid "Add Club"
+msgstr "Club toevoegen"
+
+msgid "Add Contract Clause"
+msgstr "Contractclausule toevoegen"
+
+msgid "Add Entry"
+msgstr "Invoer toevoegen"
+
+msgid "Add First Club"
+msgstr "Eerste club toevoegen"
+
+msgid "Add Item"
+msgstr "Artikel toevoegen"
+
+msgid "Add Match"
+msgstr "Match toevoegen"
+
+msgid "Add Medical Record"
+msgstr "Medisch dossier toevoegen"
+
+msgid "Add Member"
+msgstr "Lid toevoegen"
+
+msgid "Add Metric"
+msgstr "Metriek toevoegen"
+
+msgid "Add Note"
+msgstr "Notitie toevoegen"
+
+msgid "Add Payroll Entry"
+msgstr "Salarisinvoer toevoegen"
+
+msgid "Add Performance Metric"
+msgstr "Prestatiestatistiek toevoegen"
+
+msgid "Add Plan"
+msgstr "Plan toevoegen"
+
+msgid "Add Player"
+msgstr "Speler toevoegen"
+
+msgid "Add Player to Roster"
+msgstr "Speler toevoegen aan selectie"
+
+msgid "Add Record"
+msgstr "Opname toevoegen"
+
+msgid "Add Report"
+msgstr "Rapport toevoegen"
+
+msgid "Add Staff"
+msgstr "Staf toevoegen"
+
+msgid "Add Talent"
+msgstr "Talent toevoegen"
+
+msgid "Add Timestamp Note"
+msgstr "Tijdstempelnotitie toevoegen"
+
+msgid "Add Transaction"
+msgstr "Transactie toevoegen"
+
+msgid "Add Treatment"
+msgstr "Behandeling toevoegen"
+
+msgid "Add first player"
+msgstr "Voeg eerste speler toe"
+
+msgid "Add first sponsor"
+msgstr "Eerste sponsor toevoegen"
+
+msgid "Add first talent"
+msgstr "Voeg eerste talent toe"
+
+msgid "Add milestone..."
+msgstr "Mijlpaal toevoegen..."
+
+msgid "Add to Cart"
+msgstr "Voeg toe aan winkelwagen"
+
+msgid "Add to Roster"
+msgstr "Toevoegen aan rooster"
+
+msgid "Added By"
+msgstr "Toegevoegd door"
+
+msgid "Adjust Loyalty Points"
+msgstr "Pas loyaliteitspunten aan"
+
+msgid "Adjust Points"
+msgstr "Punten aanpassen"
+
+msgid "Admin Panel"
+msgstr "Beheerderspaneel"
+
+msgid "Age"
+msgstr "Leeftijd"
+
+msgid "Age Group"
+msgstr "Leeftijdsgroep"
+
+msgid "Agent"
+msgstr "Tussenpersoon"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All Age Groups"
+msgstr "Alle leeftijdsgroepen"
+
+msgid "All activity"
+msgstr "Alle activiteit"
+
+msgid "All budgets"
+msgstr "Alle budgetten"
+
+msgid "All categories"
+msgstr "Alle categorieën"
+
+msgid "All caught up!"
+msgstr "Allemaal ingehaald!"
+
+msgid "All departments"
+msgstr "Alle afdelingen"
+
+msgid "All fixtures, training sessions and tournaments"
+msgstr "Alle wedstrijden, trainingen en toernooien"
+
+msgid "All news"
+msgstr "Al het nieuws"
+
+msgid "All priorities"
+msgstr "Allemaal prioriteiten"
+
+msgid "All recommendations"
+msgstr "Alle aanbevelingen"
+
+msgid "All reports"
+msgstr "Alle rapporten"
+
+msgid "All severities"
+msgstr "Alle ernst"
+
+msgid "All statuses"
+msgstr "Alle statussen"
+
+msgid "All talents"
+msgstr "Allemaal talenten"
+
+msgid "All transactions"
+msgstr "Alle transacties"
+
+msgid "All types"
+msgstr "Alle soorten"
+
+msgid "Already have an account?"
+msgstr "Heeft u al een account?"
+
+msgid "Alt. position"
+msgstr "Alt. positie"
+
+msgid "Amount"
+msgstr "Hoeveelheid"
+
+msgid "Amount (€)"
+msgstr "Bedrag (€)"
+
+msgid "Analysis"
+msgstr "Analyse"
+
+msgid "Announcements"
+msgstr "Aankondigingen"
+
+msgid "ApexForge"
+msgstr "ApexForge"
+
+msgid "Appearances"
+msgstr "Optredens"
+
+msgid "Apply Adjustment"
+msgstr "Aanpassing toepassen"
+
+msgid "Areas to Improve"
+msgstr "Gebieden die verbeterd kunnen worden"
+
+msgid "Assign"
+msgstr "Toewijzen"
+
+msgid "Assign Kit"
+msgstr "Kit toewijzen"
+
+msgid "Assigned To"
+msgstr "Toegewezen aan"
+
+msgid "Assists"
+msgstr "Assists"
+
+msgid "Attachment"
+msgstr "Bijlage"
+
+msgid "Attendance"
+msgstr "Aanwezigheid"
+
+msgid "Attributes"
+msgstr "Kenmerken"
+
+msgid "Auto-Renew"
+msgstr "Automatisch verlengen"
+
+msgid "Available"
+msgstr "Beschikbaar"
+
+msgid "Available Tickets"
+msgstr "Beschikbare kaartjes"
+
+msgid "Avg Rating"
+msgstr "Gemiddelde beoordeling"
+
+msgid "Away"
+msgstr "Uit"
+
+msgid "Away score"
+msgstr "Uitscore"
+
+msgid "Back"
+msgstr "Terug"
+
+msgid "Back to Injuries"
+msgstr "Terug naar Blessures"
+
+msgid "Back to sign in"
+msgstr "Terug naar inloggen"
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Basic Information"
+msgstr "Basisinformatie"
+
+msgid "Become a Partner"
+msgstr "Word partner"
+
+msgid "Benefits"
+msgstr "Voordelen"
+
+msgid "Bio"
+msgstr "Bio"
+
+msgid "Body Part"
+msgstr "Lichaamsdeel"
+
+msgid "Born"
+msgstr "Geboren"
+
+msgid "Branding"
+msgstr "Huisstijl"
+
+msgid "Bronze"
+msgstr "Brons"
+
+msgid "Browse Talents"
+msgstr "Blader door talenten"
+
+msgid "Browse events"
+msgstr "Blader door evenementen"
+
+msgid "Browse shop"
+msgstr "Winkel doorzoeken"
+
+msgid "Browse the shop and add some items."
+msgstr "Blader door de winkel en voeg enkele items toe."
+
+msgid "Budget"
+msgstr "Begroting"
+
+msgid "Budget (€)"
+msgstr "Begroting (€)"
+
+msgid "Budget Name"
+msgstr "Budgetnaam"
+
+msgid "Budgets"
+msgstr "Budgetten"
+
+msgid "Build Legacies"
+msgstr "Bouw erfenissen op"
+
+msgid "Bulk Create"
+msgstr "Bulk-creatie"
+
+msgid "Bulk Create Tickets"
+msgstr "Bulktickets maken"
+
+msgid "Buy More"
+msgstr "Koop meer"
+
+msgid "Buy Now"
+msgstr "Koop nu"
+
+msgid "Buy Ticket"
+msgstr "Koop kaartje"
+
+msgid "Buy Tickets"
+msgstr "Tickets kopen"
+
+msgid "By"
+msgstr "Door"
+
+msgid "CTR"
+msgstr "CTR"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Campaign Info"
+msgstr "Campagne-informatie"
+
+msgid "Campaign Name"
+msgstr "Campagnenaam"
+
+msgid "Campaigns"
+msgstr "Campagnes"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Career History"
+msgstr "Carrièregeschiedenis"
+
+msgid "Cart"
+msgstr "Winkelwagen"
+
+msgid "Categories"
+msgstr "Categorieën"
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Channel"
+msgstr "Kanaal"
+
+msgid "Check your email"
+msgstr "Controleer uw e-mail"
+
+msgid "City"
+msgstr "Stad"
+
+msgid "Clear"
+msgstr "Wissen"
+
+msgid "Click the link below to set a new password:"
+msgstr "Klik op onderstaande link om een ​​nieuw wachtwoord in te stellen:"
+
+msgid "Click-through rate"
+msgstr "Klikfrequentie"
+
+msgid "Clicks"
+msgstr "Klikken"
+
+msgid "Clicks → conversions"
+msgstr "Klikken → conversies"
+
+msgid "Club"
+msgstr "Club"
+
+msgid "Club Branding"
+msgstr "Clubbranding"
+
+msgid "Club Info"
+msgstr "Clubinfo"
+
+msgid "Club Members"
+msgstr "Clubleden"
+
+msgid "Club Name"
+msgstr "Clubnaam"
+
+msgid "Club Shop"
+msgstr "Clubwinkel"
+
+msgid "Clubs"
+msgstr "Clubs"
+
+msgid "Coach"
+msgstr "Coach"
+
+msgid "Coach Notes"
+msgstr "Coachnotities"
+
+msgid "Colors"
+msgstr "Kleuren"
+
+msgid "Competition"
+msgstr "Concurrentie"
+
+msgid "Complete your fan profile"
+msgstr "Voltooi je fanprofiel"
+
+msgid "Confidential"
+msgstr "Vertrouwelijk"
+
+msgid "Confirm"
+msgstr "Bevestigen"
+
+msgid "Confirm Purchase"
+msgstr "Bevestig aankoop"
+
+msgid "Confirm password"
+msgstr "Bevestig wachtwoord"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Contact & Social"
+msgstr "Contact & Sociaal"
+
+msgid "Contact Email"
+msgstr "Neem contact op met E-mail"
+
+msgid "Content"
+msgstr "Inhoud"
+
+msgid "Continue shopping"
+msgstr "Ga door met winkelen"
+
+msgid "Contract"
+msgstr "Contract"
+
+msgid "Contract Clauses"
+msgstr "Contractclausules"
+
+msgid "Contract Details"
+msgstr "Contractdetails"
+
+msgid "Contract End"
+msgstr "Contracteinde"
+
+msgid "Contract Expires"
+msgstr "Contract verloopt"
+
+msgid "Contract until"
+msgstr "Contract tot"
+
+msgid "Contracts"
+msgstr "Contracten"
+
+msgid "Conversion Rate"
+msgstr "Conversiepercentage"
+
+msgid "Conversions"
+msgstr "Conversies"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Cover Image"
+msgstr "Omslagafbeelding"
+
+msgid "Create Account"
+msgstr "Account aanmaken"
+
+msgid "Create First Organization"
+msgstr "Creëer de eerste organisatie"
+
+msgid "Create Plan"
+msgstr "Plan maken"
+
+msgid "Create Profile"
+msgstr "Profiel aanmaken"
+
+msgid "Create Tickets"
+msgstr "Maak kaartjes"
+
+msgid "Create account"
+msgstr "Account aanmaken"
+
+msgid "Create first budget"
+msgstr "Maak een eerste begroting"
+
+msgid "Create first campaign"
+msgstr "Maak de eerste campagne"
+
+msgid "Create first team"
+msgstr "Creëer een eerste team"
+
+msgid "Create first tournament"
+msgstr "Maak het eerste toernooi"
+
+msgid "Create one"
+msgstr "Maak er een"
+
+msgid "Create your account to get started."
+msgstr "Maak uw account aan om aan de slag te gaan."
+
+msgid "Created by"
+msgstr "Gemaakt door"
+
+msgid "Current Club"
+msgstr "Huidige club"
+
+msgid "Current Stock"
+msgstr "Huidige voorraad"
+
+msgid "Current stock:"
+msgstr "Actuele voorraad:"
+
+msgid "Current tier"
+msgstr "Huidig ​​niveau"
+
+msgid "Customer"
+msgstr "Klant"
+
+msgid "Customize your club's identity across the platform."
+msgstr "Pas de identiteit van uw club aan op het hele platform."
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Date Injured"
+msgstr "Datum gewond"
+
+msgid "Date Recovered"
+msgstr "Datum hersteld"
+
+msgid "Date of Birth"
+msgstr "Geboortedatum"
+
+msgid "Date of birth"
+msgstr "Geboortedatum"
+
+msgid "Days Out"
+msgstr "Dagen uit"
+
+msgid "Deductions"
+msgstr "Inhoudingen"
+
+msgid "Defeat"
+msgstr "Verlies"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Delete event?"
+msgstr "Evenement verwijderen?"
+
+msgid "Delete this post?"
+msgstr "Dit bericht verwijderen?"
+
+msgid "Delete this team?"
+msgstr "Dit team verwijderen?"
+
+msgid "Delete?"
+msgstr "Verwijderen?"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Development Plan"
+msgstr "Ontwikkelingsplan"
+
+msgid "Development Plans"
+msgstr "Ontwikkelingsplannen"
+
+msgid "Disabled"
+msgstr "Gehandicapt"
+
+msgid "Division"
+msgstr "Divisie"
+
+msgid "Don't have an account?"
+msgstr "Heeft u geen account?"
+
+msgid "Download Contract File"
+msgstr "Contractbestand downloaden"
+
+msgid "Dr."
+msgstr "dr."
+
+msgid "Draw"
+msgstr "Tekenen"
+
+msgid "Due"
+msgstr "Vanwege"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Edit Announcement"
+msgstr "Aankondiging bewerken"
+
+msgid "Edit Development Plan"
+msgstr "Ontwikkelingsplan bewerken"
+
+msgid "Edit Fan Profile"
+msgstr "Fanprofiel bewerken"
+
+msgid "Edit Match"
+msgstr "Wedstrijd bewerken"
+
+msgid "Edit Plan"
+msgstr "Plan bewerken"
+
+msgid "Edit Product"
+msgstr "Product bewerken"
+
+msgid "Edit Profile"
+msgstr "Profiel bewerken"
+
+msgid "Edit Video"
+msgstr "Bewerk video"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Email address"
+msgstr "E-mailadres"
+
+msgid "Email notifications"
+msgstr "E-mailmeldingen"
+
+msgid "Employment Type"
+msgstr "Type werkgelegenheid"
+
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+msgid "End"
+msgstr "Einde"
+
+msgid "End Date"
+msgstr "Einddatum"
+
+msgid "End date"
+msgstr "Einddatum"
+
+msgid "End time"
+msgstr "Eindtijd"
+
+msgid "Enter your email and we'll send a reset link."
+msgstr "Vul uw e-mailadres in en wij sturen u een resetlink."
+
+msgid "Equity"
+msgstr "Eigen vermogen"
+
+msgid "Equity %"
+msgstr "Eigen vermogen %"
+
+msgid "Estimated Value (€)"
+msgstr "Geschatte waarde (€)"
+
+msgid "Event"
+msgstr "Evenement"
+
+msgid "Event Details"
+msgstr "Evenementdetails"
+
+msgid "Events"
+msgstr "Evenementen"
+
+msgid "Excerpt"
+msgstr "Uittreksel"
+
+msgid "Expected Recovery"
+msgstr "Verwacht herstel"
+
+msgid "Expected Return"
+msgstr "Verwacht rendement"
+
+msgid "Expected Return (€)"
+msgstr "Verwacht rendement (€)"
+
+msgid "Expected return"
+msgstr "Verwacht rendement"
+
+msgid "Expenses"
+msgstr "Uitgaven"
+
+msgid "Expenses by Category"
+msgstr "Uitgaven per categorie"
+
+msgid "Expired"
+msgstr "Verlopen"
+
+msgid "Expires"
+msgstr "Verloopt"
+
+msgid "Expires At"
+msgstr "Verloopt op"
+
+msgid "Expiring"
+msgstr "Verloopt"
+
+msgid "Expiring Contracts"
+msgstr "Verlopen contracten"
+
+msgid "Expiring in"
+msgstr "Verloopt over"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Fan"
+msgstr "Fan"
+
+msgid "Fan Portal"
+msgstr "Fanportaal"
+
+msgid "Fan Profile"
+msgstr "Fanprofiel"
+
+msgid "Featured"
+msgstr "Uitgelicht"
+
+msgid "Filter"
+msgstr "Filteren"
+
+msgid "Finance"
+msgstr "Financiën"
+
+msgid "Finance Dashboard"
+msgstr "Financiëndashboard"
+
+msgid "Financial Overview (YTD)"
+msgstr "Financieel overzicht (YTD)"
+
+msgid "Financial overview, budgets, and sponsorships"
+msgstr "Financieel overzicht, budgetten en sponsoring"
+
+msgid "First Name"
+msgstr "Voornaam"
+
+msgid "First name"
+msgstr "Voornaam"
+
+msgid "Fixtures & Results"
+msgstr "Wedstrijden en resultaten"
+
+msgid "Foot"
+msgstr "Voet"
+
+msgid "Forge Champions,"
+msgstr "Kampioenen smeden,"
+
+msgid "Forgot password?"
+msgstr "Wachtwoord vergeten?"
+
+msgid "Format"
+msgstr "Formaat"
+
+msgid "Founded"
+msgstr "Opgericht"
+
+msgid "Founded Year"
+msgstr "Jaar van oprichting"
+
+msgid "Founded year"
+msgstr "Jaar van oprichting"
+
+msgid "Free"
+msgstr "Vrij"
+
+msgid "Full name"
+msgstr "Volledige naam"
+
+msgid "Full report"
+msgstr "Volledig rapport"
+
+msgid "General"
+msgstr "Algemeen"
+
+msgid "Get in touch"
+msgstr "Neem contact op"
+
+msgid "Go to Shop"
+msgstr "Ga naar Winkel"
+
+msgid "Goals"
+msgstr "Doelpunten"
+
+msgid "Gold"
+msgstr "Goud"
+
+msgid "Good"
+msgstr "Goed"
+
+msgid "Grant Access"
+msgstr "Toegang verlenen"
+
+msgid "Gross"
+msgstr "Goor"
+
+msgid "Head Coach"
+msgstr "Hoofd Coach"
+
+msgid "Height"
+msgstr "Hoogte"
+
+msgid "Height (cm)"
+msgstr "Hoogte (cm)"
+
+msgid "Hex format e.g. #059669"
+msgstr "Hex-formaat, b.v. #059669"
+
+msgid "Hire Date"
+msgstr "Huurdatum"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Home match"
+msgstr "Thuiswedstrijd"
+
+msgid "Home score"
+msgstr "Thuisscore"
+
+msgid "Home venue"
+msgstr "Thuislocatie"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Identity"
+msgstr "Identiteit"
+
+msgid ""
+"If you did not request this, please ignore this email. Your password will "
+"not change."
+msgstr ""
+"Als u hier niet om heeft gevraagd, kunt u deze e-mail negeren. Uw wachtwoord"
+" zal niet veranderen."
+
+msgid "Image"
+msgstr "Afbeelding"
+
+msgid "Import CSV"
+msgstr "CSV importeren"
+
+msgid "Impr."
+msgstr "Vert."
+
+msgid "Impressions"
+msgstr "Indrukken"
+
+msgid "In Stock"
+msgstr "Op voorraad"
+
+msgid "In-app notifications"
+msgstr "In-app-meldingen"
+
+msgid "Inactive"
+msgstr "Inactief"
+
+msgid "Includes"
+msgstr "Inclusief"
+
+msgid "Income"
+msgstr "Inkomsten"
+
+msgid "Injured"
+msgstr "Geblesseerd"
+
+msgid "Injuries"
+msgstr "Blessures"
+
+msgid "Injury"
+msgstr "Blessure"
+
+msgid "Injury Date"
+msgstr "Datum van blessure"
+
+msgid "Injury Details"
+msgstr "Blessuredetails"
+
+msgid "Injury Log"
+msgstr "Blessurelogboek"
+
+msgid "Injury Tracker"
+msgstr "Blessure-tracker"
+
+msgid "Injury Type"
+msgstr "Type blessure"
+
+msgid "Injury by Severity"
+msgstr "Letsel naar ernst"
+
+msgid "Insights"
+msgstr "Inzichten"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Inventory"
+msgstr "Inventaris"
+
+msgid "Investment Type"
+msgstr "Investeringstype"
+
+msgid "Investments"
+msgstr "Investeringen"
+
+msgid "Investor Name"
+msgstr "Naam belegger"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "Items"
+msgstr "Artikelen"
+
+msgid "Jersey #"
+msgstr "Jersey #"
+
+msgid "Jersey Number"
+msgstr "Jersey-nummer"
+
+msgid "Join ApexForge"
+msgstr "Sluit u aan bij ApexForge"
+
+msgid "Join Date"
+msgstr "Datum van deelname"
+
+msgid ""
+"Join our growing family of sponsors and reach thousands of passionate fans."
+msgstr ""
+"Sluit u aan bij onze groeiende familie van sponsors en bereik duizenden "
+"gepassioneerde fans."
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Last Name"
+msgstr "Achternaam"
+
+msgid "Last name"
+msgstr "Achternaam"
+
+msgid "Leave Date"
+msgstr "Datum van vertrek"
+
+msgid "Level"
+msgstr "Niveau"
+
+msgid "List view"
+msgstr "Lijstweergave"
+
+msgid "Live analytics across all modules"
+msgstr "Live analyses voor alle modules"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Low Stock"
+msgstr "Lage voorraad"
+
+msgid "Low stock"
+msgstr "Lage voorraad"
+
+msgid "Low stock only"
+msgstr "Alleen lage voorraad"
+
+msgid "Loyalty Points"
+msgstr "Loyaliteitspunten"
+
+msgid "Manage"
+msgstr "Beheren"
+
+msgid "Manage Access"
+msgstr "Toegang beheren"
+
+msgid "Manage your account information and preferences."
+msgstr "Beheer uw accountgegevens en voorkeuren."
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "Mark all read"
+msgstr "Markeer alles als gelezen"
+
+msgid "Market value (€)"
+msgstr "Marktwaarde (€)"
+
+msgid "Marketing"
+msgstr "Marketing"
+
+msgid "Marketing Campaigns"
+msgstr "Marketingcampagnes"
+
+msgid "Match"
+msgstr "Wedstrijd"
+
+msgid "Match Details"
+msgstr "Wedstrijddetails"
+
+msgid "Match Result"
+msgstr "Wedstrijdresultaat"
+
+msgid "Match date"
+msgstr "Wedstrijddatum"
+
+msgid "Match report"
+msgstr "Wedstrijdverslag"
+
+msgid "Match result not yet recorded."
+msgstr "Wedstrijdresultaat nog niet vastgelegd."
+
+msgid "Maturity"
+msgstr "Volwassenheid"
+
+msgid "Maturity Date"
+msgstr "Vervaldatum"
+
+msgid "Mechanism"
+msgstr "Mechanisme"
+
+msgid "Medical"
+msgstr "Medisch"
+
+msgid "Medical Records"
+msgstr "Medische dossiers"
+
+msgid "Medical — Injuries"
+msgstr "Medisch – verwondingen"
+
+msgid "Membership"
+msgstr "Lidmaatschap"
+
+msgid "Mental"
+msgstr "Geestelijk"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Metric"
+msgstr "Metrisch"
+
+msgid "Metric Name"
+msgstr "Metrieknaam"
+
+msgid "Milestones"
+msgstr "Mijlpalen"
+
+msgid "Min Quantity"
+msgstr "Minimale hoeveelheid"
+
+msgid "Min rating"
+msgstr "Min. beoordeling"
+
+msgid "Minutes Played"
+msgstr "Minuten gespeeld"
+
+msgid "Monthly Expenses"
+msgstr "Maandelijkse uitgaven"
+
+msgid "Monthly Income"
+msgstr "Maandelijks inkomen"
+
+msgid "My Profile"
+msgstr "Mijn profiel"
+
+msgid "My Tickets"
+msgstr "Mijn kaartjes"
+
+msgid "My Watchlist"
+msgstr "Mijn volglijst"
+
+msgid "My Watchlists"
+msgstr "Mijn volglijsten"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Nationality"
+msgstr "Nationaliteit"
+
+msgid "Net"
+msgstr "Netto"
+
+msgid "Net (month)"
+msgstr "Netto (maand)"
+
+msgid "Net Balance"
+msgstr "Netto saldo"
+
+msgid "Net:"
+msgstr "Netto:"
+
+msgid "New Announcement"
+msgstr "Nieuwe aankondiging"
+
+msgid "New Budget"
+msgstr "Nieuwe begroting"
+
+msgid "New Campaign"
+msgstr "Nieuwe campagne"
+
+msgid "New Category"
+msgstr "Nieuwe categorie"
+
+msgid "New Competition"
+msgstr "Nieuwe competitie"
+
+msgid "New Contract"
+msgstr "Nieuw contract"
+
+msgid "New Development Plan"
+msgstr "Nieuw Ontwikkelingsplan"
+
+msgid "New Event"
+msgstr "Nieuw evenement"
+
+msgid "New Investment"
+msgstr "Nieuwe investering"
+
+msgid "New Organization"
+msgstr "Nieuwe organisatie"
+
+msgid "New Plan"
+msgstr "Nieuw plan"
+
+msgid "New Player"
+msgstr "Nieuwe speler"
+
+msgid "New Post"
+msgstr "Nieuw bericht"
+
+msgid "New Product"
+msgstr "Nieuw product"
+
+msgid "New Program"
+msgstr "Nieuw programma"
+
+msgid "New Report"
+msgstr "Nieuw rapport"
+
+msgid "New Scout Report"
+msgstr "Nieuw scoutrapport"
+
+msgid "New Sponsorship"
+msgstr "Nieuwe sponsoring"
+
+msgid "New Task"
+msgstr "Nieuwe taak"
+
+msgid "New Team"
+msgstr "Nieuw team"
+
+msgid "New Tournament"
+msgstr "Nieuw toernooi"
+
+msgid "New password"
+msgstr "Nieuw wachtwoord"
+
+msgid "News"
+msgstr "Nieuws"
+
+msgid "News & Updates"
+msgstr "Nieuws en updates"
+
+msgid "Next"
+msgstr "Volgende"
+
+msgid "Next session:"
+msgstr "Volgende sessie:"
+
+msgid "Next tier at"
+msgstr "Volgende niveau op"
+
+msgid "No academy programs yet. Create the first one!"
+msgstr "Nog geen academieprogramma's. Maak de eerste!"
+
+msgid "No active assignments."
+msgstr "Geen actieve opdrachten."
+
+msgid "No active sponsors."
+msgstr "Geen actieve sponsors."
+
+msgid "No activity recorded yet."
+msgstr "Nog geen activiteit geregistreerd."
+
+msgid "No activity yet"
+msgstr "Nog geen activiteit"
+
+msgid "No announcements."
+msgstr "Geen aankondigingen."
+
+msgid "No attribute ratings yet."
+msgstr "Nog geen attribuutbeoordelingen."
+
+msgid "No budgets defined yet."
+msgstr "Er zijn nog geen budgetten gedefinieerd."
+
+msgid "No budgets set up."
+msgstr "Er zijn geen budgetten ingesteld."
+
+msgid "No campaigns yet."
+msgstr "Nog geen campagnes."
+
+msgid "No categories yet."
+msgstr "Nog geen categorieën."
+
+msgid "No clauses added yet."
+msgstr "Er zijn nog geen clausules toegevoegd."
+
+msgid "No clubs yet."
+msgstr "Nog geen clubs."
+
+msgid "No competitions yet."
+msgstr "Nog geen wedstrijden."
+
+msgid "No completed matches."
+msgstr "Geen voltooide wedstrijden."
+
+msgid "No contracts found."
+msgstr "Geen contracten gevonden."
+
+msgid "No development plans yet."
+msgstr "Nog geen ontwikkelingsplannen."
+
+msgid "No events found."
+msgstr "Geen evenementen gevonden."
+
+msgid "No expense data yet."
+msgstr "Nog geen onkostengegevens."
+
+msgid "No injuries recorded."
+msgstr "Geen gewonden geregistreerd."
+
+msgid "No investments recorded yet."
+msgstr "Er zijn nog geen investeringen geregistreerd."
+
+msgid "No items in inventory."
+msgstr "Geen items in voorraad."
+
+msgid "No matches scheduled yet."
+msgstr "Er zijn nog geen wedstrijden gepland."
+
+msgid "No medical records on file."
+msgstr "Er zijn geen medische dossiers aanwezig."
+
+msgid "No members yet."
+msgstr "Nog geen leden."
+
+msgid "No milestones yet. Add one above."
+msgstr "Nog geen mijlpalen. Voeg er hierboven één toe."
+
+msgid "No movements yet."
+msgstr "Nog geen bewegingen."
+
+msgid "No new notifications"
+msgstr "Geen nieuwe meldingen"
+
+msgid "No news posts yet."
+msgstr "Nog geen nieuwsberichten."
+
+msgid "No notes yet. Add one above!"
+msgstr "Nog geen opmerkingen. Voeg er hierboven één toe!"
+
+msgid "No orders yet."
+msgstr "Nog geen bestellingen."
+
+msgid "No organizations yet."
+msgstr "Nog geen organisaties."
+
+msgid "No payroll entries."
+msgstr "Geen loonposten."
+
+msgid "No players found."
+msgstr "Geen spelers gevonden."
+
+msgid "No players on roster yet."
+msgstr "Er zijn nog geen spelers op de selectie."
+
+msgid "No products available yet."
+msgstr "Nog geen producten beschikbaar."
+
+msgid "No purchases yet."
+msgstr "Nog geen aankopen."
+
+msgid "No recovery plan yet."
+msgstr "Nog geen herstelplan."
+
+msgid "No reports yet."
+msgstr "Nog geen rapporten."
+
+msgid "No results for"
+msgstr "Geen resultaten voor"
+
+msgid "No scout reports found."
+msgstr "Geen scoutrapporten gevonden."
+
+msgid "No scout reports yet."
+msgstr "Nog geen scoutrapporten."
+
+msgid "No sponsors to display yet."
+msgstr "Er zijn nog geen sponsors om weer te geven."
+
+msgid "No sponsorships yet."
+msgstr "Nog geen sponsoring."
+
+msgid "No staff members yet."
+msgstr "Er zijn nog geen personeelsleden."
+
+msgid "No standings yet."
+msgstr "Nog geen klassement."
+
+msgid "No stats recorded yet."
+msgstr "Er zijn nog geen statistieken geregistreerd."
+
+msgid "No talents found."
+msgstr "Geen talenten gevonden."
+
+msgid "No talents tracked yet."
+msgstr "Er zijn nog geen talenten bijgehouden."
+
+msgid "No tasks found."
+msgstr "Geen taken gevonden."
+
+msgid "No tasks."
+msgstr "Geen taken."
+
+msgid "No teams assigned."
+msgstr "Geen teams toegewezen."
+
+msgid "No teams found."
+msgstr "Geen teams gevonden."
+
+msgid "No ticket categories yet."
+msgstr "Nog geen ticketcategorieën."
+
+msgid "No tickets available for upcoming events."
+msgstr "Er zijn geen tickets beschikbaar voor komende evenementen."
+
+msgid "No tickets yet."
+msgstr "Nog geen kaartjes."
+
+msgid "No tournaments scheduled."
+msgstr "Geen toernooien gepland."
+
+msgid "No transactions found."
+msgstr "Geen transacties gevonden."
+
+msgid "No transactions yet."
+msgstr "Nog geen transacties."
+
+msgid "No treatments recorded yet."
+msgstr "Er zijn nog geen behandelingen geregistreerd."
+
+msgid "No upcoming events"
+msgstr "Geen aankomende evenementen"
+
+msgid "No video source available."
+msgstr "Geen videobron beschikbaar."
+
+msgid "No videos yet. Upload the first one!"
+msgstr "Nog geen video's. Upload de eerste!"
+
+msgid "No watchlists yet."
+msgstr "Nog geen volglijsten."
+
+msgid "Not rated yet"
+msgstr "Nog niet beoordeeld"
+
+msgid "Notes"
+msgstr "Opmerkingen"
+
+msgid "Notifications"
+msgstr "Meldingen"
+
+msgid "Official merchandise and club products"
+msgstr "Officiële merchandise en clubproducten"
+
+msgid "On Trial"
+msgstr "Op proef"
+
+msgid "Operations"
+msgstr "Operaties"
+
+msgid "Opponent"
+msgstr "Tegenstander"
+
+msgid "Order"
+msgstr "Volgorde"
+
+msgid "Order Summary"
+msgstr "Besteloverzicht"
+
+msgid "Orders"
+msgstr "Bestellingen"
+
+msgid "Organizations"
+msgstr "Organisaties"
+
+msgid "Our Partners"
+msgstr "Onze partners"
+
+msgid "Out of stock"
+msgstr "Niet op voorraad"
+
+msgid "Overall"
+msgstr "Algemeen"
+
+msgid "Overall Rating"
+msgstr "Algemene beoordeling"
+
+msgid "Overdue"
+msgstr "Verlopen"
+
+msgid "Overdue Tasks"
+msgstr "Achterstallige taken"
+
+msgid "Page"
+msgstr "Pagina"
+
+msgid "Paid"
+msgstr "Betaald"
+
+msgid "Participating Teams"
+msgstr "Deelnemende teams"
+
+msgid "Partners"
+msgstr "Partners"
+
+msgid "Party"
+msgstr "Feest"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Password Reset"
+msgstr "Wachtwoord opnieuw instellen"
+
+msgid "Password Reset Complete"
+msgstr "Wachtwoord opnieuw instellen voltooid"
+
+msgid "Password updated!"
+msgstr "Wachtwoord bijgewerkt!"
+
+msgid "Payroll"
+msgstr "Loonadministratie"
+
+msgid "Payroll YTD"
+msgstr "Salaris YTD"
+
+msgid "Pending"
+msgstr "In behandeling"
+
+msgid "Performance"
+msgstr "Prestatie"
+
+msgid "Performance Insights"
+msgstr "Prestatie-inzichten"
+
+msgid "Performance Trend"
+msgstr "Prestatietrend"
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "Personal Information"
+msgstr "Persoonlijke informatie"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Physical"
+msgstr "Fysiek"
+
+msgid "Physio"
+msgstr "Fysio"
+
+msgid "Place Order"
+msgstr "Bestelling plaatsen"
+
+msgid "Plan"
+msgstr "Plan"
+
+msgid "Platinum"
+msgstr "Platina"
+
+msgid "Player"
+msgstr "Speler"
+
+msgid "Player Information"
+msgstr "Spelerinformatie"
+
+msgid "Player Status"
+msgstr "Spelerstatus"
+
+msgid "Players"
+msgstr "Spelers"
+
+msgid "Points Earned"
+msgstr "Verdiende punten"
+
+msgid "Points History"
+msgstr "Puntengeschiedenis"
+
+msgid "Position"
+msgstr "Positie"
+
+msgid "Post Details"
+msgstr "Postdetails"
+
+msgid "Post first announcement"
+msgstr "Plaats de eerste aankondiging"
+
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+msgid "Preferred foot"
+msgstr "Voorkeursvoet"
+
+msgid "Previous"
+msgstr "Vorig"
+
+msgid "Price"
+msgstr "Prijs"
+
+msgid "Primary"
+msgstr "Primair"
+
+msgid "Primary Color"
+msgstr "Primaire kleur"
+
+msgid "Primary position"
+msgstr "Primaire positie"
+
+msgid "Priority"
+msgstr "Prioriteit"
+
+msgid "Prize Pool (€)"
+msgstr "Prijzenpot (€)"
+
+msgid "Profile"
+msgstr "Profiel"
+
+msgid "Profile Settings"
+msgstr "Profielinstellingen"
+
+msgid "Program"
+msgstr "Programma"
+
+msgid "Program Info"
+msgstr "Programma-informatie"
+
+msgid "Programs"
+msgstr "Programma's"
+
+msgid "Proud to work with these outstanding organisations"
+msgstr "Trots om met deze uitmuntende organisaties te mogen samenwerken"
+
+msgid "Qty"
+msgstr "Aantal"
+
+msgid "ROI"
+msgstr "ROI"
+
+msgid "Rate and analyse a player's performance."
+msgstr "Beoordeel en analyseer de prestaties van een speler."
+
+msgid "Rating"
+msgstr "Beoordeling"
+
+msgid "Ratings"
+msgstr "Beoordelingen"
+
+msgid "Ratings (1–10)"
+msgstr "Waarderingen (1–10)"
+
+msgid "Recent Activity"
+msgstr "Recente activiteit"
+
+msgid "Recent Matches"
+msgstr "Recente wedstrijden"
+
+msgid "Recent Payroll"
+msgstr "Recente salarisadministratie"
+
+msgid "Recent Purchases"
+msgstr "Recente aankopen"
+
+msgid "Recent Scout Reports"
+msgstr "Recente scoutrapporten"
+
+msgid "Recent Stock Movements"
+msgstr "Recente aandelenbewegingen"
+
+msgid "Recent Tasks"
+msgstr "Recente taken"
+
+msgid "Recent Transactions"
+msgstr "Recente transacties"
+
+msgid "Recent actions across the platform"
+msgstr "Recente acties op het hele platform"
+
+msgid "Recommendation"
+msgstr "Aanbeveling"
+
+msgid "Record Movement"
+msgstr "Beweging registreren"
+
+msgid "Record Stock Movement"
+msgstr "Recordaandelenbeweging"
+
+msgid "Record first investment"
+msgstr "Record eerste investering"
+
+msgid "Recorded At"
+msgstr "Opgenomen bij"
+
+msgid "Recovery Plan"
+msgstr "Herstelplan"
+
+msgid "Red Cards"
+msgstr "Rode kaarten"
+
+msgid "Reference"
+msgstr "Referentie"
+
+msgid "Remember me"
+msgstr "Onthoud mij"
+
+msgid "Remove"
+msgstr "Verwijderen"
+
+msgid "Report Injury"
+msgstr "Meld letsel"
+
+msgid "Reports"
+msgstr "Rapporten"
+
+msgid "Request new link"
+msgstr "Nieuwe koppeling aanvragen"
+
+msgid "Reset Password"
+msgstr "Wachtwoord opnieuw instellen"
+
+msgid "Reset your password"
+msgstr "Reset uw wachtwoord"
+
+msgid "Return"
+msgstr "Opbrengst"
+
+msgid "Return on investment"
+msgstr "Rendement op investering"
+
+msgid "Revenue"
+msgstr "Winst"
+
+msgid "Revenue (€)"
+msgstr "Opbrengst (€)"
+
+msgid "Revenue vs Expenses (6 months)"
+msgstr "Opbrengsten versus uitgaven (6 maanden)"
+
+msgid "Revoke"
+msgstr "Herroepen"
+
+msgid "Revoke access?"
+msgstr "Toegang intrekken?"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Roster"
+msgstr "Rooster"
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Salary"
+msgstr "Salaris"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Save Announcement"
+msgstr "Aankondiging opslaan"
+
+msgid "Save Branding"
+msgstr "Branding opslaan"
+
+msgid "Save Budget"
+msgstr "Bespaar budget"
+
+msgid "Save Campaign"
+msgstr "Campagne opslaan"
+
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+msgid "Save Club"
+msgstr "Club opslaan"
+
+msgid "Save Contract"
+msgstr "Contract opslaan"
+
+msgid "Save Injury"
+msgstr "Bespaar letsel"
+
+msgid "Save Investment"
+msgstr "Bespaar investeringen"
+
+msgid "Save Item"
+msgstr "Artikel opslaan"
+
+msgid "Save Match"
+msgstr "Wedstrijd opslaan"
+
+msgid "Save Plan"
+msgstr "Plan opslaan"
+
+msgid "Save Post"
+msgstr "Bericht opslaan"
+
+msgid "Save Product"
+msgstr "Product opslaan"
+
+msgid "Save Profile"
+msgstr "Profiel opslaan"
+
+msgid "Save Program"
+msgstr "Programma opslaan"
+
+msgid "Save Record"
+msgstr "Opname opslaan"
+
+msgid "Save Sponsorship"
+msgstr "Sponsoring opslaan"
+
+msgid "Save Stats"
+msgstr "Statistieken opslaan"
+
+msgid "Save Talent"
+msgstr "Bewaar talent"
+
+msgid "Save Task"
+msgstr "Taak opslaan"
+
+msgid "Save Tournament"
+msgstr "Toernooi opslaan"
+
+msgid "Save Transaction"
+msgstr "Transactie opslaan"
+
+msgid "Save changes"
+msgstr "Wijzigingen opslaan"
+
+msgid "Save event"
+msgstr "Evenement opslaan"
+
+msgid "Save player"
+msgstr "Speler opslaan"
+
+msgid "Save team"
+msgstr "Bewaar team"
+
+msgid "Schedule first event"
+msgstr "Plan het eerste evenement"
+
+msgid "Scout Report"
+msgstr "Scoutsrapport"
+
+msgid "Scout Reports"
+msgstr "Scoutrapporten"
+
+msgid "Scouted by"
+msgstr "Gescout door"
+
+msgid "Scouting"
+msgstr "Scouting"
+
+msgid "Scouting & Recruitment"
+msgstr "Scouting en werving"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Search by name..."
+msgstr "Zoek op naam..."
+
+msgid "Search by talent or scout..."
+msgstr "Zoek op talent of scout..."
+
+msgid "Search name or SKU..."
+msgstr "Zoek naam of SKU..."
+
+msgid "Search player..."
+msgstr "Zoek speler..."
+
+msgid "Search players, teams, events..."
+msgstr "Zoek spelers, teams, evenementen..."
+
+msgid "Search staff..."
+msgstr "Zoek personeel..."
+
+msgid "Search talents..."
+msgstr "Zoek talenten..."
+
+msgid "Search teams..."
+msgstr "Teams zoeken..."
+
+msgid "Search title or party..."
+msgstr "Titel of partij zoeken..."
+
+msgid "Search title or tags..."
+msgstr "Titel of tags zoeken..."
+
+msgid "Search..."
+msgstr "Zoekopdracht..."
+
+msgid "Season"
+msgstr "Seizoen"
+
+msgid "Season Statistics"
+msgstr "Seizoensstatistieken"
+
+msgid "Seat"
+msgstr "Zitplaats"
+
+msgid "Secondary Color"
+msgstr "Secundaire kleur"
+
+msgid "Secondary position"
+msgstr "Secundaire positie"
+
+msgid "Send reset link"
+msgstr "Resetlink verzenden"
+
+msgid "Set New Password"
+msgstr "Stel een nieuw wachtwoord in"
+
+msgid "Set new password"
+msgstr "Nieuw wachtwoord instellen"
+
+msgid "Set password"
+msgstr "Wachtwoord instellen"
+
+msgid "Set up your profile to buy tickets and earn loyalty points."
+msgstr ""
+"Stel uw profiel in om tickets te kopen en loyaliteitspunten te verdienen."
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Severity"
+msgstr "Ernst"
+
+msgid "Shipping"
+msgstr "Verzending"
+
+msgid "Shipping Address"
+msgstr "Verzendadres"
+
+msgid "Shipping address"
+msgstr "Verzendadres"
+
+msgid "Shop"
+msgstr "Winkel"
+
+msgid "Shopping Cart"
+msgstr "Winkelwagen"
+
+msgid "Short name"
+msgstr "Korte naam"
+
+msgid "Sign Contract"
+msgstr "Contract ondertekenen"
+
+msgid "Sign In"
+msgstr "Inloggen"
+
+msgid "Sign Out"
+msgstr "Uitloggen"
+
+msgid "Sign in"
+msgstr "Log in"
+
+msgid "Sign in to your account to continue."
+msgstr "Meld u aan bij uw account om door te gaan."
+
+msgid "Signed"
+msgstr "Ondertekend"
+
+msgid "Signing in..."
+msgstr "Aanmelden..."
+
+msgid "Silver"
+msgstr "Zilver"
+
+msgid "Slug"
+msgstr "Naaktslak"
+
+msgid "Social & Links"
+msgstr "Sociaal en koppelingen"
+
+msgid "Sold"
+msgstr "Verkocht"
+
+msgid "Spent"
+msgstr "Besteed"
+
+msgid "Spent (€)"
+msgstr "Besteed (€)"
+
+msgid "Sponsor Name"
+msgstr "Sponsornaam"
+
+msgid "Sponsor Portal"
+msgstr "Sponsorportaal"
+
+msgid "Sponsorships"
+msgstr "Sponsorschappen"
+
+msgid "Sport"
+msgstr "Sport"
+
+msgid "Stadium"
+msgstr "Stadion"
+
+msgid "Staff"
+msgstr "Staf"
+
+msgid "Staff & HR"
+msgstr "Personeel & HR"
+
+msgid "Staff Details"
+msgstr "Personeelsgegevens"
+
+msgid "Staff Member"
+msgstr "Staflid"
+
+msgid "Standings"
+msgstr "Stand"
+
+msgid "Start"
+msgstr "Begin"
+
+msgid "Start Date"
+msgstr "Startdatum"
+
+msgid "Start date"
+msgstr "Startdatum"
+
+msgid "Start time"
+msgstr "Begintijd"
+
+msgid "Stats"
+msgstr "Statistieken"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Stock"
+msgstr "Voorraad"
+
+msgid "Stock Movement"
+msgstr "Voorraadbeweging"
+
+msgid "Strengths"
+msgstr "Sterke punten"
+
+msgid "Submit report"
+msgstr "Rapport indienen"
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+msgid "Supplier"
+msgstr "Leverancier"
+
+msgid "Switch"
+msgstr "Schakelaar"
+
+msgid "Switch to Club"
+msgstr "Schakel over naar Club"
+
+msgid "Tactical"
+msgstr "Tactisch"
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "Tags"
+msgstr "Labels"
+
+msgid "Talent Database"
+msgstr "Talentendatabase"
+
+msgid "Talent discovery and player analysis hub"
+msgstr "Hub voor talentontdekking en spelersanalyse"
+
+msgid "Talents"
+msgstr "Talenten"
+
+msgid "Target"
+msgstr "Doel"
+
+msgid "Target Audience"
+msgstr "Doelgroep"
+
+msgid "Target Roles"
+msgstr "Doelrollen"
+
+msgid "Task"
+msgstr "Taak"
+
+msgid "Task Status"
+msgstr "Taakstatus"
+
+msgid "Tasks"
+msgstr "Taken"
+
+msgid "Team"
+msgstr "Team"
+
+msgid "Team name"
+msgstr "Teamnaam"
+
+msgid "Teams"
+msgstr "Teams"
+
+msgid "Technical"
+msgstr "Technisch"
+
+msgid "The complete sports management and entrepreneurship platform."
+msgstr "Het complete platform voor sportmanagement en ondernemerschap."
+
+msgid "This reset link is invalid or has expired."
+msgstr "Deze resetlink is ongeldig of verlopen."
+
+msgid ""
+"This will create the specified number of tickets immediately. Seats will be "
+"numbered 1, 2, 3 … sequentially."
+msgstr ""
+"Hierdoor wordt direct het opgegeven aantal tickets aangemaakt. De "
+"zitplaatsen worden genummerd 1, 2, 3 … opeenvolgend."
+
+msgid "Ticket"
+msgstr "Ticket"
+
+msgid "Ticket Admin"
+msgstr "Ticketbeheerder"
+
+msgid "Ticket Categories"
+msgstr "Ticketcategorieën"
+
+msgid "Ticket Details"
+msgstr "Ticketgegevens"
+
+msgid "Ticket Management"
+msgstr "Ticketbeheer"
+
+msgid "Tickets"
+msgstr "Tickets"
+
+msgid "Tier"
+msgstr "Laag"
+
+msgid "Time"
+msgstr "Tijd"
+
+msgid "Timeline Notes"
+msgstr "Tijdlijnnotities"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Top Scorers"
+msgstr "Topscorers"
+
+msgid "Top Talents"
+msgstr "Toptalenten"
+
+msgid "Total"
+msgstr "Totaal"
+
+msgid "Total Items"
+msgstr "Totaal aantal artikelen"
+
+msgid "Total Paid"
+msgstr "Totaal betaald"
+
+msgid "Total Value"
+msgstr "Totale waarde"
+
+msgid "Total points"
+msgstr "Totaal aantal punten"
+
+msgid "Tournament Settings"
+msgstr "Toernooi-instellingen"
+
+msgid "Tournaments"
+msgstr "Toernooien"
+
+msgid "Tournaments & Competitions"
+msgstr "Toernooien en competities"
+
+msgid "Transactions"
+msgstr "Transacties"
+
+msgid "Treatments"
+msgstr "Behandelingen"
+
+msgid "Twitter / X"
+msgstr "Twitter / X"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Unavailable"
+msgstr "Niet beschikbaar"
+
+msgid "Unit"
+msgstr "Eenheid"
+
+msgid "Unit Price"
+msgstr "Eenheidsprijs"
+
+msgid "Upcoming"
+msgstr "Aankomend"
+
+msgid "Upcoming Events"
+msgstr "Aankomende evenementen"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Update Status"
+msgstr "Status bijwerken"
+
+msgid "Upload"
+msgstr "Uploaden"
+
+msgid "Upload Video"
+msgstr "Video uploaden"
+
+msgid ""
+"Use a positive number to add points, negative to deduct. The fan's tier will"
+" be recalculated automatically."
+msgstr ""
+"Gebruik een positief getal om punten toe te voegen, een negatief getal om "
+"punten af ​​te trekken. Het niveau van de fan wordt automatisch opnieuw "
+"berekend."
+
+msgid "User"
+msgstr "Gebruiker"
+
+msgid "Value"
+msgstr "Waarde"
+
+msgid "Value (€)"
+msgstr "Waarde (€)"
+
+msgid "Venue"
+msgstr "Locatie"
+
+msgid "Victory"
+msgstr "Overwinning"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Video Library"
+msgstr "Videotheek"
+
+msgid "Videos"
+msgstr "Video's"
+
+msgid "View"
+msgstr "Bekijken"
+
+msgid "View & Buy"
+msgstr "Bekijk & Koop"
+
+msgid "View Clubs"
+msgstr "Clubs bekijken"
+
+msgid "View File"
+msgstr "Bestand bekijken"
+
+msgid "View Medical Records"
+msgstr "Medische dossiers bekijken"
+
+msgid "View Plans"
+msgstr "Bekijk plannen"
+
+msgid "View all"
+msgstr "Bekijk alles"
+
+msgid "View details"
+msgstr "Bekijk details"
+
+msgid "View history"
+msgstr "Geschiedenis bekijken"
+
+msgid "View tickets"
+msgstr "Bekijk kaartjes"
+
+msgid "Visit website"
+msgstr "Bezoek website"
+
+msgid "Watch"
+msgstr "Horloge"
+
+msgid "Watchlist"
+msgstr "Volglijst"
+
+msgid ""
+"We've sent a password reset link to your email address. The link expires in "
+"24 hours."
+msgstr ""
+"We hebben een link voor het opnieuw instellen van uw wachtwoord naar uw "
+"e-mailadres gestuurd. De link verloopt binnen 24 uur."
+
+msgid "Weaknesses"
+msgstr "Zwakke punten"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Weight"
+msgstr "Gewicht"
+
+msgid "Weight (kg)"
+msgstr "Gewicht (kg)"
+
+msgid "Welcome back"
+msgstr "Welkom terug"
+
+msgid "Write first post"
+msgstr "Schrijf eerste bericht"
+
+msgid "Write first report"
+msgstr "Schrijf het eerste rapport"
+
+msgid "Yellow Cards"
+msgstr "Gele kaarten"
+
+msgid "You will earn"
+msgstr "Je zult verdienen"
+
+msgid "You've reached the highest tier!"
+msgstr "Je hebt het hoogste niveau bereikt!"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Your Cart"
+msgstr "Uw winkelwagen"
+
+msgid "Your browser does not support the video tag."
+msgstr "Uw browser ondersteunt de videotag niet."
+
+msgid "Your cart is empty"
+msgstr "Uw winkelwagen is leeg"
+
+msgid "Your cart is empty."
+msgstr "Uw winkelwagen is leeg."
+
+msgid "Your delivery address"
+msgstr "Uw afleveradres"
+
+msgid "Your password has been set. You can now sign in."
+msgstr "Uw wachtwoord is ingesteld. U kunt nu inloggen."
+
+msgid "Your watchlist is empty."
+msgstr "Je volglijst is leeg."
+
+msgid "achieved"
+msgstr "bereikt"
+
+msgid "active value"
+msgstr "actieve waarde"
+
+msgid "afternoon"
+msgstr "middag"
+
+msgid "ago"
+msgstr "geleden"
+
+msgid "allocated"
+msgstr "toegewezen"
+
+msgid "comma-separated, leave blank for all"
+msgstr "door komma's gescheiden, laat voor iedereen blanco"
+
+msgid "days"
+msgstr "dagen"
+
+msgid "e.g. km/h, %"
+msgstr "bijv. km/u, %"
+
+msgid "each"
+msgstr "elk"
+
+msgid "evening"
+msgstr "avond"
+
+msgid "in stock"
+msgstr "op voorraad"
+
+msgid "item(s)"
+msgstr "artikel(en)"
+
+msgid "items are low on stock"
+msgstr "artikelen zijn weinig op voorraad"
+
+msgid "loyalty points with this purchase."
+msgstr "loyaliteitspunten bij deze aankoop."
+
+msgid "matches"
+msgstr "wedstrijden"
+
+msgid "member(s)"
+msgstr "lid(s)"
+
+msgid "morning"
+msgstr "ochtend"
+
+msgid "notice"
+msgstr "kennisgeving"
+
+msgid "out of 10"
+msgstr "uit 10"
+
+msgid "overall"
+msgstr "algemeen"
+
+msgid "overdue"
+msgstr "verlopen"
+
+msgid "players"
+msgstr "spelers"
+
+msgid "players in database"
+msgstr "spelers in de database"
+
+msgid "pts"
+msgstr "punten"
+
+msgid "remaining"
+msgstr "overig"
+
+msgid "space-separated"
+msgstr "ruimte gescheiden"
+
+msgid "spent"
+msgstr "besteed"
+
+msgid "teams"
+msgstr "ploegen"
+
+msgid "teams registered"
+msgstr "ploegen ingeschreven"
+
+msgid "this month"
+msgstr "deze maand"
+
+msgid "to next tier"
+msgstr "naar het volgende niveau"
+
+msgid "view them"
+msgstr "bekijk ze"
+
+msgid "views"
+msgstr "bekeken"
+
+msgid "yrs"
+msgstr "jaar"
+
+msgid "Help Center"
+msgstr "Helpcentrum"
+
+msgid "Everything you need to know about using ApexForge."
+msgstr "Alles wat u moet weten over het gebruik van ApexForge."
+
+msgid "Modules"
+msgstr "Modules"
+
+msgid "Your command centre — an overview of the entire club at a glance."
+msgstr "Uw controlecentrum — een overzicht van de hele club in één oogopslag."
+
+msgid ""
+"Manage every player in your club — profiles, stats, injuries, and "
+"performance."
+msgstr ""
+"Beheer elke speler in uw club — profielen, statistieken, blessures en "
+"prestaties."
+
+msgid "Create and manage teams, rosters, seasons and divisions."
+msgstr "Maak teams, selecties, seizoenen en divisies aan en beheer ze."
+
+msgid "Schedule and track fixtures, training sessions, meetings and more."
+msgstr "Plan en volg wedstrijden, trainingen, vergaderingen en meer."
+
+msgid ""
+"Run competitions, track standings, schedule matches, and build lineups."
+msgstr ""
+"Organiseer competities, volg de stand, plan wedstrijden en stel opstellingen"
+" samen."
+
+msgid ""
+"Create and manage all contract types — player, staff, sponsorship, vendor "
+"and more."
+msgstr ""
+"Maak alle contracttypes aan en beheer ze — speler, staf, sponsoring, "
+"leverancier en meer."
+
+msgid "Manage staff members, departments, tasks, and payroll."
+msgstr "Beheer personeelsleden, afdelingen, taken en salarisadministratie."
+
+msgid "Track player injuries, recovery plans and treatments."
+msgstr "Volg spelerblessures, herstelplannen en behandelingen."
+
+msgid "Transactions, budgets, sponsorships, investments, and the club shop."
+msgstr "Transacties, budgetten, sponsoring, investeringen en de clubwinkel."
+
+msgid "Track equipment, kits and supplies across the club."
+msgstr "Volg apparatuur, uitrustingen en benodigdheden in de hele club."
+
+msgid "Discover and track talent, write scout reports, and manage watchlists."
+msgstr "Ontdek en volg talent, schrijf scoutrapporten en beheer volglijsten."
+
+msgid "Multi-club structure — organizations contain one or more clubs."
+msgstr "Meerclubbstructuur — organisaties bevatten één of meer clubs."
+
+msgid "Structured youth development — programs, plans, and milestones."
+msgstr ""
+"Gestructureerde jeugdontwikkeling — programma's, plannen en mijlpalen."
+
+msgid ""
+"Publish news, manage announcements, run campaigns, and showcase sponsors."
+msgstr ""
+"Publiceer nieuws, beheer aankondigingen, voer campagnes en toon sponsors."
+
+msgid "Upload match footage, training clips and analysis videos."
+msgstr "Upload wedstrijdbeelden, trainingsclips en analysevideos."
+
+msgid "Ticket sales, loyalty points, and fan engagement."
+msgstr "Kaartverkoop, loyaliteitspunten en fanengagement."
+
+msgid ""
+"Read-only analytics dashboard pulling data from across the entire platform."
+msgstr ""
+"Alleen-lezen analysedashboard dat gegevens van het hele platform verzamelt."
+
+msgid "What you see"
+msgstr "Wat u ziet"
+
+msgid "Tips"
+msgstr "Tips"
+
+msgid "Player List"
+msgstr "Spelerslijst"
+
+msgid "Creating a Player"
+msgstr "Een speler aanmaken"
+
+msgid "Player Detail Page — Actions"
+msgstr "Spelersdetailpagina — Acties"
+
+msgid "Creating a Team"
+msgstr "Een team aanmaken"
+
+msgid "Managing the Roster"
+msgstr "De selectie beheren"
+
+msgid "Event Types"
+msgstr "Evenementtypes"
+
+msgid "Calendar View"
+msgstr "Kalenderweergave"
+
+msgid "Creating an Event"
+msgstr "Een evenement aanmaken"
+
+msgid "Step 1 — Create a Competition"
+msgstr "Stap 1 — Maak een competitie aan"
+
+msgid "Step 2 — Add Matches"
+msgstr "Stap 2 — Voeg wedstrijden toe"
+
+msgid "Step 3 — Lineup Builder"
+msgstr "Stap 3 — Opstellingsbouwer"
+
+msgid "Creating a Contract"
+msgstr "Een contract aanmaken"
+
+msgid "Signing a Contract"
+msgstr "Een contract ondertekenen"
+
+msgid "Adding Clauses"
+msgstr "Clausules toevoegen"
+
+msgid "Alerts"
+msgstr "Meldingen"
+
+msgid "Adding a Staff Member"
+msgstr "Een personeelslid toevoegen"
+
+msgid "Logging an Injury"
+msgstr "Een blessure registreren"
+
+msgid "Recovery Plans & Treatments"
+msgstr "Herstelplannen en behandelingen"
+
+msgid "Email Alerts"
+msgstr "E-mailmeldingen"
+
+msgid "Stock Movements"
+msgstr "Voorraadbewegingen"
+
+msgid "Kit Assignment"
+msgstr "Uitrusttoewijzing"
+
+msgid "Talent Profiles"
+msgstr "Talentprofielen"
+
+msgid "Watchlists"
+msgstr "Volglijsten"
+
+msgid "Structure"
+msgstr "Structuur"
+
+msgid "Switching Clubs"
+msgstr "Van club wisselen"
+
+msgid "News Posts"
+msgstr "Nieuwsberichten"
+
+msgid "Uploading a Video"
+msgstr "Een video uploaden"
+
+msgid "Video Notes & Analysis"
+msgstr "Videonotities en analyse"
+
+msgid "Tickets (Manager)"
+msgstr "Tickets (Beheerder)"
+
+msgid "Buying a Ticket (Fan)"
+msgstr "Een ticket kopen (Fan)"
+
+msgid "What's included"
+msgstr "Wat is inbegrepen"
+
+msgid "Organizations & Clubs"
+msgstr "Organisaties en clubs"
+
+msgid "Marketing & News"
+msgstr "Marketing en nieuws"
+
+msgid "Field"
+msgstr "Veld"
+
+msgid "Required"
+msgstr "Vereist"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Full Name"
+msgstr "Volledige naam"
+
+msgid "First and last name"
+msgstr "Voor- en achternaam"
+
+msgid "Football, Basketball, etc."
+msgstr "Voetbal, basketbal, enz."
+
+msgid "e.g. Midfielder, Forward"
+msgstr "bijv. Middenvelder, Aanvaller"
+
+msgid "Auto-calculates age"
+msgstr "Berekent leeftijd automatisch"
+
+msgid "Country name"
+msgstr "Landnaam"
+
+msgid "Active / Injured / Suspended / Retired / Transfer"
+msgstr "Actief / Geblesseerd / Geschorst / Gestopt / Transfer"
+
+msgid "Height / Weight"
+msgstr "Lengte / Gewicht"
+
+msgid "cm and kg"
+msgstr "cm en kg"
+
+msgid "Market Value"
+msgstr "Marktwaarde"
+
+msgid "Used in finance reports"
+msgstr "Gebruikt in financiële rapporten"
+
+msgid "JPG/PNG, shown on profile"
+msgstr "JPG/PNG, weergegeven op profiel"
+
+msgid "Team Name"
+msgstr "Teamnaam"
+
+msgid "Full team name"
+msgstr "Volledige teamnaam"
+
+msgid "Active / Inactive / Disbanded"
+msgstr "Actief / Inactief / Ontbonden"
+
+msgid "Home Venue"
+msgstr "Thuislocatie"
+
+msgid "Stadium or ground name"
+msgstr "Naam van stadion of veld"
+
+msgid "Manager / Coach"
+msgstr "Manager / Coach"
+
+msgid "Link to Staff members"
+msgstr "Koppeling naar personeelsleden"
+
+msgid "JPG/PNG team badge"
+msgstr "JPG/PNG teamembleem"
+
+msgid "e.g. Premier League 2026-27"
+msgstr "bijv. Premier League 2026-27"
+
+msgid "Auto-generated from name — leave blank"
+msgstr "Automatisch gegenereerd op basis van naam — leeg laten"
+
+msgid "e.g. 2026-27"
+msgstr "bijv. 2026-27"
+
+msgid "Competition Type"
+msgstr "Competitietype"
+
+msgid "League / Cup / Group+Knockout / Round Robin / Friendly"
+msgstr ""
+"Competitie / Beker / Groep+Knock-out / Round Robin / Vriendschappelijk"
+
+msgid "Draft → Upcoming → Active → Completed"
+msgstr "Concept → Aankomend → Actief → Voltooid"
+
+msgid "Start / End Date"
+msgstr "Start- / Einddatum"
+
+msgid "Competition date range"
+msgstr "Datumbereik competitie"
+
+msgid "Tick participating teams (create teams first)"
+msgstr "Vink deelnemende teams aan (maak eerst teams aan)"
+
+msgid "Prize Pool"
+msgstr "Prijzenpot"
+
+msgid "Total prize in €"
+msgstr "Totale prijs in €"
+
+msgid "Descriptive name for the contract"
+msgstr "Beschrijvende naam voor het contract"
+
+msgid "Contract Type"
+msgstr "Contracttype"
+
+msgid "Player / Staff / Sponsorship / Vendor / Facility / Other"
+msgstr "Speler / Personeel / Sponsoring / Leverancier / Faciliteit / Overig"
+
+msgid "Party Name"
+msgstr "Naam van de partij"
+
+msgid "The other party's name"
+msgstr "De naam van de andere partij"
+
+msgid "Contract duration"
+msgstr "Contractduur"
+
+msgid "Contract monetary value"
+msgstr "Monetaire waarde van het contract"
+
+msgid "Currency"
+msgstr "Valuta"
+
+msgid "EUR / USD / GBP"
+msgstr "EUR / USD / GBP"
+
+msgid "Draft → Active → Expired / Terminated"
+msgstr "Concept → Actief → Verlopen / Beëindigd"
+
+msgid "File Upload"
+msgstr "Bestand uploaden"
+
+msgid "Attach the signed PDF/DOC"
+msgstr "Voeg de ondertekende PDF/DOC toe"
+
+msgid ""
+"Clause types: Performance / Bonus / Penalty / Confidentiality / Termination "
+"/ Renewal / Other."
+msgstr ""
+"Clausuletypes: Prestatie / Bonus / Boete / Vertrouwelijkheid / Beëindiging /"
+" Verlenging / Overig."
+
+msgid ""
+"Managers receive an email notification for expiring contracts (via daily "
+"digest)."
+msgstr ""
+"Managers ontvangen een e-mailmelding voor aflopende contracten (via "
+"dagelijkse samenvatting)."
+
+msgid "Use the search box to find by name."
+msgstr "Gebruik het zoekvak om op naam te zoeken."
+
+msgid "Events are colour-coded by type."
+msgstr "Evenementen zijn kleurgecodeerd per type."
+
+msgid "Click any event on the calendar to see details."
+msgstr "Klik op een evenement in de kalender om details te zien."
+
+msgid "Create tasks and assign them to any staff member."
+msgstr "Maak taken aan en wijs ze toe aan een personeelslid."
+
+msgid ""
+"Overdue tasks (past due date, not completed) are flagged automatically."
+msgstr ""
+"Achterstallige taken (na de vervaldatum, niet voltooid) worden automatisch "
+"gemarkeerd."
+
+msgid "Managers see all tasks; staff see only their own."
+msgstr "Managers zien alle taken; personeel ziet alleen hun eigen taken."
+
+msgid "Every movement is logged with the user who performed it."
+msgstr ""
+"Elke beweging wordt geregistreerd met de gebruiker die het heeft uitgevoerd."
+
+msgid "Status: Available / Trialing / Signed / Rejected."
+msgstr "Status: Beschikbaar / Proef / Getekend / Afgewezen."
+
+msgid ""
+"All KPIs, player lists, and reports update to reflect the selected club."
+msgstr ""
+"Alle KPI's, spelerslijsten en rapporten worden bijgewerkt om de "
+"geselecteerde club weer te geven."
+
+msgid "Roles: Manager / Staff / Viewer / Coach / Scout."
+msgstr "Rollen: Manager / Personeel / Kijker / Coach / Scout."
+
+msgid "Add milestones to a plan (e.g. \"First team training appearance\")."
+msgstr ""
+"Voeg mijlpalen toe aan een plan (bijv. \"Eerste training met het eerste "
+"elftal\")."
+
+msgid "View counts are tracked per post automatically."
+msgstr "Weergavetellingen worden automatisch per bericht bijgehouden."
+
+msgid "Active announcements are shown site-wide."
+msgstr "Actieve aankondigingen worden sitebreed weergegeven."
+
+msgid "Filter by type, category, or date range."
+msgstr "Filter op type, categorie of datumbereik."
+
+msgid "Create a budget for a team and category (e.g. Travel, Equipment)."
+msgstr ""
+"Maak een budget aan voor een team en categorie (bijv. Reizen, Uitrusting)."
+
+msgid "Actual spending is tracked against the budget automatically."
+msgstr ""
+"Werkelijke uitgaven worden automatisch bijgehouden ten opzichte van het "
+"budget."
+
+msgid ""
+"Track sponsor companies, deal amounts, start/end dates, and contact details."
+msgstr ""
+"Volg sponsorbedrijven, dealsbedragen, begin-/einddatums en contactgegevens."
+
+msgid "Types: Shirt / Kit / Stadium / Digital / Official / Other."
+msgstr "Types: Shirt / Uitrusting / Stadion / Digitaal / Officieel / Overig."
+
+msgid "Delete notes you no longer need."
+msgstr "Verwijder notities die u niet meer nodig heeft."
+
+msgid "Points are earned on ticket purchases and shop orders."
+msgstr "Punten worden verdiend bij kaartaankopen en winkelbestellingen."
+
+msgid ""
+"All data is read-only — use the respective module pages to make changes."
+msgstr ""
+"Alle gegevens zijn alleen-lezen — gebruik de betreffende modulepagina's om "
+"wijzigingen aan te brengen."
+
+msgid ""
+"<strong>KPI cards</strong> — Total teams, active players, upcoming events, "
+"monthly income &amp; expenses."
+msgstr ""
+"<strong>KPI-kaarten</strong> — Totaal teams, actieve spelers, aankomende "
+"evenementen, maandelijkse inkomsten &amp; uitgaven."
+
+msgid ""
+"<strong>6-month finance chart</strong> — Income vs expense trend bar chart."
+msgstr ""
+"<strong>Financieel overzicht 6 maanden</strong> — Staafdiagram van inkomsten"
+" versus uitgaven."
+
+msgid ""
+"<strong>Recent activity</strong> — Latest actions taken across the platform."
+msgstr ""
+"<strong>Recente activiteit</strong> — Laatste acties op het hele platform."
+
+msgid "<strong>Quick links</strong> — Fast access to frequently used pages."
+msgstr ""
+"<strong>Snelkoppelingen</strong> — Snelle toegang tot veelgebruikte "
+"pagina's."
+
+msgid ""
+"KPI numbers are scoped to your <strong>active club</strong> — switch clubs "
+"using the dropdown in the top-left sidebar."
+msgstr ""
+"KPI-nummers zijn gericht op uw <strong>actieve club</strong> — wissel van "
+"club via het vervolgkeuzemenu in de linker bovenhoek van de zijbalk."
+
+msgid ""
+"The bell icon (🔔) in the top navbar shows unread notifications. Click to "
+"expand."
+msgstr ""
+"Het belpictogram (🔔) in de bovenste navigatiebalk toont ongelezen meldingen."
+" Klik om uit te vouwen."
+
+msgid ""
+"Use the search bar (top navbar) to find players, teams, or events quickly — "
+"minimum 2 characters."
+msgstr ""
+"Gebruik de zoekbalk (bovenste navigatiebalk) om snel spelers, teams of "
+"evenementen te vinden — minimaal 2 tekens."
+
+msgid ""
+"Filter by <strong>Status</strong> (Active / Injured / Suspended / Retired / "
+"Transfer), <strong>Position</strong>, or <strong>Sport</strong>."
+msgstr ""
+"Filter op <strong>Status</strong> (Actief / Geblesseerd / Geschorst / "
+"Gestopt / Transfer), <strong>Positie</strong> of <strong>Sport</strong>."
+
+msgid ""
+"Click <strong>Export Excel</strong> to download all players as a "
+"spreadsheet."
+msgstr ""
+"Klik op <strong>Excel exporteren</strong> om alle spelers als spreadsheet te"
+" downloaden."
+
+msgid "Click <strong>+ Add Player</strong> and fill in:"
+msgstr "Klik op <strong>+ Speler toevoegen</strong> en vul in:"
+
+msgid ""
+"<strong>📊 Stats</strong> — Add season statistics (goals, assists, "
+"appearances, cards, rating…)."
+msgstr ""
+"<strong>📊 Statistieken</strong> — Voeg seizoensstatistieken toe (doelpunten,"
+" assists, optredens, kaarten, beoordeling…)."
+
+msgid ""
+"<strong>🏥 Injury</strong> — Log a new injury. Player status automatically "
+"changes to <em>Injured</em>."
+msgstr ""
+"<strong>🏥 Blessure</strong> — Registreer een nieuwe blessure. De "
+"spelerstatus verandert automatisch naar <em>Geblesseerd</em>."
+
+msgid ""
+"<strong>📈 Metric</strong> — Record a performance metric (speed, stamina, "
+"etc.) for trend tracking."
+msgstr ""
+"<strong>📈 Metriek</strong> — Registreer een prestatiemetriek (snelheid, "
+"uithoudingsvermogen, enz.) voor trendopvolging."
+
+msgid ""
+"<strong>🔍 Scout Report</strong> — Create a scouting report for the player."
+msgstr ""
+"<strong>🔍 Scoutrapport</strong> — Maak een scoutrapport aan voor de speler."
+
+msgid "<strong>📄 PDF</strong> — Download a formatted player profile PDF."
+msgstr ""
+"<strong>📄 PDF</strong> — Download een opgemaakt spelersprofiel als PDF."
+
+msgid ""
+"On a team detail page click <strong>+ Add to Roster</strong> to assign an "
+"existing player."
+msgstr ""
+"Klik op de detailpagina van een team op <strong>+ Toevoegen aan "
+"selectie</strong> om een bestaande speler toe te wijzen."
+
+msgid ""
+"Set the player's <strong>jersey number</strong>, <strong>position</strong>, "
+"and whether they are <strong>captain</strong>."
+msgstr ""
+"Stel het <strong>rugnummer</strong>, de <strong>positie</strong> van de "
+"speler in en of hij/zij <strong>aanvoerder</strong> is."
+
+msgid ""
+"<strong>Import CSV</strong> — Upload a CSV file to bulk-add players. "
+"Columns: Name, Position, Nationality, DOB. New players are created "
+"automatically."
+msgstr ""
+"<strong>CSV importeren</strong> — Upload een CSV-bestand om spelers in bulk "
+"toe te voegen. Kolommen: Naam, Positie, Nationaliteit, Geboortedatum. Nieuwe"
+" spelers worden automatisch aangemaakt."
+
+msgid ""
+"<strong>Export CSV</strong> — Download the full roster as a spreadsheet."
+msgstr ""
+"<strong>CSV exporteren</strong> — Download de volledige selectie als "
+"spreadsheet."
+
+msgid ""
+"Click <strong>Calendar</strong> to see all events on an interactive "
+"monthly/weekly calendar."
+msgstr ""
+"Klik op <strong>Kalender</strong> om alle evenementen op een interactieve "
+"maandelijkse/wekelijkse kalender te zien."
+
+msgid ""
+"Choose <strong>Event Type</strong> first — if Fixture, extra fields "
+"(opponent, scores) appear."
+msgstr ""
+"Kies eerst <strong>Evenementtype</strong> — als het een wedstrijd is, "
+"verschijnen extra velden (tegenstander, scores)."
+
+msgid "Select the <strong>Team</strong> the event belongs to."
+msgstr "Selecteer het <strong>Team</strong> waartoe het evenement behoort."
+
+msgid "Set <strong>Start Date &amp; Time</strong> and optionally an End Date."
+msgstr ""
+"Stel <strong>Startdatum &amp; -tijd</strong> in en optioneel een einddatum."
+
+msgid "Add a <strong>Location</strong> (stadium, training ground, etc.)."
+msgstr ""
+"Voeg een <strong>Locatie</strong> toe (stadion, trainingscomplex, enz.)."
+
+msgid ""
+"<strong>Fixture</strong> — A competitive match. Creates a sub-record with "
+"home/away scores and venue."
+msgstr ""
+"<strong>Wedstrijd</strong> — Een competitieve wedstrijd. Maakt een subrecord"
+" aan met thuis-/uitscores en locatie."
+
+msgid "<strong>Training</strong> — Training session for a team."
+msgstr "<strong>Training</strong> — Trainingssessie voor een team."
+
+msgid "<strong>Meeting</strong> — Staff or board meeting."
+msgstr "<strong>Vergadering</strong> — Personeel- of bestuursvergadering."
+
+msgid ""
+"<strong>Tournament</strong> — A tournament event (separate from the "
+"Competitions module)."
+msgstr ""
+"<strong>Toernooi</strong> — Een toernooievenement (los van de "
+"Competitiesmodule)."
+
+msgid "Open the competition → click <strong>+ Add Match</strong>."
+msgstr "Open de competitie → klik op <strong>+ Wedstrijd toevoegen</strong>."
+
+msgid ""
+"Select <strong>Home Team</strong> and <strong>Away Team</strong> from the "
+"competition's team list."
+msgstr ""
+"Selecteer <strong>Thuisteam</strong> en <strong>Uitteam</strong> uit de "
+"teamlijst van de competitie."
+
+msgid ""
+"Set <strong>Date &amp; Time</strong>, <strong>Venue</strong>, and "
+"<strong>Round Number</strong>."
+msgstr ""
+"Stel <strong>Datum &amp; Tijd</strong>, <strong>Locatie</strong> en "
+"<strong>Rondenummer</strong> in."
+
+msgid ""
+"Leave scores blank until the match is played — set Status to "
+"<em>Completed</em> and enter scores to auto-update standings."
+msgstr ""
+"Laat scores leeg totdat de wedstrijd gespeeld is — stel Status in op "
+"<em>Voltooid</em> en voer scores in om de stand automatisch bij te werken."
+
+msgid ""
+"On the competition detail page, click <strong>📋 Lineup</strong> next to any "
+"match."
+msgstr ""
+"Klik op de detailpagina van de competitie op <strong>📋 Opstelling</strong> "
+"naast een wedstrijd."
+
+msgid ""
+"Switch between <strong>Home</strong> and <strong>Away</strong> team tabs."
+msgstr ""
+"Wissel tussen de tabbladen <strong>Thuis</strong> en <strong>Uit</strong>."
+
+msgid ""
+"Select a <strong>formation</strong> (4-4-2, 4-3-3, 4-2-3-1, 3-5-2, 5-3-2, "
+"4-1-4-1, 3-4-3)."
+msgstr ""
+"Selecteer een <strong>formatie</strong> (4-4-2, 4-3-3, 4-2-3-1, 3-5-2, "
+"5-3-2, 4-1-4-1, 3-4-3)."
+
+msgid ""
+"Click an <strong>empty position slot</strong> on the pitch (it turns "
+"yellow), then click a player from the squad list to assign."
+msgstr ""
+"Klik op een <strong>leeg positievak</strong> op het veld (het wordt geel), "
+"klik vervolgens op een speler uit de selectielijst om toe te wijzen."
+
+msgid ""
+"Hover a player token → click <strong>×</strong> to remove, or "
+"<strong>☆</strong> to set as captain."
+msgstr ""
+"Beweeg over een spelerstoken → klik op <strong>×</strong> om te verwijderen,"
+" of <strong>☆</strong> om aanvoerder in te stellen."
+
+msgid ""
+"Click a player <em>without</em> selecting a slot to add them to the "
+"<strong>substitutes bench</strong>."
+msgstr ""
+"Klik op een speler <em>zonder</em> een vak te selecteren om hem toe te "
+"voegen aan de <strong>reservebank</strong>."
+
+msgid ""
+"Click <strong>💾 Save Lineup</strong> to save. A toast confirmation appears."
+msgstr ""
+"Klik op <strong>💾 Opstelling opslaan</strong> om op te slaan. Een "
+"bevestigingsmelding verschijnt."
+
+msgid ""
+"Open a contract in <em>Draft</em> status → click <strong>✍️ Sign "
+"Contract</strong>."
+msgstr ""
+"Open een contract met status <em>Concept</em> → klik op <strong>✍️ Contract "
+"ondertekenen</strong>."
+
+msgid ""
+"Status changes to <em>Active</em> and the signed date + signed-by user are "
+"recorded."
+msgstr ""
+"Status verandert naar <em>Actief</em> en de ondertekeningsdatum + "
+"ondertekend door gebruiker worden vastgelegd."
+
+msgid "On the contract detail page click <strong>+ Add Clause</strong>."
+msgstr ""
+"Klik op de contractdetailpagina op <strong>+ Clausule toevoegen</strong>."
+
+msgid ""
+"Mark important clauses as <strong>Key Clause</strong> to highlight them."
+msgstr ""
+"Markeer belangrijke clausules als <strong>Sleutelclausule</strong> om ze te "
+"benadrukken."
+
+msgid ""
+"Use the <strong>Order</strong> field to control clause display sequence."
+msgstr ""
+"Gebruik het veld <strong>Volgorde</strong> om de weergavevolgorde van "
+"clausules te bepalen."
+
+msgid ""
+"Contracts expiring within the <em>renewal notice</em> window show a ⚠️ "
+"warning."
+msgstr ""
+"Contracten die aflopen binnen het <em>verlengingsmelding</em>venster tonen "
+"een ⚠️ waarschuwing."
+
+msgid ""
+"Download a <strong>📄 PDF</strong> version from the contract detail page."
+msgstr ""
+"Download een <strong>📄 PDF</strong>-versie van de contractdetailpagina."
+
+msgid "The user account must be created in <strong>Accounts</strong> first."
+msgstr ""
+"Het gebruikersaccount moet eerst worden aangemaakt in "
+"<strong>Accounts</strong>."
+
+msgid ""
+"Set <strong>Job Title</strong>, <strong>Department</strong>, "
+"<strong>Employment Type</strong> (Full-Time / Part-Time / Contract / "
+"Volunteer / Freelance)."
+msgstr ""
+"Stel <strong>Functietitel</strong>, <strong>Afdeling</strong>, "
+"<strong>Arbeidstype</strong> in (Voltijd / Deeltijd / Contract / "
+"Vrijwilliger / Freelance)."
+
+msgid ""
+"Enter <strong>Hire Date</strong> and optionally a <strong>Contract "
+"End</strong> date."
+msgstr ""
+"Voer de <strong>Indiensttreding</strong>sdatum in en optioneel een "
+"<strong>Contracteinde</strong>datum."
+
+msgid ""
+"Set a base <strong>Salary</strong> — this is used as the default gross in "
+"payroll."
+msgstr ""
+"Stel een basis <strong>Salaris</strong> in — dit wordt gebruikt als "
+"standaard bruto in de salarisadministratie."
+
+msgid "Priorities: <strong>Low / Medium / High / Urgent</strong>."
+msgstr "Prioriteiten: <strong>Laag / Gemiddeld / Hoog / Urgent</strong>."
+
+msgid "Click <strong>+ Add Entry</strong> on the Payroll page."
+msgstr ""
+"Klik op <strong>+ Invoer toevoegen</strong> op de "
+"Salarisadministratiepagina."
+
+msgid ""
+"Select the <strong>Staff Member</strong>, set <strong>Period Start &amp; "
+"End</strong> dates."
+msgstr ""
+"Selecteer het <strong>Personeelslid</strong>, stel de datums <strong>Periode"
+" start &amp; einde</strong> in."
+
+msgid ""
+"Enter <strong>Gross Salary</strong>, <strong>Deductions</strong> (tax, "
+"insurance), and <strong>Bonuses</strong>."
+msgstr ""
+"Voer <strong>Bruto salaris</strong>, <strong>Inhoudingen</strong> "
+"(belasting, verzekering) en <strong>Bonussen</strong> in."
+
+msgid ""
+"<strong>Net Salary</strong> = Gross + Bonuses − Deductions (auto-calculated "
+"on save)."
+msgstr ""
+"<strong>Netto salaris</strong> = Bruto + Bonussen − Inhoudingen (automatisch"
+" berekend bij opslaan)."
+
+msgid ""
+"Download a formatted <strong>📄 PDF payroll slip</strong> from the row's PDF "
+"button."
+msgstr ""
+"Download een opgemaakt <strong>📄 PDF loonstrookje</strong> via de PDF-knop "
+"in de rij."
+
+msgid ""
+"Go to <strong>Medical → + Log Injury</strong>, or click <strong>🏥 "
+"Injury</strong> from a player's detail page."
+msgstr ""
+"Ga naar <strong>Medisch → + Blessure registreren</strong>, of klik op "
+"<strong>🏥 Blessure</strong> op de detailpagina van een speler."
+
+msgid ""
+"Select the <strong>Player</strong>, <strong>Body Part</strong> (Head / Knee "
+"/ Ankle etc.), and <strong>Severity</strong> (Minor / Moderate / Severe)."
+msgstr ""
+"Selecteer de <strong>Speler</strong>, <strong>Lichaamsdeel</strong> (Hoofd /"
+" Knie / Enkel enz.) en <strong>Ernst</strong> (Licht / Matig / Ernstig)."
+
+msgid ""
+"Enter the <strong>Injury Date</strong> and an <strong>Expected "
+"Recovery</strong> date."
+msgstr ""
+"Voer de <strong>Blessuredatum</strong> en een <strong>Verwacht "
+"herstel</strong>datum in."
+
+msgid ""
+"The player's status automatically changes to <em>Injured</em> when saved."
+msgstr ""
+"De spelerstatus verandert automatisch naar <em>Geblesseerd</em> bij opslaan."
+
+msgid ""
+"Open an injury record → <strong>+ Add Treatment</strong> to log physio "
+"sessions, medication etc."
+msgstr ""
+"Open een blessuredossier → <strong>+ Behandeling toevoegen</strong> om "
+"fysiotherapiesessies, medicatie enz. te registreren."
+
+msgid ""
+"Create a <strong>Recovery Plan</strong> with milestones and a target return "
+"date."
+msgstr ""
+"Maak een <strong>Herstelplan</strong> aan met mijlpalen en een beoogde "
+"terugkeerdatum."
+
+msgid "The <em>Days Out</em> counter is calculated automatically."
+msgstr "De teller <em>Dagen uit</em> wordt automatisch berekend."
+
+msgid ""
+"When a new injury is saved, an <strong>email alert</strong> is automatically"
+" sent to managers. Ensure the Q cluster worker is running for async "
+"delivery."
+msgstr ""
+"Wanneer een nieuwe blessure wordt opgeslagen, wordt automatisch een "
+"<strong>e-mailmelding</strong> naar managers gestuurd. Zorg ervoor dat de "
+"Q-clusterworker actief is voor asynchrone levering."
+
+msgid ""
+"Record every <strong>Income</strong> or <strong>Expense</strong> with a "
+"title, amount, date and category."
+msgstr ""
+"Registreer elke <strong>Inkomst</strong> of <strong>Uitgave</strong> met een"
+" titel, bedrag, datum en categorie."
+
+msgid "Attach a <strong>receipt file</strong> for documentation."
+msgstr "Voeg een <strong>bonbestand</strong> toe voor documentatie."
+
+msgid "Export all transactions to <strong>Excel</strong>."
+msgstr "Exporteer alle transacties naar <strong>Excel</strong>."
+
+msgid ""
+"Browse products → <strong>Add to Cart</strong> → <strong>Checkout</strong>."
+msgstr ""
+"Blader door producten → <strong>Toevoegen aan winkelwagen</strong> → "
+"<strong>Afrekenen</strong>."
+
+msgid "Completed orders automatically create an <em>Income</em> transaction."
+msgstr ""
+"Voltooide bestellingen maken automatisch een <em>Inkomst</em>transactie aan."
+
+msgid "Fans earn <strong>loyalty points</strong> (1 point per € spent)."
+msgstr ""
+"Fans verdienen <strong>loyaliteitspunten</strong> (1 punt per bestede €)."
+
+msgid ""
+"Enter <strong>Name</strong>, <strong>SKU</strong>, "
+"<strong>Category</strong>, <strong>Quantity</strong>, and <strong>Unit "
+"Cost</strong>."
+msgstr ""
+"Voer <strong>Naam</strong>, <strong>SKU</strong>, "
+"<strong>Categorie</strong>, <strong>Aantal</strong> en "
+"<strong>Eenheidsprijs</strong> in."
+
+msgid ""
+"Set a <strong>Minimum Stock</strong> level — items below this level are "
+"flagged as ⚠️ Low Stock."
+msgstr ""
+"Stel een <strong>Minimale voorraad</strong>niveau in — artikelen onder dit "
+"niveau worden gemarkeerd als ⚠️ Lage voorraad."
+
+msgid ""
+"Record <strong>Stock In</strong> (delivery) or <strong>Stock Out</strong> "
+"(usage) from an item's detail page."
+msgstr ""
+"Registreer <strong>Voorraad in</strong> (levering) of <strong>Voorraad "
+"uit</strong> (gebruik) op de detailpagina van een artikel."
+
+msgid ""
+"Assign kit to a <strong>player</strong> or <strong>staff member</strong>."
+msgstr ""
+"Wijs uitrusting toe aan een <strong>speler</strong> of "
+"<strong>personeelslid</strong>."
+
+msgid "Set an <strong>Expected Return</strong> date."
+msgstr "Stel een <strong>Verwachte retour</strong>datum in."
+
+msgid ""
+"Click <strong>Mark Returned</strong> when the item comes back — stock is "
+"updated automatically."
+msgstr ""
+"Klik op <strong>Markeer als geretourneerd</strong> wanneer het artikel "
+"terugkomt — de voorraad wordt automatisch bijgewerkt."
+
+msgid ""
+"From a player's profile click <strong>🔍 Scout Report</strong>, or go to "
+"Scouting → Reports → New."
+msgstr ""
+"Klik vanuit een spelersprofiel op <strong>🔍 Scoutrapport</strong>, of ga "
+"naar Scouting → Rapporten → Nieuw."
+
+msgid ""
+"Rate the player on 4 dimensions (0–10): <strong>Technical, Tactical, "
+"Physical, Mental</strong>."
+msgstr ""
+"Beoordeel de speler op 4 dimensies (0–10): <strong>Technisch, Tactisch, "
+"Fysiek, Mentaal</strong>."
+
+msgid ""
+"The <strong>Overall Rating</strong> is the average of the 4 scores — "
+"calculated automatically."
+msgstr ""
+"De <strong>Algemene beoordeling</strong> is het gemiddelde van de 4 scores —"
+" automatisch berekend."
+
+msgid ""
+"Add <strong>Strengths</strong>, <strong>Weaknesses</strong>, and free-text "
+"<strong>Notes</strong>."
+msgstr ""
+"Voeg <strong>Sterke punten</strong>, <strong>Zwakke punten</strong> en vrije"
+" tekst <strong>Opmerkingen</strong> toe."
+
+msgid ""
+"Add external prospects not yet in the system as <strong>Talent "
+"Profiles</strong>."
+msgstr ""
+"Voeg externe prospects die nog niet in het systeem staan toe als "
+"<strong>Talentprofielen</strong>."
+
+msgid ""
+"<strong>Organization</strong> = the parent entity (e.g. \"ApexForge Sports "
+"Group\")."
+msgstr ""
+"<strong>Organisatie</strong> = de bovenliggende entiteit (bijv. \"ApexForge "
+"Sports Group\")."
+
+msgid ""
+"<strong>Club</strong> = a specific club under the organization (e.g. "
+"\"ApexForge FC\", \"ApexForge Women\")."
+msgstr ""
+"<strong>Club</strong> = een specifieke club onder de organisatie (bijv. "
+"\"ApexForge FC\", \"ApexForge Vrouwen\")."
+
+msgid ""
+"All data (teams, players, events) is scoped to the <strong>active "
+"club</strong>."
+msgstr ""
+"Alle gegevens (teams, spelers, evenementen) zijn gericht op de "
+"<strong>actieve club</strong>."
+
+msgid ""
+"Click the club name in the <strong>top-left sidebar dropdown</strong> to "
+"switch your active club."
+msgstr ""
+"Klik op de clubnaam in het <strong>vervolgkeuzemenu linksboven in de "
+"zijbalk</strong> om van actieve club te wisselen."
+
+msgid ""
+"Go to a club's detail page → <strong>Manage Access</strong> to grant users "
+"access."
+msgstr ""
+"Ga naar de detailpagina van een club → <strong>Toegang beheren</strong> om "
+"gebruikers toegang te verlenen."
+
+msgid "Click <strong>Revoke</strong> to remove a user's club access."
+msgstr ""
+"Klik op <strong>Intrekken</strong> om de clubtoegang van een gebruiker te "
+"verwijderen."
+
+msgid ""
+"Create an Academy Program with an <strong>Age Group</strong> (U7 through "
+"U21), <strong>Head Coach</strong>, and <strong>Team</strong>."
+msgstr ""
+"Maak een Academieprogramma aan met een <strong>Leeftijdsgroep</strong> (U7 "
+"t/m U21), <strong>Hoofdcoach</strong> en <strong>Team</strong>."
+
+msgid "Add a <strong>Curriculum</strong> description and goals."
+msgstr "Voeg een <strong>Curriculum</strong>beschrijving en doelen toe."
+
+msgid ""
+"From a program, create a <strong>Development Plan</strong> for each player."
+msgstr ""
+"Maak vanuit een programma een <strong>Ontwikkelingsplan</strong> aan voor "
+"elke speler."
+
+msgid ""
+"Set <strong>Focus Area</strong>, <strong>Goals</strong>, <strong>Start &amp;"
+" Target Date</strong>, and an <strong>Overall Rating</strong>."
+msgstr ""
+"Stel <strong>Aandachtsgebied</strong>, <strong>Doelen</strong>, "
+"<strong>Start- &amp; Doeldatum</strong> en een <strong>Algemene "
+"beoordeling</strong> in."
+
+msgid ""
+"Toggle a milestone as <strong>Achieved</strong> — the achieved date is "
+"recorded automatically."
+msgstr ""
+"Schakel een mijlpaal in als <strong>Bereikt</strong> — de behaaldatum wordt "
+"automatisch geregistreerd."
+
+msgid ""
+"Click <strong>+ New Post</strong> — write a title and content, choose a "
+"<strong>Category</strong> and upload a <strong>Featured Image</strong>."
+msgstr ""
+"Klik op <strong>+ Nieuw bericht</strong> — schrijf een titel en inhoud, kies"
+" een <strong>Categorie</strong> en upload een <strong>Uitgelichte "
+"afbeelding</strong>."
+
+msgid ""
+"Check <strong>Publish Now</strong> to make it live immediately, or leave "
+"unchecked to save as draft."
+msgstr ""
+"Vink <strong>Nu publiceren</strong> aan om het direct live te zetten, of "
+"laat het uitgevinkt om op te slaan als concept."
+
+msgid "Mark posts as <strong>Featured</strong> to highlight them at the top."
+msgstr ""
+"Markeer berichten als <strong>Uitgelicht</strong> om ze bovenaan te "
+"benadrukken."
+
+msgid ""
+"Short-lived notices with a <strong>Start</strong> and <strong>End "
+"Date</strong>."
+msgstr ""
+"Kortstondige berichten met een <strong>Begin-</strong> en "
+"<strong>Einddatum</strong>."
+
+msgid ""
+"Plan marketing campaigns with a <strong>budget</strong>, "
+"<strong>goals</strong>, and <strong>date range</strong>."
+msgstr ""
+"Plan marketingcampagnes met een <strong>budget</strong>, "
+"<strong>doelen</strong> en <strong>datumbereik</strong>."
+
+msgid ""
+"Click <strong>Upload Video</strong> → select a file, enter a "
+"<strong>Title</strong> and <strong>Category</strong>."
+msgstr ""
+"Klik op <strong>Video uploaden</strong> → selecteer een bestand, voer een "
+"<strong>Titel</strong> en <strong>Categorie</strong> in."
+
+msgid ""
+"Assign to a <strong>Team</strong> and add <strong>Tags</strong> for "
+"searchability."
+msgstr ""
+"Wijs toe aan een <strong>Team</strong> en voeg <strong>Tags</strong> toe "
+"voor vindbaarheid."
+
+msgid ""
+"Toggle <strong>Public</strong> to make it visible to all users, or keep it "
+"private (managers only)."
+msgstr ""
+"Schakel <strong>Openbaar</strong> in om het zichtbaar te maken voor alle "
+"gebruikers, of houd het privé (alleen managers)."
+
+msgid ""
+"Open a video → click <strong>Add Note</strong> to attach a timestamped "
+"annotation."
+msgstr ""
+"Open een video → klik op <strong>Notitie toevoegen</strong> om een "
+"tijdgestempelde annotatie toe te voegen."
+
+msgid ""
+"Tag specific <strong>players</strong> in each note for individual analysis."
+msgstr ""
+"Tag specifieke <strong>spelers</strong> in elke notitie voor individuele "
+"analyse."
+
+msgid ""
+"Go to <strong>Fan Portal → Admin</strong> to manage ticket categories and "
+"bulk-create tickets for an event."
+msgstr ""
+"Ga naar <strong>Fanportaal → Beheer</strong> om ticketcategorieën te beheren"
+" en tickets in bulk aan te maken voor een evenement."
+
+msgid ""
+"Set a <strong>Base Price</strong> per category (e.g. VIP, Standard, "
+"Student)."
+msgstr ""
+"Stel een <strong>Basisprijs</strong> per categorie in (bijv. VIP, Standaard,"
+" Student)."
+
+msgid ""
+"Use <strong>Bulk Create</strong> to generate many tickets at once with seat "
+"row prefixes."
+msgstr ""
+"Gebruik <strong>Bulk aanmaken</strong> om in één keer veel tickets aan te "
+"maken met rijprefixen."
+
+msgid "Browse available events → click <strong>Buy Ticket</strong>."
+msgstr ""
+"Blader door beschikbare evenementen → klik op <strong>Ticket kopen</strong>."
+
+msgid ""
+"A purchase reference is generated and stored in <strong>My Tickets</strong>."
+msgstr ""
+"Er wordt een aankoopnummer gegenereerd en opgeslagen in <strong>Mijn "
+"tickets</strong>."
+
+msgid "Fans earn <strong>1 loyalty point per € spent</strong>."
+msgstr "Fans verdienen <strong>1 loyaliteitspunt per bestede €</strong>."
+
+msgid ""
+"Managers can manually <strong>adjust points</strong> (bonus or penalty)."
+msgstr ""
+"Managers kunnen handmatig <strong>punten aanpassen</strong> (bonus of "
+"straf)."
+
+msgid "View the full <strong>Loyalty History</strong> from the fan portal."
+msgstr ""
+"Bekijk de volledige <strong>Loyaliteitsgeschiedenis</strong> via het "
+"fanportaal."
+
+msgid ""
+"<strong>Players</strong> — Status distribution, top scorers, top assisters, "
+"average performance rating."
+msgstr ""
+"<strong>Spelers</strong> — Statusverdeling, topscorers, topassisters, "
+"gemiddelde prestatiescore."
+
+msgid ""
+"<strong>Medical</strong> — Injury status breakdown (Active / Recovering / "
+"Recovered), severity chart."
+msgstr ""
+"<strong>Medisch</strong> — Blessurestatusoverzicht (Actief / Herstellende / "
+"Hersteld), ernstgrafiek."
+
+msgid ""
+"<strong>Tournaments</strong> — Match totals, completed matches, home win "
+"rate, recent results."
+msgstr ""
+"<strong>Toernooien</strong> — Totaal wedstrijden, voltooide wedstrijden, "
+"thuiswinpercentage, recente resultaten."
+
+msgid ""
+"<strong>Finance</strong> — Year-to-date income, expenses, and net balance."
+msgstr ""
+"<strong>Financiën</strong> — Inkomsten, uitgaven en nettosaldo tot op heden."
+
+msgid ""
+"<strong>Staff</strong> — Task status chart (Pending / In Progress / "
+"Completed), overdue count, YTD payroll."
+msgstr ""
+"<strong>Personeel</strong> — Taakstatusdiagram (In behandeling / Bezig / "
+"Voltooid), achterstallig aantal, YTD salarisadministratie."
+
+msgid ""
+"<strong>Academy</strong> — Active programs count, average player development"
+" rating."
+msgstr ""
+"<strong>Academie</strong> — Aantal actieve programma's, gemiddelde "
+"spelersontwikkelingsscore."
+
+msgid ""
+"<strong>Contracts</strong> — Active, expiring (within 60 days), and expired "
+"counts."
+msgstr ""
+"<strong>Contracten</strong> — Actief, verlopend (binnen 60 dagen) en "
+"verlopen aantallen."
+
+msgid "Data reflects the currently <strong>active club</strong>."
+msgstr "Gegevens weerspiegelen de momenteel <strong>actieve club</strong>."
+
+msgid ""
+"The <strong>Dashboard</strong> is your home base — a quick snapshot of "
+"what's happening across your club."
+msgstr ""
+"Het <strong>Dashboard</strong> is uw thuisbasis — een snel overzicht van wat"
+" er in uw club gebeurt."
+
+msgid ""
+"The <strong>Players</strong> module is the heart of ApexForge — manage every"
+" athlete in your club."
+msgstr ""
+"De module <strong>Spelers</strong> is het hart van ApexForge — beheer elke "
+"atleet in uw club."
+
+msgid ""
+"The <strong>Teams</strong> module lets you organise players into squads, "
+"assign coaches, and track team-level data."
+msgstr ""
+"De module <strong>Teams</strong> stelt u in staat spelers in selecties te "
+"organiseren, coaches toe te wijzen en teamgegevens bij te houden."
+
+msgid ""
+"The <strong>Events</strong> module helps you schedule and track all club "
+"activities — matches, training sessions, and more."
+msgstr ""
+"De module <strong>Evenementen</strong> helpt u alle clubactiviteiten te "
+"plannen en bij te houden — wedstrijden, trainingen en meer."
+
+msgid ""
+"The <strong>Tournaments</strong> module lets you create and manage "
+"competitions your club participates in or organises."
+msgstr ""
+"De module <strong>Toernooien</strong> stelt u in staat competities aan te "
+"maken en te beheren waaraan uw club deelneemt of die uw club organiseert."
+
+msgid ""
+"The <strong>Contracts</strong> module helps you manage all agreements with "
+"players, staff, and third parties."
+msgstr ""
+"De module <strong>Contracten</strong> helpt u alle overeenkomsten met "
+"spelers, personeel en derden te beheren."
+
+msgid ""
+"The <strong>Staff</strong> module lets you manage everyone working at your "
+"club — coaches, medical personnel, administrators, and more."
+msgstr ""
+"De module <strong>Personeel</strong> stelt u in staat iedereen te beheren "
+"die bij uw club werkt — coaches, medisch personeel, administrators en meer."
+
+msgid ""
+"The <strong>Medical</strong> module helps you track the health and fitness "
+"of your players."
+msgstr ""
+"De module <strong>Medisch</strong> helpt u de gezondheid en conditie van uw "
+"spelers bij te houden."
+
+msgid ""
+"The <strong>Finance</strong> module gives you full visibility into your "
+"club's financial activity."
+msgstr ""
+"De module <strong>Financiën</strong> geeft u volledig inzicht in de "
+"financiële activiteiten van uw club."
+
+msgid ""
+"The <strong>Inventory</strong> module helps you track all physical assets "
+"belonging to your club."
+msgstr ""
+"De module <strong>Inventaris</strong> helpt u alle fysieke bezittingen van "
+"uw club bij te houden."
+
+msgid ""
+"The <strong>Scouting</strong> module helps you discover and evaluate talent "
+"beyond your current squad."
+msgstr ""
+"De module <strong>Scouting</strong> helpt u talent te ontdekken en te "
+"beoordelen buiten uw huidige selectie."
+
+msgid ""
+"The <strong>Organizations</strong> module lets you manage the clubs, "
+"associations, and bodies your club interacts with."
+msgstr ""
+"De module <strong>Organisaties</strong> stelt u in staat de clubs, "
+"verenigingen en instanties te beheren waarmee uw club samenwerkt."
+
+msgid ""
+"The <strong>Academy</strong> module helps you manage your youth development "
+"infrastructure."
+msgstr ""
+"De module <strong>Academie</strong> helpt u uw "
+"jeugdontwikkelingsinfrastructuur te beheren."
+
+msgid ""
+"The <strong>Marketing</strong> module helps you manage your club's brand "
+"presence and fan engagement."
+msgstr ""
+"De module <strong>Marketing</strong> helpt u de merkpresentie van uw club en"
+" de fansbetrokkenheid te beheren."
+
+msgid ""
+"The <strong>Videos</strong> module lets you store and organise match "
+"footage, training clips, and analysis videos."
+msgstr ""
+"De module <strong>Video's</strong> stelt u in staat wedstrijdbeelden, "
+"trainingsclips en analysevideos op te slaan en te organiseren."
+
+msgid ""
+"The <strong>Fans</strong> module helps you build and manage your supporter "
+"community."
+msgstr ""
+"De module <strong>Fans</strong> helpt u uw fansgemeenschap op te bouwen en "
+"te beheren."
+
+msgid ""
+"The <strong>Insights</strong> module gives you data-driven views across all "
+"areas of your club."
+msgstr ""
+"De module <strong>Inzichten</strong> geeft u datagestuurde overzichten van "
+"alle gebieden van uw club."
+
+msgid "Team List"
+msgstr "Teamlijst"
+
+msgid "Team Detail Page — Actions"
+msgstr "Teamdetailpagina — Acties"
+
+msgid "Event List"
+msgstr "Evenementenlijst"
+
+msgid "Event Detail Page — Actions"
+msgstr "Evenementdetailpagina — Acties"
+
+msgid "Tournament List"
+msgstr "Toernooilijst"
+
+msgid "Tournament Detail Page — Actions"
+msgstr "Toernooidetailpagina — Acties"
+
+msgid "Contract List"
+msgstr "Contractlijst"
+
+msgid "Contract Detail Page — Actions"
+msgstr "Contractdetailpagina — Acties"
+
+msgid "Staff List"
+msgstr "Personeelslijst"
+
+msgid "Staff Detail Page — Actions"
+msgstr "Personeelsdetailpagina — Acties"
+
+msgid "Medical List"
+msgstr "Medische lijst"
+
+msgid "Logging a Medical Record"
+msgstr "Een medisch dossier registreren"
+
+msgid "Medical Detail Page — Actions"
+msgstr "Medische detailpagina — Acties"
+
+msgid "Finance Overview"
+msgstr "Financieel overzicht"
+
+msgid "Adding a Transaction"
+msgstr "Een transactie toevoegen"
+
+msgid "Inventory List"
+msgstr "Inventarislijst"
+
+msgid "Adding an Item"
+msgstr "Een artikel toevoegen"
+
+msgid "Scout Report List"
+msgstr "Lijst met scoutrapporten"
+
+msgid "Creating a Scout Report"
+msgstr "Een scoutrapport aanmaken"
+
+msgid "Organization List"
+msgstr "Organisatielijst"
+
+msgid "Adding an Organization"
+msgstr "Een organisatie toevoegen"
+
+msgid "Academy Overview"
+msgstr "Academieoverzicht"
+
+msgid "Marketing Overview"
+msgstr "Marketingoverzicht"
+
+msgid "Video List"
+msgstr "Videolijst"
+
+msgid "Fan List"
+msgstr "Fanlijst"
+
+msgid "Insights Overview"
+msgstr "Inzichtenoverzicht"
+
+msgid "%(n)s tickets created."
+msgstr "%(n)s tickets aangemaakt."
+
+msgid "%(name)s added to cart."
+msgstr "%(name)s aan winkelwagen toegevoegd."
+
+msgid "Academy program created."
+msgstr "Academie programma aangemaakt."
+
+msgid "Access denied."
+msgstr "Toegang geweigerd."
+
+msgid "Access granted."
+msgstr "Toegang verleend."
+
+msgid "Access revoked."
+msgstr "Toegang ingetrokken."
+
+msgid "Accessories"
+msgstr "Accessoires"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Account created! Welcome to ApexForge."
+msgstr "Account aangemaakt! Welkom bij ApexForge."
+
+msgid "Add Product"
+msgstr "Product toevoegen"
+
+msgid "Add Season"
+msgstr "Seizoen toevoegen"
+
+msgid "Add Staff Member"
+msgstr "Stafmedewerker Toevoegen"
+
+msgid "Add milestones to a plan (e.g. \\\"First team training appearance\\\")."
+msgstr ""
+
+msgid "Add or remove entries from the watchlist view."
+msgstr "Voeg vermeldingen toe aan of verwijder ze uit de watchlistweergave."
+
+msgid "Add your first product"
+msgstr "Voeg je eerste product toe"
+
+msgid "Adjustment"
+msgstr "Aanpassing"
+
+msgid "Admin"
+msgstr "Beheerder"
+
+msgid "Admission"
+msgstr "Toegang"
+
+msgid ""
+"After clicking the button below you will be taken to Stripe's checkout page "
+"where you enter your card details. We never see your card number."
+msgstr ""
+"Na het klikken op de knop hieronder wordt u doorgestuurd naar de Stripe-"
+"betaalpagina waar u uw kaartgegevens invoert. Wij zien nooit uw kaartnummer."
+
+msgid "All Seasons"
+msgstr "Alle seizoenen"
+
+msgid "All Sports"
+msgstr "Alle Sporten"
+
+msgid "All articles"
+msgstr "Alle artikelen"
+
+msgid "All fixtures"
+msgstr "Alle wedstrijden"
+
+msgid "All rights reserved."
+msgstr "Alle rechten voorbehouden."
+
+msgid "All tickets"
+msgstr "Alle tickets"
+
+msgid "All tiers"
+msgstr "Alle niveaus"
+
+msgid "Already a member? Sign In"
+msgstr "Al lid? Inloggen"
+
+msgid "Analyst"
+msgstr "Analist"
+
+msgid "Analytics"
+msgstr "Analytics"
+
+msgid "Ankle"
+msgstr "Enkel"
+
+msgid "Announcement created."
+msgstr "Aankondiging aangemaakt."
+
+msgid "Announcement deleted."
+msgstr "Aankondiging verwijderd."
+
+msgid "Announcement updated."
+msgstr "Aankondiging bijgewerkt."
+
+msgid "Any special instructions?"
+msgstr "Speciale instructies?"
+
+msgid ""
+"ApexForge brings fans and club operations together — from buying tickets and"
+" team merch to match analysis and player management."
+msgstr ""
+"ApexForge brengt fans en clubactiviteiten samen — van het kopen van tickets "
+"en teammerch tot wedstrijdanalyse en spelerbeheer."
+
+msgid "Apps"
+msgstr "Apps"
+
+msgid "Area to Improve"
+msgstr "Te Verbeteren Gebied"
+
+msgid "Arm"
+msgstr "Arm"
+
+msgid "Athlete / Player"
+msgstr "Atleet / Speler"
+
+msgid "Attacking Midfielder"
+msgstr "Aanvallende Middenvelder"
+
+msgid "Auto-create 24 demo players for testing"
+msgstr "Automatisch 24 demospelers aanmaken voor testen"
+
+msgid "Back to Cart"
+msgstr "Terug naar winkelwagen"
+
+msgid "Back to Order"
+msgstr "Terug naar bestelling"
+
+msgid "Back to Tickets"
+msgstr "Terug naar tickets"
+
+msgid "Become a Member"
+msgstr "Lid worden"
+
+msgid "Billed To"
+msgstr "Gefactureerd aan"
+
+msgid "Blood Test"
+msgstr "Bloedonderzoek"
+
+msgid "Bonus"
+msgstr "Bonus"
+
+msgid "Bonus Clause"
+msgstr "Bonusclausule"
+
+msgid "Both"
+msgstr "Beide"
+
+msgid "Box-to-Box Midfielder"
+msgstr "Box-to-Box Middenvelder"
+
+msgid "Branding settings updated."
+msgstr "Brandingsinstellingen bijgewerkt."
+
+msgid "Browse Events"
+msgstr "Evenementen bekijken"
+
+msgid "Browse Store"
+msgstr "Winkel bekijken"
+
+msgid "Browse all products"
+msgstr "Alle producten bekijken"
+
+msgid "Browse fixtures freely — sign in to purchase your tickets."
+msgstr "Bekijk wedstrijden vrij — log in om tickets te kopen."
+
+msgid "Browse freely — sign in to add to cart and purchase."
+msgstr "Blader vrij — log in om aan winkelwagen toe te voegen en te kopen."
+
+msgid "Budget created."
+msgstr "Budget aangemaakt."
+
+msgid "Budget updated."
+msgstr "Budget bijgewerkt."
+
+msgid "Buy Match Tickets"
+msgstr "Wedstrijdtickets kopen"
+
+msgid ""
+"Buy match tickets, choose your seat, and earn loyalty points every time you "
+"attend."
+msgstr ""
+"Koop wedstrijdtickets, kies je stoel en verdien loyaliteitspunten bij elk "
+"bezoek."
+
+msgid "Campaign created."
+msgstr "Campagne aangemaakt."
+
+msgid "Campaign updated."
+msgstr "Campagne bijgewerkt."
+
+msgid "Can't find your answer?"
+msgstr "Antwoord niet gevonden?"
+
+msgid "Cancelled"
+msgstr "Geannuleerd"
+
+msgid "Captain"
+msgstr "Aanvoerder"
+
+msgid "Card via Stripe"
+msgstr "Kaart via Stripe"
+
+msgid "Category created."
+msgstr "Categorie aangemaakt."
+
+msgid "Category updated."
+msgstr "Categorie bijgewerkt."
+
+msgid "Center"
+msgstr "Midden"
+
+msgid "Central Midfielder"
+msgstr "Centrale Middenvelder"
+
+msgid "Centre Back"
+msgstr "Centrale Verdediger"
+
+msgid "Centre Forward"
+msgstr "Spits"
+
+msgid "Checkout"
+msgstr "Afrekenen"
+
+msgid "Chest"
+msgstr "Borst"
+
+msgid "Choose Fan Photo"
+msgstr "Kies Fan Foto"
+
+msgid "Clause added."
+msgstr "Clausule toegevoegd."
+
+msgid "Click a player to add to bench"
+msgstr "Klik op een speler om aan de bank toe te voegen"
+
+msgid "Club Management"
+msgstr "Clubbeheer"
+
+msgid "Club News"
+msgstr "Clubnieuws"
+
+msgid "Club Owner / Entrepreneur"
+msgstr "Clubeigenaar / Ondernemer"
+
+msgid "Club Store"
+msgstr "Clubwinkel"
+
+msgid "Club Store Highlights"
+msgstr "Clubwinkel highlights"
+
+msgid "Club created."
+msgstr "Club aangemaakt."
+
+msgid "Club updated."
+msgstr "Club bijgewerkt."
+
+msgid "Comma-separated roles or blank for all"
+msgstr "Door komma's gescheiden rollen of leeg voor alle"
+
+msgid "Community"
+msgstr "Gemeenschap"
+
+msgid "Competition created."
+msgstr "Competitie aangemaakt."
+
+msgid "Competition updated."
+msgstr "Competitie bijgewerkt."
+
+msgid "Complete your profile to start earning loyalty points."
+msgstr "Vul je profiel in om loyaliteitspunten te verdienen."
+
+msgid "Completed"
+msgstr "Voltooid"
+
+msgid "Confidentiality"
+msgstr "Vertrouwelijkheid"
+
+msgid "Confirm Password"
+msgstr "Wachtwoord bevestigen"
+
+msgid "Confirmed"
+msgstr "Bevestigd"
+
+msgid "Contacted"
+msgstr "Gecontacteerd"
+
+msgid "Continue Shopping"
+msgstr "Verder winkelen"
+
+msgid "Continue to Payment"
+msgstr "Doorgaan naar betaling"
+
+msgid "Contract created."
+msgstr "Contract aangemaakt."
+
+msgid "Contract marked as signed and active."
+msgstr "Contract gemarkeerd als ondertekend en actief."
+
+msgid "Contract updated."
+msgstr "Contract bijgewerkt."
+
+msgid "Create Competition"
+msgstr "Competitie aanmaken"
+
+msgid "Create Free Account"
+msgstr "Gratis account aanmaken"
+
+msgid "Create Season"
+msgstr "Seizoen aanmaken"
+
+msgid "Create a free account to start shopping"
+msgstr "Maak een gratis account aan om te gaan winkelen"
+
+msgid "Create an account"
+msgstr "Een account aanmaken"
+
+msgid ""
+"Create named watchlists to group players and talents you are monitoring."
+msgstr ""
+"Maak benoemde watchlists om spelers en talenten te groeperen die je volgt."
+
+msgid "Create your fan profile to buy tickets."
+msgstr "Maak je fan profiel aan om tickets te kopen."
+
+msgid "Created"
+msgstr "Aangemaakt"
+
+msgid "Critical (3+ months)"
+msgstr "Kritiek (3+ maanden)"
+
+msgid "Cup / Knockout"
+msgstr "Beker / Knockout"
+
+msgid "Current"
+msgstr "Huidig"
+
+msgid "Current balance:"
+msgstr "Huidig saldo:"
+
+msgid "Dates"
+msgstr ""
+
+msgid "Declined"
+msgstr "Afgewezen"
+
+msgid "Default club shown when user logs in"
+msgstr "Standaard club weergegeven bij inloggen"
+
+msgid "Defensive Midfielder"
+msgstr "Defensieve Middenvelder"
+
+msgid "Delete this season?"
+msgstr "Dit seizoen verwijderen?"
+
+msgid "Deleted"
+msgstr "Verwijderd"
+
+msgid "Delivered"
+msgstr "Geleverd"
+
+msgid "Delivery Address"
+msgstr "Bezorgadres"
+
+msgid "Demo Squad"
+msgstr "Demodivisie"
+
+msgid "Development plan created."
+msgstr "Ontwikkelplan aangemaakt."
+
+msgid "Development plan updated."
+msgstr "Ontwikkelplan bijgewerkt."
+
+msgid "Digital"
+msgstr "Digitaal"
+
+msgid "Digital / Media"
+msgstr "Digitaal / Media"
+
+msgid "Disbanded"
+msgstr "Ontbonden"
+
+msgid "Donation"
+msgstr "Donatie"
+
+msgid "Download PDF"
+msgstr "PDF downloaden"
+
+msgid "Download PDF Invoice"
+msgstr "PDF factuur downloaden"
+
+msgid "Download slip"
+msgstr "Bon downloaden"
+
+msgid "Draft"
+msgstr "Concept"
+
+msgid "Earn loyalty points on every purchase. Free to join, cancel anytime."
+msgstr ""
+"Verdien loyaliteitspunten bij elke aankoop. Gratis lidmaatschap, altijd "
+"opzegbaar."
+
+msgid ""
+"Earn points on every purchase. Climb from Bronze to Platinum and unlock "
+"exclusive member perks."
+msgstr ""
+"Verdien punten bij elke aankoop. Klim van Brons naar Platina en ontgrendel "
+"exclusieve ledenvoordelen."
+
+msgid "Earned"
+msgstr "Verdiend"
+
+msgid "Edit Category"
+msgstr "Categorie Bewerken"
+
+msgid "Edit Club"
+msgstr "Club Bewerken"
+
+msgid "Edit Competition"
+msgstr "Competitie Bewerken"
+
+msgid "Edit Contract"
+msgstr "Contract Bewerken"
+
+msgid "Edit Event"
+msgstr "Evenement Bewerken"
+
+msgid "Edit Injury"
+msgstr "Blessure Bewerken"
+
+msgid "Edit Item"
+msgstr "Artikel Bewerken"
+
+msgid "Edit Organization"
+msgstr "Organisatie Bewerken"
+
+msgid "Edit Player"
+msgstr "Speler Bewerken"
+
+msgid "Edit Post"
+msgstr "Bericht Bewerken"
+
+msgid "Edit Program"
+msgstr "Programma Bewerken"
+
+msgid "Edit Staff Member"
+msgstr "Stafmedewerker Bewerken"
+
+msgid "Edit Talent"
+msgstr "Talent Bewerken"
+
+msgid "Edit Task"
+msgstr "Taak Bewerken"
+
+msgid "Edit Team"
+msgstr "Team Bewerken"
+
+msgid "Edit Tournament"
+msgstr "Toernooi Bewerken"
+
+msgid "Edit Transaction"
+msgstr "Transactie Bewerken"
+
+msgid "Edit fan profile"
+msgstr "Fan profiel bewerken"
+
+msgid "Edit profile"
+msgstr "Profiel bewerken"
+
+msgid "Elbow"
+msgstr "Elleboog"
+
+msgid "Email Support"
+msgstr "E-mail ondersteuning"
+
+msgid "Email address is required"
+msgstr "E-mailadres is vereist"
+
+msgid "Empty slot (click to select, then pick player)"
+msgstr "Lege plek (klik om te selecteren, kies dan speler)"
+
+msgid "Ended"
+msgstr "Beëindigd"
+
+msgid "Equity Investment"
+msgstr "Aandelenbelegging"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "Est."
+msgstr "Opge."
+
+msgid "Event created."
+msgstr "Evenement aangemaakt."
+
+msgid "Event deleted."
+msgstr "Evenement verwijderd."
+
+msgid "Event updated."
+msgstr "Evenement bijgewerkt."
+
+msgid "Everything in One Place"
+msgstr "Alles op één plek"
+
+msgid ""
+"Everything you need to know about shopping, tickets, payments and your "
+"account."
+msgstr ""
+"Alles wat je moet weten over winkelen, tickets, betalingen en je account."
+
+msgid "Expense"
+msgstr "Uitgave"
+
+msgid "Exported"
+msgstr "Geëxporteerd"
+
+msgid "Facility Lease"
+msgstr "Faciliteitsleasing"
+
+msgid "Failed"
+msgstr "Mislukt"
+
+msgid "Fair"
+msgstr "Redelijk"
+
+msgid "Fan / Investor"
+msgstr "Fan / Investeerder"
+
+msgid "Fan Members"
+msgstr "Fan Leden"
+
+msgid "Fan Portal Photo"
+msgstr "Fan Portaal Foto"
+
+msgid "Fans"
+msgstr "Fans"
+
+msgid "Favourite player"
+msgstr "Favoriete speler"
+
+msgid "Filter players…"
+msgstr "Spelers filteren…"
+
+msgid "Final"
+msgstr "Finale"
+
+msgid "Fixture / Match"
+msgstr "Wedstrijd / Match"
+
+msgid "Fixtures"
+msgstr "Wedstrijden"
+
+msgid "For Fans"
+msgstr "Voor fans"
+
+msgid "Formation"
+msgstr "Formatie"
+
+msgid "Free to join"
+msgstr "Gratis lid worden"
+
+msgid "Freelance"
+msgstr "Freelance"
+
+msgid "Friendly Tournament"
+msgstr "Vriendschappelijk Toernooi"
+
+msgid "Full library"
+msgstr "Volledige bibliotheek"
+
+msgid "Full store"
+msgstr "Volledige winkel"
+
+msgid "Full-Time"
+msgstr "Voltijd"
+
+msgid "General Admission"
+msgstr "Algemene toegang"
+
+msgid "Get Tickets"
+msgstr "Tickets kopen"
+
+msgid "Get tickets"
+msgstr "Tickets kopen"
+
+msgid "Goalkeeper"
+msgstr "Doelman"
+
+msgid "Grant"
+msgstr "Subsidie"
+
+msgid "Groin"
+msgstr "Lies"
+
+msgid "Group Stage"
+msgstr "Groepsfase"
+
+msgid "Group Stage + Knockout"
+msgstr "Groepsfase + Knockout"
+
+msgid "Gym Rehabilitation"
+msgstr "Fysiotherapie in de Gym"
+
+msgid "Head"
+msgstr "Hoofd"
+
+msgid "Help"
+msgstr "Hulp"
+
+msgid "Help & Support"
+msgstr "Hulp & Ondersteuning"
+
+msgid "Help Centre"
+msgstr "Hulpcentrum"
+
+msgid "Hidden"
+msgstr "Verborgen"
+
+msgid "High"
+msgstr "Hoog"
+
+msgid "Highlights"
+msgstr "Hoogtepunten"
+
+msgid "Hip"
+msgstr "Heup"
+
+msgid "How the injury happened"
+msgstr "Hoe de blessure is ontstaan"
+
+msgid "Ice / Cold Therapy"
+msgstr "Ijs / Koudetherapie"
+
+msgid "Imaging (X-ray/MRI/CT)"
+msgstr "Beeldvorming (Röntgen/MRI/CT)"
+
+msgid "Imported"
+msgstr "Geïmporteerd"
+
+msgid "In Progress"
+msgstr "In Uitvoering"
+
+msgid "Incident"
+msgstr "Incident"
+
+msgid "Included"
+msgstr "Inbegrepen"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Injury logged."
+msgstr "Blessure geregistreerd."
+
+msgid "Injury recorded."
+msgstr "Blessure vastgelegd."
+
+msgid "Injury updated."
+msgstr "Blessure bijgewerkt."
+
+msgid "Interview"
+msgstr "Interview"
+
+msgid "Investment recorded."
+msgstr "Investering vastgelegd."
+
+msgid "Investment updated."
+msgstr "Investering bijgewerkt."
+
+msgid "Invite for Trial"
+msgstr "Uitnodigen voor Proef"
+
+msgid "Invoice"
+msgstr "Factuur"
+
+msgid "Invoice Date"
+msgstr "Factuurdatum"
+
+msgid "Item Categories"
+msgstr "Artikelcategorieën"
+
+msgid "Item added to inventory."
+msgstr "Artikel aan inventaris toegevoegd."
+
+msgid "Item updated."
+msgstr "Artikel bijgewerkt."
+
+msgid "Jersey"
+msgstr "Shirt"
+
+msgid "Join & Loyalty"
+msgstr "Lid worden & Loyaliteit"
+
+msgid "Join Free"
+msgstr "Gratis aanmelden"
+
+msgid ""
+"Join thousands of fans. Get your tickets, shop official gear, earn loyalty "
+"points, and never miss a moment."
+msgstr ""
+"Sluit je aan bij duizenden fans. Koop je tickets, shop officieel materiaal, "
+"verdien loyaliteitspunten en mis geen enkel moment."
+
+msgid "Joined"
+msgstr "Lid geworden"
+
+msgid "Joined Date"
+msgstr "Lidmaatschapsdatum"
+
+msgid "Kit Sponsor"
+msgstr "Kitsponsor"
+
+msgid "Kit assigned."
+msgstr "Kit toegewezen."
+
+msgid "Kit marked as returned."
+msgstr "Kit gemarkeerd als geretourneerd."
+
+msgid "Knee"
+msgstr "Knie"
+
+msgid "Knockout Round"
+msgstr "Knockoutronde"
+
+msgid "Latest"
+msgstr "Laatste"
+
+msgid "Latest News"
+msgstr "Laatste nieuws"
+
+msgid ""
+"Latest club announcements, transfer news, match reports, and interviews."
+msgstr ""
+"Laatste clubaankondigingen, transfernieuws, wedstrijdverslagen en "
+"interviews."
+
+msgid "League"
+msgstr "Competitie"
+
+msgid "Leave blank to auto-generate"
+msgstr "Leeg laten voor automatische aanmaak"
+
+msgid "Leave blank to use category base price"
+msgstr "Leeg laten om categorieprijs te gebruiken"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Left Back"
+msgstr "Linksachter"
+
+msgid "Left Midfielder"
+msgstr "Linker Middenvelder"
+
+msgid "Left Wing-Back"
+msgstr "Linker Wingback"
+
+msgid "Left Winger"
+msgstr "Linker Vleugelspeler"
+
+msgid "Lineup"
+msgstr "Opstelling"
+
+msgid "Lineup Builder"
+msgstr "Opstelling samenstellen"
+
+msgid "Lineup saved successfully."
+msgstr "Opstelling succesvol opgeslagen."
+
+msgid "Live"
+msgstr "Live"
+
+msgid "Loan"
+msgstr "Lening"
+
+msgid "Logged In"
+msgstr "Ingelogd"
+
+msgid "Logged Out"
+msgstr "Uitgelogd"
+
+msgid "Low"
+msgstr "Laag"
+
+msgid "Low-stock alert threshold"
+msgstr "Drempelwaarde lage voorraad"
+
+msgid "Loyalty Programme"
+msgstr "Loyaliteitsprogramma"
+
+msgid "Loyalty points adjusted for %(name)s."
+msgstr "Loyaliteitspunten aangepast voor %(name)s."
+
+msgid "Loyalty rewards"
+msgstr "Loyaliteitsbeloningen"
+
+msgid "Manage products available in the club shop"
+msgstr "Beheer producten beschikbaar in de clubwinkel"
+
+msgid "Manage seasons used for rosters and teams."
+msgstr "Beheer seizoenen die worden gebruikt voor selecties en teams."
+
+msgid "Managing Access"
+msgstr "Toegang beheren"
+
+msgid "Mark as current season"
+msgstr "Markeren als huidig seizoen"
+
+msgid "Mark this player as team captain"
+msgstr "Markeer deze speler als aanvoerder"
+
+msgid "Massage"
+msgstr "Massage"
+
+msgid "Match Analysis"
+msgstr "Wedstrijdanalyse"
+
+msgid "Match Report"
+msgstr "Wedstrijdrapport"
+
+msgid "Match Tickets"
+msgstr "Wedstrijdtickets"
+
+msgid "Match added."
+msgstr "Wedstrijd toegevoegd."
+
+msgid ""
+"Match highlights, press conferences, behind-the-scenes, and exclusive fan "
+"content."
+msgstr ""
+"Wedstrijdhoogtepunten, persconferenties, achter de schermen en exclusieve "
+"fancontent."
+
+msgid "Match updated."
+msgstr "Wedstrijd bijgewerkt."
+
+msgid "Maximum tier reached!"
+msgstr "Maximaal niveau bereikt!"
+
+msgid "Media"
+msgstr "Media"
+
+msgid "Medical record added."
+msgstr "Medisch dossier toegevoegd."
+
+msgid "Medication"
+msgstr "Medicatie"
+
+msgid "Medium"
+msgstr "Gemiddeld"
+
+msgid "Meeting"
+msgstr "Vergadering"
+
+msgid "Membership tiers"
+msgstr "Lidmaatschapsniveaus"
+
+msgid "Memorabilia"
+msgstr "Memorabilia"
+
+msgid "Merchandise"
+msgstr "Merchandise"
+
+msgid "Metric recorded."
+msgstr "Metriek vastgelegd."
+
+msgid "Milestone added."
+msgstr "Mijlpaal toegevoegd."
+
+msgid "Minor"
+msgstr "Licht"
+
+msgid "Minor (< 7 days)"
+msgstr "Licht (< 7 dagen)"
+
+msgid "Mins"
+msgstr "Min."
+
+msgid "Moderate"
+msgstr "Matig"
+
+msgid "Moderate (1–4 weeks)"
+msgstr "Matig (1–4 weken)"
+
+msgid "Monitor"
+msgstr "Monitoren"
+
+msgid "My Account"
+msgstr "Mijn account"
+
+msgid "My Cart"
+msgstr "Mijn winkelwagen"
+
+msgid "My History"
+msgstr "Mijn geschiedenis"
+
+msgid "My Orders"
+msgstr "Mijn bestellingen"
+
+msgid "My Portal"
+msgstr "Mijn portaal"
+
+msgid "My Recent Tickets"
+msgstr "Mijn recente tickets"
+
+msgid "My Store"
+msgstr "Mijn winkel"
+
+msgid "Neck"
+msgstr "Nek"
+
+msgid "Need Help?"
+msgstr "Hulp nodig?"
+
+msgid "New"
+msgstr "Nieuw"
+
+msgid "New Club"
+msgstr "Nieuwe Club"
+
+msgid "New Transaction"
+msgstr "Nieuwe Transactie"
+
+msgid "Newline-separated milestones"
+msgstr "Mijlpalen gescheiden door nieuwe regels"
+
+msgid "Newline-separated perks list"
+msgstr "Voordelen gescheiden door nieuwe regels"
+
+msgid "Newsletter"
+msgstr "Nieuwsbrief"
+
+msgid "Newsletter & offers"
+msgstr "Nieuwsbrief & aanbiedingen"
+
+msgid "No fans found."
+msgstr "Geen fans gevonden."
+
+msgid "No news published yet. Check back soon!"
+msgstr "Nog geen nieuws gepubliceerd. Kom snel terug!"
+
+msgid "No players found"
+msgstr "Geen spelers gevonden"
+
+msgid "No players in roster. Go to"
+msgstr "Geen spelers in selectie. Ga naar"
+
+msgid "No products yet."
+msgstr "Nog geen producten."
+
+msgid "No seasons yet."
+msgstr "Nog geen seizoenen."
+
+msgid "No substitutes selected"
+msgstr "Geen reservespelers geselecteerd"
+
+msgid "No teams available. Create teams first."
+msgstr "Geen teams beschikbaar. Maak eerst teams aan."
+
+msgid "No upcoming events at the moment. Check back soon!"
+msgstr "Geen aankomende evenementen op dit moment. Kom snel terug!"
+
+msgid "No upcoming fixtures with tickets yet. Check back soon!"
+msgstr "Nog geen aankomende wedstrijden met tickets. Kom snel terug!"
+
+msgid "Not Suitable"
+msgstr "Niet Geschikt"
+
+msgid "Note added."
+msgstr "Notitie toegevoegd."
+
+msgid "Note deleted."
+msgstr "Notitie verwijderd."
+
+msgid "Number of tickets"
+msgstr "Aantal tickets"
+
+msgid "Official Club Store"
+msgstr "Officiële clubwinkel"
+
+msgid "Official Partner"
+msgstr "Officiële Partner"
+
+msgid "Official Shop"
+msgstr "Officiële winkel"
+
+msgid "Official Sports Platform"
+msgstr "Officieel Sportplatform"
+
+msgid "Official jerseys, training gear, and memorabilia coming soon."
+msgstr "Officiële shirts, trainingskleding en memorabilia komen binnenkort."
+
+msgid "One perk per line"
+msgstr "Eén voordeel per regel"
+
+msgid "Order Reference"
+msgstr "Bestellingsreferentie"
+
+msgid "Order notes"
+msgstr "Bestellingsnotities"
+
+msgid "Order status updated."
+msgstr "Bestelstatus bijgewerkt."
+
+msgid "Organization created."
+msgstr "Organisatie aangemaakt."
+
+msgid "Organization updated."
+msgstr "Organisatie bijgewerkt."
+
+msgid "Other"
+msgstr "Overig"
+
+msgid "Our support team replies within 24 hours."
+msgstr "Ons supportteam antwoordt binnen 24 uur."
+
+msgid "Owner"
+msgstr "Eigenaar"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Part-Time"
+msgstr "Deeltijd"
+
+msgid "Passwords do not match."
+msgstr "Wachtwoorden komen niet overeen."
+
+msgid "Paused"
+msgstr "Gepauzeerd"
+
+msgid "Pay"
+msgstr "Betalen"
+
+msgid "Payment"
+msgstr "Betaling"
+
+msgid "Payment Method"
+msgstr "Betaalmethode"
+
+msgid "Payment Successful"
+msgstr "Betaling geslaagd"
+
+msgid "Payment Successful!"
+msgstr "Betaling geslaagd!"
+
+msgid "Payment error: %(err)s"
+msgstr "Betalingsfout: %(err)s"
+
+msgid "Payment on Stripe's secure page"
+msgstr "Betaling op de beveiligde pagina van Stripe"
+
+msgid "Payment successful! Order #%(pk)s confirmed."
+msgstr "Betaling geslaagd! Bestelling #%(pk)s bevestigd."
+
+msgid "Payment was cancelled. Your order has been voided."
+msgstr "Betaling geannuleerd. Je bestelling is verwijderd."
+
+msgid "Payments processed by Stripe"
+msgstr "Betalingen verwerkt door Stripe"
+
+msgid "Payroll entry created."
+msgstr "Loonstrookje aangemaakt."
+
+msgid "Penalty Clause"
+msgstr "Boeteclausule"
+
+msgid "Performance Clause"
+msgstr "Prestatieclausule"
+
+msgid "Perks"
+msgstr "Voordelen"
+
+msgid "Permission denied."
+msgstr "Toegang geweigerd."
+
+msgid "Permissions"
+msgstr "Machtigingen"
+
+msgid "Personal"
+msgstr "Persoonlijk"
+
+msgid "Personal Details"
+msgstr "Persoonlijke gegevens"
+
+msgid "Phone number"
+msgstr "Telefoonnummer"
+
+msgid "Physical Exam"
+msgstr "Lichamelijk Onderzoek"
+
+msgid "Physiotherapy"
+msgstr "Fysiotherapie"
+
+msgid "Platform"
+msgstr "Platform"
+
+msgid "Player Contract"
+msgstr "Spelerscontract"
+
+msgid "Player added to roster."
+msgstr "Speler aan selectie toegevoegd."
+
+msgid "Player created."
+msgstr "Speler aangemaakt."
+
+msgid "Player deleted."
+msgstr "Speler verwijderd."
+
+msgid "Player updated."
+msgstr "Speler bijgewerkt."
+
+msgid "Please complete your fan profile before buying tickets."
+msgstr "Vul je fan profiel in voordat je tickets koopt."
+
+msgid "Please upload a CSV file."
+msgstr "Upload een CSV-bestand."
+
+msgid "Please upload a video file or provide a URL."
+msgstr "Upload een videobestand of geef een URL op."
+
+msgid "Point Guard"
+msgstr "Point Guard"
+
+msgid "Points"
+msgstr "Punten"
+
+msgid "Points (positive = add, negative = deduct)"
+msgstr "Punten (positief = toevoegen, negatief = aftrekken)"
+
+msgid "Poor"
+msgstr "Slecht"
+
+msgid "Positive = earned, negative = spent/expired"
+msgstr "Positief = verdiend, negatief = besteed/verlopen"
+
+msgid "Positive Moment"
+msgstr "Positief Moment"
+
+msgid "Post deleted."
+msgstr "Bericht verwijderd."
+
+msgid "Post saved."
+msgstr "Bericht opgeslagen."
+
+msgid "Post updated."
+msgstr "Bericht bijgewerkt."
+
+msgid "Postponed"
+msgstr "Uitgesteld"
+
+msgid "Power Forward"
+msgstr "Power Forward"
+
+msgid "Prescription"
+msgstr "Recept"
+
+msgid "Price override"
+msgstr "Prijsoverschrijving"
+
+msgid "Primary / secondary colors"
+msgstr "Primaire / secundaire kleuren"
+
+msgid "Print"
+msgstr "Afdrukken"
+
+msgid "Proceed to Checkout"
+msgstr "Doorgaan naar afrekenen"
+
+msgid "Product"
+msgstr "Product"
+
+msgid "Product added to store."
+msgstr "Product aan winkel toegevoegd."
+
+msgid "Product updated."
+msgstr "Product bijgewerkt."
+
+msgid "Products coming soon!"
+msgstr "Producten binnenkort beschikbaar!"
+
+msgid "Profile updated successfully."
+msgstr "Profiel succesvol bijgewerkt."
+
+msgid "Profile updated."
+msgstr "Profiel bijgewerkt."
+
+msgid "Program updated."
+msgstr "Programma bijgewerkt."
+
+msgid "Prospect"
+msgstr "Prospect"
+
+msgid "Quarter-Final"
+msgstr "Kwartfinale"
+
+msgid "Questions about your order? Contact our support team."
+msgstr "Vragen over je bestelling? Neem contact op met ons supportteam."
+
+msgid "Read All News"
+msgstr "Al het nieuws lezen"
+
+msgid "Read News"
+msgstr "Nieuws lezen"
+
+msgid "Reason"
+msgstr "Reden"
+
+msgid "Receive club news, match alerts, and exclusive offers."
+msgstr "Ontvang clubnieuws, wedstrijdmeldingen en exclusieve aanbiedingen."
+
+msgid "Recovered"
+msgstr "Hersteld"
+
+msgid "Recovering"
+msgstr "Herstellende"
+
+msgid "Recovery plan created."
+msgstr "Herstelplan aangemaakt."
+
+msgid "Recovery plan updated."
+msgstr "Herstelplan bijgewerkt."
+
+msgid "Redeemed"
+msgstr "Ingewisseld"
+
+msgid "Refunded"
+msgstr "Terugbetaald"
+
+msgid "Refunds & Returns"
+msgstr "Terugbetalingen & Retourzendingen"
+
+msgid "Register"
+msgstr "Registreren"
+
+msgid "Rejected"
+msgstr "Afgewezen"
+
+msgid "Renewal Option"
+msgstr "Verlengingsoptie"
+
+msgid "Renewed"
+msgstr "Verlengd"
+
+msgid "Report updated."
+msgstr "Rapport bijgewerkt."
+
+msgid "Reserved"
+msgstr "Gereserveerd"
+
+msgid "Rest"
+msgstr "Rust"
+
+msgid "Retired"
+msgstr "Gestopt"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Right Back"
+msgstr "Rechtsachter"
+
+msgid "Right Midfielder"
+msgstr "Rechter Middenvelder"
+
+msgid "Right Wing-Back"
+msgstr "Rechter Wingback"
+
+msgid "Right Winger"
+msgstr "Rechter Vleugelspeler"
+
+msgid "Round Robin"
+msgstr "Groepsfase"
+
+msgid "Round of 16"
+msgstr "Ronde van 16"
+
+msgid "Row"
+msgstr "Rij"
+
+msgid "Row prefix (e.g. A)"
+msgstr "Rij-voorvoegsel (bijv. A)"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "Save Lineup"
+msgstr "Opstelling opslaan"
+
+msgid "Schedule & Prize"
+msgstr "Schema & Prijs"
+
+msgid "Schedule & Status"
+msgstr "Schema & Status"
+
+msgid "Scheduled"
+msgstr "Gepland"
+
+msgid "Score"
+msgstr "Score"
+
+msgid "Scout"
+msgstr "Scout"
+
+msgid "Scout report submitted."
+msgstr "Scoutrapport ingediend."
+
+msgid "Search by name or email…"
+msgstr "Zoeken op naam of e-mail…"
+
+msgid "Season created."
+msgstr "Seizoen aangemaakt."
+
+msgid "Season deleted."
+msgstr "Seizoen verwijderd."
+
+msgid "Seasons"
+msgstr "Seizoenen"
+
+msgid "Second Striker"
+msgstr "Tweede Spits"
+
+msgid "Secure checkout"
+msgstr "Veilig afrekenen"
+
+msgid "Secure payment via Stripe"
+msgstr "Veilige betaling via Stripe"
+
+msgid "Select a player from the squad"
+msgstr "Selecteer een speler uit de selectie"
+
+msgid "Select all teams that participate in this competition."
+msgstr "Selecteer alle teams die deelnemen aan deze competitie."
+
+msgid "Select club"
+msgstr "Club selecteren"
+
+msgid "Semi-Final"
+msgstr "Halve Finale"
+
+msgid "Send us an email and we'll get back to you within 24 hours."
+msgstr "Stuur ons een e-mail en we nemen binnen 24 uur contact met je op."
+
+msgid "Senior"
+msgstr "Senioren"
+
+msgid "Set Current"
+msgstr "Als huidig instellen"
+
+msgid "Set up your fan profile"
+msgstr "Stel je fan profiel in"
+
+msgid "Severe"
+msgstr "Ernstig"
+
+msgid "Severe (1–3 months)"
+msgstr "Ernstig (1–3 maanden)"
+
+msgid "Shin"
+msgstr "Scheen"
+
+msgid "Shipped"
+msgstr "Verzonden"
+
+msgid "Shirt Sponsor"
+msgstr "Shirtsponsor"
+
+msgid "Shooting Guard"
+msgstr "Shooting Guard"
+
+msgid "Shop Now"
+msgstr "Nu winkelen"
+
+msgid "Shop Order #%(pk)s"
+msgstr "Winkelbestelling #%(pk)s"
+
+msgid ""
+"Shop jerseys, training gear, and exclusive memorabilia delivered to your "
+"door."
+msgstr ""
+"Bestel shirts, trainingskleding en exclusief memorabilia thuisbezorgd."
+
+msgid "Shopping & Products"
+msgstr "Winkelen & Producten"
+
+msgid "Shoulder"
+msgstr "Schouder"
+
+msgid "Showing"
+msgstr "Weergave"
+
+msgid "Sign In / Register"
+msgstr "Inloggen / Registreren"
+
+msgid "Sign In to Checkout"
+msgstr "Inloggen om af te rekenen"
+
+msgid "Sign Now"
+msgstr "Nu Ondertekenen"
+
+msgid "Sign in to complete your purchase."
+msgstr "Log in om je aankoop te voltooien."
+
+msgid "Sign up to purchase"
+msgstr "Registreer om te kopen"
+
+msgid "Small Forward"
+msgstr "Small Forward"
+
+msgid "Social Media"
+msgstr "Sociale Media"
+
+msgid "Sponsor"
+msgstr ""
+
+msgid "Sponsorship Agreement"
+msgstr "Sponsorovereenkomst"
+
+msgid "Sponsorship added."
+msgstr "Sponsoring toegevoegd."
+
+msgid "Sponsorship updated."
+msgstr "Sponsoring bijgewerkt."
+
+msgid "Sports Management & Fan Engagement Platform"
+msgstr "Sportbeheer & Fan Betrokkenheid Platform"
+
+msgid "Sports Management Platform"
+msgstr "Sportbeheersplatform"
+
+msgid "Sports Platform"
+msgstr "Sportplatform"
+
+msgid "Squad"
+msgstr "Selectie"
+
+msgid "Stadium Sponsor"
+msgstr "Stadionsponsor"
+
+msgid "Staff Contract"
+msgstr "Stafcontract"
+
+msgid "Staff Login"
+msgstr "Personeel inloggen"
+
+msgid "Staff member added."
+msgstr "Stafmedewerker toegevoegd."
+
+msgid "Staff member updated."
+msgstr "Stafmedewerker bijgewerkt."
+
+msgid ""
+"Staff portal with player management, contracts, scouting, finance, and full "
+"analytics suite."
+msgstr ""
+"Personeelsportaal met spelerbeheer, contracten, scouting, financiën en "
+"volledige analyticsuite."
+
+msgid "Stage & Group"
+msgstr "Fase & Groep"
+
+msgid "Starter"
+msgstr "Basisspeler"
+
+msgid "Starters"
+msgstr "Basisspelers"
+
+msgid "Stats saved."
+msgstr "Statistieken opgeslagen."
+
+msgid "Still need help?"
+msgstr "Nog steeds hulp nodig?"
+
+msgid "Stock In"
+msgstr "Voorraad Inkomen"
+
+msgid "Stock Out"
+msgstr "Voorraad Uitgaan"
+
+msgid "Stock updated."
+msgstr "Voorraad bijgewerkt."
+
+msgid "Store Management"
+msgstr "Winkelbeheer"
+
+msgid "Street, City, Postal code, Country"
+msgstr "Straat, Stad, Postcode, Land"
+
+msgid "Striker"
+msgstr "Spits"
+
+msgid "Substitutes"
+msgstr "Reservespelers"
+
+msgid "Substitutes Bench"
+msgstr "Reservebank"
+
+msgid "Subtotal"
+msgstr "Subtotaal"
+
+msgid "Success"
+msgstr "Succes"
+
+msgid "Super Admin"
+msgstr "Superbeheerder"
+
+msgid "Surgery"
+msgstr "Operatie"
+
+msgid "Suspended"
+msgstr "Geschorst"
+
+msgid "Sweeper"
+msgstr "Libero"
+
+msgid "Switched to %(club)s."
+msgstr "Overgeschakeld naar %(club)s."
+
+msgid "Tactical Board"
+msgstr "Tactisch Bord"
+
+msgid "Tailwind colour keyword: blue, amber, emerald, violet, red …"
+msgstr "Tailwind kleurzoekterm: blauw, amber, smaragd, violet, rood ..."
+
+msgid "Taken from your account — no need to re-enter."
+msgstr "Overgenomen uit je account — hoeft niet opnieuw ingevoerd te worden."
+
+msgid "Talent added."
+msgstr "Talent toegevoegd."
+
+msgid "Talent updated."
+msgstr "Talent bijgewerkt."
+
+msgid "Task created."
+msgstr "Taak aangemaakt."
+
+msgid "Task updated."
+msgstr "Taak bijgewerkt."
+
+msgid "Tax"
+msgstr "Belasting"
+
+msgid "Team created successfully."
+msgstr "Team succesvol aangemaakt."
+
+msgid "Team deleted."
+msgstr "Team verwijderd."
+
+msgid "Team updated."
+msgstr "Team bijgewerkt."
+
+msgid "Terminated"
+msgstr "Beëindigd"
+
+msgid "Termination"
+msgstr "Beëindiging"
+
+msgid "Thank you for your purchase! For questions, contact"
+msgstr "Bedankt voor je aankoop! Voor vragen, neem contact op met"
+
+msgid "The Platform"
+msgstr "Het platform"
+
+msgid ""
+"The complete hub for fans, staff, and club management. Buy tickets, follow "
+"news, shop merchandise, and more."
+msgstr ""
+"De complete hub voor fans, staf en clubbeheer. Koop tickets, volg nieuws, "
+"shop merchandise en meer."
+
+msgid "Thigh"
+msgstr "Dij"
+
+msgid ""
+"This area is for club staff only. You have been redirected to your fan "
+"portal."
+msgstr ""
+"Dit gebied is alleen voor clubpersoneel. Je bent doorgestuurd naar je fan "
+"portaal."
+
+msgid ""
+"This photo appears on your Fan Portal. Your account photo (top-right) is set"
+" separately."
+msgstr ""
+"Deze foto verschijnt op je Fan Portaal. Je accountfoto (rechtsboven) wordt "
+"apart ingesteld."
+
+msgid "This player is already on the roster for that season."
+msgstr "Deze speler staat al op de selectie voor dat seizoen."
+
+msgid "Ticket Confirmed!"
+msgstr "Ticket bevestigd!"
+
+msgid "Ticket categories"
+msgstr "Ticketcategorieën"
+
+msgid "Ticket confirmed — Reference:"
+msgstr "Ticket bevestigd — Referentie:"
+
+msgid "Ticket confirmed! Reference: %(ref)s. You earned %(pts)s points."
+msgstr ""
+"Ticket bevestigd! Referentie: %(ref)s. Je hebt %(pts)s punten verdiend."
+
+msgid "Ticket payment was cancelled."
+msgstr "Ticketbetaling geannuleerd."
+
+msgid "Ticket purchase #%(ref)s"
+msgstr "Ticketaankoop #%(ref)s"
+
+msgid "Tickets & Events"
+msgstr "Tickets & Evenementen"
+
+msgid "Total paid"
+msgstr "Totaal betaald"
+
+msgid "Tournament"
+msgstr "Toernooi"
+
+msgid "Tournament created."
+msgstr "Toernooi aangemaakt."
+
+msgid "Tournament updated."
+msgstr "Toernooi bijgewerkt."
+
+msgid "Training Gear"
+msgstr "Trainingsuitrusting"
+
+msgid "Training Session"
+msgstr "Trainingssessie"
+
+msgid "Transaction added."
+msgstr "Transactie toegevoegd."
+
+msgid "Transaction updated."
+msgstr "Transactie bijgewerkt."
+
+msgid "Transfer"
+msgstr "Transfer"
+
+msgid "Transfer Listed"
+msgstr "Op Transferlijst"
+
+msgid "Treatment added."
+msgstr "Behandeling toegevoegd."
+
+msgid "Under 10"
+msgstr "Onder 10"
+
+msgid "Under 12"
+msgstr "Onder 12"
+
+msgid "Under 14"
+msgstr "Onder 14"
+
+msgid "Under 16"
+msgstr "Onder 16"
+
+msgid "Under 18"
+msgstr "Onder 18"
+
+msgid "Under 21"
+msgstr "Onder 21"
+
+msgid "Under 8"
+msgstr "Onder 8"
+
+msgid "Unlock ticket purchasing, loyalty points, and membership tiers."
+msgstr ""
+"Ontgrendel het kopen van tickets, loyaliteitspunten en lidmaatschapsniveaus."
+
+msgid "Updated"
+msgstr "Bijgewerkt"
+
+msgid "Urgent"
+msgstr "Dringend"
+
+msgid "Used"
+msgstr "Gebruikt"
+
+msgid "Vaccination"
+msgstr "Vaccinatie"
+
+msgid "Vendor Contract"
+msgstr "Leverancierscontract"
+
+msgid "Video Categories"
+msgstr "Videocategorieën"
+
+msgid "Video content coming soon!"
+msgstr "Video-inhoud binnenkort beschikbaar!"
+
+msgid "Video updated."
+msgstr "Video bijgewerkt."
+
+msgid "Video uploaded."
+msgstr "Video geüpload."
+
+msgid "Videos & Highlights"
+msgstr "Video's & Hoogtepunten"
+
+msgid "View All Fixtures & Tickets"
+msgstr "Alle wedstrijden & tickets bekijken"
+
+msgid "View Cart"
+msgstr "Winkelwagen bekijken"
+
+msgid "View Invoice"
+msgstr "Factuur bekijken"
+
+msgid "View Order"
+msgstr "Bestelling bekijken"
+
+msgid "View Shop"
+msgstr "Winkel bekijken"
+
+msgid "Viewed"
+msgstr "Bekeken"
+
+msgid "Viewer"
+msgstr "Kijker"
+
+msgid "Visit Shop"
+msgstr "Winkel bezoeken"
+
+msgid "Visit Store"
+msgstr "Winkel bezoeken"
+
+msgid "Volunteer"
+msgstr "Vrijwilliger"
+
+msgid "Warning"
+msgstr "Waarschuwing"
+
+msgid "Watch Now"
+msgstr "Nu kijken"
+
+msgid "Watchlist created."
+msgstr "Volglijst aangemaakt."
+
+msgid "Welcome"
+msgstr "Welkom"
+
+msgid "Welcome back, %(name)s!"
+msgstr "Welkom terug, %(name)s!"
+
+msgid "What are Loyalty Points?"
+msgstr "Wat zijn loyaliteitspunten?"
+
+msgid "Wrist"
+msgstr "Pols"
+
+msgid "You do not have permission to access branding settings."
+msgstr "Je hebt geen toestemming om brandingsinstellingen te bekijken."
+
+msgid "You do not have permission to access this page."
+msgstr "Je hebt geen toestemming om deze pagina te bekijken."
+
+msgid "You don't have access to that club."
+msgstr "Je hebt geen toegang tot die club."
+
+msgid ""
+"You earn 1 point for every €1 spent on tickets and shop orders. Points "
+"unlock higher membership tiers with exclusive perks."
+msgstr ""
+"Je verdient 1 punt voor elke €1 besteed aan tickets en winkelbestellingen. "
+"Punten ontgrendelen hogere lidmaatschapsniveaus met exclusieve voordelen."
+
+msgid "You earned"
+msgstr "Je hebt verdiend"
+
+msgid "You have been signed out."
+msgstr "Je bent uitgelogd."
+
+msgid "You haven't bought any tickets yet."
+msgstr "Je hebt nog geen tickets gekocht."
+
+msgid "You'll be redirected to Stripe's secure payment page."
+msgstr "Je wordt doorgestuurd naar de beveiligde betaalpagina van Stripe."
+
+msgid "You're in!"
+msgstr "Je bent erbij!"
+
+msgid ""
+"You're receiving this email because a password reset was requested for your "
+"account."
+msgstr ""
+"Je ontvangt deze e-mail omdat een wachtwoord-reset is aangevraagd voor je "
+"account."
+
+msgid "YouTube / Vimeo URL"
+msgstr "YouTube / Vimeo URL"
+
+msgid "Your Account"
+msgstr "Jouw account"
+
+msgid "Youth"
+msgstr "Jeugd"
+
+msgid "activity log"
+msgstr "activiteitenlog"
+
+msgid "activity logs"
+msgstr "activiteitenlogs"
+
+msgid "and click"
+msgstr "en klik op"
+
+msgid "announcement"
+msgstr "aankondiging"
+
+msgid "attendance"
+msgstr "aanwezigheid"
+
+msgid "budget"
+msgstr "budget"
+
+msgid "budget categories"
+msgstr "budgetcategorieën"
+
+msgid "budget category"
+msgstr "budgetcategorie"
+
+msgid "campaign"
+msgstr "campagne"
+
+msgid "cart"
+msgstr "winkelwagen"
+
+msgid "club"
+msgstr "club"
+
+msgid "club branding"
+msgstr "club branding"
+
+msgid "club name"
+msgstr "Clubnaam"
+
+msgid "division"
+msgstr "divisie"
+
+msgid "django.shortcuts\", fromlist=[\"redirect\"]).redirect(\"core:dashboard"
+msgstr ""
+
+msgid "e.g. Gold, Silver, Bronze"
+msgstr "bijv. Goud, Zilver, Brons"
+
+msgid "e.g. Red & White"
+msgstr "bijv. Rood & Wit"
+
+msgid "email address"
+msgstr "e-mailadres"
+
+msgid "event"
+msgstr "evenement"
+
+msgid "events"
+msgstr "evenementen"
+
+msgid "first name"
+msgstr "voornaam"
+
+msgid "fixture"
+msgstr "wedstrijd"
+
+msgid "full name"
+msgstr "volledige naam"
+
+msgid "has been confirmed. We'll get your items shipped soon!"
+msgstr "is bevestigd. We verzenden je artikelen binnenkort!"
+
+msgid "injury log"
+msgstr "blessurelog"
+
+msgid "injury logs"
+msgstr "blessurelogboeken"
+
+msgid "investment"
+msgstr "investering"
+
+msgid "last name"
+msgstr "achternaam"
+
+msgid "lineup"
+msgstr "Opstelling"
+
+msgid "lineup player"
+msgstr "opstellingsspeler"
+
+msgid "lineup players"
+msgstr "opstellingsspelers"
+
+msgid "lineups"
+msgstr "opstellingen"
+
+msgid "loyalty points"
+msgstr "loyaliteitspunten"
+
+msgid "loyalty points!"
+msgstr "loyaliteitspunten!"
+
+msgid "news post"
+msgstr "nieuwsbericht"
+
+msgid "news posts"
+msgstr "nieuwsberichten"
+
+msgid "notification"
+msgstr "melding"
+
+msgid "notifications"
+msgstr "meldingen"
+
+msgid "of"
+msgstr "van"
+
+msgid "optional"
+msgstr "optioneel"
+
+msgid "order"
+msgstr "bestelling"
+
+msgid "order item"
+msgstr "bestelitem"
+
+msgid "performance metric"
+msgstr "prestatiemetriek"
+
+msgid "performance metrics"
+msgstr "prestatiemetrieken"
+
+msgid "player"
+msgstr "speler"
+
+msgid "player stats"
+msgstr "spelersstatistieken"
+
+msgid "product"
+msgstr "Product"
+
+msgid "pts to next tier"
+msgstr "pts naar volgend niveau"
+
+msgid "registered fans"
+msgstr "geregistreerde fans"
+
+msgid "role"
+msgstr "rol"
+
+msgid "roster entries"
+msgstr "selectiepunten"
+
+msgid "roster entry"
+msgstr "selectiepunt"
+
+msgid "scout report"
+msgstr "scoutrapport"
+
+msgid "scout reports"
+msgstr "scoutrapporten"
+
+msgid "season"
+msgstr "seizoen"
+
+msgid "sponsor portal"
+msgstr "sponsor portaal"
+
+msgid "sponsorship"
+msgstr "sponsoring"
+
+msgid "sponsorships"
+msgstr "sponsorships"
+
+msgid "talent profile"
+msgstr "talentprofiel"
+
+msgid "talent profiles"
+msgstr "talentprofielen"
+
+msgid "team"
+msgstr "team"
+
+msgid "team name"
+msgstr "teamnaam"
+
+msgid "to generate players."
+msgstr "om spelers te genereren."
+
+msgid "tournament"
+msgstr "toernooi"
+
+msgid "transaction"
+msgstr "transactie"
+
+msgid "transactions"
+msgstr "transacties"
+
+msgid "user"
+msgstr "gebruiker"
+
+msgid "user profile"
+msgstr "gebruikersprofiel"
+
+msgid "user profiles"
+msgstr "gebruikersprofielen"
+
+msgid "users"
+msgstr "gebruikers"
+
+msgid "watchlist"
+msgstr "volglijst"
+
+msgid "with Stripe"
+msgstr "met Stripe"
+
+msgid "— Select player —"
+msgstr ""
+
+msgid "— Select position —"
+msgstr ""
+
+msgid "— Select season —"
+msgstr ""
+
+msgid "FAQ"
+msgstr "Veelgestelde vragen"
+
+msgid "Contact Us"
+msgstr "Neem contact op"
+
+msgid "Terms"
+msgstr "Voorwaarden"
+
+msgid "Terms of Service"
+msgstr "Servicevoorwaarden"
+
+msgid "Privacy Policy"
+msgstr "Privacybeleid"
+
+msgid "Privacy"
+msgstr "Privacy"
+
+msgid "Legal"
+msgstr "Juridisch"
+
+msgid "Legal & Contact"
+msgstr "Juridisch & Contact"
+
+msgid "Follow Us"
+msgstr "Volg Ons"
+
+msgid "Frequently Asked Questions"
+msgstr "Veelgestelde Vragen"
+
+msgid ""
+"Everything you need to know about our platform, shop, tickets and "
+"membership."
+msgstr ""
+"Alles wat je moet weten over ons platform, winkel, tickets en lidmaatschap."
+
+msgid ""
+"Frequently asked questions about ApexForge — tickets, shop, account, "
+"membership and more."
+msgstr ""
+"Veelgestelde vragen over ApexForge — tickets, winkel, account, lidmaatschap "
+"en meer."
+
+msgid "Still have questions?"
+msgstr "Nog vragen?"
+
+msgid ""
+"Our support team is here to help. Send us a message and we'll get back to "
+"you within 24 hours."
+msgstr ""
+"Ons ondersteuningsteam staat klaar om te helpen. Stuur ons een bericht en we"
+" reageren binnen 24 uur."
+
+msgid "Contact Support"
+msgstr "Contact Support"
+
+msgid "About the Platform"
+msgstr "Over het Platform"
+
+msgid "What is ApexForge?"
+msgstr "Wat is ApexForge?"
+
+msgid "Who can use ApexForge?"
+msgstr "Wie kan ApexForge gebruiken?"
+
+msgid "Is registration free?"
+msgstr "Is registratie gratis?"
+
+msgid "Last updated"
+msgstr "Laatste update"
+
+msgid "Acceptance of Terms"
+msgstr "Acceptatie van voorwaarden"
+
+msgid "Use of the Platform"
+msgstr "Gebruik van het Platform"
+
+msgid "Account Registration"
+msgstr "Accountregistratie"
+
+msgid "Purchases and Payments"
+msgstr "Aankopen en betalingen"
+
+msgid "Returns and Refunds"
+msgstr "Retourzendingen en Terugbetalingen"
+
+msgid "Intellectual Property"
+msgstr "Intellectueel eigendom"
+
+msgid "Limitation of Liability"
+msgstr "Beperking van aansprakelijkheid"
+
+msgid "Governing Law"
+msgstr "Toepasselijk recht"
+
+msgid "Changes to Terms"
+msgstr "Wijzigingen in voorwaarden"
+
+msgid ""
+"ApexForge Terms of Service — please read these terms carefully before using "
+"our platform."
+msgstr ""
+"ApexForge Gebruiksvoorwaarden — lees deze voorwaarden zorgvuldig door "
+"voordat je ons platform gebruikt."
+
+msgid "Contact form"
+msgstr "Contactformulier"
+
+msgid "GDPR Compliant"
+msgstr "AVG-conform"
+
+msgid "Data Controller"
+msgstr "Gegevensverantwoordelijke"
+
+msgid "Data We Collect"
+msgstr "Gegevens die wij verzamelen"
+
+msgid "How We Use Your Data"
+msgstr "Hoe We Uw Gegevens Gebruiken"
+
+msgid "Legal Basis"
+msgstr "Rechtsgrondslag"
+
+msgid "Data Retention"
+msgstr "Bewaartermijn"
+
+msgid "Data Sharing"
+msgstr "Gegevens delen"
+
+msgid "Your Rights (GDPR)"
+msgstr "Uw Rechten (AVG)"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Security"
+msgstr "Beveiliging"
+
+msgid "Changes to This Policy"
+msgstr "Wijzigingen in dit Beleid"
+
+msgid "Right of access"
+msgstr "Recht op inzage"
+
+msgid "Right to rectification"
+msgstr "Recht op rectificatie"
+
+msgid "Right to erasure"
+msgstr "Recht op verwijdering"
+
+msgid "Right to restrict processing"
+msgstr "Recht op beperking verwerking"
+
+msgid "Right to data portability"
+msgstr "Recht op dataportabiliteit"
+
+msgid "Right to object"
+msgstr "Recht van bezwaar"
+
+msgid "Account data"
+msgstr "Accountgegevens"
+
+msgid "Profile data"
+msgstr "Profielgegevens"
+
+msgid "Transaction data"
+msgstr "Transactiegegevens"
+
+msgid "Usage data"
+msgstr "Gebruiksgegevens"
+
+msgid "Communication data"
+msgstr "Communicatiegegevens"
+
+msgid "Email providers"
+msgstr "E-mailproviders"
+
+msgid "Legal authorities"
+msgstr "Juridische autoriteiten"
+
+msgid ""
+"ApexForge Privacy Policy — how we collect, use and protect your personal "
+"data."
+msgstr ""
+"ApexForge Privacybeleid — hoe we uw persoonlijke gegevens verzamelen, "
+"gebruiken en beschermen."
+
+msgid "our contact form"
+msgstr "ons contactformulier"
+
+msgid "Get in Touch"
+msgstr "Neem Contact Op"
+
+msgid ""
+"Have a question or need support? Send us a message and we'll get back to you"
+" within 24 hours."
+msgstr ""
+"Heb je een vraag of heb je ondersteuning nodig? Stuur ons een bericht en we "
+"reageren binnen 24 uur."
+
+msgid "We reply within 24 hours."
+msgstr "We reageren binnen 24 uur."
+
+msgid "Mon – Fri, 9:00 – 17:00"
+msgstr "Ma – Vr, 9:00 – 17:00"
+
+msgid "Send us a Message"
+msgstr "Stuur Ons een Bericht"
+
+msgid "Email Address"
+msgstr "E-mailadres"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Send Message"
+msgstr "Bericht Verzenden"
+
+msgid "Message Sent!"
+msgstr "Bericht Verstuurd!"
+
+msgid "Thank you for reaching out. We'll reply within 24 hours."
+msgstr "Bedankt voor uw bericht. We reageren binnen 24 uur."
+
+msgid "Send Another Message"
+msgstr "Nog een Bericht Sturen"
+
+msgid "Your first name"
+msgstr "Je voornaam"
+
+msgid "Your last name"
+msgstr "Je achternaam"
+
+msgid "your@email.com"
+msgstr "jij@email.com"
+
+msgid "How can we help you?"
+msgstr "Hoe kunnen we je helpen?"
+
+msgid "— Select a topic —"
+msgstr "— Kies een onderwerp —"
+
+msgid "General Enquiry"
+msgstr "Algemene Vraag"
+
+msgid "Technical Support"
+msgstr "Technische Ondersteuning"
+
+msgid "Orders & Payments"
+msgstr "Bestellingen & Betalingen"
+
+msgid "Account & Profile"
+msgstr "Account & Profiel"
+
+msgid "Press & Media"
+msgstr "Pers & Media"
+
+msgid "I agree to the"
+msgstr "Ik ga akkoord met de"
+
+msgid "and consent to my data being processed to handle my request."
+msgstr ""
+"en geef toestemming voor verwerking van mijn gegevens om mijn aanvraag af te"
+" handelen."
+
+msgid "First name is required."
+msgstr "Voornaam is vereist."
+
+msgid "Last name is required."
+msgstr "Achternaam is vereist."
+
+msgid "You must agree to the Privacy Policy."
+msgstr "U moet akkoord gaan met het privacybeleid."
+
+msgid ""
+"ApexForge get in touch with the ApexForge team. We reply within 24 hours."
+msgstr ""
+"ApexForge - neem contact op met het ApexForge team. We reageren binnen 24 "
+"uur."
+
+msgid "contact message"
+msgstr "contactbericht"
+
+msgid "contact messages"
+msgstr "contactberichten"
+
+msgid "Social media links not configured yet."
+msgstr "Sociale media links nog niet geconfigureerd."

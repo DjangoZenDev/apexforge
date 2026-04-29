@@ -1,0 +1,60 @@
+{% load i18n core_tags %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+  {% for team in page %}
+  <a href="{{ team.get_absolute_url }}"
+     class="card p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+    <div class="flex items-center gap-3 mb-4">
+      {% if team.logo %}
+        <img src="{{ team.logo.url }}" alt="{{ team.name }}" class="h-12 w-12 rounded-lg object-cover">
+      {% else %}
+        <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+          <span class="text-white font-bold">{{ team.short_name|default:team.name|first }}</span>
+        </div>
+      {% endif %}
+      <div class="flex-1 min-w-0">
+        <h3 class="font-semibold text-gray-900 dark:text-white truncate group-hover:text-primary-600 transition-colors">{{ team.name }}</h3>
+        <p class="text-xs text-gray-500">{{ team.get_sport_display }}</p>
+      </div>
+      {{ team.status|status_badge }}
+    </div>
+    <div class="grid grid-cols-3 gap-2 text-center">
+      <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
+        <p class="text-lg font-bold text-gray-900 dark:text-white">{{ team.player_count }}</p>
+        <p class="text-xs text-gray-500">{% trans "Players" %}</p>
+      </div>
+      <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
+        <p class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">{{ team.division.name|default:"—" }}</p>
+        <p class="text-xs text-gray-500">{% trans "Division" %}</p>
+      </div>
+      <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
+        <p class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">{{ team.city|default:"—" }}</p>
+        <p class="text-xs text-gray-500">{% trans "City" %}</p>
+      </div>
+    </div>
+  </a>
+  {% empty %}
+  <div class="col-span-full text-center py-16 text-gray-500">
+    <svg class="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/>
+    </svg>
+    <p>{% trans "No teams found." %}</p>
+    {% if request.user.can_manage %}
+    <a href="{% url 'teams:create' %}" class="btn-primary inline-flex mt-4">{% trans "Create first team" %}</a>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+{% if page.has_other_pages %}
+<div class="flex justify-center gap-2 mt-6">
+  {% if page.has_previous %}
+  <a href="?page={{ page.previous_page_number }}" class="btn-secondary">← {% trans "Previous" %}</a>
+  {% endif %}
+  <span class="px-4 py-2 text-sm text-gray-600 dark:text-gray-400">
+    {% trans "Page" %} {{ page.number }} / {{ page.paginator.num_pages }}
+  </span>
+  {% if page.has_next %}
+  <a href="?page={{ page.next_page_number }}" class="btn-secondary">{% trans "Next" %} →</a>
+  {% endif %}
+</div>
+{% endif %}

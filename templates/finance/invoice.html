@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Invoice" %} {{ invoice_number }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between flex-wrap gap-3">
+  <div>
+    <a href="{% url 'finance:order_detail' order.pk %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Back to Order" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">🧾 {% trans "Invoice" %} {{ invoice_number }}</h1>
+  </div>
+  <div class="flex gap-2 print:hidden">
+    <a href="?format=pdf" class="btn-primary">⬇️ {% trans "Download PDF" %}</a>
+    <button onclick="window.print()" class="btn-secondary">🖨️ {% trans "Print" %}</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Print-specific styles -->
+<style>
+  @media print {
+    aside, nav, header, .print\:hidden { display: none !important; }
+    body { background: white !important; }
+    .card { box-shadow: none !important; border: 1px solid #e5e7eb !important; }
+  }
+</style>
+
+<div class="max-w-3xl mx-auto" id="invoice-document">
+
+  <!-- Invoice card -->
+  <div class="card p-8 mb-4">
+
+    <!-- Header: branding + invoice label -->
+    <div class="flex items-start justify-between mb-8">
+      <div>
+        <div class="flex items-center gap-3 mb-2">
+          <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+            <span class="text-white font-black text-xl">AF</span>
+          </div>
+          <div>
+            <p class="font-black text-xl text-gray-900 dark:text-white">ApexForge</p>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Sports Management Platform</p>
+          </div>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">support@apexforge.com</p>
+      </div>
+      <div class="text-right">
+        <p class="text-3xl font-black text-gray-900 dark:text-white tracking-tight">INVOICE</p>
+        <p class="text-sm font-mono text-primary-600 mt-1">{{ invoice_number }}</p>
+        <span class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-semibold
+          {% if order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}
+            bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300
+          {% elif order.status == 'pending' %}
+            bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300
+          {% else %}
+            bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400
+          {% endif %}">
+          {{ order.get_status_display }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Meta grid: invoice info + bill-to -->
+    <div class="grid grid-cols-2 gap-6 mb-8">
+      <div class="space-y-4">
+        <div>
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">{% trans "Invoice Date" %}</p>
+          <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ order.created_at|date:"j F Y" }}</p>
+        </div>
+        <div>
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">{% trans "Order Reference" %}</p>
+          <p class="text-sm font-semibold text-gray-900 dark:text-white">#{{ order.pk }}</p>
+        </div>
+        <div>
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">{% trans "Payment Method" %}</p>
+          <p class="text-sm font-semibold text-gray-900 dark:text-white">{% trans "Card via Stripe" %}</p>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">{% trans "Billed To" %}</p>
+          <p class="text-sm font-bold text-gray-900 dark:text-white">{{ order.customer.get_full_name|default:order.customer.email }}</p>
+          <p class="text-sm text-gray-700 dark:text-gray-300">{{ order.customer.email }}</p>
+        </div>
+        {% if order.shipping_address %}
+        <div>
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">{% trans "Shipping Address" %}</p>
+          <p class="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-line">{{ order.shipping_address }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-200 dark:border-gray-700 mb-6"></div>
+
+    <!-- Line items table -->
+    <table class="w-full text-sm mb-6">
+      <thead>
+        <tr class="bg-gray-900 dark:bg-gray-800 text-white">
+          <th class="text-left px-4 py-3 rounded-l-lg font-semibold">{% trans "Product" %}</th>
+          <th class="text-right px-4 py-3 font-semibold">{% trans "Unit Price" %}</th>
+          <th class="text-right px-4 py-3 font-semibold">{% trans "Qty" %}</th>
+          <th class="text-right px-4 py-3 rounded-r-lg font-semibold">{% trans "Subtotal" %}</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+        {% for item in order.items.all %}
+        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/20">
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-3">
+              {% if item.product.image %}
+              <img src="{{ item.product.image.url }}" class="h-10 w-10 rounded-lg object-cover shrink-0 print:hidden">
+              {% else %}
+              <div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-lg shrink-0 print:hidden">🏷</div>
+              {% endif %}
+              <span class="font-medium text-gray-900 dark:text-white">{{ item.product.name|default:"—" }}</span>
+            </div>
+          </td>
+          <td class="px-4 py-3 text-right text-gray-700 dark:text-gray-300">€{{ item.price|floatformat:2 }}</td>
+          <td class="px-4 py-3 text-right font-semibold text-gray-900 dark:text-white">{{ item.quantity }}</td>
+          <td class="px-4 py-3 text-right font-semibold text-gray-900 dark:text-white">€{{ item.subtotal|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Totals block -->
+    <div class="flex justify-end">
+      <div class="w-64 space-y-2 text-sm">
+        <div class="flex justify-between text-gray-700 dark:text-gray-300">
+          <span>{% trans "Subtotal" %}</span>
+          <span>€{{ order.total|floatformat:2 }}</span>
+        </div>
+        <div class="flex justify-between text-gray-700 dark:text-gray-300">
+          <span>{% trans "Shipping" %}</span>
+          <span class="text-emerald-600 font-medium">{% trans "Free" %}</span>
+        </div>
+        <div class="flex justify-between text-gray-700 dark:text-gray-300">
+          <span>{% trans "Tax" %}</span>
+          <span>{% trans "Included" %}</span>
+        </div>
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-2 flex justify-between text-base font-black text-gray-900 dark:text-white">
+          <span>{% trans "Total" %}</span>
+          <span class="text-primary-600">€{{ order.total|floatformat:2 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer note -->
+    <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        {% trans "Thank you for your purchase! For questions, contact" %}
+        <a href="mailto:support@apexforge.com" class="text-primary-600 hover:underline">support@apexforge.com</a>
+      </p>
+      <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">
+        ApexForge Sports Management Platform · {{ invoice_number }} · {{ order.created_at|date:"Y" }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Extra actions below card -->
+  <div class="flex gap-3 justify-center print:hidden pb-6">
+    <a href="{% url 'finance:order_detail' order.pk %}" class="btn-secondary">← {% trans "Back to Order" %}</a>
+    <button onclick="window.print()" class="btn-secondary">🖨️ {% trans "Print" %}</button>
+    <a href="?format=pdf" class="btn-primary">⬇️ {% trans "Download PDF" %}</a>
+  </div>
+
+</div>
+{% endblock %}

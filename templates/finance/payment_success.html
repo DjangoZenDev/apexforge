@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Payment Successful" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto mt-12 text-center">
+  <div class="card p-10">
+    <div class="text-6xl mb-4">🎉</div>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{% trans "Payment Successful!" %}</h1>
+    <p class="text-gray-500 mb-6">
+      {% trans "Order" %} <span class="font-bold text-gray-900 dark:text-white">#{{ order.pk }}</span>
+      {% trans "has been confirmed. We'll get your items shipped soon!" %}
+    </p>
+
+    <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 text-left mb-6 space-y-2">
+      {% for item in order.items.select_related %}
+      <div class="flex justify-between text-sm">
+        <span class="text-gray-700 dark:text-gray-300">{{ item.product.name }} × {{ item.quantity }}</span>
+        <span class="font-medium text-gray-900 dark:text-white">€{{ item.subtotal|floatformat:2 }}</span>
+      </div>
+      {% endfor %}
+      <div class="flex justify-between font-bold text-base border-t border-gray-200 dark:border-gray-600 pt-2 mt-2">
+        <span class="text-gray-900 dark:text-white">{% trans "Total paid" %}</span>
+        <span class="text-primary-600">€{{ order.total|floatformat:2 }}</span>
+      </div>
+    </div>
+
+    <div class="flex gap-3 justify-center flex-wrap">
+      <a href="{% url 'finance:order_detail' order.pk %}" class="btn-primary">📦 {% trans "View Order" %}</a>
+      <a href="{% url 'finance:order_invoice' order.pk %}" class="btn-secondary" target="_blank">🧾 {% trans "Invoice" %}</a>
+      <a href="{% url 'finance:order_invoice' order.pk %}?format=pdf" class="btn-secondary">⬇️ {% trans "PDF" %}</a>
+      <a href="{% url 'finance:shop' %}" class="btn-secondary">🛍️ {% trans "Continue Shopping" %}</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

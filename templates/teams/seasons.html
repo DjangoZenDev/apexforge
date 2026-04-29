@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}{% trans "Seasons" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'teams:list' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Teams" %}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">📅 {% trans "Seasons" %}</h1>
+  <p class="text-sm text-gray-500 mt-1">{% trans "Manage seasons used for rosters and teams." %}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+  {# ── Season list ─────────────────────────────────────────────────────────── #}
+  <div class="lg:col-span-2">
+    <div class="card overflow-hidden">
+      <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+        <h2 class="font-semibold text-gray-900 dark:text-white">{% trans "All Seasons" %}</h2>
+      </div>
+      <div class="divide-y divide-gray-100 dark:divide-gray-700">
+        {% for s in seasons %}
+        <div class="px-4 py-3 flex items-center gap-3">
+          <div class="flex-1">
+            <p class="font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+              {{ s.name }}
+              {% if s.is_current %}
+              <span class="badge bg-emerald-100 text-emerald-700 text-xs">{% trans "Current" %}</span>
+              {% endif %}
+            </p>
+            <p class="text-xs text-gray-400 mt-0.5">{{ s.start_date }} → {{ s.end_date }}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            {% if not s.is_current %}
+            <form method="post" action="{% url 'teams:season_set_current' s.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="text-xs text-primary-600 hover:text-primary-800 font-medium">
+                {% trans "Set Current" %}
+              </button>
+            </form>
+            {% endif %}
+            <form method="post" action="{% url 'teams:season_delete' s.pk %}"
+                  onsubmit="return confirm('{% trans "Delete this season?" %}')">
+              {% csrf_token %}
+              <button type="submit" class="text-xs text-red-500 hover:text-red-700">{% trans "Delete" %}</button>
+            </form>
+          </div>
+        </div>
+        {% empty %}
+        <div class="px-4 py-8 text-center text-sm text-gray-500">{% trans "No seasons yet." %}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {# ── Add new season form ─────────────────────────────────────────────────── #}
+  <div>
+    <div class="card p-5">
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">➕ {% trans "Add Season" %}</h2>
+      <form method="post" class="space-y-3">
+        {% csrf_token %}
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {% trans "Name" %} <span class="text-red-500">*</span>
+          </label>
+          {% render_field form.name class="form-input w-full" placeholder="e.g. 2026/27" %}
+          {% if form.name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Start Date" %}</label>
+          {% render_field form.start_date class="form-input w-full" %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "End Date" %}</label>
+          {% render_field form.end_date class="form-input w-full" %}
+        </div>
+        <div class="flex items-center gap-2">
+          {% render_field form.is_current class="w-4 h-4 rounded text-primary-600" %}
+          <label class="text-sm text-gray-700 dark:text-gray-300">{% trans "Mark as current season" %}</label>
+        </div>
+        <button type="submit" class="btn-primary w-full justify-center">{% trans "Create Season" %}</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

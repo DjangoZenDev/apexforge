@@ -1,0 +1,645 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Lineup Builder" %} — {{ match }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between gap-4">
+  <div>
+    <a href="{% url 'tournaments:detail' match.competition.slug %}" class="text-sm text-gray-500 hover:text-primary-600">← {{ match.competition.name }}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">
+      {{ match.home_team }} <span class="text-primary-600">vs</span> {{ match.away_team }}
+    </h1>
+    <p class="text-sm text-gray-500">{{ match.date|date:"d M Y · H:i" }}{% if match.venue %} · {{ match.venue }}{% endif %}</p>
+  </div>
+  <div class="flex gap-2 items-center">
+    <span class="badge bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+      {% trans "Lineup Builder" %}
+    </span>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{# ── Data constants must be defined BEFORE Alpine initialises the component ── #}
+<script>
+const HOME_SQUAD    = {{ home_squad|safe }};
+const AWAY_SQUAD    = {{ away_squad|safe }};
+const HOME_STARTERS = {{ home_starters|safe }};
+const AWAY_STARTERS = {{ away_starters|safe }};
+const HOME_SUBS     = {{ home_subs|safe }};
+const AWAY_SUBS     = {{ away_subs|safe }};
+const HOME_TEAM_ID  = {{ match.home_team.pk }};
+const AWAY_TEAM_ID  = {{ match.away_team.pk }};
+const HOME_FORMATION = "{{ home_lineup.formation }}";
+const AWAY_FORMATION = "{{ away_lineup.formation }}";
+const SAVE_URL      = "{% url 'tournaments:lineup_save' match.pk %}";
+const CSRF          = "{{ csrf_token }}";
+</script>
+
+<div
+  x-data="lineupBuilder()"
+  x-init="init()"
+  class="space-y-4"
+>
+
+  {# ── Team tabs ──────────────────────────────────────────────────────────── #}
+  <div class="flex gap-2">
+    <button
+      @click="switchTeam('home')"
+      :class="activeTeam === 'home'
+        ? 'bg-primary-600 text-white shadow-sm'
+        : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'"
+      class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all">
+      <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+      {{ match.home_team.name }}
+    </button>
+    <button
+      @click="switchTeam('away')"
+      :class="activeTeam === 'away'
+        ? 'bg-primary-600 text-white shadow-sm'
+        : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'"
+      class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all">
+      <span class="h-2 w-2 rounded-full bg-blue-400"></span>
+      {{ match.away_team.name }}
+    </button>
+
+    <div class="ml-auto flex gap-2">
+      <button @click="clearLineup()" class="btn-secondary text-sm">
+        🗑 {% trans "Clear" %}
+      </button>
+      <button @click="saveLineup()" class="btn-primary text-sm min-w-[140px] justify-center" :disabled="saving"
+              :class="saving ? 'opacity-60 cursor-not-allowed' : ''">
+        💾 {% trans "Save Lineup" %}
+      </button>
+    </div>
+  </div>
+
+  {# ── Formation selector ─────────────────────────────────────────────────── #}
+  <div class="card p-3">
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="text-xs font-semibold text-gray-500 uppercase mr-1">{% trans "Formation" %}</span>
+      <template x-for="f in formations" :key="f">
+        <button
+          @click="setFormation(f)"
+          :class="currentFormation === f
+            ? 'bg-primary-600 text-white'
+            : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'"
+          class="px-4 py-1.5 rounded-lg text-sm font-bold transition-colors"
+          x-text="f">
+        </button>
+      </template>
+    </div>
+  </div>
+
+  {# ── Main panel ─────────────────────────────────────────────────────────── #}
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+    {# ── Pitch ────────────────────────────────────────────────────────────── #}
+    <div class="lg:col-span-2 space-y-3">
+      <div class="card overflow-hidden">
+
+        {# Pitch container #}
+        <div class="relative select-none"
+             style="background:#2d5a27; border-radius:0.5rem; padding-bottom:70%; overflow:hidden;">
+
+          {# Pitch markings #}
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 70" preserveAspectRatio="none">
+            {# Outer border #}
+            <rect x="2" y="2" width="96" height="66" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            {# Center line #}
+            <line x1="2" y1="35" x2="98" y2="35" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            {# Center circle #}
+            <circle cx="50" cy="35" r="10" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            <circle cx="50" cy="35" r="0.7" fill="rgba(255,255,255,0.5)"/>
+            {# Top penalty area #}
+            <rect x="25" y="2" width="50" height="16" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            <rect x="35" y="2" width="30" height="8" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            {# Bottom penalty area #}
+            <rect x="25" y="52" width="50" height="16" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            <rect x="35" y="60" width="30" height="8" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            {# Grass stripes #}
+            <rect x="2" y="2"  width="96" height="9" fill="rgba(0,0,0,0.05)"/>
+            <rect x="2" y="20" width="96" height="9" fill="rgba(0,0,0,0.05)"/>
+            <rect x="2" y="38" width="96" height="9" fill="rgba(0,0,0,0.05)"/>
+            <rect x="2" y="56" width="96" height="9" fill="rgba(0,0,0,0.05)"/>
+          </svg>
+
+          {# Position slots #}
+          <template x-for="pos in currentPositions" :key="pos.slot">
+            <div
+              class="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer group"
+              :style="`left:${pos.x}%; top:${pos.y}%`"
+              @click="handleSlotClick(pos)">
+
+              {# Empty slot #}
+              <template x-if="!assignments[pos.slot]">
+                <div
+                  :class="selectedSlot === pos.slot
+                    ? 'ring-2 ring-yellow-300 bg-white/30 scale-110'
+                    : 'bg-white/15 hover:bg-white/25 hover:scale-105'"
+                  class="w-10 h-10 rounded-full border-2 border-dashed border-white/60 flex items-center justify-center transition-all">
+                  <span class="text-white/80 text-xs font-bold" x-text="pos.label"></span>
+                </div>
+                <span class="text-white/70 text-xs mt-1 font-medium" x-text="pos.label"></span>
+              </template>
+
+              {# Filled slot #}
+              <template x-if="assignments[pos.slot]">
+                <div class="flex flex-col items-center">
+                  <div
+                    :class="assignments[pos.slot].is_captain ? 'ring-2 ring-yellow-300' : ''"
+                    class="w-10 h-10 rounded-full bg-primary-500 hover:bg-primary-400 border-2 border-white shadow-lg flex items-center justify-center transition-all hover:scale-110 relative">
+                    <span class="text-white font-black text-sm" x-text="assignments[pos.slot].shirt || pos.label"></span>
+                    {# Captain badge #}
+                    <template x-if="assignments[pos.slot].is_captain">
+                      <span class="absolute -top-1 -right-1 bg-yellow-400 text-yellow-900 text-xs font-black w-4 h-4 rounded-full flex items-center justify-center leading-none">C</span>
+                    </template>
+                    {# Remove button #}
+                    <button
+                      @click.stop="removeFromSlot(pos.slot)"
+                      class="absolute -bottom-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity leading-none">×</button>
+                  </div>
+                  <div class="mt-1 text-center">
+                    <span class="text-white text-xs font-semibold drop-shadow" x-text="shortName(assignments[pos.slot].name)"></span>
+                  </div>
+                  {# Captain toggle #}
+                  <button
+                    @click.stop="toggleCaptain(pos.slot)"
+                    class="text-xs text-white/60 hover:text-yellow-300 transition-colors mt-0.5 opacity-0 group-hover:opacity-100"
+                    x-text="assignments[pos.slot].is_captain ? '★' : '☆'">
+                  </button>
+                </div>
+              </template>
+            </div>
+          </template>
+
+          {# Selected slot hint #}
+          <div x-show="selectedSlot" x-cloak
+               class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow">
+            {% trans "Select a player from the squad" %} →
+          </div>
+        </div>
+
+        {# Pitch legend #}
+        <div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 flex gap-4 text-xs text-gray-500 flex-wrap">
+          <span class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-primary-500 inline-block"></span> {% trans "Starter" %}
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full border-2 border-dashed border-gray-400 inline-block"></span> {% trans "Empty slot (click to select, then pick player)" %}
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span> {% trans "Captain" %}
+          </span>
+        </div>
+      </div>
+
+      {# ── Substitutes bench ────────────────────────────────────────────── #}
+      <div class="card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-semibold text-gray-700 dark:text-gray-300 text-sm">
+            🪑 {% trans "Substitutes Bench" %}
+            <span class="ml-1 text-xs text-gray-400" x-text="`(${substitutes.length}/7)`"></span>
+          </h3>
+          <span class="text-xs text-gray-400">{% trans "Click a player to add to bench" %}</span>
+        </div>
+        <div class="flex flex-wrap gap-2 min-h-14">
+          <template x-for="(p, i) in substitutes" :key="p.id">
+            <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-2 text-sm group">
+              <div class="w-7 h-7 rounded-full bg-gray-400 dark:bg-gray-500 flex items-center justify-center text-white text-xs font-bold" x-text="p.shirt || (i+12)"></div>
+              <span class="font-medium text-gray-700 dark:text-gray-200" x-text="p.name"></span>
+              <button @click="removeFromSubs(p.id)" class="text-gray-400 hover:text-red-500 transition-colors ml-1">×</button>
+            </div>
+          </template>
+          <div x-show="substitutes.length === 0" class="text-sm text-gray-400 italic flex items-center">
+            {% trans "No substitutes selected" %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ── Squad panel ─────────────────────────────────────────────────────── #}
+    <div class="space-y-3">
+      <div class="card p-4 flex flex-col gap-3" style="max-height:680px;">
+        <div>
+          <h3 class="font-semibold text-gray-700 dark:text-gray-300 text-sm mb-2">
+            👥 {% trans "Squad" %}
+            <span class="text-xs text-gray-400 ml-1" x-text="`(${currentSquad.length} players)`"></span>
+          </h3>
+          {# Server-side count — shows even before Alpine loads #}
+          <p class="text-xs text-gray-400 mb-2">
+            🏠 {{ match.home_team.name }}: <strong>{{ home_squad_count }}</strong> players &nbsp;|&nbsp;
+            ✈️ {{ match.away_team.name }}: <strong>{{ away_squad_count }}</strong> players
+          </p>
+          {% if home_squad_count == 0 and away_squad_count == 0 %}
+          <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-3 mb-2 text-xs text-amber-700 dark:text-amber-400">
+            ⚠️ {% trans "No players in roster. Go to" %}
+            <a href="{% url 'teams:detail' match.home_team.pk %}" class="underline font-semibold">{{ match.home_team.name }}</a>
+            {% trans "and click" %} <strong>🎲 Demo Squad</strong> {% trans "to generate players." %}
+          </div>
+          {% endif %}
+          {# Filter #}
+          <input
+            x-model="filter"
+            type="text"
+            placeholder="{% trans 'Filter players…' %}"
+            class="w-full text-sm border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:ring-2 focus:ring-primary-500 outline-none">
+        </div>
+
+        {# Position filter pills #}
+        <div class="flex flex-wrap gap-1">
+          <template x-for="pos in positionFilters" :key="pos">
+            <button
+              @click="posFilter = posFilter === pos ? '' : pos"
+              :class="posFilter === pos ? 'bg-primary-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'"
+              class="px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors"
+              x-text="pos">
+            </button>
+          </template>
+        </div>
+
+        {# Player list #}
+        <div class="overflow-y-auto flex-1 space-y-1 pr-1 scrollbar-hide">
+          <template x-for="p in filteredSquad" :key="p.pk">
+            <div
+              :class="isAssigned(p.pk)
+                ? 'opacity-40 cursor-not-allowed'
+                : selectedSlot
+                  ? 'cursor-pointer hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-300'
+                  : 'cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50'"
+              class="flex items-center gap-3 p-2.5 rounded-lg border border-transparent transition-all"
+              @click="handlePlayerClick(p)">
+
+              {# Avatar #}
+              <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-black shrink-0"
+                   :class="positionColor(p.position)">
+                <span x-text="positionAbbr(p.position)"></span>
+              </div>
+
+              {# Info #}
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-800 dark:text-gray-100 truncate" x-text="p.full_name"></p>
+                <p class="text-xs text-gray-400 truncate" x-text="p.position || '—'"></p>
+              </div>
+
+              {# Jersey #}
+              <div class="text-xs font-bold text-gray-500 shrink-0">
+                #<span x-text="p.jersey_number || '—'"></span>
+              </div>
+
+              {# Status badges #}
+              <template x-if="isStarter(p.pk)">
+                <span class="text-xs bg-primary-100 text-primary-700 rounded px-1.5 py-0.5 font-medium shrink-0">START</span>
+              </template>
+              <template x-if="isSub(p.pk)">
+                <span class="text-xs bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 rounded px-1.5 py-0.5 font-medium shrink-0">SUB</span>
+              </template>
+            </div>
+          </template>
+
+          <div x-show="filteredSquad.length === 0" class="text-sm text-gray-400 text-center py-6">
+            {% trans "No players found" %}
+          </div>
+        </div>
+      </div>
+
+      {# Lineup summary #}
+      <div class="card p-4 text-sm space-y-2">
+        <h3 class="font-semibold text-gray-700 dark:text-gray-300">{% trans "Summary" %}</h3>
+        <div class="flex justify-between text-gray-500">
+          <span>{% trans "Starters" %}</span>
+          <span class="font-bold" :class="starterCount === 11 ? 'text-emerald-600' : 'text-amber-500'"
+                x-text="`${starterCount} / 11`"></span>
+        </div>
+        <div class="flex justify-between text-gray-500">
+          <span>{% trans "Substitutes" %}</span>
+          <span class="font-bold text-gray-700 dark:text-gray-200" x-text="`${substitutes.length} / 7`"></span>
+        </div>
+        <div class="flex justify-between text-gray-500">
+          <span>{% trans "Formation" %}</span>
+          <span class="font-bold text-primary-600" x-text="currentFormation"></span>
+        </div>
+        <div class="flex justify-between text-gray-500">
+          <span>{% trans "Captain" %}</span>
+          <span class="font-bold text-yellow-600" x-text="captainName || '—'"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# ── Save toast ─────────────────────────────────────────────────────────── #}
+  <div x-show="toast" x-cloak x-transition
+       :class="toastType === 'ok' ? 'bg-emerald-600' : 'bg-red-600'"
+       class="fixed bottom-6 right-6 text-white px-5 py-3 rounded-xl shadow-xl text-sm font-medium z-50"
+       x-text="toast">
+  </div>
+
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+const FORMATIONS = {
+  "4-4-2": [
+    {slot:"GK",  label:"GK",  x:50, y:88},
+    {slot:"LB",  label:"LB",  x:12, y:70},
+    {slot:"CB1", label:"CB",  x:34, y:70},
+    {slot:"CB2", label:"CB",  x:66, y:70},
+    {slot:"RB",  label:"RB",  x:88, y:70},
+    {slot:"LM",  label:"LM",  x:12, y:48},
+    {slot:"CM1", label:"CM",  x:36, y:48},
+    {slot:"CM2", label:"CM",  x:64, y:48},
+    {slot:"RM",  label:"RM",  x:88, y:48},
+    {slot:"ST1", label:"ST",  x:36, y:22},
+    {slot:"ST2", label:"ST",  x:64, y:22},
+  ],
+  "4-3-3": [
+    {slot:"GK",  label:"GK",  x:50, y:88},
+    {slot:"LB",  label:"LB",  x:12, y:70},
+    {slot:"CB1", label:"CB",  x:34, y:70},
+    {slot:"CB2", label:"CB",  x:66, y:70},
+    {slot:"RB",  label:"RB",  x:88, y:70},
+    {slot:"CM1", label:"CM",  x:25, y:50},
+    {slot:"CM2", label:"CM",  x:50, y:50},
+    {slot:"CM3", label:"CM",  x:75, y:50},
+    {slot:"LW",  label:"LW",  x:15, y:22},
+    {slot:"ST",  label:"ST",  x:50, y:18},
+    {slot:"RW",  label:"RW",  x:85, y:22},
+  ],
+  "4-2-3-1": [
+    {slot:"GK",  label:"GK",  x:50, y:88},
+    {slot:"LB",  label:"LB",  x:12, y:70},
+    {slot:"CB1", label:"CB",  x:34, y:70},
+    {slot:"CB2", label:"CB",  x:66, y:70},
+    {slot:"RB",  label:"RB",  x:88, y:70},
+    {slot:"DM1", label:"DM",  x:35, y:58},
+    {slot:"DM2", label:"DM",  x:65, y:58},
+    {slot:"LAM", label:"AM",  x:18, y:38},
+    {slot:"CAM", label:"AM",  x:50, y:36},
+    {slot:"RAM", label:"AM",  x:82, y:38},
+    {slot:"ST",  label:"ST",  x:50, y:18},
+  ],
+  "3-5-2": [
+    {slot:"GK",  label:"GK",  x:50, y:88},
+    {slot:"CB1", label:"CB",  x:25, y:70},
+    {slot:"CB2", label:"CB",  x:50, y:70},
+    {slot:"CB3", label:"CB",  x:75, y:70},
+    {slot:"LWB", label:"LWB", x:10, y:52},
+    {slot:"CM1", label:"CM",  x:30, y:50},
+    {slot:"CM2", label:"CM",  x:50, y:48},
+    {slot:"CM3", label:"CM",  x:70, y:50},
+    {slot:"RWB", label:"RWB", x:90, y:52},
+    {slot:"ST1", label:"ST",  x:35, y:22},
+    {slot:"ST2", label:"ST",  x:65, y:22},
+  ],
+  "5-3-2": [
+    {slot:"GK",  label:"GK",  x:50, y:88},
+    {slot:"LWB", label:"LWB", x:8,  y:68},
+    {slot:"CB1", label:"CB",  x:28, y:73},
+    {slot:"CB2", label:"CB",  x:50, y:75},
+    {slot:"CB3", label:"CB",  x:72, y:73},
+    {slot:"RWB", label:"RWB", x:92, y:68},
+    {slot:"CM1", label:"CM",  x:25, y:48},
+    {slot:"CM2", label:"CM",  x:50, y:48},
+    {slot:"CM3", label:"CM",  x:75, y:48},
+    {slot:"ST1", label:"ST",  x:35, y:22},
+    {slot:"ST2", label:"ST",  x:65, y:22},
+  ],
+  "4-1-4-1": [
+    {slot:"GK",  label:"GK",  x:50, y:88},
+    {slot:"LB",  label:"LB",  x:12, y:70},
+    {slot:"CB1", label:"CB",  x:34, y:70},
+    {slot:"CB2", label:"CB",  x:66, y:70},
+    {slot:"RB",  label:"RB",  x:88, y:70},
+    {slot:"DM",  label:"DM",  x:50, y:58},
+    {slot:"LM",  label:"LM",  x:12, y:44},
+    {slot:"CM1", label:"CM",  x:35, y:44},
+    {slot:"CM2", label:"CM",  x:65, y:44},
+    {slot:"RM",  label:"RM",  x:88, y:44},
+    {slot:"ST",  label:"ST",  x:50, y:18},
+  ],
+  "3-4-3": [
+    {slot:"GK",  label:"GK",  x:50, y:88},
+    {slot:"CB1", label:"CB",  x:25, y:72},
+    {slot:"CB2", label:"CB",  x:50, y:72},
+    {slot:"CB3", label:"CB",  x:75, y:72},
+    {slot:"LM",  label:"LM",  x:12, y:50},
+    {slot:"CM1", label:"CM",  x:36, y:50},
+    {slot:"CM2", label:"CM",  x:64, y:50},
+    {slot:"RM",  label:"RM",  x:88, y:50},
+    {slot:"LW",  label:"LW",  x:18, y:22},
+    {slot:"ST",  label:"ST",  x:50, y:18},
+    {slot:"RW",  label:"RW",  x:82, y:22},
+  ],
+};
+
+function lineupBuilder() {
+  return {
+    activeTeam:       'home',
+    formations:       Object.keys(FORMATIONS),
+    currentFormation: HOME_FORMATION,
+    assignments:      {...HOME_STARTERS},
+    substitutes:      [...HOME_SUBS],
+    currentSquad:     HOME_SQUAD,
+    selectedSlot:     null,
+    filter:           '',
+    posFilter:        '',
+    saving:           false,
+    toast:            '',
+    toastType:        'ok',
+
+    get currentPositions() {
+      return FORMATIONS[this.currentFormation] || [];
+    },
+
+    get positionFilters() {
+      const seen = new Set();
+      this.currentSquad.forEach(p => { if (p.position) seen.add(p.position.split(' ')[0]); });
+      return ['', ...seen].map(p => p || 'All');
+    },
+
+    get filteredSquad() {
+      const q = this.filter.toLowerCase();
+      return this.currentSquad.filter(p => {
+        const matchName = p.full_name.toLowerCase().includes(q);
+        const matchPos  = !this.posFilter || this.posFilter === 'All'
+          || (p.position || '').includes(this.posFilter);
+        return matchName && matchPos;
+      });
+    },
+
+    get starterCount() {
+      return Object.keys(this.assignments).length;
+    },
+
+    get captainName() {
+      for (const slot in this.assignments) {
+        if (this.assignments[slot].is_captain) return this.shortName(this.assignments[slot].name);
+      }
+      return '';
+    },
+
+    init() {
+      this.currentSquad    = HOME_SQUAD;
+      this.assignments     = {...HOME_STARTERS};
+      this.substitutes     = [...HOME_SUBS];
+      this.currentFormation = HOME_FORMATION;
+    },
+
+    switchTeam(team) {
+      this.activeTeam      = team;
+      this.currentFormation = team === 'home' ? HOME_FORMATION : AWAY_FORMATION;
+      this.assignments     = team === 'home' ? {...HOME_STARTERS} : {...AWAY_STARTERS};
+      this.substitutes     = team === 'home' ? [...HOME_SUBS]     : [...AWAY_SUBS];
+      this.currentSquad    = team === 'home' ? HOME_SQUAD         : AWAY_SQUAD;
+      this.selectedSlot    = null;
+      this.filter          = '';
+    },
+
+    setFormation(f) {
+      if (f === this.currentFormation) return;
+      const assigned = Object.values(this.assignments);
+      if (assigned.length > 0) {
+        if (!confirm('Changing formation will clear current starter assignments. Continue?')) return;
+      }
+      this.currentFormation = f;
+      this.assignments = {};
+      this.selectedSlot = null;
+    },
+
+    handleSlotClick(pos) {
+      if (this.assignments[pos.slot]) {
+        // Slot occupied — clicking again deselects or removes
+        this.selectedSlot = null;
+      } else {
+        this.selectedSlot = this.selectedSlot === pos.slot ? null : pos.slot;
+      }
+    },
+
+    handlePlayerClick(p) {
+      if (this.isAssigned(p.pk)) return;
+      if (this.selectedSlot) {
+        // Assign to selected position slot
+        const pos = this.currentPositions.find(s => s.slot === this.selectedSlot);
+        this.assignments[this.selectedSlot] = {
+          id: p.pk, name: p.full_name,
+          shirt: p.jersey_number || '',
+          is_captain: false,
+          position: p.position || '',
+        };
+        this.selectedSlot = null;
+      } else if (!this.isSub(p.pk)) {
+        // Add to bench if not already there
+        if (this.substitutes.length < 7) {
+          this.substitutes.push({
+            id: p.pk, name: p.full_name,
+            shirt: p.jersey_number || '',
+          });
+        }
+      }
+    },
+
+    removeFromSlot(slot) {
+      delete this.assignments[slot];
+      this.assignments = {...this.assignments}; // trigger reactivity
+    },
+
+    removeFromSubs(playerId) {
+      this.substitutes = this.substitutes.filter(p => p.id !== playerId);
+    },
+
+    toggleCaptain(slot) {
+      // Remove captain from all slots first
+      for (const s in this.assignments) {
+        this.assignments[s].is_captain = false;
+      }
+      if (this.assignments[slot]) {
+        this.assignments[slot].is_captain = true;
+      }
+      this.assignments = {...this.assignments};
+    },
+
+    clearLineup() {
+      if (!confirm('Clear all assignments?')) return;
+      this.assignments = {};
+      this.substitutes = [];
+      this.selectedSlot = null;
+    },
+
+    isAssigned(playerId) {
+      return this.isStarter(playerId) || this.isSub(playerId);
+    },
+
+    isStarter(playerId) {
+      return Object.values(this.assignments).some(p => p.id === playerId);
+    },
+
+    isSub(playerId) {
+      return this.substitutes.some(p => p.id === playerId);
+    },
+
+    shortName(name) {
+      const parts = name.trim().split(' ');
+      if (parts.length === 1) return name;
+      return parts[0][0] + '. ' + parts[parts.length - 1];
+    },
+
+    positionAbbr(pos) {
+      if (!pos) return '?';
+      const map = {
+        'Goalkeeper': 'GK', 'Defender': 'DEF', 'Midfielder': 'MID',
+        'Forward': 'FWD', 'Winger': 'WNG',
+      };
+      return map[pos] || pos.substring(0, 3).toUpperCase();
+    },
+
+    positionColor(pos) {
+      const map = {
+        'Goalkeeper': 'bg-yellow-500',
+        'Defender':   'bg-blue-500',
+        'Midfielder': 'bg-green-600',
+        'Forward':    'bg-red-500',
+        'Winger':     'bg-orange-500',
+      };
+      return map[pos] || 'bg-gray-500';
+    },
+
+    async saveLineup() {
+      this.saving = true;
+      const teamId = this.activeTeam === 'home' ? HOME_TEAM_ID : AWAY_TEAM_ID;
+      const starters = Object.entries(this.assignments).map(([slot, p]) => {
+        const pos = this.currentPositions.find(s => s.slot === slot);
+        return {
+          player_id: p.id,
+          position_slot: slot,
+          position_label: pos ? pos.label : slot,
+          shirt: p.shirt,
+          is_captain: p.is_captain || false,
+        };
+      });
+      const substitutes = this.substitutes.map(p => ({
+        player_id: p.id,
+        shirt: p.shirt,
+      }));
+
+      try {
+        const resp = await fetch(SAVE_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+          body: JSON.stringify({ team_id: teamId, formation: this.currentFormation, starters, substitutes }),
+        });
+        const data = await resp.json();
+        this.toastType = data.status === 'ok' ? 'ok' : 'err';
+        this.toast = data.message;
+      } catch (e) {
+        this.toastType = 'err';
+        this.toast = 'Network error — could not save.';
+      }
+      this.saving = false;
+      setTimeout(() => this.toast = '', 3000);
+    },
+  };
+}
+</script>
+{% endblock %}

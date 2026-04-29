@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Loyalty Points" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <a href="{% url 'fans:portal' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Fan Portal" %}</a>
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">⭐ {% trans "Loyalty Points" %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Tier progress card -->
+<div class="card p-5 mb-6">
+  <div class="flex items-center justify-between mb-3">
+    <div>
+      <p class="text-sm text-gray-500">{% trans "Current tier" %}</p>
+      <p class="text-xl font-bold text-gray-900 dark:text-white mt-0.5">
+        {% if fan.tier == 'platinum' %}💎{% elif fan.tier == 'gold' %}🥇{% elif fan.tier == 'silver' %}🥈{% else %}🥉{% endif %}
+        {{ fan.get_tier_display }}
+      </p>
+    </div>
+    <div class="text-right">
+      <p class="text-xs text-gray-400">{% trans "Total points" %}</p>
+      <p class="text-3xl font-black text-primary-600">{{ fan.loyalty_points|intcomma }}</p>
+    </div>
+  </div>
+
+  {% if fan.tier != 'platinum' %}
+  <div>
+    <div class="flex justify-between text-xs text-gray-400 mb-1">
+      <span>{{ fan.loyalty_points|intcomma }} {% trans "pts" %}</span>
+      <span>{% trans "Next tier at" %} {{ next_threshold|intcomma }} {% trans "pts" %}</span>
+    </div>
+    <div class="h-3 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div class="h-full rounded-full bg-gradient-to-r from-primary-500 to-primary-400 transition-all duration-700"
+           style="width: {{ tier_pct }}%"></div>
+    </div>
+    <p class="text-xs text-gray-400 mt-1 text-right">{{ tier_pct }}% {% trans "to next tier" %}</p>
+  </div>
+  {% else %}
+  <p class="text-sm text-violet-600 font-medium">🎉 {% trans "You've reached the highest tier!" %}</p>
+  {% endif %}
+</div>
+
+<!-- Tier benefits -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+  <div class="card p-3 text-center {% if fan.tier == 'bronze' or fan.tier == 'silver' or fan.tier == 'gold' or fan.tier == 'platinum' %}ring-1 ring-orange-300{% endif %}">
+    <p class="text-2xl">🥉</p><p class="text-xs font-semibold mt-1">{% trans "Bronze" %}</p><p class="text-xs text-gray-400">0 pts</p>
+  </div>
+  <div class="card p-3 text-center {% if fan.tier == 'silver' or fan.tier == 'gold' or fan.tier == 'platinum' %}ring-1 ring-gray-400{% endif %}">
+    <p class="text-2xl">🥈</p><p class="text-xs font-semibold mt-1">{% trans "Silver" %}</p><p class="text-xs text-gray-400">500 pts</p>
+  </div>
+  <div class="card p-3 text-center {% if fan.tier == 'gold' or fan.tier == 'platinum' %}ring-1 ring-amber-400{% endif %}">
+    <p class="text-2xl">🥇</p><p class="text-xs font-semibold mt-1">{% trans "Gold" %}</p><p class="text-xs text-gray-400">2,000 pts</p>
+  </div>
+  <div class="card p-3 text-center {% if fan.tier == 'platinum' %}ring-2 ring-violet-500{% endif %}">
+    <p class="text-2xl">💎</p><p class="text-xs font-semibold mt-1">{% trans "Platinum" %}</p><p class="text-xs text-gray-400">5,000 pts</p>
+  </div>
+</div>
+
+<!-- Transaction history -->
+<div class="card overflow-hidden">
+  <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">{% trans "Points History" %}</h3>
+  </div>
+  <ul class="divide-y divide-gray-100 dark:divide-gray-700">
+    {% for tx in transactions %}
+    <li class="px-4 py-3 flex items-center justify-between gap-3">
+      <div>
+        <p class="text-sm text-gray-900 dark:text-white">{{ tx.description }}</p>
+        <p class="text-xs text-gray-400">{{ tx.created_at|date:"d M Y" }} · {{ tx.get_tx_type_display }}</p>
+      </div>
+      <span class="text-sm font-bold {% if tx.points > 0 %}text-emerald-600{% else %}text-red-500{% endif %}">
+        {{ tx.points|stringformat:"+d" }}
+      </span>
+    </li>
+    {% empty %}
+    <li class="px-4 py-10 text-center text-sm text-gray-400">{% trans "No transactions yet." %}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

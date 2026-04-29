@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Inventory" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">📦 {% trans "Inventory" %}</h1>
+  <a href="{% url 'inventory:create' %}" class="btn-primary">+ {% trans "Add Item" %}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if low_stock_count %}
+<div class="mb-4 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl flex items-center gap-2 text-sm text-amber-700 dark:text-amber-300">
+  ⚠️ {{ low_stock_count }} {% trans "items are low on stock" %} — <a href="?low_stock=1" class="underline">{% trans "view them" %}</a>
+</div>
+{% endif %}
+
+<div class="grid grid-cols-3 gap-4 mb-6">
+  <div class="card p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">{% trans "Total Items" %}</p>
+    <p class="text-xl font-bold mt-1 text-gray-900 dark:text-white">{{ page.paginator.count }}</p>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">{% trans "Low Stock" %}</p>
+    <p class="text-xl font-bold mt-1 text-amber-500">{{ low_stock_count }}</p>
+  </div>
+  <div class="card p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">{% trans "Total Value" %}</p>
+    <p class="text-xl font-bold mt-1 text-emerald-600">€{{ total_value|floatformat:2|intcomma }}</p>
+  </div>
+</div>
+
+<div class="card p-4 mb-4">
+  <form class="flex flex-wrap gap-3 items-end">
+    <input type="search" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Search name or SKU...' %}" class="form-input flex-1 min-w-40">
+    <select name="category" class="form-select">
+      <option value="">{% trans "All categories" %}</option>
+      {% for cat in categories %}<option value="{{ cat.pk }}" {% if request.GET.category == cat.pk|stringformat:"s" %}selected{% endif %}>{{ cat.icon }} {{ cat.name }}</option>{% endfor %}
+    </select>
+    <label class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 cursor-pointer">
+      <input type="checkbox" name="low_stock" value="1" {% if request.GET.low_stock %}checked{% endif %} class="form-checkbox"> {% trans "Low stock only" %}
+    </label>
+    <button type="submit" class="btn-primary">{% trans "Filter" %}</button>
+    <a href="{% url 'inventory:list' %}" class="btn-secondary">{% trans "Clear" %}</a>
+  </form>
+</div>
+
+<div class="card overflow-hidden">
+  <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+    <thead class="bg-gray-50 dark:bg-gray-700/50">
+      <tr>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Item" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "SKU" %}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{% trans "Category" %}</th>
+        <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">{% trans "Qty" %}</th>
+        <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">{% trans "Unit Price" %}</th>
+        <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">{% trans "Total Value" %}</th>
+        <th class="px-4 py-3"></th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+      {% for item in page %}
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 {% if item.is_low_stock %}bg-amber-50/50 dark:bg-amber-900/10{% endif %}">
+        <td class="px-4 py-3">
+          <div class="flex items-center gap-2">
+            {% if item.is_low_stock %}<span title="Low stock" class="h-2 w-2 rounded-full bg-amber-500 shrink-0"></span>{% endif %}
+            <span class="text-sm font-medium text-gray-900 dark:text-white">{{ item.name }}</span>
+          </div>
+          {% if item.location %}<p class="text-xs text-gray-400 mt-0.5">📍 {{ item.location }}</p>{% endif %}
+        </td>
+        <td class="px-4 py-3 text-xs text-gray-500 font-mono">{{ item.sku }}</td>
+        <td class="px-4 py-3 text-sm text-gray-500">{% if item.category %}{{ item.category.icon }} {{ item.category.name }}{% else %}—{% endif %}</td>
+        <td class="px-4 py-3 text-right">
+          <span class="font-bold text-sm {% if item.is_low_stock %}text-amber-500{% else %}text-gray-900 dark:text-white{% endif %}">{{ item.quantity }}</span>
+          <span class="text-xs text-gray-400">/ min {{ item.min_quantity }}</span>
+        </td>
+        <td class="px-4 py-3 text-right text-sm text-gray-600 dark:text-gray-300">€{{ item.unit_price|floatformat:2 }}</td>
+        <td class="px-4 py-3 text-right text-sm font-medium text-gray-900 dark:text-white">€{{ item.total_value|floatformat:2|intcomma }}</td>
+        <td class="px-4 py-3 text-right">
+          <a href="{% url 'inventory:item_detail' item.pk %}" class="text-xs text-primary-600 hover:underline">{% trans "Manage" %}</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="7" class="px-4 py-12 text-center text-sm text-gray-500">{% trans "No items in inventory." %}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if page.has_other_pages %}
+  <div class="flex justify-center gap-2 p-4 border-t border-gray-100 dark:border-gray-700">
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}" class="btn-secondary">←</a>{% endif %}
+    <span class="px-4 py-2 text-sm text-gray-500">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+    {% if page.has_next %}<a href="?page={{ page.next_page_number }}" class="btn-secondary">→</a>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

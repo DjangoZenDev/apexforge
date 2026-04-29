@@ -1,0 +1,285 @@
+{% load i18n static core_tags %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'en' }}" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% trans "ApexForge" %}{% endblock %} — {{ branding.name|default:"ApexForge" }}</title>
+  <meta name="description" content="{% block meta_description %}{% trans "The complete sports management and fan engagement platform." %}{% endblock %}">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' },
+            accent:  { 400:'#fbbf24',500:'#f59e0b',600:'#d97706' },
+          },
+          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js"></script>
+  <style>[x-cloak]{display:none!important}</style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+<!-- ── Public Navbar ──────────────────────────────────────────────────────── -->
+<nav x-data="{ open: false }" class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-4">
+
+      <!-- Logo -->
+      <a href="{% url 'core:landing' %}" class="flex items-center gap-3 shrink-0">
+        {% if branding.logo %}
+          <img src="{{ branding.logo.url }}" alt="Logo" class="h-8 w-8 rounded-lg object-cover">
+        {% else %}
+          <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+            <span class="text-white font-black text-sm">AF</span>
+          </div>
+        {% endif %}
+        <span class="text-white font-bold text-base hidden sm:block">{{ branding.name|default:"ApexForge" }}</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-0.5 flex-1">
+        <a href="{% url 'core:landing' %}"        class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Home" %}</a>
+        <a href="{% url 'marketing:news_list' %}" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "News" %}</a>
+        <a href="{% url 'fans:ticket_list' %}"    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Tickets" %}</a>
+        <a href="{% url 'finance:shop' %}"        class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Shop" %}</a>
+        <a href="{% url 'core:public_faq' %}"     class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "FAQ" %}</a>
+        <a href="{% url 'core:contact' %}"        class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Contact" %}</a>
+      </div>
+
+      <div class="ml-auto flex items-center gap-2">
+
+        <!-- Language switcher -->
+        {% get_current_language as CURRENT_LANG %}
+        {% lang_url 'en' as lurl_en %}
+        {% lang_url 'nl' as lurl_nl %}
+        {% lang_url 'de' as lurl_de %}
+        {% lang_url 'fr' as lurl_fr %}
+        {% lang_url 'es' as lurl_es %}
+        {% lang_url 'it' as lurl_it %}
+        <div x-data="{ langOpen: false }" class="relative">
+          <button @click="langOpen = !langOpen"
+                  class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold
+                         text-gray-300 hover:text-white hover:bg-gray-800 transition-colors border border-gray-700">
+            🌐 {{ CURRENT_LANG|upper }}
+            <svg class="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div x-cloak x-show="langOpen" @click.outside="langOpen = false"
+               x-transition:enter="transition ease-out duration-100"
+               x-transition:enter-start="opacity-0 scale-95"
+               x-transition:enter-end="opacity-100 scale-100"
+               class="absolute right-0 mt-1 w-28 bg-gray-800 rounded-xl shadow-xl border border-gray-700 py-1 z-50">
+            <a href="{{ lurl_en }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'en' %}font-bold text-primary-400{% endif %}">🇬🇧 English</a>
+            <a href="{{ lurl_nl }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'nl' %}font-bold text-primary-400{% endif %}">🇳🇱 Nederlands</a>
+            <a href="{{ lurl_de }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'de' %}font-bold text-primary-400{% endif %}">🇩🇪 Deutsch</a>
+            <a href="{{ lurl_fr }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'fr' %}font-bold text-primary-400{% endif %}">🇫🇷 Français</a>
+            <a href="{{ lurl_es }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'es' %}font-bold text-primary-400{% endif %}">🇪🇸 Español</a>
+            <a href="{{ lurl_it }}" @click="langOpen=false" class="flex items-center gap-2 px-4 py-2 text-xs text-gray-200 hover:bg-gray-700 {% if CURRENT_LANG == 'it' %}font-bold text-primary-400{% endif %}">🇮🇹 Italiano</a>
+          </div>
+        </div>
+
+        <!-- Auth buttons -->
+        {% if user.is_authenticated %}
+        <a href="{% if user.is_fan_investor %}{% url 'fans:portal' %}{% else %}{% url 'core:dashboard' %}{% endif %}"
+           class="hidden sm:inline-flex px-4 py-1.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+          {% trans "Dashboard" %}
+        </a>
+        <form method="post" action="{% url 'accounts:logout' %}" class="inline">
+          {% csrf_token %}
+          <button type="submit"
+                  class="px-4 py-1.5 rounded-lg text-sm font-medium bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-500 hover:to-red-400 transition-all shadow-sm shadow-red-600/30">
+            {% trans "Sign Out" %}
+          </button>
+        </form>
+        {% else %}
+        <a href="{% url 'accounts:login' %}"
+           class="hidden sm:inline-flex px-4 py-1.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+          {% trans "Sign In" %}
+        </a>
+        <a href="{% url 'accounts:register' %}"
+           class="px-4 py-1.5 rounded-lg text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:from-primary-500 hover:to-primary-400 transition-all shadow-sm shadow-primary-600/30">
+          {% trans "Register" %}
+        </a>
+        {% endif %}
+
+        <!-- Mobile hamburger -->
+        <button @click="open = !open" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800">
+          <svg x-cloak x-show="!open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg x-cloak x-show="open"  class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div x-cloak x-show="open" class="md:hidden pb-4 space-y-1 border-t border-gray-800 pt-3">
+      <a href="{% url 'core:landing' %}"        class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Home" %}</a>
+      <a href="{% url 'marketing:news_list' %}" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "News" %}</a>
+      <a href="{% url 'fans:ticket_list' %}"    class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Tickets" %}</a>
+      <a href="{% url 'finance:shop' %}"        class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Shop" %}</a>
+      <a href="{% url 'core:public_faq' %}"     class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "FAQ" %}</a>
+      <a href="{% url 'core:contact' %}"        class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-r hover:from-primary-700 hover:to-primary-500 hover:text-white transition-all">{% trans "Contact" %}</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Page content ───────────────────────────────────────────────────────── -->
+<main>
+  {% block main_content %}{% endblock %}
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 border-t border-gray-800 text-gray-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-x-8 gap-y-10 mb-10">
+
+      <!-- ① Brand -->
+      <div class="md:col-span-2">
+        <a href="{% url 'core:landing' %}" class="flex items-center gap-3 mb-3 group">
+          {% if branding.logo %}
+            <img src="{{ branding.logo.url }}" alt="Logo" class="h-9 w-9 rounded-lg object-cover">
+          {% else %}
+            <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shrink-0">
+              <span class="text-white font-black text-sm">AF</span>
+            </div>
+          {% endif %}
+          <span class="text-white font-bold text-base group-hover:text-primary-400 transition-colors">{{ branding.name|default:"ApexForge" }}</span>
+        </a>
+        <p class="text-sm leading-relaxed mb-2 text-gray-400">
+          {% if branding.tagline %}{{ branding.tagline }}{% else %}{% trans "The complete sports management and fan engagement platform." %}{% endif %}
+        </p>
+
+        <!-- Security badges -->
+        <div class="mb-4">
+          <p class="text-xs text-gray-600 uppercase tracking-wider mb-2">{% trans "Safe & Secure" %}</p>
+          <div class="flex flex-wrap gap-2">
+            <!-- SSL badge -->
+            <span class="flex items-center gap-1 px-2 py-1 rounded bg-gray-800 border border-gray-700 text-xs text-gray-400">
+              <svg class="w-3 h-3 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              SSL
+            </span>
+            <!-- GDPR badge -->
+            <span class="flex items-center gap-1 px-2 py-1 rounded bg-gray-800 border border-gray-700 text-xs text-gray-400">
+              <svg class="w-3 h-3 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              GDPR
+            </span>
+            <!-- Verified badge -->
+            <span class="flex items-center gap-1 px-2 py-1 rounded bg-gray-800 border border-gray-700 text-xs text-gray-400">
+              <svg class="w-3 h-3 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              {% trans "Verified" %}
+            </span>
+          </div>
+        </div>
+
+        <!-- Payment methods -->
+        <div>
+          <p class="text-xs text-gray-600 uppercase tracking-wider mb-2">{% trans "We Accept" %}</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded bg-white text-gray-900 text-xs font-black tracking-tight leading-none">VISA</span>
+            <span class="px-2 py-1 rounded bg-[#eb001b] text-white text-xs font-bold leading-none flex items-center">MC</span>
+            <span class="px-2 py-1 rounded bg-[#003087] text-white text-xs font-bold leading-none">PayPal</span>
+            <span class="px-2 py-1 rounded bg-gray-700 text-white text-xs font-bold leading-none">iDEAL</span>
+            <span class="px-2 py-1 rounded bg-gray-700 text-white text-xs font-bold leading-none">Maestro</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ② Platform -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-widest">{% trans "Platform" %}</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="{% url 'core:landing' %}"        class="hover:text-primary-400 transition-colors">{% trans "Home" %}</a></li>
+          <li><a href="{% url 'marketing:news_list' %}" class="hover:text-primary-400 transition-colors">{% trans "News" %}</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'fans:ticket_list' %}"    class="hover:text-primary-400 transition-colors">{% trans "Tickets" %}</a></li>
+          <li><a href="{% url 'finance:shop' %}"        class="hover:text-primary-400 transition-colors">{% trans "Club Store" %}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+
+      <!-- ③ Legal -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-widest">{% trans "Legal" %}</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="{% url 'core:terms' %}"   class="hover:text-primary-400 transition-colors">{% trans "Terms of Service" %}</a></li>
+          <li><a href="{% url 'core:privacy' %}" class="hover:text-primary-400 transition-colors">{% trans "Privacy Policy" %}</a></li>
+          <li><a href="{% url 'core:contact' %}" class="hover:text-primary-400 transition-colors">{% trans "Contact" %}</a></li>
+          <li><a href="{% url 'core:public_faq' %}" class="hover:text-primary-400 transition-colors">{% trans "FAQ" %}</a></li>
+        </ul>
+      </div>
+
+      <!-- ④ Newsletter + Social + Contact -->
+      <div class="md:col-span-2">
+        <h4 class="text-white font-semibold mb-3 text-xs uppercase tracking-widest">{% trans "Stay Connected" %}</h4>
+        <p class="text-xs text-gray-500 mb-3 leading-relaxed">{% trans "Get match alerts, exclusive offers and club news straight to your inbox." %}</p>
+
+        <!-- Newsletter form -->
+        <form class="mb-5" action="{% url 'accounts:register' %}" method="get">
+          <div class="flex gap-2">
+            <input type="email" name="email" placeholder="{% trans 'Your email address' %}"
+                   class="flex-1 min-w-0 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+            <button type="submit"
+                    class="shrink-0 px-3 py-2 rounded-lg bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white text-xs font-semibold transition-all">
+              {% trans "Subscribe" %}
+            </button>
+          </div>
+          <p class="text-xs text-gray-600 mt-1.5">{% trans "No spam. Unsubscribe anytime." %}</p>
+        </form>
+
+        <!-- Social icons — always visible; active when URL is configured in Branding settings -->
+        <p class="text-xs text-gray-600 uppercase tracking-wider mb-2">{% trans "Follow Us" %}</p>
+        <div class="flex items-center gap-2 mb-5">
+          <a href="{{ branding.instagram|default:'https://instagram.com' }}" target="_blank" rel="noopener" title="Instagram"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-500 hover:to-orange-400 flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="{{ branding.twitter|default:'https://x.com' }}" target="_blank" rel="noopener" title="X / Twitter"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-black flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="{{ branding.facebook|default:'https://facebook.com' }}" target="_blank" rel="noopener" title="Facebook"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-[#1877f2] flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="{{ branding.youtube|default:'https://youtube.com' }}" target="_blank" rel="noopener" title="YouTube"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-[#ff0000] flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="{{ branding.tiktok|default:'https://tiktok.com' }}" target="_blank" rel="noopener" title="TikTok"
+             class="h-9 w-9 rounded-xl bg-gray-800 border border-gray-700 hover:border-transparent hover:bg-black flex items-center justify-center transition-all duration-200 group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.73a4.85 4.85 0 0 1-1.01-.04z"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Bottom bar -->
+    <div class="border-t border-gray-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-xs text-gray-700">
+        © {% now "Y" %} {{ branding.name|default:"ApexForge" }}. {% trans "All rights reserved." %}
+      </p>
+      <p class="text-xs text-gray-700">{% trans "Made with" %} ❤️ {% trans "for sport" %}</p>
+    </div>
+
+  </div>
+</footer>
+
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

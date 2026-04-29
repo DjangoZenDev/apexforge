@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ title }}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl">
+  <form method="post" enctype="multipart/form-data" class="space-y-6">
+    {% csrf_token %}
+    <div class="card p-6 space-y-5">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white">{% trans "Basic Information" %}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Team name" %} *</label>
+          {{ form.name }}{% if form.name.errors %}<p class="mt-1 text-xs text-red-500">{{ form.name.errors.0 }}</p>{% endif %}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Short name" %}</label>
+          {{ form.short_name }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Sport" %}</label>
+          {{ form.sport }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Division" %}</label>
+          {{ form.division }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Season" %}</label>
+          {{ form.season }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Home venue" %}</label>
+          {{ form.home_venue }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "City" %}</label>
+          {{ form.city }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Country" %}</label>
+          {{ form.country }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Founded year" %}</label>
+          {{ form.founded_year }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Colors" %}</label>
+          {{ form.colors }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Manager" %}</label>
+          {{ form.manager }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Coach" %}</label>
+          {{ form.coach }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Status" %}</label>
+          {{ form.status }}
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Website" %}</label>
+          {{ form.website }}
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Logo" %}</label>
+          {{ form.logo }}
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">{% trans "Description" %}</label>
+          {{ form.description }}
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <button type="submit" class="btn-primary">{% trans "Save team" %}</button>
+      <a href="{% url 'teams:list' %}" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

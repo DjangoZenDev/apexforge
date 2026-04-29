@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+
+{% block title %}{% trans "Available Tickets" %}{% endblock %}
+
+{% block page_header %}
+<div class="px-4 lg:px-6 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <a href="{% url 'fans:portal' %}" class="text-sm text-gray-500 hover:text-primary-600">← {% trans "Fan Portal" %}</a>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">🎟️ {% trans "Buy Tickets" %}</h1>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% for event in events %}
+<div class="card overflow-hidden mb-5">
+  <div class="px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+    <div>
+      <h2 class="text-base font-semibold text-gray-900 dark:text-white">{{ event.title }}</h2>
+      <p class="text-xs text-gray-400 mt-0.5">📅 {{ event.start_date }}{% if event.start_time %} {{ event.start_time }}{% endif %}{% if event.venue %} · 📍 {{ event.venue }}{% endif %}</p>
+    </div>
+    <span class="badge bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">{{ event.get_event_type_display }}</span>
+  </div>
+
+  <div class="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    {% for ticket in event.tickets.all %}
+    {% if ticket.status == 'available' %}
+    <div class="border border-gray-200 dark:border-gray-600 rounded-xl p-4 flex flex-col gap-2 hover:border-primary-400 transition-colors">
+      <div class="flex items-center justify-between">
+        <span class="badge bg-{{ ticket.category.color }}-100 text-{{ ticket.category.color }}-700">
+          {{ ticket.category.name }}
+        </span>
+        {% if ticket.seat_row %}
+        <span class="text-xs text-gray-400">Row {{ ticket.seat_row }} · Seat {{ ticket.seat_number }}</span>
+        {% else %}
+        <span class="text-xs text-gray-400">{% trans "General" %}</span>
+        {% endif %}
+      </div>
+      <p class="text-xl font-bold text-gray-900 dark:text-white">€{{ ticket.effective_price|intcomma }}</p>
+      {% if ticket.category.perks_list %}
+      <ul class="text-xs text-gray-500 space-y-0.5">
+        {% for perk in ticket.category.perks_list %}
+        <li>✓ {{ perk }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <a href="{% url 'fans:ticket_detail' ticket.pk %}" class="btn-primary text-sm mt-auto text-center">{% trans "View & Buy" %}</a>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% empty %}
+<div class="card p-12 text-center">
+  <p class="text-4xl mb-3">🎟️</p>
+  <p class="text-gray-500">{% trans "No tickets available for upcoming events." %}</p>
+</div>
+{% endfor %}
+{% endblock %}
